@@ -1,0 +1,20 @@
+# Killstreak 服务端配置示例；正式文件由模组首次加载时自动生成。
+# Example server configuration; the mod generates the active file on first load.
+# 实际文件：游戏或服务器根目录下的 config/killstreakcod-server.toml。
+# Active file: config/killstreakcod-server.toml under the game or server directory.
+
+[earning]
+    # 是否改为按得分获取；false 表示按击杀获取。
+    # Use scorestreaks instead of killstreaks.
+    scorestreaks = false
+    # 每种奖励独立累计，允许跨死亡重复获取。
+    # Allow independent repeated rewards across deaths.
+    repeatableRewards = true
+
+[rewards]
+    # 启用核弹；关闭时不自然累计，也不能获取、启动；尚未引爆的倒计时会取消。
+    # Enable MGB; disabled rewards cannot be earned or activated, and pending countdowns are cancelled.
+    mgbEnabled = false
+    # 启用无畏战甲；关闭时不能选择、获取或使用，随机空投也会排除它。
+    # Enable Juggernaut selection, acquisition and activation, including random airdrops.
+    juggernautEnabled = false

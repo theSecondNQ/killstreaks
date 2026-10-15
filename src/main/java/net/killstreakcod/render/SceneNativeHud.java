@@ -1,0 +1,141 @@
+package net.killstreakcod.render;
+
+import net.killstreakcod.killstreaks.GunshipFlight;
+import net.killstreakcod.killstreaks.StreakReward;
+import net.killstreakcod.killstreaks.TacticalUnitEntity;
+import net.killstreakcod.universal.StreakWeaponProfiles;
+
+import java.util.Locale;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
+import net.minecraft.util.Mth;
+
+/**
+ * Native aiming images with side-mounted instruments and space for GD656 and radio captions.
+ * 使用原瞄准图像及侧边仪表，为 GD656 和无线电字幕预留空间。
+ */
+public final class SceneNativeHud {
+    private static final int WHITE = 0xffecf0e9, AMBER = 0xffe1bb75, RED = 0xfff07363;
+
+    private SceneNativeHud() {}
+
+    public static int panelWidth(int width) {
+        return Math.max(66, Math.min(110, width / 5));
+    }
+
+    static boolean render(GuiGraphics graphics, String mode) {
+        String widget = mode.equals("chopper") ? "ApacheControls" : mode.equals("gunship") ? "GunshipControls" : "";
+        if (widget.isEmpty() || NativeSceneUi.widget(widget) == null)
+            return false;
+        int w = graphics.guiWidth(), h = graphics.guiHeight(), pw = panelWidth(w), right = w - pw - 8,
+                weapon = Mth.clamp(TacticalClient.state.weapon(), 0, 2);
+        boolean reload = mode.equals("gunship") && TacticalClient.reload(weapon) > 0;
+        String field = mode.equals("chopper") ? "Reticle25mm"
+                : reload ? "ReticleInactive" : new String[] { "Reticle25mm", "Reticle40mm", "Reticle105mm" }[weapon];
+        String image = reload ? "overlay_gunship_inactive_reticle"
+                : new String[] { "overlay_gunship_25mm_reticle", "overlay_gunship_40mm_reticle",
+                        "overlay_gunship_105mm_reticle" }[mode.equals("chopper") ? 0 : weapon];
+        NativeSceneUi.draw(graphics, image, NativeSceneUi.bounds(widget, field, w, h), reload ? .75F : 1);
+        text(graphics, 8, 8, pw,
+                (mode.equals("chopper") ? StreakReward.CHOPPER_GUNNER : StreakReward.GUNSHIP).displayName().getString(),
+                WHITE);
+        text(graphics, 8, 21, pw, "ALT " + altitude() + " M", WHITE);
+        text(graphics, 8, 32, pw, String.format(Locale.ROOT, "VEL %.1f M/S", TacticalClient.state.speed()), WHITE);
+        text(graphics, 8, 43, pw,
+                (TacticalClient.state.thermal() ? "IR / WHOT" : "EO / DAY") + " " + (int) TacticalClient.fov(), WHITE);
+        int footer = RemoteHudLayout.footerHeight(graphics), usable = Math.max(42, h - footer - 74),
+                barHeight = Math.min(86, usable), diagramHeight = Math.min(86, usable);
+        var fuel = new NativeSceneUi.Rect(10, 64, 12, barHeight);
+        NativeSceneUi.draw(graphics, "overlay_gunship_fuelbar_frame", fuel, 1);
+        float fraction = Mth.clamp(TacticalClient.fuel() / 1200F, 0, 1);
+        int top = Math.round(fuel.y() + 2 + (fuel.h() - 4) * (1 - fraction));
+        graphics.fill(12, top, 20, Math.round(fuel.y() + fuel.h() - 2), fraction < .2 ? RED : WHITE);
+        NativeSceneUi.draw(graphics,
+                mode.equals("gunship") ? "veh_diagram_gunship_out" : "veh_diagram_choppergunner_out",
+                new NativeSceneUi.Rect(28, 64, Math.min(43, pw - 28), diagramHeight), .68F);
+        text(graphics, right, 8, pw, "FUEL " + TacticalClient.fuel() / 20 + "s", fraction < .2 ? RED : WHITE);
+        text(graphics, right, 21, pw, "HULL " + TacticalClient.state.health() + "%",
+                TacticalClient.state.health() < 35 ? RED : WHITE);
+        text(graphics, right, 32, pw, "AZ " + heading() + "°", WHITE);
+        NativeSceneUi.draw(graphics, "overlay_gunship_satellite_icon", new NativeSceneUi.Rect(w / 2F - 9, 8, 18, 18),
+                .75F);
+        int armamentTop = Math.max(62, Math.round(h * .42F));
+        if (mode.equals("gunship")) {
+            String[] label = { "25 MM", "40 MM", "105 MM" };
+            for (int i = 0; i < 3; i++) {
+                String info = label[i] + "  " + TacticalClient.state.ammo()[i] + "/" + StreakWeaponProfiles.MAGAZINE[i];
+                text(graphics, right, armamentTop + i * 23, pw, info,
+                        i == weapon ? reload ? AMBER : WHITE : 0xff78877b);
+                if (TacticalClient.reload(i) > 0)
+                    text(graphics, right, armamentTop + i * 23 + 10, pw,
+                            "RELOAD " + (int) Math.ceil(TacticalClient.reload(i) / 20D) + "s", AMBER);
+            }
+            var camera = Minecraft.getInstance().getCameraEntity();
+            boolean limited = camera instanceof TacticalUnitEntity airframe
+                    && Math.abs(Mth.wrapDegrees(TacticalClient.yaw()
+                            - GunshipFlight.mountYaw(airframe.renderFlightYaw(0)))) > GunshipFlight.YAW_LIMIT - 2
+                    || Math.abs(TacticalClient.pitch()) > GunshipFlight.PITCH_LIMIT - 1;
+            if (limited)
+                text(graphics, 8, 54, pw, "GIMBAL LIMIT", AMBER);
+        } else {
+            text(graphics, right, armamentTop, pw, "30 MM / CANNON", WHITE);
+            text(graphics, right, armamentTop + 13, pw, "ROCKETS " + TacticalClient.state.rockets() + "/8", WHITE);
+            text(graphics, right, armamentTop + 26, pw,
+                    TacticalClient.rocketCooldown() > 0
+                            ? "RELOAD " + (int) Math.ceil(TacticalClient.rocketCooldown() / 20D) + "s"
+                            : "FLARES " + TacticalClient.state.flares(),
+                    WHITE);
+        }
+        if (TacticalClient.fuel() < 200 && System.currentTimeMillis() % 800 < 400)
+            text(graphics, 8, 54, pw, Component.translatable("hud.killstreakcod.native_remote_low_fuel").getString(),
+                    RED);
+        var font = Minecraft.getInstance().font;
+        var lines = font.split(Component.literal(controls()), Math.max(80, w - 16));
+        int y = h - lines.size() * font.lineHeight - 4;
+        graphics.fill(0, h - footer, w, h, 0x880c1512);
+        for (var line : lines) {
+            graphics.drawString(font, line, (w - font.width(line)) / 2, y, WHITE, false);
+            y += font.lineHeight;
+        }
+        return true;
+    }
+
+    static String controls() {
+        var o = Minecraft.getInstance().options;
+        String controls = key(o.keyAttack) + " "
+                + Component.translatable("hud.killstreakcod.native_action_fire").getString() + "   "
+                + key(KillstreakKeyMappings.THERMAL) + " "
+                + Component.translatable("hud.killstreakcod.native_action_thermal").getString() + "   "
+                + key(KillstreakKeyMappings.ZOOM) + " "
+                + Component.translatable("hud.killstreakcod.native_action_zoom").getString() + "   "
+                + key(KillstreakKeyMappings.EXIT) + " "
+                + Component.translatable("hud.killstreakcod.native_action_exit").getString();
+        if (TacticalClient.state.mode().equals("gunship"))
+            controls += "   1/2/3 " + Component.translatable("hud.killstreakcod.native_action_weapon").getString();
+        else
+            controls += "   " + key(o.keyUse) + " "
+                    + Component.translatable("hud.killstreakcod.native_action_rockets").getString() + "   WASD / "
+                    + key(o.keyJump) + " / " + key(o.keyShift);
+        return controls;
+    }
+
+    private static void text(GuiGraphics graphics, int x, int y, int width, String text, int color) {
+        var font = Minecraft.getInstance().font;
+        graphics.drawString(font, font.plainSubstrByWidth(text, width), x, y, color, false);
+    }
+
+    private static int altitude() {
+        var camera = Minecraft.getInstance().getCameraEntity();
+        return camera == null ? 0 : (int) camera.getY();
+    }
+
+    private static int heading() {
+        return Math.floorMod(Math.round(TacticalClient.yaw()) + 180, 360);
+    }
+
+    private static String key(net.minecraft.client.KeyMapping key) {
+        return key.getTranslatedKeyMessage().getString();
+    }
+}

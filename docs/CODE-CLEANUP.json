@@ -1,0 +1,297 @@
+{
+  "version": "4.30.0",
+  "scope": "按用户现有代码写法统一排版与命名，清理确认无调用的旧入口及其辅助声明。",
+  "backup": "D:/Projects/killstreakcod-archive/20261015-4.30.0/pre-readability-code.zip",
+  "summary": {
+    "javaFilesBefore": 191,
+    "javaFilesAfter": 190,
+    "methodsInspectedBefore": 1464,
+    "methodsInspectedAfter": 1414,
+    "removedUnusedMethods": 50,
+    "boundLocalVariableAndParameterRenames": 278,
+    "remainingRemovableCandidates": 0,
+    "formattingPreservedAllJavaTokens": true
+  },
+  "analysis": [
+    "通过 javac 解析和类型绑定检查调用及方法引用，按方法签名区分重载。",
+    "保留构造器、注解回调、接口及父类实现、记录访问器、Mixin 和反射关联方法。",
+    "每轮删除后重新分析，直到不再发现符合删除条件的方法。",
+    "局部变量重命名绑定实际符号，并跳过当前方法内已占用的目标名称。",
+    "批量排版前后比较 Java 词法标记，忽略空白与注释。"
+  ],
+  "removedMethods": [
+    {
+      "signature": "net.killstreakcod.audio.NativeRadioClient#gating()",
+      "file": "src/main/java/net/killstreakcod/audio/NativeRadioClient.java",
+      "lineInRemovalPass": 78
+    },
+    {
+      "signature": "net.killstreakcod.audio.StrikeRadioReports#hit(net.killstreakcod.killstreaks.TacticalUnitEntity)",
+      "file": "src/main/java/net/killstreakcod/audio/StrikeRadioReports.java",
+      "lineInRemovalPass": 24
+    },
+    {
+      "signature": "net.killstreakcod.killstreaks.KillstreakRewardItem#rewardId()",
+      "file": "src/main/java/net/killstreakcod/killstreaks/KillstreakRewardItem.java",
+      "lineInRemovalPass": 21
+    },
+    {
+      "signature": "net.killstreakcod.killstreaks.PrecisionFlight#pitch(int)",
+      "file": "src/main/java/net/killstreakcod/killstreaks/PrecisionFlight.java",
+      "lineInRemovalPass": 29
+    },
+    {
+      "signature": "net.killstreakcod.killstreaks.SupportHelicopterEntity#setBombDrone(boolean)",
+      "file": "src/main/java/net/killstreakcod/killstreaks/SupportHelicopterEntity.java",
+      "lineInRemovalPass": 26
+    },
+    {
+      "signature": "net.killstreakcod.killstreaks.TacticalUnitEntity#orbit(int,net.minecraft.world.phys.Vec3,double,double,double)",
+      "file": "src/main/java/net/killstreakcod/killstreaks/TacticalUnitEntity.java",
+      "lineInRemovalPass": 404
+    },
+    {
+      "signature": "net.killstreakcod.render.EntryScenes#sourceCamera(org.joml.Vector3f,org.joml.Vector3f)",
+      "file": "src/main/java/net/killstreakcod/render/EntryScenes.java",
+      "lineInRemovalPass": 101
+    },
+    {
+      "signature": "net.killstreakcod.render.ImportedCastModel#renderSource(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int,java.util.Map<java.lang.String,org.joml.Matrix4f>)",
+      "file": "src/main/java/net/killstreakcod/render/ImportedCastModel.java",
+      "lineInRemovalPass": 82
+    },
+    {
+      "signature": "net.killstreakcod.render.ImportedCastModel#renderScene(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int,java.util.Map<java.lang.String,org.joml.Matrix4f>,boolean)",
+      "file": "src/main/java/net/killstreakcod/render/ImportedCastModel.java",
+      "lineInRemovalPass": 80
+    },
+    {
+      "signature": "net.killstreakcod.render.ImportedCastModel#renderCockpit(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int,java.util.Map<java.lang.String,org.joml.Matrix4f>,java.util.Map<java.lang.String,net.minecraft.resources.ResourceLocation>)",
+      "file": "src/main/java/net/killstreakcod/render/ImportedCastModel.java",
+      "lineInRemovalPass": 77
+    },
+    {
+      "signature": "net.killstreakcod.render.ImportedCastModel#renderCockpit(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int,java.util.Map<java.lang.String,org.joml.Matrix4f>)",
+      "file": "src/main/java/net/killstreakcod/render/ImportedCastModel.java",
+      "lineInRemovalPass": 76
+    },
+    {
+      "signature": "net.killstreakcod.render.ImportedCastModel#usesTabletItemAxis()",
+      "file": "src/main/java/net/killstreakcod/render/ImportedCastModel.java",
+      "lineInRemovalPass": 69
+    },
+    {
+      "signature": "net.killstreakcod.render.ImportedUnits#renderGunshipAssembly(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int)",
+      "file": "src/main/java/net/killstreakcod/render/ImportedUnits.java",
+      "lineInRemovalPass": 101
+    },
+    {
+      "signature": "net.killstreakcod.render.NativeM134Presentation#pose(net.killstreakcod.render.ImportedCastModel,boolean,int,float)",
+      "file": "src/main/java/net/killstreakcod/render/NativeM134Presentation.java",
+      "lineInRemovalPass": 26
+    },
+    {
+      "signature": "net.killstreakcod.render.NativeModelAnimations#minigun(net.killstreakcod.render.ImportedCastModel,float)",
+      "file": "src/main/java/net/killstreakcod/render/NativeModelAnimations.java",
+      "lineInRemovalPass": 16
+    },
+    {
+      "signature": "net.killstreakcod.render.NativeSceneUi#mapDecorations(net.minecraft.client.gui.GuiGraphics,float,float,float,float,float)",
+      "file": "src/main/java/net/killstreakcod/render/NativeSceneUi.java",
+      "lineInRemovalPass": 114
+    },
+    {
+      "signature": "net.killstreakcod.render.OptionalShaderCompat#vanillaThermalAllowed()",
+      "file": "src/main/java/net/killstreakcod/render/OptionalShaderCompat.java",
+      "lineInRemovalPass": 24
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#targetRing(net.minecraft.client.gui.GuiGraphics,int,int,int,int)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 163
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#tabletHands(net.minecraft.client.gui.GuiGraphics,net.killstreakcod.render.OriginalHud.TabletLayout,float,int,int)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 111
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#tabletBody(net.minecraft.client.gui.GuiGraphics,net.killstreakcod.render.OriginalHud.TabletLayout)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 87
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#tabletLayout(int,int)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 80
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#targetCursor(net.minecraft.client.gui.GuiGraphics,int,int)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 75
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#mapFrame(net.minecraft.client.gui.GuiGraphics,int,int,int)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 67
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#rewardIcon(net.minecraft.client.gui.GuiGraphics,java.lang.String,int,int,int)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 42
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalStreakAnimations#gunshipStationPose(float)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalStreakAnimations.java",
+      "lineInRemovalPass": 330
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalStreakAnimations#movieCamera(java.lang.String,float)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalStreakAnimations.java",
+      "lineInRemovalPass": 233
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalStreakAnimations#localDelta(java.lang.String,float,net.killstreakcod.render.ImportedCastModel.Bone)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalStreakAnimations.java",
+      "lineInRemovalPass": 130
+    },
+    {
+      "signature": "net.killstreakcod.render.StreakPresentation#radioCall()",
+      "file": "src/main/java/net/killstreakcod/render/StreakPresentation.java",
+      "lineInRemovalPass": 333
+    },
+    {
+      "signature": "net.killstreakcod.render.StreakPresentation#stroke(net.minecraft.client.gui.GuiGraphics,int,int,int,int,int,int)",
+      "file": "src/main/java/net/killstreakcod/render/StreakPresentation.java",
+      "lineInRemovalPass": 279
+    },
+    {
+      "signature": "net.killstreakcod.render.StreakPresentation#progressForRender()",
+      "file": "src/main/java/net/killstreakcod/render/StreakPresentation.java",
+      "lineInRemovalPass": 85
+    },
+    {
+      "signature": "net.killstreakcod.render.tablet.TabletHandModel#renderNativeGunshipStation(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,float)",
+      "file": "src/main/java/net/killstreakcod/render/tablet/TabletHandModel.java",
+      "lineInRemovalPass": 229
+    },
+    {
+      "signature": "net.killstreakcod.render.tablet.TabletHandModel#renderGunshipStationAnchored(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.resources.ResourceLocation,float,org.joml.Matrix4f)",
+      "file": "src/main/java/net/killstreakcod/render/tablet/TabletHandModel.java",
+      "lineInRemovalPass": 225
+    },
+    {
+      "signature": "net.killstreakcod.render.tablet.TabletHandModel#renderGunshipStation(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.resources.ResourceLocation,float)",
+      "file": "src/main/java/net/killstreakcod/render/tablet/TabletHandModel.java",
+      "lineInRemovalPass": 219
+    },
+    {
+      "signature": "net.killstreakcod.render.TacticalHud#streakTop(int)",
+      "file": "src/main/java/net/killstreakcod/render/TacticalHud.java",
+      "lineInRemovalPass": 88
+    },
+    {
+      "signature": "net.killstreakcod.universal.KillstreakService#trackSentry(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.server.level.ServerPlayer)",
+      "file": "src/main/java/net/killstreakcod/universal/KillstreakService.java",
+      "lineInRemovalPass": 263
+    },
+    {
+      "signature": "net.killstreakcod.universal.KillstreakService#trackUnit(net.minecraft.world.entity.Entity,int)",
+      "file": "src/main/java/net/killstreakcod/universal/KillstreakService.java",
+      "lineInRemovalPass": 262
+    },
+    {
+      "signature": "net.killstreakcod.universal.TacticalTargetPayload#heading()",
+      "file": "src/main/java/net/killstreakcod/universal/TacticalTargetPayload.java",
+      "lineInRemovalPass": 14
+    },
+    {
+      "signature": "net.killstreakcod.render.NativeSceneUi#drawSprite(net.minecraft.client.gui.GuiGraphics,java.lang.String,net.killstreakcod.render.NativeSceneUi.Rect,float,int)",
+      "file": "src/main/java/net/killstreakcod/render/NativeSceneUi.java",
+      "lineInRemovalPass": 115
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#grip(boolean)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 91
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#tabletBody(net.minecraft.client.gui.GuiGraphics,net.killstreakcod.render.OriginalHud.TabletLayout,java.lang.String)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 70
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalStreakAnimations#renderGunshipStation(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,float)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalStreakAnimations.java",
+      "lineInRemovalPass": 292
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalStreakAnimations#chopperScene(float)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalStreakAnimations.java",
+      "lineInRemovalPass": 203
+    },
+    {
+      "signature": "net.killstreakcod.render.tablet.TabletHandModel#renderGunshipStation(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.resources.ResourceLocation,float,boolean)",
+      "file": "src/main/java/net/killstreakcod/render/tablet/TabletHandModel.java",
+      "lineInRemovalPass": 219
+    },
+    {
+      "signature": "net.killstreakcod.universal.TacticalRuntime#spawnSentry(net.minecraft.server.level.ServerPlayer,net.minecraft.world.phys.Vec3)",
+      "file": "src/main/java/net/killstreakcod/universal/TacticalRuntime.java",
+      "lineInRemovalPass": 164
+    },
+    {
+      "signature": "net.killstreakcod.render.GunshipCabinLighting#renderFixtures(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)",
+      "file": "src/main/java/net/killstreakcod/render/GunshipCabinLighting.java",
+      "lineInRemovalPass": 29
+    },
+    {
+      "signature": "net.killstreakcod.render.ImportedCastModel$Bone#inverseBindWorld()",
+      "file": "src/main/java/net/killstreakcod/render/ImportedCastModel.java",
+      "lineInRemovalPass": 27
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalHud#renderModel(net.minecraft.client.gui.GuiGraphics,java.lang.Runnable)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalHud.java",
+      "lineInRemovalPass": 73
+    },
+    {
+      "signature": "net.killstreakcod.render.OriginalStreakAnimations#compatibleUnitClip(java.lang.String,net.killstreakcod.render.ImportedCastModel)",
+      "file": "src/main/java/net/killstreakcod/render/OriginalStreakAnimations.java",
+      "lineInRemovalPass": 124
+    },
+    {
+      "signature": "net.killstreakcod.render.tablet.TabletHandModel#gunshipStation(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.resources.ResourceLocation,float,boolean,org.joml.Matrix4f)",
+      "file": "src/main/java/net/killstreakcod/render/tablet/TabletHandModel.java",
+      "lineInRemovalPass": 222
+    },
+    {
+      "signature": "net.killstreakcod.render.GunshipCabinModel#render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int)",
+      "file": "src/main/java/net/killstreakcod/render/GunshipCabinModel.java",
+      "lineInRemovalPass": 79
+    }
+  ],
+  "removedRelatedDeclarations": [
+    {
+      "owner": "net.killstreakcod.render.GunshipCabinModel",
+      "declaration": "未使用的程序化座舱辅助类"
+    },
+    {
+      "owner": "net.killstreakcod.render.OriginalHud",
+      "declaration": "TabletLayout、normalGrip、slimGrip"
+    },
+    {
+      "owner": "net.killstreakcod.render.tablet.TabletHandModel",
+      "declaration": "gunshipCabin、consoleShell、consolePanel、consoleKeys、controlStick 及其废弃模型构造"
+    }
+  ],
+  "nativeCabinEntryPoints": [
+    "SceneEntryRenderer",
+    "GunshipCabinLighting",
+    "ImportedCastModel"
+  ],
+  "notes": [
+    "本轮分析针对工程内及其框架入口；逐方法行号对应各轮删除时的源码。",
+    "本次没有启动 Minecraft 或执行游戏测试。"
+  ]
+}
