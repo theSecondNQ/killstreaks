@@ -14,7 +14,11 @@ NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物�
 
 ## 使用
 
+<<<<<<< HEAD
 - 将 `build/libs/killstreakcod-1.0.1.4333.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
+=======
+- 将 `build/libs/killstreakcod-1.0.1.4322.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
+>>>>>>> da098727c2b83a5786757e687861dbffcf5e1c61
 - 按 **K** 或使用连杀终端配置奖励、阵营、队友白名单和操作员皮肤。
 - 规则配置位于游戏或服务器根目录的 `config/killstreakcod-server.toml`；原生 SERVER 配置支持已有世界中的同名覆盖文件。
 - 客户端表现设置位于 `config/killstreakcod-client.toml`。
