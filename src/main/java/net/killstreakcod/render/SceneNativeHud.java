@@ -8,6 +8,7 @@ import net.killstreakcod.universal.StreakWeaponProfiles;
 import java.util.Locale;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -41,10 +42,11 @@ public final class SceneNativeHud {
         text(graphics, 8, 8, pw,
                 (mode.equals("chopper") ? StreakReward.CHOPPER_GUNNER : StreakReward.GUNSHIP).displayName().getString(),
                 WHITE);
-        text(graphics, 8, 21, pw, "ALT " + altitude() + " M", WHITE);
-        text(graphics, 8, 32, pw, String.format(Locale.ROOT, "VEL %.1f M/S", TacticalClient.state.speed()), WHITE);
-        text(graphics, 8, 43, pw,
-                (TacticalClient.state.thermal() ? "IR / WHOT" : "EO / DAY") + " " + (int) TacticalClient.fov(), WHITE);
+        text(graphics, 8, 21, pw, I18n.get("hud.killstreakcod.altitude", altitude()), WHITE);
+        text(graphics, 8, 32, pw, I18n.get("hud.killstreakcod.velocity",
+                String.format(Locale.ROOT, "%.1f", TacticalClient.state.speed())), WHITE);
+        text(graphics, 8, 43, pw, (TacticalClient.state.thermal() ? I18n.get("hud.killstreakcod.camera_thermal")
+                : I18n.get("hud.killstreakcod.camera_optical")) + " " + (int) TacticalClient.fov(), WHITE);
         int footer = RemoteHudLayout.footerHeight(graphics), usable = Math.max(42, h - footer - 74),
                 barHeight = Math.min(86, usable), diagramHeight = Math.min(86, usable);
         var fuel = new NativeSceneUi.Rect(10, 64, 12, barHeight);
@@ -55,10 +57,11 @@ public final class SceneNativeHud {
         NativeSceneUi.draw(graphics,
                 mode.equals("gunship") ? "veh_diagram_gunship_out" : "veh_diagram_choppergunner_out",
                 new NativeSceneUi.Rect(28, 64, Math.min(43, pw - 28), diagramHeight), .68F);
-        text(graphics, right, 8, pw, "FUEL " + TacticalClient.fuel() / 20 + "s", fraction < .2 ? RED : WHITE);
-        text(graphics, right, 21, pw, "HULL " + TacticalClient.state.health() + "%",
+        text(graphics, right, 8, pw, I18n.get("hud.killstreakcod.fuel", TacticalClient.fuel() / 20),
+                fraction < .2 ? RED : WHITE);
+        text(graphics, right, 21, pw, I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()),
                 TacticalClient.state.health() < 35 ? RED : WHITE);
-        text(graphics, right, 32, pw, "AZ " + heading() + "°", WHITE);
+        text(graphics, right, 32, pw, I18n.get("hud.killstreakcod.heading", heading()), WHITE);
         NativeSceneUi.draw(graphics, "overlay_gunship_satellite_icon", new NativeSceneUi.Rect(w / 2F - 9, 8, 18, 18),
                 .75F);
         int armamentTop = Math.max(62, Math.round(h * .42F));
@@ -70,7 +73,8 @@ public final class SceneNativeHud {
                         i == weapon ? reload ? AMBER : WHITE : 0xff78877b);
                 if (TacticalClient.reload(i) > 0)
                     text(graphics, right, armamentTop + i * 23 + 10, pw,
-                            "RELOAD " + (int) Math.ceil(TacticalClient.reload(i) / 20D) + "s", AMBER);
+                            I18n.get("hud.killstreakcod.reload_time", (int) Math.ceil(TacticalClient.reload(i) / 20D)),
+                            AMBER);
             }
             var camera = Minecraft.getInstance().getCameraEntity();
             boolean limited = camera instanceof TacticalUnitEntity airframe
@@ -78,14 +82,16 @@ public final class SceneNativeHud {
                             - GunshipFlight.mountYaw(airframe.renderFlightYaw(0)))) > GunshipFlight.YAW_LIMIT - 2
                     || Math.abs(TacticalClient.pitch()) > GunshipFlight.PITCH_LIMIT - 1;
             if (limited)
-                text(graphics, 8, 54, pw, "GIMBAL LIMIT", AMBER);
+                text(graphics, 8, 54, pw, I18n.get("hud.killstreakcod.gimbal_limit"), AMBER);
         } else {
-            text(graphics, right, armamentTop, pw, "30 MM / CANNON", WHITE);
-            text(graphics, right, armamentTop + 13, pw, "ROCKETS " + TacticalClient.state.rockets() + "/8", WHITE);
+            text(graphics, right, armamentTop, pw, I18n.get("hud.killstreakcod.cannon_30mm"), WHITE);
+            text(graphics, right, armamentTop + 13, pw,
+                    I18n.get("hud.killstreakcod.rockets_count", TacticalClient.state.rockets()), WHITE);
             text(graphics, right, armamentTop + 26, pw,
                     TacticalClient.rocketCooldown() > 0
-                            ? "RELOAD " + (int) Math.ceil(TacticalClient.rocketCooldown() / 20D) + "s"
-                            : "FLARES " + TacticalClient.state.flares(),
+                            ? I18n.get("hud.killstreakcod.reload_time",
+                                    (int) Math.ceil(TacticalClient.rocketCooldown() / 20D))
+                            : I18n.get("hud.killstreakcod.flares_count", TacticalClient.state.flares()),
                     WHITE);
         }
         if (TacticalClient.fuel() < 200 && System.currentTimeMillis() % 800 < 400)
@@ -113,10 +119,13 @@ public final class SceneNativeHud {
                 + key(KillstreakKeyMappings.EXIT) + " "
                 + Component.translatable("hud.killstreakcod.native_action_exit").getString();
         if (TacticalClient.state.mode().equals("gunship"))
-            controls += "   1/2/3 " + Component.translatable("hud.killstreakcod.native_action_weapon").getString();
+            controls += "   " + key(KillstreakKeyMappings.WEAPON_1) + "/" + key(KillstreakKeyMappings.WEAPON_2) + "/"
+                    + key(KillstreakKeyMappings.WEAPON_3) + " "
+                    + Component.translatable("hud.killstreakcod.native_action_weapon").getString();
         else
             controls += "   " + key(o.keyUse) + " "
-                    + Component.translatable("hud.killstreakcod.native_action_rockets").getString() + "   WASD / "
+                    + Component.translatable("hud.killstreakcod.native_action_rockets").getString() + "   "
+                    + key(o.keyUp) + "/" + key(o.keyLeft) + "/" + key(o.keyDown) + "/" + key(o.keyRight) + " / "
                     + key(o.keyJump) + " / " + key(o.keyShift);
         return controls;
     }

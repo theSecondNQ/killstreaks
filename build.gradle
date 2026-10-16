@@ -3,7 +3,7 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.141'
 }
 
-version = '1.0.0.4321'
+version = '1.0.1.4322'
 base.archivesName = "killstreakcod"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)

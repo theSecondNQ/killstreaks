@@ -37,26 +37,28 @@ public final class StreakServerConfig {
         var builder = new ModConfigSpec.Builder();
         builder.comment("连杀奖励获取设置，对本游戏实例的所有存档生效。联机时由服务端配置决定。",
                 "Global killstreak earning rules for every world. Multiplayer uses the hosting server's file.")
-                .push("earning");
-        SCORESTREAKS = builder.comment("是否按得分获取奖励。true：得分获取；false：击杀获取。",
-                "切换模式时保留已获得奖励，清空普通奖励尚未完成的进度。",
-                "Use scorestreaks instead of killstreaks. Earned stock is retained when changing mode.",
-                "Default: false", "Allowed Values: true, false").define("scorestreaks", false);
-        REPEATABLE_REWARDS = builder.comment("是否允许连杀奖励重复获取。",
-                "true：每种奖励独立循环累计，死亡不清进度。",
+                .translation("killstreakcod.configuration.earning").push("earning");
+        SCORESTREAKS = builder
+                .comment("是否按得分获取奖励。true：得分获取；false：击杀获取。", "切换模式时保留已获得奖励，清空普通奖励尚未完成的进度。",
+                        "Use scorestreaks instead of killstreaks. Earned stock is retained when changing mode.",
+                        "Default: false", "Allowed Values: true, false")
+                .translation("killstreakcod.configuration.scorestreaks").define("scorestreaks", false);
+        REPEATABLE_REWARDS = builder.comment("是否允许连杀奖励重复获取。", "true：每种奖励独立循环累计，死亡不清进度。",
                 "false：每种奖励每条命只自然获得一次，死亡清进度、保留已获得奖励。",
                 "Allow repeated rewards across deaths; false means once per reward per life with stock retained.",
-                "Default: true", "Allowed Values: true, false").define("repeatableRewards", true);
+                "Default: true", "Allowed Values: true, false")
+                .translation("killstreakcod.configuration.repeatableRewards").define("repeatableRewards", true);
         builder.pop();
-        builder.comment("特殊连杀奖励开关，由服务器统一控制。",
-                "Server-authoritative availability of special killstreak rewards.").push("rewards");
-        MGB_ENABLED = builder.comment("是否启用核弹（MGB）。默认关闭。",
-                "关闭时不累计核弹进度，也不能获取或启动核弹。",
-                "Enable MGB earning and activation. Default: false.").define("mgbEnabled", false);
-        JUGGERNAUT_ENABLED = builder.comment("是否启用无畏战甲。默认关闭。",
-                "关闭时不能选择、获取或使用该奖励，空投随机奖励也会排除它。",
-                "Enable Juggernaut selection, acquisition and use. Default: false.")
-                .define("juggernautEnabled", false);
+        builder.comment("特殊连杀奖励开关，由服务器统一控制。", "Server-authoritative availability of special killstreak rewards.")
+                .translation("killstreakcod.configuration.rewards").push("rewards");
+        MGB_ENABLED = builder
+                .comment("是否启用核弹（MGB）。默认关闭。", "关闭时不累计核弹进度，也不能获取或启动核弹。",
+                        "Enable MGB earning and activation. Default: false.")
+                .translation("killstreakcod.configuration.mgbEnabled").define("mgbEnabled", false);
+        JUGGERNAUT_ENABLED = builder
+                .comment("是否启用无畏战甲。默认关闭。", "关闭时不能选择、获取或使用该奖励，空投随机奖励也会排除它。",
+                        "Enable Juggernaut selection, acquisition and use. Default: false.")
+                .translation("killstreakcod.configuration.juggernautEnabled").define("juggernautEnabled", false);
         builder.pop();
         SPEC = builder.build();
     }

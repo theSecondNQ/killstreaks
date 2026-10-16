@@ -12,6 +12,7 @@ import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.math.Axis;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.network.chat.Component;
@@ -51,8 +52,8 @@ public final class TacticalHud {
         StreakNoticeRenderer.tick();
         Minecraft mc = Minecraft.getInstance();
         if (mc.player != null && mc.level != null && (TacticalClient.radar.active() || TacticalClient.radar.jammed())
-                && !TacticalClient.remote() &&
-                (++terrainTicks >= 40 || radarTexture == null || Math.abs(mc.player.getBlockX() - terrainX) > 8
+                && !TacticalClient.remote()
+                && (++terrainTicks >= 40 || radarTexture == null || Math.abs(mc.player.getBlockX() - terrainX) > 8
                         || Math.abs(mc.player.getBlockZ() - terrainZ) > 8)) {
             terrainTicks = 0;
             terrainX = mc.player.getBlockX();
@@ -177,7 +178,7 @@ public final class TacticalHud {
                 int dy = (int) ((System.currentTimeMillis() / 35 + i * 13) % size);
                 graphics.hLine(x, x + size, y + dy, 0x886f7a6c);
             }
-            graphics.drawCenteredString(mc.font, "NO SIGNAL", cx, cy, WHITE);
+            graphics.drawCenteredString(mc.font, I18n.get("hud.killstreakcod.no_signal"), cx, cy, WHITE);
         } else {
             for (int i = 1; i < 4; i++) {
                 graphics.hLine(x, x + size, y + i * size / 4, 0x66596b56);
@@ -226,11 +227,13 @@ public final class TacticalHud {
                 case "wheelson" -> wheelson(graphics);
                 case "chopper" -> chopper(graphics);
                 case "gunship" -> gunship(graphics);
-                default -> graphics.drawCenteredString(mc.font, "CONNECTING", w / 2, h / 2, WHITE);
+                default ->
+                    graphics.drawCenteredString(mc.font, I18n.get("hud.killstreakcod.connecting"), w / 2, h / 2, WHITE);
             }
         contacts(graphics);
         if (!original && TacticalClient.fuel() < 200 && System.currentTimeMillis() % 800 < 400)
-            graphics.drawCenteredString(mc.font, "LOW FUEL", w / 2, h - 70, RED);
+            graphics.drawCenteredString(mc.font, I18n.get("hud.killstreakcod.native_remote_low_fuel"), w / 2, h - 70,
+                    RED);
     }
 
     private static void drone(GuiGraphics graphics) {
@@ -243,13 +246,14 @@ public final class TacticalHud {
         graphics.fill(x - 1, y - 1, x + 2, y + 2, WHITE);
         telemetry(graphics, WHITE, 19, 62);
         verticalBar(graphics, w - 35, 65, 6, Math.max(8, h - 145), TacticalClient.fuel(), 600, WHITE);
-        text(graphics, "BAT", w - 41, 53, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.battery_label"), w - 41, 53, WHITE);
         TacticalClient.icon(graphics, "bomb_drone", 18, h - 75, 27);
-        text(graphics, "C4 ARMED / " + TacticalClient.fuel() / 20 + "s", 51, h - 64, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.c4_armed_time", TacticalClient.fuel() / 20), 51, h - 64, WHITE);
         hint(graphics,
-                key(Minecraft.getInstance().options.keyAttack) + " 引爆   " + movement() + " 移动   " + altitude()
-                        + " 升降   " + key(KillstreakKeyMappings.THERMAL) + " 热成像   " + key(KillstreakKeyMappings.ZOOM)
-                        + " 变焦   " + exit(),
+                I18n.get("hud.killstreakcod.native_drone_controls", key(Minecraft.getInstance().options.keyAttack),
+                        movement(), key(Minecraft.getInstance().options.keyJump),
+                        key(Minecraft.getInstance().options.keyShift), key(KillstreakKeyMappings.THERMAL),
+                        key(KillstreakKeyMappings.ZOOM), key(KillstreakKeyMappings.EXIT)),
                 WHITE);
     }
 
@@ -257,7 +261,9 @@ public final class TacticalHud {
         int w = graphics.guiWidth(), h = graphics.guiHeight(), x = w / 2, y = h / 2;
         frame(graphics, GREEN, 8, 25);
         compass(graphics, GREEN, 10);
-        text(graphics, StreakReward.CRUISE_MISSILE.displayName().getString() + " / GUIDANCE", 16, 31, GREEN);
+        text(graphics,
+                StreakReward.CRUISE_MISSILE.displayName().getString() + " / " + I18n.get("hud.killstreakcod.guidance"),
+                16, 31, GREEN);
         brackets(graphics, x, y, 48, 31, GREEN);
         circle(graphics, x, y, 12, GREEN);
         graphics.hLine(x - 28, x - 8, y, GREEN);
@@ -265,7 +271,7 @@ public final class TacticalHud {
         graphics.vLine(x, y - 28, y - 8, GREEN);
         graphics.vLine(x, y + 8, y + 28, GREEN);
         telemetry(graphics, GREEN, 16, 55);
-        text(graphics, "DIVE " + (int) TacticalClient.pitch() + "°", w - 90, 55, GREEN);
+        text(graphics, I18n.get("hud.killstreakcod.pitch", (int) TacticalClient.pitch()), w - 90, 55, GREEN);
         Entity camera = Minecraft.getInstance().getCameraEntity();
         if (camera != null) {
             Vec3 from = camera.getEyePosition(),
@@ -273,12 +279,14 @@ public final class TacticalHud {
             var hit = Minecraft.getInstance().level.clip(new net.minecraft.world.level.ClipContext(from, to,
                     net.minecraft.world.level.ClipContext.Block.COLLIDER,
                     net.minecraft.world.level.ClipContext.Fluid.ANY, camera));
-            text(graphics, "IMPACT " + (int) hit.getLocation().x + " / " + (int) hit.getLocation().z, 16, h - 67,
-                    GREEN);
+            text(graphics, I18n.get("hud.killstreakcod.impact_coordinates", (int) hit.getLocation().x,
+                    (int) hit.getLocation().z), 16, h - 67, GREEN);
         }
         bar(graphics, 16, h - 54, w - 32, 3, TacticalClient.fuel(), 300, GREEN);
-        hint(graphics, "鼠标 制导   " + key(Minecraft.getInstance().options.keyAttack) + "/"
-                + key(KillstreakKeyMappings.BOOST) + " 加速   " + key(KillstreakKeyMappings.ZOOM) + " 变焦   " + exit(),
+        hint(graphics,
+                I18n.get("hud.killstreakcod.cruise_controls",
+                        key(Minecraft.getInstance().options.keyAttack) + "/" + key(KillstreakKeyMappings.BOOST),
+                        key(KillstreakKeyMappings.ZOOM), key(KillstreakKeyMappings.EXIT)),
                 GREEN);
     }
 
@@ -286,32 +294,40 @@ public final class TacticalHud {
         int w = graphics.guiWidth(), h = graphics.guiHeight(), x = w / 2, y = h / 2;
         frame(graphics, CYAN, 18, 31);
         compass(graphics, CYAN, 14);
-        text(graphics, StreakReward.WHEELSON.displayName().getString() + " / GROUND LINK", 24, 37, CYAN);
+        text(graphics,
+                StreakReward.WHEELSON.displayName().getString() + " / " + I18n.get("hud.killstreakcod.ground_link"), 24,
+                37, CYAN);
         graphics.hLine(x - 24, x - 6, y, CYAN);
         graphics.hLine(x + 6, x + 24, y, CYAN);
         graphics.vLine(x, y - 19, y - 6, CYAN);
         graphics.vLine(x, y + 6, y + 19, CYAN);
         text(graphics, String.format(Locale.ROOT, "%.1f M/S", TacticalClient.state.speed()), w - 90, 58, CYAN);
-        text(graphics, "TURRET " + Math.floorMod((int) TacticalClient.yaw() + 180, 360) + "°", 24, 58, CYAN);
+        text(graphics, I18n.get("hud.killstreakcod.turret", Math.floorMod((int) TacticalClient.yaw() + 180, 360)), 24,
+                58, CYAN);
         TacticalClient.icon(graphics, "wheelson_hs", 24, h - 79, 32);
-        text(graphics, "HULL " + TacticalClient.state.health() + "%", 64, h - 69, CYAN);
+        text(graphics, I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()), 64, h - 69, CYAN);
         bar(graphics, 64, h - 56, 100, 4, TacticalClient.state.health(), 100, CYAN);
-        text(graphics, "AUTO SENTRY [" + key(KillstreakKeyMappings.AUTO) + "]", w - 140, h - 65, CYAN);
+        text(graphics, I18n.get("hud.killstreakcod.auto_sentry_key", key(KillstreakKeyMappings.AUTO)), w - 140, h - 65,
+                CYAN);
         hint(graphics,
-                key(Minecraft.getInstance().options.keyUp) + "/" + key(Minecraft.getInstance().options.keyDown)
-                        + " 行驶   " + key(Minecraft.getInstance().options.keyLeft) + "/"
-                        + key(Minecraft.getInstance().options.keyRight) + " 转向   鼠标 炮塔   "
-                        + key(Minecraft.getInstance().options.keyAttack) + " 射击   " + key(KillstreakKeyMappings.AUTO)
-                        + " 自动警戒   " + exit(),
+                I18n.get("hud.killstreakcod.wheelson_controls",
+                        key(Minecraft.getInstance().options.keyUp) + "/" + key(Minecraft.getInstance().options.keyDown),
+                        key(Minecraft.getInstance().options.keyLeft) + "/"
+                                + key(Minecraft.getInstance().options.keyRight),
+                        key(Minecraft.getInstance().options.keyAttack), key(KillstreakKeyMappings.AUTO),
+                        key(KillstreakKeyMappings.EXIT)),
                 CYAN);
     }
 
     private static void chopper(GuiGraphics graphics) {
         int w = graphics.guiWidth(), h = graphics.guiHeight(), x = w / 2, y = h / 2;
         compass(graphics, GREEN, 15);
-        text(graphics, StreakReward.CHOPPER_GUNNER.displayName().getString() + " / "
-                + (TacticalClient.state.thermal() ? "THERMAL" : "OPTICAL"), 15, 37, GREEN);
-        text(graphics, "HULL " + TacticalClient.state.health() + "%", w - 98, 37, GREEN);
+        text(graphics,
+                StreakReward.CHOPPER_GUNNER.displayName().getString() + " / "
+                        + (TacticalClient.state.thermal() ? I18n.get("hud.killstreakcod.native_action_thermal")
+                                : I18n.get("hud.killstreakcod.optical")),
+                15, 37, GREEN);
+        text(graphics, I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()), w - 98, 37, GREEN);
         graphics.hLine(x - 35, x - 9, y, GREEN);
         graphics.hLine(x + 9, x + 35, y, GREEN);
         graphics.vLine(x, y - 22, y - 7, GREEN);
@@ -325,14 +341,17 @@ public final class TacticalHud {
         }
         telemetry(graphics, GREEN, 15, 57);
         int rockets = TacticalClient.state.rockets(), flares = TacticalClient.state.flares();
-        text(graphics, "ROCKETS", 15, h - 78, GREEN);
+        text(graphics, I18n.get("hud.killstreakcod.native_action_rockets"), 15, h - 78, GREEN);
         for (int i = 0; i < 8; i++)
             graphics.fill(15 + i * 9, h - 65, 21 + i * 9, h - 57, i < rockets ? GREEN : 0xff364333);
-        text(graphics, "FLARES " + flares + " [" + key(KillstreakKeyMappings.FLARES) + "]", w - 130, h - 74, GREEN);
-        text(graphics, TacticalClient.rocketCooldown() > 0 ? "ROCKET RELOAD" : "WEAPONS READY", 15, h - 53, GREEN);
-        hint(graphics, movement() + " 移动   " + altitude() + " 升降   " + key(Minecraft.getInstance().options.keyAttack)
-                + " 机炮   " + key(Minecraft.getInstance().options.keyUse) + " 火箭   " + key(KillstreakKeyMappings.THERMAL)
-                + " 热成像   " + key(KillstreakKeyMappings.ZOOM) + " 变焦   " + exit(), GREEN);
+        text(graphics, I18n.get("hud.killstreakcod.flares_key", flares, key(KillstreakKeyMappings.FLARES)), w - 130,
+                h - 74, GREEN);
+        text(graphics, TacticalClient.rocketCooldown() > 0 ? I18n.get("hud.killstreakcod.rocket_reload")
+                : I18n.get("hud.killstreakcod.weapon_ready"), 15, h - 53, GREEN);
+        hint(graphics, I18n.get("hud.killstreakcod.chopper_controls", movement(), altitude(),
+                key(Minecraft.getInstance().options.keyAttack), key(Minecraft.getInstance().options.keyUse),
+                key(KillstreakKeyMappings.THERMAL), key(KillstreakKeyMappings.ZOOM), key(KillstreakKeyMappings.EXIT)),
+                GREEN);
     }
 
     private static void gunship(GuiGraphics graphics) {
@@ -341,8 +360,11 @@ public final class TacticalHud {
         int c = WHITE;
         frame(graphics, c, 10, 25);
         compass(graphics, c, 10);
-        text(graphics, StreakReward.GUNSHIP.displayName().getString() + " / FIRE CONTROL", 16, 31, c);
-        text(graphics, TacticalClient.state.thermal() ? "WHOT / IR" : "DAY / TV", w - 84, 31, c);
+        text(graphics,
+                StreakReward.GUNSHIP.displayName().getString() + " / " + I18n.get("hud.killstreakcod.fire_control"), 16,
+                31, c);
+        text(graphics, TacticalClient.state.thermal() ? I18n.get("hud.killstreakcod.camera_thermal")
+                : I18n.get("hud.killstreakcod.camera_optical"), w - 84, 31, c);
         if (weapon == 0) {
             graphics.hLine(x - 19, x + 19, y, c);
             graphics.vLine(x, y - 19, y + 19, c);
@@ -373,8 +395,9 @@ public final class TacticalHud {
                     reload = TacticalClient.reload(i);
             graphics.fill(15, yy - 2, 157, yy + 14, i == weapon ? 0xa83b4841 : 0x50131c18);
             text(graphics, "[" + key(keys[i]) + "] " + labels[i], 20, yy, cc);
-            text(graphics, reload > 0 ? "LOAD" : "%02d/%02d".formatted(remaining, capacities[i]), 113, yy,
-                    reload > 0 ? 0xffdfb778 : cc);
+            text(graphics,
+                    reload > 0 ? I18n.get("hud.killstreakcod.load") : "%02d/%02d".formatted(remaining, capacities[i]),
+                    113, yy, reload > 0 ? 0xffdfb778 : cc);
             bar(graphics, 20, yy + 11, 131, 2, reload > 0 ? reloadTime[i] - reload : remaining,
                     reload > 0 ? reloadTime[i] : capacities[i], reload > 0 ? 0xffdfb778 : cc);
         }
@@ -386,21 +409,23 @@ public final class TacticalHud {
         boolean limited = arc > GunshipFlight.YAW_LIMIT - 2
                 || Math.abs(TacticalClient.pitch()) > GunshipFlight.PITCH_LIMIT - 1;
         text(graphics,
-                limited ? "GIMBAL LIMIT"
-                        : "AZ ±" + (int) GunshipFlight.YAW_LIMIT + "° / EL ±" + (int) GunshipFlight.PITCH_LIMIT + "°",
+                limited ? I18n.get("hud.killstreakcod.gimbal_limit")
+                        : I18n.get("hud.killstreakcod.gimbal_limits", (int) GunshipFlight.YAW_LIMIT,
+                                (int) GunshipFlight.PITCH_LIMIT),
                 w - 156, h - 112, limited ? 0xffdfb778 : 0xff829084);
-        text(graphics, "ORBIT AUTO / ALT " + altitudeValue(), w - 156, h - 93, c);
+        text(graphics, I18n.get("hud.killstreakcod.orbit_altitude", altitudeValue()), w - 156, h - 93, c);
         int reload = TacticalClient.reload(weapon);
         text(graphics,
-                reload > 0 ? "RELOADING " + String.format(Locale.ROOT, "%.1f", reload / 20F) + "s"
-                        : TacticalClient.cooldown() > 0 ? "FIRING CYCLE" : "WEAPON READY",
+                reload > 0 ? I18n.get("hud.killstreakcod.reload_time", String.format(Locale.ROOT, "%.1f", reload / 20F))
+                        : TacticalClient.cooldown() > 0 ? I18n.get("hud.killstreakcod.firing_cycle")
+                                : I18n.get("hud.killstreakcod.weapon_ready"),
                 w - 156, h - 77, reload > 0 ? 0xffdfb778 : c);
-        text(graphics, "AMMO " + TacticalClient.state.ammo()[weapon] + " / " + capacities[weapon], w - 156, h - 64, c);
-        text(graphics, "EXIT [" + key(KillstreakKeyMappings.EXIT) + "]", w - 156, h - 51, c);
-        hint(graphics,
-                key(Minecraft.getInstance().options.keyAttack) + " 开火   " + key(KillstreakKeyMappings.CYCLE)
-                        + "/滚轮 切换武器   " + key(KillstreakKeyMappings.THERMAL) + " 热成像   "
-                        + key(KillstreakKeyMappings.ZOOM) + " 变焦",
+        text(graphics,
+                I18n.get("hud.killstreakcod.ammo_count", TacticalClient.state.ammo()[weapon], capacities[weapon]),
+                w - 156, h - 64, c);
+        text(graphics, I18n.get("hud.killstreakcod.exit_key", key(KillstreakKeyMappings.EXIT)), w - 156, h - 51, c);
+        hint(graphics, I18n.get("hud.killstreakcod.gunship_controls", key(Minecraft.getInstance().options.keyAttack),
+                key(KillstreakKeyMappings.CYCLE), key(KillstreakKeyMappings.THERMAL), key(KillstreakKeyMappings.ZOOM)),
                 c);
     }
 
@@ -487,8 +512,9 @@ public final class TacticalHud {
     }
 
     private static void telemetry(GuiGraphics graphics, int c, int x, int y) {
-        text(graphics, "ALT " + altitudeValue() + " M", x, y, c);
-        text(graphics, "VEL " + String.format(Locale.ROOT, "%.1f", TacticalClient.state.speed()), x, y + 13, c);
+        text(graphics, I18n.get("hud.killstreakcod.altitude", altitudeValue()), x, y, c);
+        text(graphics, I18n.get("hud.killstreakcod.velocity",
+                String.format(Locale.ROOT, "%.1f", TacticalClient.state.speed())), x, y + 13, c);
     }
 
     private static int altitudeValue() {
@@ -504,10 +530,6 @@ public final class TacticalHud {
     private static String altitude() {
         var o = Minecraft.getInstance().options;
         return key(o.keyJump) + "/" + key(o.keyShift);
-    }
-
-    private static String exit() {
-        return key(KillstreakKeyMappings.EXIT) + " 退出";
     }
 
     private static String key(KeyMapping key) {

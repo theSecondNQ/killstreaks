@@ -55,8 +55,10 @@
 
 ## 发布
 
-版本号修改 `build.gradle`、`src/main/resources/META-INF/neoforge.mods.toml`、`killstreakcod.mcreator` 和当前说明，当前为 `1.0.0.4321`。构建及安装工具支持四段数字版本号。网络协议位于服务端与客户端的 Payload 注册入口，仅在通信格式变化时升级。
+版本号修改 `build.gradle`、`src/main/resources/META-INF/neoforge.mods.toml`、`killstreakcod.mcreator` 和当前说明，当前为 `1.0.1.4322`。构建及安装工具支持四段数字版本号。网络协议位于服务端与客户端的 Payload 注册入口，仅在通信格式变化时升级。
 
 构建后运行通用 `tools/release.py`。它按当前资源和源码生成核对结果，不依赖历史版本脚本、旧备份或 MW2022 导出目录。
+
+语言键与字幕回退的维护约定见 [语言支持](LOCALIZATION.md)。源码同步到 `D:\Projects\killstreaks` 时排除 `resources` 目录及包含资源的生成文件，完整运行资源仍由主工程提供。
 
 今后构建日志和临时分析放入 `build/logs`、`build/reports` 或 `build/work`；历史发行文件保存在工程外。避免再次向源码目录堆积逐版本安装器、复制文档或完整源码 ZIP。

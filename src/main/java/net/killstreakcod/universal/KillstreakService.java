@@ -60,30 +60,26 @@ public final class KillstreakService {
     private static final SuggestionProvider<CommandSourceStack> SUGGESTIONS = (c, b) -> SharedSuggestionProvider
             .suggest(StreakReward.SELECTABLE.stream().map(StreakReward::id)
                     .filter(id -> StreakServerConfig.rewardEnabled(c.getSource().getServer(), id)), b);
-    private static final SuggestionProvider<CommandSourceStack> GRANT_SUGGESTIONS = (c, b) -> SharedSuggestionProvider
-            .suggest(java.util.stream.Stream.concat(StreakReward.SELECTABLE.stream().map(StreakReward::id),
-                    java.util.stream.Stream.of("mgb"))
+    private static final SuggestionProvider<CommandSourceStack> GRANT_SUGGESTIONS = (c,
+            b) -> SharedSuggestionProvider.suggest(java.util.stream.Stream
+                    .concat(StreakReward.SELECTABLE.stream().map(StreakReward::id), java.util.stream.Stream.of("mgb"))
                     .filter(id -> StreakServerConfig.rewardEnabled(c.getSource().getServer(), id)), b);
 
     @SubscribeEvent
     public void commands(RegisterCommandsEvent event) {
-        event.getDispatcher().register(Commands.literal("killstreak")
-                .executes(c -> {
-                    sendStatus(c.getSource().getPlayerOrException());
-                    return Command.SINGLE_SUCCESS;
-                })
-                .then(Commands.literal("list").executes(c -> {
-                    listRewards(c.getSource().getPlayerOrException());
-                    return 1;
-                }))
-                .then(Commands.literal("loadout").then(Commands.argument("first", StringArgumentType.word())
-                        .suggests(SUGGESTIONS)
-                        .then(Commands.argument("second", StringArgumentType.word()).suggests(SUGGESTIONS)
-                                .then(Commands.argument("third", StringArgumentType.word()).suggests(SUGGESTIONS)
-                                        .executes(c -> setLoadout(c.getSource().getPlayerOrException(),
-                                                StringArgumentType.getString(c, "first"),
-                                                StringArgumentType.getString(c, "second"),
-                                                StringArgumentType.getString(c, "third")))))))
+        event.getDispatcher().register(Commands.literal("killstreak").executes(c -> {
+            sendStatus(c.getSource().getPlayerOrException());
+            return Command.SINGLE_SUCCESS;
+        }).then(Commands.literal("list").executes(c -> {
+            listRewards(c.getSource().getPlayerOrException());
+            return 1;
+        })).then(Commands.literal("loadout").then(Commands.argument("first", StringArgumentType.word())
+                .suggests(SUGGESTIONS)
+                .then(Commands.argument("second", StringArgumentType.word()).suggests(SUGGESTIONS).then(Commands
+                        .argument("third", StringArgumentType.word()).suggests(SUGGESTIONS)
+                        .executes(c -> setLoadout(c.getSource().getPlayerOrException(),
+                                StringArgumentType.getString(c, "first"), StringArgumentType.getString(c, "second"),
+                                StringArgumentType.getString(c, "third")))))))
                 .then(Commands.literal("mode").requires(source -> source.hasPermission(2))
                         .then(Commands.literal("kills")
                                 .executes(c -> setMode(c.getSource().getPlayerOrException(), "kills")))
@@ -101,23 +97,22 @@ public final class KillstreakService {
                         .then(Commands.argument("targets", EntityArgument.players())
                                 .requires(source -> source.hasPermission(2))
                                 .executes(c -> resetAll(c.getSource(), EntityArgument.getPlayers(c, "targets")))))
-                .then(Commands.literal("give").requires(source -> source.hasPermission(2))
-                        .then(Commands.argument("reward", StringArgumentType.word()).suggests(GRANT_SUGGESTIONS)
+                .then(Commands.literal("give").requires(source -> source.hasPermission(2)).then(Commands
+                        .argument("reward", StringArgumentType.word()).suggests(GRANT_SUGGESTIONS)
+                        .executes(c -> grant(c.getSource(), List.of(c.getSource().getPlayerOrException()),
+                                StringArgumentType.getString(c, "reward"), 1))
+                        .then(Commands.argument("count", IntegerArgumentType.integer(1, 64))
                                 .executes(c -> grant(c.getSource(), List.of(c.getSource().getPlayerOrException()),
+                                        StringArgumentType.getString(c, "reward"),
+                                        IntegerArgumentType.getInteger(c, "count")))))
+                        .then(Commands.argument("targets", EntityArgument.players()).then(Commands
+                                .argument("reward", StringArgumentType.word()).suggests(GRANT_SUGGESTIONS)
+                                .executes(c -> grant(c.getSource(), EntityArgument.getPlayers(c, "targets"),
                                         StringArgumentType.getString(c, "reward"), 1))
-                                .then(Commands.argument("count", IntegerArgumentType.integer(1, 64)).executes(
-                                        c -> grant(c.getSource(), List.of(c.getSource().getPlayerOrException()),
-                                                StringArgumentType.getString(c, "reward"),
-                                                IntegerArgumentType.getInteger(c, "count")))))
-                        .then(Commands.argument("targets", EntityArgument.players())
-                                .then(Commands.argument("reward", StringArgumentType.word()).suggests(GRANT_SUGGESTIONS)
+                                .then(Commands.argument("count", IntegerArgumentType.integer(1, 64))
                                         .executes(c -> grant(c.getSource(), EntityArgument.getPlayers(c, "targets"),
-                                                StringArgumentType.getString(c, "reward"), 1))
-                                        .then(Commands.argument("count", IntegerArgumentType.integer(1, 64))
-                                                .executes(c -> grant(c.getSource(),
-                                                        EntityArgument.getPlayers(c, "targets"),
-                                                        StringArgumentType.getString(c, "reward"),
-                                                        IntegerArgumentType.getInteger(c, "count"))))))));
+                                                StringArgumentType.getString(c, "reward"),
+                                                IntegerArgumentType.getInteger(c, "count"))))))));
     }
 
     @SubscribeEvent
@@ -313,8 +308,8 @@ public final class KillstreakService {
             return;
         for (ServerPlayer player : server.getPlayerList().getPlayers()) {
             sendTerminalState(player, false);
-            player.sendSystemMessage(Component.translatable("message.killstreakcod.mode_set", Component
-                    .translatable(StreakServerConfig.scorestreaks(server) ? "mode.killstreakcod.score"
+            player.sendSystemMessage(Component.translatable("message.killstreakcod.mode_set",
+                    Component.translatable(StreakServerConfig.scorestreaks(server) ? "mode.killstreakcod.score"
                             : "mode.killstreakcod.kills")));
         }
     }
@@ -533,9 +528,9 @@ public final class KillstreakService {
         for (int i = 0; i < state.slots().size(); i++) {
             RewardLedger.Slot slot = state.slots().get(i);
             StreakReward reward = slot.reward();
-            player.sendSystemMessage(Component.literal((i + 1) + " / " + reward.displayName().getString() + " x"
-                    + slot.count() + " / " + slot.progress() + "/"
-                    + (state.scoreMode() ? reward.score() : reward.kills())));
+            player.sendSystemMessage(
+                    Component.translatable("message.killstreakcod.slot_status", i + 1, reward.displayName(),
+                            slot.count(), slot.progress(), state.scoreMode() ? reward.score() : reward.kills()));
         }
         player.sendSystemMessage(Component.translatable("message.killstreakcod.help"));
     }

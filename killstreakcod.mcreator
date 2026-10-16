@@ -5,7 +5,18 @@
   "tag_elements": {},
   "tab_element_order": {},
   "language_map": {
-    "en_us": {}
+    "en_us": {},
+    "zh_cn": {},
+    "zh_tw": {},
+    "ja_jp": {},
+    "ko_kr": {},
+    "de_de": {},
+    "fr_fr": {},
+    "es_es": {},
+    "ru_ru": {},
+    "pt_br": {},
+    "zh_hk": {},
+    "lzh": {}
   },
   "metadata": {
     "files": [
@@ -21,7 +32,7 @@
   "workspaceSettings": {
     "modid": "killstreakcod",
     "modName": "Killstreak",
-    "version": "1.0.0.4321",
+    "version": "1.0.1.4322",
     "author": "NQ_Snvw",
     "license": "Not specified",
     "serverSideOnly": false,

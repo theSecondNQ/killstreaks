@@ -18,16 +18,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 /**
- * Original simplified Chinese localize text selected by the actual played English sound asset.
- * 中文：根据实际播放的英文音频资源，选择原游戏的简体中文字幕。
+ * Localized original captions selected by the actual played English sound asset.
+ * 中文：根据实际播放的英文音频资源，选择当前语言对应的原游戏字幕。
  */
 public final class NativeRadioSubtitles {
-    private record Caption(String text, String speaker) {
+    private record Caption(Component text, Component speaker) {
     }
 
     private static final Map<String, Set<String>> ROUTES = new HashMap<>();
     private static final Map<String, Caption> CLIPS = new HashMap<>();
-    private static String message, speaker;
+    private static Component message, speaker;
     private static long ends;
     private static boolean loaded;
 
@@ -50,11 +50,19 @@ public final class NativeRadioSubtitles {
             }
             for (var entry : root.getAsJsonObject("clips").entrySet()) {
                 var row = entry.getValue().getAsJsonObject();
-                if (row.get("scope").getAsString().equals("mp_dialogue_script_route"))
+                if (row.get("scope").getAsString().equals("mp_dialogue_script_route")) {
+                    String label = row.has("displaySpeaker") ? row.get("displaySpeaker").getAsString()
+                            : row.get("speaker").getAsString();
+                    // One source speaker ID can represent different operators; use the actual display label.
+                    // 中文：同一原始人物 ID 可能用于多种操作员，按实际显示名称区分翻译键。
                     CLIPS.put(entry.getKey(),
-                            new Caption(row.get("text").getAsString(),
-                                    row.has("displaySpeaker") ? row.get("displaySpeaker").getAsString()
-                                            : row.get("speaker").getAsString()));
+                            new Caption(
+                                    Component.translatableWithFallback(
+                                            "radio.killstreakcod.line." + row.get("subtitleLocalizeId").getAsString(),
+                                            row.get("text").getAsString()),
+                                    Component.translatableWithFallback("radio.killstreakcod.speaker."
+                                            + Integer.toUnsignedString(label.hashCode(), 16), label)));
+                }
             }
         }
         catch (Exception failure) {
@@ -86,9 +94,9 @@ public final class NativeRadioSubtitles {
         if (message == null || mc.level == null || mc.options.hideGui || !NativePresentationConfig.SUBTITLES.get()
                 || mc.level.getGameTime() > ends + 4)
             return;
-        var caption = Component.literal(speaker).withStyle(ChatFormatting.AQUA)
+        var caption = speaker.copy().withStyle(ChatFormatting.AQUA)
                 .append(Component.literal(": ").withStyle(ChatFormatting.AQUA))
-                .append(Component.literal(message).withStyle(ChatFormatting.WHITE));
+                .append(message.copy().withStyle(ChatFormatting.WHITE));
         int maxWidth = Math.max(80,
                 RemoteHudLayout.active()
                         ? Math.min((int) (graphics.guiWidth() * .66),

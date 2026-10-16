@@ -139,8 +139,8 @@ public final class KillstreakTerminalScreen extends Screen {
                 Component.translatable("screen.killstreakcod.skins_title"), mouseX, mouseY, saving ? MUTED : GREEN);
         graphics.drawString(font, Component.translatable("screen.killstreakcod.progress", kills, score), panelX + 18,
                 panelY + 49, WHITE, false);
-        graphics.drawString(font, Component.translatable("screen.killstreakcod.instructions"), panelX + 18, panelY + 67,
-                MUTED, false);
+        graphics.drawWordWrap(font, Component.translatable("screen.killstreakcod.instructions"), panelX + 18,
+                panelY + 67, panelWidth - 36, MUTED);
         graphics.drawString(font, Component.translatable("screen.killstreakcod.loadout_header"), slotX, panelY + 91,
                 GREEN, false);
         graphics.drawString(font, Component.translatable("screen.killstreakcod.available_header"), rewardsX,
@@ -155,8 +155,7 @@ public final class KillstreakTerminalScreen extends Screen {
                 slotX, modeY + 6, GREEN, false);
         if (modeY + 38 <= footerY)
             graphics.drawWordWrap(font, Component.translatable("screen.killstreakcod.world_mode_help"), slotX,
-                    modeY + 29, slotWidth,
-                    mayEdit() ? MUTED : AMBER);
+                    modeY + 29, slotWidth, mayEdit() ? MUTED : AMBER);
         graphics.drawString(font, Component.translatable("screen.killstreakcod.faction_header"), slotX, modeY + 65,
                 GREEN, false);
         String[] factions = { VoiceFaction.KORTAC, VoiceFaction.SPECGRU };
@@ -166,8 +165,8 @@ public final class KillstreakTerminalScreen extends Screen {
                     faction.equals(factions[i]) ? GREEN : MUTED);
         graphics.drawWordWrap(font, Component.translatable("screen.killstreakcod.faction_help"), slotX, modeY + 110,
                 slotWidth, MUTED);
-        drawActionButton(graphics, panelX + panelWidth - 150, footerY, 76, 22,
-                Component.translatable("gui.cancel"), mouseX, mouseY, MUTED);
+        drawActionButton(graphics, panelX + panelWidth - 150, footerY, 76, 22, Component.translatable("gui.cancel"),
+                mouseX, mouseY, MUTED);
         drawActionButton(graphics, panelX + panelWidth - 66, footerY, 50, 22,
                 Component.translatable("screen.killstreakcod.save"), mouseX, mouseY, saving ? MUTED : GREEN);
         graphics.drawString(font, status, panelX + 16, footerY + 7, saving ? AMBER : GREEN, false);
@@ -200,10 +199,8 @@ public final class KillstreakTerminalScreen extends Screen {
                 ? Component.translatable("screen.killstreakcod.reward_disabled")
                 : Component.translatable("screen.killstreakcod.slot_cycle", advance,
                         scoreMode ? reward.score() : reward.kills());
-        graphics.drawString(font,
-                trim(cycle.getString(), slotWidth - 54),
-                slotX + 8, y + 33,
-                ready ? GREEN : MUTED, false);
+        graphics.drawString(font, trim(cycle.getString(), slotWidth - 54), slotX + 8, y + 33, ready ? GREEN : MUTED,
+                false);
         if (ready)
             graphics.fill(slotX + slotWidth - 8, y + 5, slotX + slotWidth - 4, y + 9, GREEN);
     }
@@ -227,11 +224,10 @@ public final class KillstreakTerminalScreen extends Screen {
             int textWidth = Math.max(36, rewardWidth - 42);
             graphics.drawString(font, trim(reward.displayName().getString(), textWidth), x + 37, y + 4,
                     disabled ? MUTED : WHITE, false);
-            graphics.drawString(font,
-                    disabled ? Component.translatable("screen.killstreakcod.reward_disabled")
-                            : Component.translatable("screen.killstreakcod.threshold", reward.kills(), reward.score()),
-                    x + 37,
-                    y + rewardHeight - 11, MUTED, false);
+            Component threshold = disabled ? Component.translatable("screen.killstreakcod.reward_disabled")
+                    : Component.translatable("screen.killstreakcod.threshold", reward.kills(), reward.score());
+            graphics.drawString(font, trim(threshold.getString(), textWidth), x + 37, y + rewardHeight - 11, MUTED,
+                    false);
         }
     }
 
@@ -240,7 +236,12 @@ public final class KillstreakTerminalScreen extends Screen {
         boolean hovered = inside(mouseX, mouseY, x, y, width, height);
         graphics.fill(x, y, x + width, y + height, hovered ? accent : EDGE);
         graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, hovered ? 0xFF26302B : 0xFF12191A);
-        graphics.drawCenteredString(font, label, x + width / 2, y + (height - 8) / 2, hovered ? WHITE : accent);
+        float scale = Math.min(1, (width - 8F) / Math.max(1, font.width(label)));
+        graphics.pose().pushPose();
+        graphics.pose().translate(x + width / 2F, y + (height - font.lineHeight * scale) / 2F, 0);
+        graphics.pose().scale(scale, scale, 1);
+        graphics.drawCenteredString(font, label, 0, 0, hovered ? WHITE : accent);
+        graphics.pose().popPose();
     }
 
     @Override

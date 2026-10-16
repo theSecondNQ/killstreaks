@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import hashlib
 import json
 from pathlib import Path
@@ -65,6 +66,82 @@ def artifact(path):
     return {'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size}
 
 
+def localization_inventory():
+    """Check language coverage and arguments. 中文：核对语言覆盖、字幕路由及格式参数。"""
+    languages = {}
+    for path in sorted((RESOURCES / f'assets/{MOD_ID}/lang').glob('*.json')):
+        def unique(pairs):
+            result = {}
+            for key, value in pairs:
+                require(key not in result, f'Duplicate language key: {path.name}: {key}')
+                result[key] = value
+            return result
+        languages[path.stem] = json.loads(path.read_text(encoding='utf-8-sig'), object_pairs_hook=unique)
+    full_locales = ('en_us', 'zh_cn', 'zh_tw', 'zh_hk', 'lzh')
+    require(set(full_locales) <= languages.keys(), 'English, Chinese variants and Literary Chinese are required.')
+    english = languages['en_us']
+    ui_keys = {key for key in english if not key.startswith('radio.killstreakcod.')}
+    mixed_traditional = re.compile(
+        r'并|稍后|之后|后退|關系|重復|剩余|其余|游戲|默認|服務器|文件夾|鼠標|'
+        r'這里|那里|哪里|里面|干得|干掉|沖擊')
+
+    def arguments(value):
+        positions, implicit = [], 0
+        for match in re.finditer(r'%(?:(\d+)\$)?s|%%', value):
+            if match.group(0) == '%%':
+                positions.append('percent')
+            else:
+                if not match.group(1):
+                    implicit += 1
+                positions.append(match.group(1) or str(implicit))
+        return Counter(positions)
+
+    for code, entries in languages.items():
+        require(ui_keys <= entries.keys(), 'Incomplete UI language: ' + code)
+        require(entries.keys() <= english.keys(), 'Unknown language keys: ' + code)
+        if code in full_locales:
+            require(entries.keys() == english.keys(), 'Incomplete UI or radio translation: ' + code)
+        if code in ('zh_tw', 'zh_hk'):
+            for key, value in entries.items():
+                require(mixed_traditional.search(value) is None,
+                        f'Mixed or unconverted Traditional Chinese: {code}: {key}')
+        require(entries['mod.killstreakcod.name'] == 'Killstreak', 'Mod display name differs: ' + code)
+        for key, value in entries.items():
+            require(isinstance(value, str) and value.strip() and '\ufffd' not in value,
+                    f'Invalid localized text: {code}: {key}')
+            require(arguments(value) == arguments(english[key]), f'Format arguments differ: {code}: {key}')
+        require(entries['screen.killstreakcod.phone.confirm'].count('\n') == 1,
+                'Phone confirmation must retain two lines: ' + code)
+    for path in (ROOT / 'src/main/java').rglob('*.java'):
+        source = path.read_text(encoding='utf-8-sig')
+        for key in re.findall(r'(?:translatable(?:WithFallback)?|I18n\.get|\.translation)\("([^"]+)"', source):
+            if MOD_ID in key and not key.endswith(('.', '_')):
+                require(key in english, 'Missing translation used by source: ' + key)
+    captions = read(RESOURCES / f'assets/{MOD_ID}/mw/radio-captions.json')
+    count = 0
+    for row in captions['clips'].values():
+        if row.get('scope') != 'mp_dialogue_script_route':
+            continue
+        label = row.get('displaySpeaker', row['speaker'])
+        encoded = label.encode('utf-16-be')
+        label_hash = 0
+        for index in range(0, len(encoded), 2):
+            label_hash = (31 * label_hash + int.from_bytes(encoded[index:index + 2], 'big')) & 0xffffffff
+        keys = ['radio.killstreakcod.line.' + row['subtitleLocalizeId'],
+                'radio.killstreakcod.speaker.' + format(label_hash, 'x')]
+        for code in full_locales:
+            require(all(key in languages[code] for key in keys), 'Untranslated radio caption: ' + code)
+        require(languages['zh_cn'][keys[0]] == row['text'], 'Original Chinese radio text changed.')
+        require(languages['zh_cn'][keys[1]] == label, 'Original Chinese radio speaker changed.')
+        count += 1
+    require(languages['zh_cn']['itemGroup.killstreakcod'] == '连杀奖励', 'Chinese creative tab name changed.')
+    workspace_languages = read(ROOT / 'killstreakcod.mcreator')['language_map']
+    require(languages.keys() <= workspace_languages.keys(), 'MCreator language map is incomplete.')
+    return {'uiKeys': len(ui_keys), 'locales': {code: len(entries) for code, entries in languages.items()},
+            'radioClips': count, 'radioLocales': list(full_locales), 'fullTranslationLocales': list(full_locales),
+            'radioFallbackLocale': 'en_us', 'placeholdersMatch': True}
+
+
 def inventory(baseline=None):
     require(JAR.is_file(), 'Build the production JAR first.')
     resources = {p.relative_to(RESOURCES).as_posix(): p for p in RESOURCES.rglob('*') if p.is_file()}
@@ -82,6 +159,7 @@ def inventory(baseline=None):
     metadata = tomllib.loads((RESOURCES / 'META-INF/neoforge.mods.toml').read_text(encoding='utf-8-sig'))
     mod = next(m for m in metadata['mods'] if m['modId'] == MOD_ID)
     require(mod['version'] == VERSION, 'Metadata and build versions differ.')
+    localization = localization_inventory()
     sounds = read(RESOURCES / f'assets/{MOD_ID}/sounds.json')
     sound_files = 0
     for event, entry in sounds.items():
@@ -142,7 +220,7 @@ def inventory(baseline=None):
     report = {'version': VERSION, 'jar': artifact(JAR), 'issues': [], 'buildLogConfirmsSuccess': build_confirmed,
               'productionJavaFiles': len(java), 'compiledClasses': len(classes), 'resourceFiles': len(resources),
               'importedModels': len(list(RESOURCES.rglob('*.mesh.gz'))), 'soundFileReferences': sound_files,
-              'baseline': comparison, 'testsRun': False, 'minecraftLaunched': False}
+              'baseline': comparison, 'localization': localization, 'testsRun': False, 'minecraftLaunched': False}
     save('package-inventory.json', report)
     print(json.dumps(report, ensure_ascii=True, indent=2))
 

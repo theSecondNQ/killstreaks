@@ -1,4 +1,7 @@
-param([Parameter(Mandatory=$true)][string]$InstanceRoot)
+param(
+    [Parameter(Mandatory=$true)][string]$InstanceRoot,
+    [switch]$ReplaceSameVersion
+)
 $ErrorActionPreference = 'Stop'
 $taskWorkspace = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $taskInstance = (Resolve-Path -LiteralPath $InstanceRoot).Path.TrimEnd('\')
@@ -23,7 +26,11 @@ if (Test-Path -LiteralPath $taskNew) {
         Write-Output ('Matching '+$taskInventory.version+' is already installed.')
         exit 0
     }
-    throw 'The new filename already exists with different bytes.'
+    # Same-version resource corrections still keep the full backup and rollback path.
+    # 中文：同版本資源修訂仍完整備份舊包，並沿用失敗還原流程。
+    if (-not $ReplaceSameVersion -or $taskInstalled.Count -ne 1 -or $taskInstalled[0].FullName -ne $taskNew) {
+        throw 'The new filename already exists with different bytes. Use -ReplaceSameVersion for an intentional resource correction.'
+    }
 }
 if (Test-Path -LiteralPath $taskBackup) { throw 'Backup directory already exists.' }
 $taskOtherMods = @(Get-ChildItem -LiteralPath $taskMods -File -Filter '*.jar' | Where-Object { $_.Name -notlike 'killstreakcod-*.jar' } | ForEach-Object {

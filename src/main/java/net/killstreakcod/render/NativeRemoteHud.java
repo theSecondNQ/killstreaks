@@ -16,6 +16,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.math.Axis;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -203,13 +204,15 @@ public final class NativeRemoteHud {
                     w / 2 - 48, h - 79, RED);
         }
         text(graphics, StreakReward.BOMB_DRONE.displayName().getString(), 16, 30, WHITE);
-        text(graphics, TacticalClient.state.thermal() ? "IR / WHOT" : "EO / TV", w - 85, 30, WHITE);
-        text(graphics, "ALT " + altitude() + " M", 16, 49, WHITE);
-        text(graphics, "VEL " + speed() + " M/S", 16, 62, WHITE);
-        text(graphics, "HULL " + TacticalClient.state.health() + "%", w - 85, 49, WHITE);
-        text(graphics, "BAT " + TacticalClient.fuel() / 20 + "s", w - 85, 62, warning ? RED : WHITE);
+        text(graphics, TacticalClient.state.thermal() ? I18n.get("hud.killstreakcod.camera_thermal")
+                : I18n.get("hud.killstreakcod.camera_optical"), w - 85, 30, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.altitude", altitude()), 16, 49, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.velocity", speed()), 16, 62, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()), w - 85, 49, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.battery", TacticalClient.fuel() / 20), w - 85, 62,
+                warning ? RED : WHITE);
         OriginalRewardUi.icon(graphics, "bomb_drone", 29, h - 66, 25, WHITE, 1);
-        text(graphics, "C4 ARMED", 49, h - 70, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.c4_armed"), 49, h - 70, WHITE);
         var o = mc.options;
         Component hint = Component.translatable("hud.killstreakcod.native_drone_controls", key(o.keyAttack), movement(),
                 key(o.keyJump), key(o.keyShift), key(KillstreakKeyMappings.THERMAL), key(KillstreakKeyMappings.ZOOM),
@@ -230,16 +233,18 @@ public final class NativeRemoteHud {
         var o = Minecraft.getInstance().options;
         int w = graphics.guiWidth(), h = graphics.guiHeight();
         full(graphics, "ui_tanto_logo", 12, 10, 55, 12, WHITE, .9F);
-        text(graphics, StreakReward.CRUISE_MISSILE.displayName().getString() + " / GUIDANCE", 12, 28, WHITE);
-        text(graphics, "T-" + TacticalClient.fuel() / 20 + "s", w - 68, 12, WHITE);
+        text(graphics,
+                StreakReward.CRUISE_MISSILE.displayName().getString() + " / " + I18n.get("hud.killstreakcod.guidance"),
+                12, 28, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.time_left", TacticalClient.fuel() / 20), w - 68, 12, WHITE);
         float side = Math.min(h * .52F, w * .43F);
         centred(graphics, "overlay_cruise_reticle", side, WHITE, 1);
         centred(graphics, "overlay_cruise_cross", side * .24F, WHITE, .9F);
         if (TacticalClient.state.speed() > 32)
             centred(graphics, "hud_reticle_radial_glow", side * .25F, WHITE, .32F * effects());
-        text(graphics, "ALT " + altitude() + " M", 12, 49, WHITE);
-        text(graphics, "VEL " + speed() + " M/S", 12, 62, WHITE);
-        text(graphics, "PITCH " + (int) TacticalClient.pitch() + "°", w - 95, 49, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.altitude", altitude()), 12, 49, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.velocity", speed()), 12, 62, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.pitch", (int) TacticalClient.pitch()), w - 95, 49, WHITE);
         Entity camera = Minecraft.getInstance().getCameraEntity();
         if (camera != null) {
             Vec3 from = camera.getEyePosition(),
@@ -247,7 +252,8 @@ public final class NativeRemoteHud {
             var hit = Minecraft.getInstance().level.clip(new net.minecraft.world.level.ClipContext(from, to,
                     net.minecraft.world.level.ClipContext.Block.COLLIDER,
                     net.minecraft.world.level.ClipContext.Fluid.ANY, camera));
-            text(graphics, "RNG " + (int) from.distanceTo(hit.getLocation()) + " M", w - 95, 62, WHITE);
+            text(graphics, I18n.get("hud.killstreakcod.range", (int) from.distanceTo(hit.getLocation())), w - 95, 62,
+                    WHITE);
         }
         footer(graphics, new Button[] { button(KillstreakKeyMappings.BOOST, "boost"), button(o.keyAttack, "detonate"),
                 button(KillstreakKeyMappings.EXIT, "exit") });
@@ -258,12 +264,15 @@ public final class NativeRemoteHud {
         var mc = Minecraft.getInstance();
         var o = mc.options;
         int w = graphics.guiWidth(), h = graphics.guiHeight();
-        text(graphics, StreakReward.WHEELSON.displayName().getString() + " / RWS", 12, 12, WHITE);
-        text(graphics, TacticalClient.state.thermal() ? "IR / WHOT" : "EO / TV", w - 88, 12, WHITE);
+        text(graphics,
+                StreakReward.WHEELSON.displayName().getString() + " / " + I18n.get("hud.killstreakcod.ground_link"), 12,
+                12, WHITE);
+        text(graphics, TacticalClient.state.thermal() ? I18n.get("hud.killstreakcod.camera_thermal")
+                : I18n.get("hud.killstreakcod.camera_optical"), w - 88, 12, WHITE);
         centred(graphics, "mp_wheelson_reticle_new", Math.min(h * .48F, w * .43F), WHITE, 1);
         glow(graphics);
-        text(graphics, "VEL " + speed() + " M/S", 12, 29, WHITE);
-        text(graphics, "AZ " + heading() + "°", 12, 42, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.velocity", speed()), 12, 29, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.heading", heading()), 12, 42, WHITE);
         int fy = footerTop(graphics, 8);
         float side = Math.min(68, h * .24F), x = 12, y = fy - side - 25;
         full(graphics, "overlay_wheelson_diagram_body", x, y, side, side, WHITE, .85F);
@@ -271,12 +280,13 @@ public final class NativeRemoteHud {
         float chassis = camera instanceof TacticalUnitEntity u ? u.getYRot() : TacticalClient.yaw();
         rotated(graphics, "overlay_wheelson_diagram_turret", x + side / 2, y + side / 2, side,
                 Mth.wrapDegrees(TacticalClient.yaw() - chassis), WHITE, 1);
-        text(graphics, "HULL " + TacticalClient.state.health() + "%", (int) (x + side + 4), (int) (y + 12),
-                healthTint());
+        text(graphics, I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()), (int) (x + side + 4),
+                (int) (y + 12), healthTint());
         full(graphics, "mp_wheelson_icon_battery", x + side + 3, y + 29, 10, 10, WHITE, 1);
-        text(graphics, TacticalClient.fuel() / 20 + "s", (int) (x + side + 18), (int) (y + 30), WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.duration", TacticalClient.fuel() / 20), (int) (x + side + 18),
+                (int) (y + 30), WHITE);
         full(graphics, "mp_wheelson_icon_infinite", w - 46, fy - 39, 24, 24, WHITE, .9F);
-        text(graphics, "AMMO", w - 52, fy - 16, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.ammo"), w - 52, fy - 16, WHITE);
         int sy = fy - 7;
         graphics.hLine(12, 100, sy, WHITE);
         float speedFraction = Mth.clamp(TacticalClient.state.speed() / 5.6F, 0, 1);
@@ -297,25 +307,30 @@ public final class NativeRemoteHud {
         int w = graphics.guiWidth();
         full(graphics, "ui_tanto_logo", 12, 10, 55, 12, WHITE, .9F);
         text(graphics, StreakReward.CHOPPER_GUNNER.displayName().getString(), 12, 28, WHITE);
-        text(graphics, TacticalClient.state.thermal() ? "WHOT / IR" : "DAY / TV", w - 92, 12, WHITE);
+        text(graphics, TacticalClient.state.thermal() ? I18n.get("hud.killstreakcod.camera_thermal")
+                : I18n.get("hud.killstreakcod.camera_optical"), w - 92, 12, WHITE);
         centred(graphics, "overlay_gunship_25mm_reticle", reticleSize(graphics), WHITE, 1);
         glow(graphics);
         zoom(graphics);
         fuel(graphics);
-        text(graphics, "ALT " + altitude() + " M", 12, 47, WHITE);
-        text(graphics, "VEL " + speed() + " M/S", 12, 60, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.altitude", altitude()), 12, 47, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.velocity", speed()), 12, 60, WHITE);
         int fy = footerTop(graphics, 8);
         diagram(graphics, "choppergunner", w - 102, fy - 104, 58);
-        text(graphics, "HULL " + TacticalClient.state.health() + "%", w - 106, fy - 36, healthTint());
+        text(graphics, I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()), w - 106, fy - 36,
+                healthTint());
         full(graphics, "apache_icon_infinite", 17, fy - 70, 23, 15, WHITE, 1);
         text(graphics, "30 MM", 45, fy - 66, WHITE);
         full(graphics, "overlay_gunship_selectionbox", 12, fy - 45, 142, 18, WHITE, .8F);
-        text(graphics, "ROCKETS " + TacticalClient.state.rockets() + " / 8", 18, fy - 40,
+        text(graphics, I18n.get("hud.killstreakcod.rockets_count", TacticalClient.state.rockets()), 18, fy - 40,
                 TacticalClient.rocketCooldown() > 0 ? AMBER : WHITE);
-        text(graphics, TacticalClient.rocketCooldown() > 0 ? "RELOAD " + seconds(TacticalClient.rocketCooldown())
-                : "FLARES " + TacticalClient.state.flares(), 18, fy - 22, WHITE);
+        text(graphics,
+                TacticalClient.rocketCooldown() > 0
+                        ? I18n.get("hud.killstreakcod.reload_time", seconds(TacticalClient.rocketCooldown()))
+                        : I18n.get("hud.killstreakcod.flares_count", TacticalClient.state.flares()),
+                18, fy - 22, WHITE);
         full(graphics, "overlay_gunship_satellite_icon", w - 130, 31, 22, 11, WHITE, .8F);
-        text(graphics, "LINK", w - 105, 33, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.link"), w - 105, 33, WHITE);
         footer(graphics,
                 new Button[] { button(o.keyUp, "move"), button(o.keyJump, "up"), button(o.keyShift, "down"),
                         button(o.keyAttack, "cannon"), button(o.keyUse, "rockets"),
@@ -337,8 +352,11 @@ public final class NativeRemoteHud {
         } finally {
             graphics.pose().popPose();
         }
-        text(graphics, StreakReward.GUNSHIP.displayName().getString() + " / FIRE CONTROL", 12, 12, WHITE);
-        text(graphics, TacticalClient.state.thermal() ? "WHOT / IR" : "DAY / TV", w - 92, 12, WHITE);
+        text(graphics,
+                StreakReward.GUNSHIP.displayName().getString() + " / " + I18n.get("hud.killstreakcod.fire_control"), 12,
+                12, WHITE);
+        text(graphics, TacticalClient.state.thermal() ? I18n.get("hud.killstreakcod.camera_thermal")
+                : I18n.get("hud.killstreakcod.camera_optical"), w - 92, 12, WHITE);
         String[] reticles = { "overlay_gunship_25mm_reticle", "overlay_gunship_40mm_reticle",
                 "overlay_gunship_105mm_reticle" };
         boolean loading = TacticalClient.reload(weapon) > 0;
@@ -358,19 +376,20 @@ public final class NativeRemoteHud {
                 full(graphics, "overlay_gunship_selectionbox", 10, yy - 3, 154, 19, WHITE, 1);
             text(graphics, "[" + key(keys[i]) + "] " + labels[i], 16, yy, cc);
             text(graphics,
-                    reload > 0 ? "LOAD"
+                    reload > 0 ? I18n.get("hud.killstreakcod.load")
                             : String.format(Locale.ROOT, "%02d/%02d", TacticalClient.state.ammo()[i], capacities[i]),
                     103, yy, reload > 0 ? AMBER : cc);
         }
         full(graphics, "apache_icon_infinite", 12, fy - 89, 20, 15, WHITE, .8F);
-        text(graphics, "RESERVE", 37, fy - 84, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.reserve"), 37, fy - 84, WHITE);
         diagram(graphics, "gunship", w - 127, fy - 116, 65);
-        text(graphics, "HULL " + TacticalClient.state.health() + "%", w - 128, fy - 43, healthTint());
+        text(graphics, I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()), w - 128, fy - 43,
+                healthTint());
         full(graphics, "overlay_gunship_minicompass_ring", w - 70, 43, 36, 36, WHITE, .8F);
         rotated(graphics, "overlay_gunship_minicompass_needle", w - 52, 61, 36, -heading(), WHITE, 1);
         text(graphics, heading() + "°", w - 66, 84, WHITE);
         full(graphics, "overlay_gunship_satellite_icon", 12, 30, 22, 11, WHITE, .8F);
-        text(graphics, "LINK / ALT " + altitude() + " M", 39, 32, WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.link_altitude", altitude()), 39, 32, WHITE);
         Entity camera = Minecraft.getInstance().getCameraEntity();
         float arc = camera instanceof TacticalUnitEntity unit
                 ? Math.abs(
@@ -379,11 +398,12 @@ public final class NativeRemoteHud {
         boolean limited = arc > GunshipFlight.YAW_LIMIT - 2
                 || Math.abs(TacticalClient.pitch()) > GunshipFlight.PITCH_LIMIT - 1;
         text(graphics,
-                limited ? "GIMBAL LIMIT"
-                        : "AZ ±" + (int) GunshipFlight.YAW_LIMIT + "° / EL ±" + (int) GunshipFlight.PITCH_LIMIT + "°",
+                limited ? I18n.get("hud.killstreakcod.gimbal_limit")
+                        : I18n.get("hud.killstreakcod.gimbal_limits", (int) GunshipFlight.YAW_LIMIT,
+                                (int) GunshipFlight.PITCH_LIMIT),
                 w - 128, fy - 28, limited ? AMBER : WHITE);
-        text(graphics, loading ? "RELOAD " + seconds(TacticalClient.reload(weapon)) : "ORBIT AUTO", w - 128, fy - 13,
-                loading ? AMBER : WHITE);
+        text(graphics, loading ? I18n.get("hud.killstreakcod.reload_time", seconds(TacticalClient.reload(weapon)))
+                : I18n.get("hud.killstreakcod.orbit_auto"), w - 128, fy - 13, loading ? AMBER : WHITE);
         footer(graphics,
                 new Button[] { button(o.keyAttack, "fire"), button(KillstreakKeyMappings.CYCLE, "weapon"),
                         button(KillstreakKeyMappings.THERMAL, "thermal"), button(KillstreakKeyMappings.ZOOM, "zoom"),
@@ -417,7 +437,8 @@ public final class NativeRemoteHud {
         graphics.fill(w - 17, 52, w - 14, 52 + (int) height, 0x70212623);
         graphics.fill(w - 17, 52 + (int) (height * (1 - value)), w - 14, 52 + (int) height, value < .2 ? RED : WHITE);
         full(graphics, "overlay_gunship_fuelbar_frame", w - 20, 49, 9, height + 6, WHITE, .9F);
-        text(graphics, TacticalClient.fuel() / 20 + "s", w - 36, 39, value < .2 ? RED : WHITE);
+        text(graphics, I18n.get("hud.killstreakcod.duration", TacticalClient.fuel() / 20), w - 36, 39,
+                value < .2 ? RED : WHITE);
     }
 
     private static void zoom(GuiGraphics graphics) {
@@ -496,7 +517,7 @@ public final class NativeRemoteHud {
     }
 
     private static String seconds(int ticks) {
-        return String.format(Locale.ROOT, "%.1fs", ticks / 20F);
+        return String.format(Locale.ROOT, "%.1f", ticks / 20F);
     }
 
     private static float partial() {

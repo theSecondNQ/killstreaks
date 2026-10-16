@@ -1,6 +1,7 @@
 package net.killstreakcod.render;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.util.Mth;
 
@@ -59,13 +60,13 @@ public final class NativeCruiseHud {
             else if (name.equals("TimeLeft"))
                 text(graphics, rect, "T-" + TacticalClient.fuel() / 20, layer.alpha());
             else if (name.equals("FluffLocked"))
-                text(graphics, rect, "LOCKED", layer.alpha());
+                text(graphics, rect, I18n.get("hud.killstreakcod.cruise_locked"), layer.alpha());
             else if (name.equals("FluffArm"))
-                text(graphics, rect, "ARM", layer.alpha());
+                text(graphics, rect, I18n.get("hud.killstreakcod.cruise_armed"), layer.alpha());
             else if (name.equals("FluffAuto"))
-                text(graphics, rect, "AUTO", layer.alpha());
+                text(graphics, rect, I18n.get("hud.killstreakcod.cruise_auto"), layer.alpha());
             else if (name.equals("FluffRDY"))
-                text(graphics, rect, "RDY", layer.alpha());
+                text(graphics, rect, I18n.get("hud.killstreakcod.cruise_ready"), layer.alpha());
         }
         return true;
     }
@@ -78,8 +79,10 @@ public final class NativeCruiseHud {
     }
 
     private static void text(GuiGraphics graphics, NativeSceneUi.Rect r, String value, float alpha) {
-        graphics.drawString(Minecraft.getInstance().font, value, Math.round(r.x()),
-                Math.round(r.y() + Math.max(0, r.h() - 9) / 2), Math.round(alpha * 255) << 24 | 0xb8d39d, false);
+        var font = Minecraft.getInstance().font;
+        value = font.plainSubstrByWidth(value, Math.max(1, Math.round(r.w())));
+        graphics.drawString(font, value, Math.round(r.x()), Math.round(r.y() + Math.max(0, r.h() - 9) / 2),
+                Math.round(alpha * 255) << 24 | 0xb8d39d, false);
     }
 
     static void reset() {
