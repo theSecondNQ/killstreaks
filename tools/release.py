@@ -5,10 +5,12 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+import gzip
 import hashlib
 import json
 from pathlib import Path
 import re
+import struct
 import sys
 import tomllib
 import zipfile
@@ -18,6 +20,7 @@ RESOURCES = ROOT / 'src/main/resources'
 REPORTS = ROOT / 'build/reports'
 LIBS = ROOT / 'build/libs'
 MOD_ID = 'killstreakcod'
+MAX_JAR_BYTES = 100_000_000
 VERSION = re.search(r"version = '([^']+)'", (ROOT / 'build.gradle').read_text(encoding='utf-8')).group(1)
 JAR = LIBS / f'{MOD_ID}-{VERSION}.jar'
 SOURCE = LIBS / f'{MOD_ID}-{VERSION}-source.zip'
@@ -144,6 +147,7 @@ def localization_inventory():
 
 def inventory(baseline=None):
     require(JAR.is_file(), 'Build the production JAR first.')
+    require(JAR.stat().st_size < MAX_JAR_BYTES, 'Production JAR must be below 100 MB.')
     resources = {p.relative_to(RESOURCES).as_posix(): p for p in RESOURCES.rglob('*') if p.is_file()}
     java = {p.relative_to(ROOT / 'src/main/java').with_suffix('.class').as_posix(): p
             for p in (ROOT / 'src/main/java').rglob('*.java')}
@@ -156,6 +160,29 @@ def inventory(baseline=None):
     for key, path in resources.items():
         if path.suffix == '.json':
             read(path)
+    mesh_formats = Counter()
+    for path in RESOURCES.rglob('*.mesh.gz'):
+        with gzip.open(path, 'rb') as mesh:
+            magic, version = struct.unpack('>II', mesh.read(8))
+        require(magic == 0x4d574d33 and 1 <= version <= 4, 'Unsupported mesh format: ' + str(path))
+        mesh_formats[str(version)] += 1
+
+    def texture_references(node):
+        if isinstance(node, dict):
+            for key, value in node.items():
+                # Archived source textures are provenance, while texture fields are live resources.
+                # 中文：sourceTexture 字段记录已归档来源，texture 等字段才是运行时引用。
+                if not key.startswith('sourceTexture'):
+                    texture_references(value)
+        elif isinstance(node, list):
+            for value in node:
+                texture_references(value)
+        elif isinstance(node, str) and re.fullmatch(r'killstreakcod:textures/[^\s]+\.png', node):
+            location = node.split(':', 1)[1]
+            require((RESOURCES / f'assets/{MOD_ID}' / location).is_file(), 'Missing runtime texture: ' + node)
+
+    for path in (RESOURCES / f'assets/{MOD_ID}/mw').rglob('*.json'):
+        texture_references(read(path))
     metadata = tomllib.loads((RESOURCES / 'META-INF/neoforge.mods.toml').read_text(encoding='utf-8-sig'))
     mod = next(m for m in metadata['mods'] if m['modId'] == MOD_ID)
     require(mod['version'] == VERSION, 'Metadata and build versions differ.')
@@ -218,6 +245,7 @@ def inventory(baseline=None):
     log = ROOT / 'build/logs/build.log'
     build_confirmed = log.is_file() and 'BUILD SUCCESSFUL' in log.read_text(encoding='utf-8-sig')
     report = {'version': VERSION, 'jar': artifact(JAR), 'issues': [], 'buildLogConfirmsSuccess': build_confirmed,
+              'jarBudgetBytes': MAX_JAR_BYTES, 'meshFormats': dict(sorted(mesh_formats.items())),
               'productionJavaFiles': len(java), 'compiledClasses': len(classes), 'resourceFiles': len(resources),
               'importedModels': len(list(RESOURCES.rglob('*.mesh.gz'))), 'soundFileReferences': sound_files,
               'baseline': comparison, 'localization': localization, 'testsRun': False, 'minecraftLaunched': False}

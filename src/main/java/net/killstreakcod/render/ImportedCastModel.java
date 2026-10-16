@@ -3,7 +3,6 @@ package net.killstreakcod.render;
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.render.tablet.TabletDisplayMaterial;
 
-import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -15,7 +14,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
-import java.util.zip.GZIPInputStream;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -123,8 +121,7 @@ public final class ImportedCastModel {
             var resource = Minecraft.getInstance().getResourceManager().getResource(location);
             if (resource.isEmpty())
                 return Optional.empty();
-            try (var stream = new DataInputStream(
-                    new BufferedInputStream(new GZIPInputStream(resource.get().open())))) {
+            try (var source = resource.get().open(); var stream = ImportedMeshInput.open(source)) {
                 return Optional.of(new ImportedCastModel(stream));
             }
             catch (IOException | RuntimeException error) {
@@ -218,8 +215,8 @@ public final class ImportedCastModel {
 
     public void renderFirstPersonArms(PoseStack pose, MultiBufferSource buffers, int light, int overlay,
             Map<String, Matrix4f> bones, boolean leftOnly) {
-        renderInternal(pose, buffers, light, overlay, bones, leftOnly ? RenderPass.LEFT_ARM : RenderPass.ARMS,
-                Map.of(), null);
+        renderInternal(pose, buffers, light, overlay, bones, leftOnly ? RenderPass.LEFT_ARM : RenderPass.ARMS, Map.of(),
+                null);
     }
 
     public void renderCabin(PoseStack pose, MultiBufferSource buffers, int light, int overlay,

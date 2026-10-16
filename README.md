@@ -1,10 +1,12 @@
 # Killstreak
 
-Minecraft Java Edition **1.21.1** · NeoForge **21.1.232+** · **Java 21** · 当前版本 **1.0.1.4322**
+Minecraft Java Edition **1.21.1** · NeoForge **21.1.232+** · **Java 21** · 当前版本 **1.0.1.4333**
 
 提供 19 种可配置连杀奖励与隐藏核弹，包括按键呼叫、遥控载具、平板标定、侦察雷达、空投、低多边形模型／像素材质、原骨骼动画／音效及字幕。客户端与服务器均须安装同一版本模组。
 
-模型保留原轮廓与骨骼绑定，439 份模型及其物品、回退模型贴图已统一处理；资源统计、转换规则与备份说明见 [资源说明](docs/ASSETS.md)。
+模型保留原轮廓与骨骼绑定，418 份运行模型及其物品、回退模型贴图已统一处理；资源统计、转换规则与备份说明见 [资源说明](docs/ASSETS.md)。
+
+本版通过模型无损编码、清理未使用资源及特效贴图压缩，将单个发行 JAR 控制在 **100 MB 以下**。模型细节、HUD 文字及原音频保留，维护方式见 [压缩说明](docs/COMPRESSION.md)。
 
 NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物品栏标签页显示 **连杀奖励**。
 
@@ -12,11 +14,7 @@ NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物�
 
 ## 使用
 
-<<<<<<< HEAD
-- 将 `build/libs/killstreakcod-1.0.1.4322.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
-=======
-- 将 `build/libs/killstreakcod-1.0.0.4321.jar` 放进实例的 `mods` 文件夹。
->>>>>>> d06ae671d773949fd5f991627393809130a1f331
+- 将 `build/libs/killstreakcod-1.0.1.4333.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
 - 按 **K** 或使用连杀终端配置奖励、阵营、队友白名单和操作员皮肤。
 - 规则配置位于游戏或服务器根目录的 `config/killstreakcod-server.toml`；原生 SERVER 配置支持已有世界中的同名覆盖文件。
 - 客户端表现设置位于 `config/killstreakcod-client.toml`。
@@ -29,7 +27,7 @@ NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物�
 
 版本号采用四段数字；公开发布前的源码协议与第三方资源授权说明见 [发布与许可](docs/PUBLISHING.md)。
 
-1.0.0.4321 按 `mattpocock-skills` 的模块设计原则整理奖励账本、模型渲染与资源生命周期，并缓存 HUD 动画时间线和图像元数据。设计及存档兼容说明见 [模块设计](docs/ARCHITECTURE.md)。
+4.32.0 按 `mattpocock-skills` 的模块设计原则整理奖励账本、模型渲染与资源生命周期，并缓存 HUD 动画时间线和图像元数据。设计及存档兼容说明见 [模块设计](docs/ARCHITECTURE.md)。
 
 ## 目录
 

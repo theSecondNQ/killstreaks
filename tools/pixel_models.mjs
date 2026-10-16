@@ -10,6 +10,7 @@ import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
+import { decodeModel } from './mesh_codec.mjs';
 
 const workspace = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dependencyRoot = path.join(workspace, 'build/pixel-model-tools');
@@ -29,6 +30,7 @@ const integerBuffer = values => {
 };
 
 export function readModel(data) {
+    data = decodeModel(data);
     let offset = 0;
     const integer = () => { const n = data.readInt32BE(offset); offset += 4; return n; };
     const string = () => {

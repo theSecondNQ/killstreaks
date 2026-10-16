@@ -3,7 +3,7 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.141'
 }
 
-version = '1.0.1.4322'
+version = '1.0.1.4333'
 base.archivesName = "killstreakcod"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -42,5 +42,16 @@ neoForge {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
     // 中文：Java 编译使用 UTF-8 字符编码。
+}
+
+// Keep the distributable JAR below 100 decimal MB.
+// 中文：发行 JAR 须小于十进制 100 MB，防止后续资源更新无意突破体积限制。
+tasks.named('jar') {
+    doLast {
+        def releaseJar = archiveFile.get().asFile
+        if (releaseJar.length() >= 100000000L) {
+            throw new GradleException("Release JAR must be below 100 MB: ${releaseJar.length()} bytes")
+        }
+    }
 }
 
