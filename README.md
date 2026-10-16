@@ -12,7 +12,11 @@ NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物�
 
 ## 使用
 
+<<<<<<< HEAD
 - 将 `build/libs/killstreakcod-1.0.1.4322.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
+=======
+- 将 `build/libs/killstreakcod-1.0.0.4321.jar` 放进实例的 `mods` 文件夹。
+>>>>>>> d06ae671d773949fd5f991627393809130a1f331
 - 按 **K** 或使用连杀终端配置奖励、阵营、队友白名单和操作员皮肤。
 - 规则配置位于游戏或服务器根目录的 `config/killstreakcod-server.toml`；原生 SERVER 配置支持已有世界中的同名覆盖文件。
 - 客户端表现设置位于 `config/killstreakcod-client.toml`。
@@ -25,7 +29,7 @@ NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物�
 
 版本号采用四段数字；公开发布前的源码协议与第三方资源授权说明见 [发布与许可](docs/PUBLISHING.md)。
 
-4.32.0 按 `mattpocock-skills` 的模块设计原则整理奖励账本、模型渲染与资源生命周期，并缓存 HUD 动画时间线和图像元数据。设计及存档兼容说明见 [模块设计](docs/ARCHITECTURE.md)。
+1.0.0.4321 按 `mattpocock-skills` 的模块设计原则整理奖励账本、模型渲染与资源生命周期，并缓存 HUD 动画时间线和图像元数据。设计及存档兼容说明见 [模块设计](docs/ARCHITECTURE.md)。
 
 ## 目录
 
