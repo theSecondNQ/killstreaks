@@ -1,6 +1,6 @@
 # Killstreak
 
-Minecraft Java Edition **1.21.1** · NeoForge **21.1.232+** · **Java 21** · 当前版本 **1.0.1.4333**
+Minecraft Java Edition **1.21.1** · NeoForge **21.1.232+** · **Java 21** · 当前版本 **1.1.0.4341**
 
 提供 19 种可配置连杀奖励与隐藏核弹，包括按键呼叫、遥控载具、平板标定、侦察雷达、空投、低多边形模型／像素材质、原骨骼动画／音效及字幕。客户端与服务器均须安装同一版本模组。
 
@@ -14,8 +14,13 @@ NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物�
 
 ## 使用
 
+<<<<<<< Updated upstream
 - 将 `build/libs/killstreakcod-1.0.1.4333.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
+=======
+- 将 `build/libs/killstreakcod-1.1.0.4341.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
+>>>>>>> Stashed changes
 - 按 **K** 或使用连杀终端配置奖励、阵营、队友白名单和操作员皮肤。
+- 可放置的“总部通讯终端”已接入侦察／支援科技树、四级终端、生存与连杀模式；现有9项连杀研究和29项升级。生存模式需要先研究、通过击杀／得分获取次数，再消耗次数和材料呼叫。玩法说明见[研究系统](docs/RESEARCH.md)，配方及模型说明见[总部通讯终端](docs/HEADQUARTERS-TERMINAL.md)。
 - 规则配置位于游戏或服务器根目录的 `config/killstreakcod-server.toml`；原生 SERVER 配置支持已有世界中的同名覆盖文件。
 - 客户端表现设置位于 `config/killstreakcod-client.toml`。
 - 自定义玩家皮肤 PNG 放入游戏根目录的 `killstreakcod-skins` 文件夹，在终端中选择。

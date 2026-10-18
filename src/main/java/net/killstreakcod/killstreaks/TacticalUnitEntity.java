@@ -18,6 +18,9 @@ import net.killstreakcod.universal.StreakAirspace;
 import net.killstreakcod.universal.StreakCombat;
 import net.killstreakcod.universal.StreakTimings;
 import net.killstreakcod.universal.TacticalRuntime;
+import net.killstreakcod.universal.ResearchCatalog;
+import net.killstreakcod.universal.ResearchEffects;
+import net.killstreakcod.universal.ResearchSystem;
 import net.killstreakcod.universal.TracerDelivery;
 
 import java.util.UUID;
@@ -87,6 +90,9 @@ public final class TacticalUnitEntity extends PathfinderMob {
     public Vec3 center = Vec3.ZERO;
     public float heading;
     public int age, lifetime = 1200, delay, shotAt, rockets = 8;
+    public long researchUpgrades;
+    public String researchSource = "";
+    public int researchStarted = -1, researchSonicRounds, researchMineGeneration;
 
     /**
      * Server flight plan; ground target stays fixed. Old saves default to zero lift.
@@ -513,7 +519,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
      */
     public boolean canBeDestroyed() {
         return switch (kind()) {
-            case UAV, COUNTER_UAV, ADVANCED_UAV, BOMB_DRONE, CRUISE, WHEELSON, CHOPPER, GUNSHIP, VTOL, OVERWATCH ->
+            case UAV, COUNTER_UAV, ADVANCED_UAV, BOMB_DRONE, CRUISE, WHEELSON, CHOPPER, GUNSHIP, VTOL, OVERWATCH,
+                    SENTRY ->
                 true;
             default -> false;
         };
@@ -535,6 +542,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
                 && FriendlyPlayers.allied(p, owner()))
             return false;
         if (kind() == Kind.BOMB_DRONE && !level().isClientSide) {
+            ResearchSystem.destroyed(this);
             TacticalRuntime.blast(this, position(), 5, 32);
             discard();
             return true;
@@ -544,6 +552,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
 
     @Override
     public void die(DamageSource source) {
+        if (!level().isClientSide)
+            ResearchSystem.destroyed(this);
         if (AircraftCrash.begin(this, source))
             return;
         if (!level().isClientSide && vtolSuccessor != null && level() instanceof ServerLevel server
@@ -592,6 +602,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
             CompoundTag data = new CompoundTag();
             data.putInt("Remaining", Math.max(1, lifetime - age));
             data.putFloat("Health", getHealth());
+            data.put("ResearchNodes", ResearchCatalog.saveNodes(researchUpgrades));
             kit.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
                     net.minecraft.world.item.component.CustomData.of(data));
             KillstreakService.giveItem(p, kit);
@@ -731,6 +742,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
             return;
         }
 
+        ResearchEffects.unitTick(this);
+
         // 飞机引擎音通过 SupportAudio 快照发送，也覆盖实体跟踪范围外的载具。
         if (t == 1) {
             if (kind() == Kind.VTOL)
@@ -800,8 +813,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
                     boolean left = ((t - NativeVtolFlight.ATTACK_TICK) / 3) % 2 == 0;
                     Vec3 muzzle = VtolOrdnance.muzzle(this, left);
                     Vec3 target = TacticalRuntime.ground(l, NativeVtolFlight.rocketTarget(center, heading, t)).add(0,
-                            .4,
-                            0);
+                            .4, 0);
                     Vec3 velocity = target.subtract(muzzle).normalize().scale(3.2);
                     TacticalRuntime.spawnChild(this, Kind.ROCKET, muzzle, target, 100, flightYaw(), 0, "vtol_rocket",
                             velocity);
@@ -861,8 +873,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
                     setNoGravity(true);
                     setDeltaMovement(Vec3.ZERO);
                     TacticalRuntime.sound(l, position(),
-                            NativeAudio.sfx("cluster_plant", StreakSounds.SENTRY_PLANT.get()),
-                            .85F, 1);
+                            NativeAudio.sfx("cluster_plant", StreakSounds.SENTRY_PLANT.get()), .85F, 1);
                     NativeFxDelivery.emit(l, "cluster21_plant", position(), .65F);
                 }
                 if (clusterPlantedAt >= 0) {
@@ -886,6 +897,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
             case MINE -> {
                 if (stage() == 2) {
                     if (age >= shotAt) {
+                        ResearchEffects.splitMine(this);
                         TacticalRuntime.blast(this, position(), 5.5F, 35);
                         discard();
                     }
@@ -896,8 +908,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
                         shotAt = age + 6;
                         setDeltaMovement(0, .36, 0);
                         TacticalRuntime.sound(l, position(),
-                                NativeAudio.sfx("cluster_trigger", StreakSounds.RADIO.get()),
-                                .65F, 1);
+                                NativeAudio.sfx("cluster_trigger", StreakSounds.RADIO.get()), .65F, 1);
                     }
                 }
             }
@@ -1122,10 +1133,9 @@ public final class TacticalUnitEntity extends PathfinderMob {
             TacticalRuntime.sound((ServerLevel) level(), position(), StreakSounds.CAREPACKAGE_RELEASE.get(), .8F, 1);
             for (int i = 0; i < (cargo.equals("emergency") ? 3 : 1); i++) {
                 Vec3 at = new Vec3(center.x + (i - (cargo.equals("emergency") ? 1 : 0)) * 2.7, getY() - 2, center.z);
-                String reward = cargo.equals("juggernaut") ? "juggernaut"
-                        : TacticalRuntime.randomPackage(((ServerLevel) level()).getServer()).id();
-                TacticalRuntime.spawnConfigured(owner(), cargo.equals("juggernaut") ? Kind.JUGG_CRATE : Kind.CRATE, at,
-                        center, 6000, heading, 0, reward, Vec3.ZERO);
+                String reward = cargo.equals("juggernaut") ? "juggernaut" : ResearchEffects.packageReward(this).id();
+                TacticalRuntime.spawnChild(this, cargo.equals("juggernaut") ? Kind.JUGG_CRATE : Kind.CRATE, at, center,
+                        6000, heading, 0, reward, Vec3.ZERO);
             }
         }
     }
@@ -1194,6 +1204,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
             return;
         }
         int duration = owner != null && FriendlyPlayers.allied(player, owner) ? 40 : 80;
+        if (ResearchEffects.fastCrate(this))
+            duration /= 2;
         openingTicks++;
         stage(Math.min(100, openingTicks * 100 / duration));
         if (openingTicks % 10 == 0)
@@ -1222,6 +1234,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
     }
 
     private void automaticFire(double range, int interval, float damage, boolean incendiary) {
+        if (kind() == Kind.SENTRY && ResearchEffects.has(this, "sentry_gun.heavy"))
+            damage *= 1.5F;
         ServerPlayer operator = owner();
         if (operator == null || isRemoved())
             return;
@@ -1278,7 +1292,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
         else
             TacticalRuntime.fire(this, getEyePosition(), direction, range + targetingLift(), damage, incendiary);
         int burstLength = kind() == Kind.VTOL ? 8 : kind() == Kind.SENTRY ? 7 : 6;
-        if (++burstShots >= burstLength) {
+        if (++burstShots >= burstLength
+                && !(kind() == Kind.SENTRY && ResearchEffects.has(this, "sentry_gun.continuous"))) {
             burstShots = 0;
             burstPauseUntil = age + (kind() == Kind.SENTRY ? 14 : 20);
             lockTicks = Math.max(requiredLock - 4, 0);
@@ -1292,9 +1307,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
         if (kind() == Kind.SENTRY && target.position().subtract(position()).multiply(1, 0, 1).normalize()
                 .dot(Vec3.directionFromRotation(0, heading)) < 0)
             return false;
-        return TacticalRuntime.clear(level(), getEyePosition(), target.getEyePosition(), this)
-                && TacticalRuntime.clear(level(), getEyePosition(),
-                        target.position().add(0, target.getBbHeight() * .68, 0), this);
+        return TacticalRuntime.clear(level(), getEyePosition(), target.getEyePosition(), this) && TacticalRuntime
+                .clear(level(), getEyePosition(), target.position().add(0, target.getBbHeight() * .68, 0), this);
     }
 
     private boolean poweredProjectile() {
@@ -1467,6 +1481,11 @@ public final class TacticalUnitEntity extends PathfinderMob {
         n.putBoolean("CrateLanded", crateLanded);
         n.putInt("ClusterPlantedAt", clusterPlantedAt);
         n.putInt("ClusterReleased", clusterReleased);
+        n.put("ResearchNodes", ResearchCatalog.saveNodes(researchUpgrades));
+        n.putString("ResearchSource", researchSource);
+        n.putInt("ResearchStarted", researchStarted);
+        n.putInt("ResearchSonicRounds", researchSonicRounds);
+        n.putInt("ResearchMineGeneration", researchMineGeneration);
         if (delayedMotion != null) {
             n.putDouble("LaunchX", delayedMotion.x);
             n.putDouble("LaunchY", delayedMotion.y);
@@ -1478,6 +1497,11 @@ public final class TacticalUnitEntity extends PathfinderMob {
     @Override
     public void readAdditionalSaveData(CompoundTag n) {
         super.readAdditionalSaveData(n);
+        researchUpgrades = ResearchCatalog.loadNodes(n.getList("ResearchNodes", net.minecraft.nbt.Tag.TAG_STRING));
+        researchSource = n.getString("ResearchSource");
+        researchStarted = n.contains("ResearchStarted") ? n.getInt("ResearchStarted") : -1;
+        researchSonicRounds = Math.clamp(n.getInt("ResearchSonicRounds"), 0, 3);
+        researchMineGeneration = Math.clamp(n.getInt("ResearchMineGeneration"), 0, 1);
         flightLift = Mth.clamp(n.getInt("FlightLift"), 0, level().getMaxBuildHeight() - level().getMinBuildHeight());
         kind(Kind.values()[Mth.clamp(n.getInt("UnitKind"), 0, Kind.values().length - 1)]);
         if (n.hasUUID("Operator"))

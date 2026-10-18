@@ -119,10 +119,12 @@ public final class KillstreakService {
     public void login(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer p))
             return;
+        ResearchSystem.login(p);
         if (!p.getTags().contains(PREFIX + "controller_given")) {
             p.addTag(PREFIX + "controller_given");
             giveItem(p, KillstreakcodMod.CONTROLLER.get().getDefaultInstance());
-            p.sendSystemMessage(Component.translatable("message.killstreakcod.welcome"));
+            p.sendSystemMessage(ResearchSystem.survival(p) ? ResearchSystem.message("welcome")
+                    : Component.translatable("message.killstreakcod.welcome"));
         }
         sendTerminalState(p, false);
         TacticalRuntime.syncMgb(p);
@@ -237,11 +239,13 @@ public final class KillstreakService {
     public void tick(ServerTickEvent.Post event) {
         TacticalRuntime.tick(event.getServer());
         flushKills(event.getServer());
+        ResearchSystem.tick(event.getServer());
     }
 
     @SubscribeEvent
     public void stopping(ServerStoppingEvent event) {
         TacticalRuntime.stop(event.getServer());
+        ResearchEffects.clear();
         PENDING_KILLS.clear();
         COUNTED_KILLS.clear();
         PENDING_VEHICLES.clear();
@@ -347,6 +351,7 @@ public final class KillstreakService {
     }
 
     private static void sendTerminalState(ServerPlayer player, boolean open, RewardLedger.Snapshot state) {
+        ResearchSystem.sendState(player, "");
         String[] ids = new String[3];
         int[] counts = new int[3], progress = new int[3];
         int mask = 0;
@@ -369,6 +374,8 @@ public final class KillstreakService {
     public static void useSlot(ServerPlayer player, int slot) {
         if (!player.isAlive() || player.isSpectator() || TacticalRuntime.mgbDetonating(player.serverLevel())
                 || TacticalRuntime.busy(player))
+            return;
+        if (!ResearchEffects.allowActivation(player))
             return;
         RewardLedger ledger = RewardLedger.open(player);
         RewardLedger.Snapshot state = ledger.snapshot();
@@ -397,6 +404,10 @@ public final class KillstreakService {
         StreakReward reward = selected.reward();
         if (!StreakServerConfig.requireReward(player, reward.id()))
             return;
+        if (ResearchSystem.survival(player)) {
+            ResearchSystem.call(player, reward);
+            return;
+        }
         if (selected.count() == 0) {
             player.displayClientMessage(Component.translatable("message.killstreakcod.not_ready", reward.displayName()),
                     true);

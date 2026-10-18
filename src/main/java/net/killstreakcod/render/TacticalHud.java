@@ -117,8 +117,9 @@ public final class TacticalHud {
                 int threshold = t.scoreMode() ? reward.score() : reward.kills();
                 String button = key(i == 0 ? KillstreakKeyMappings.USE_SLOT_1
                         : i == 1 ? KillstreakKeyMappings.USE_SLOT_2 : KillstreakKeyMappings.USE_SLOT_3);
-                graphics.drawString(mc.font, "[" + button + "]  x" + n + "  " + t.progress()[i] + "/" + threshold,
-                        x + 30, y + 14, c, false);
+                String status = "x" + n + "  " + t.progress()[i] + "/" + threshold;
+                graphics.drawString(mc.font, mc.font.plainSubstrByWidth("[" + button + "]  " + status, 90), x + 30,
+                        y + 14, c, false);
                 bar(graphics, x + 30, y + 25, 87, 1, t.progress()[i], threshold, c);
             }
         }

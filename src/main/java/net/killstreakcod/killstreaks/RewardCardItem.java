@@ -36,7 +36,7 @@ public final class RewardCardItem extends Item {
         if (player instanceof ServerPlayer sp) {
             String id = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("Reward");
             StreakReward reward = StreakReward.byId(id)
-                    .orElseGet(() -> TacticalRuntime.randomPackage(sp.serverLevel().getServer()));
+                    .orElseGet(() -> TacticalRuntime.randomPackage(sp.serverLevel().getServer(), false));
             if (!KillstreakService.grantBonus(sp, reward))
                 return InteractionResultHolder.fail(stack);
             stack.shrink(1);

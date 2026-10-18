@@ -42,7 +42,8 @@ public final class StreakAirspace {
     }
 
     public static boolean player(ServerPlayer player, StreakReward reward) {
-        return permitted(player, reward) && AircraftAirspace.direct(player, reward);
+        return permitted(player, reward)
+                && (ResearchEffects.noAircraft(player, reward) || AircraftAirspace.direct(player, reward));
     }
 
     public static boolean target(ServerPlayer player, StreakReward reward, Vec3 point, float heading) {

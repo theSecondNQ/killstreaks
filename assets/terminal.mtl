@@ -1,0 +1,20 @@
+# Made in Blockbench 5.2.2
+newmtl m_c2801fee-37c5-c94b-226f-9dee2e92ef0b
+map_Kd laptop_foot.png
+newmtl m_c0cb0969-6db1-780c-6dd7-d9c8e712aadc
+map_Kd laptop_body.png
+newmtl m_fd8874eb-d184-4831-f214-cad0ad6a6ce4
+map_Kd laptop_port.png
+newmtl m_bfcf6422-cf63-5c59-e2eb-58823ae03ee4
+map_Kd laptop_deck.png
+newmtl m_0873d79d-b3fe-b72f-42db-5e4fcc97e06b
+map_Kd laptop_accent.png
+newmtl m_61b2638c-70a9-d75b-a901-5f7c78f96dd2
+map_Kd laptop_keys.png
+newmtl m_5b2703e3-4fd5-66ef-0aa9-b859a292f0c3
+map_Kd laptop_bezel.png
+newmtl m_ee92fdc5-8961-72ce-4ec4-be8aa1fc4750
+map_Kd laptop_screen.png
+newmtl m_7152ef6f-97a8-e68a-b6b8-69efb4c10596
+map_Kd laptop_led.png
+newmtl none

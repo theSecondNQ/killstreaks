@@ -9,6 +9,7 @@ import net.killstreakcod.render.compat.OptionalClientIntegrations;
 import net.killstreakcod.render.tablet.TabletTargeting;
 import net.killstreakcod.universal.BonusStatePayload;
 import net.killstreakcod.universal.RadarPayload;
+import net.killstreakcod.universal.ResearchStatePayload;
 import net.killstreakcod.universal.TacticalControlPayload;
 import net.killstreakcod.universal.TacticalViewPayload;
 import net.killstreakcod.universal.TerminalStatePayload;
@@ -52,6 +53,7 @@ import static net.killstreakcod.universal.TacticalControlPayload.*;
 @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT)
 public final class TacticalClient {
     public static TerminalStatePayload terminal;
+    public static ResearchStatePayload research;
     public static BonusStatePayload bonus = new BonusStatePayload("", false);
     public static RadarPayload radar = new RadarPayload(false, false, false, new int[0]);
     public static TacticalViewPayload state = new TacticalViewPayload(-1, "", 0, 0, 0, false);
@@ -118,6 +120,7 @@ public final class TacticalClient {
             return;
         resetControl();
         terminal = null;
+        research = null;
         radar = new RadarPayload(false, false, false, new int[0]);
         bonus = new BonusStatePayload("", false);
         mapContacts = new int[0];

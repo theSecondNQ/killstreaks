@@ -29,6 +29,9 @@ import net.killstreakcod.universal.compat.OptionalIntegrations;
 import net.killstreakcod.universal.RadarPayload;
 import net.killstreakcod.universal.RequestTerminalStatePayload;
 import net.killstreakcod.universal.RequestWhitelistPayload;
+import net.killstreakcod.universal.ResearchActionPayload;
+import net.killstreakcod.universal.ResearchStatePayload;
+import net.killstreakcod.universal.ResearchSystem;
 import net.killstreakcod.universal.SaveKillstreakLoadoutPayload;
 import net.killstreakcod.universal.StreakEarnedPayload;
 import net.killstreakcod.universal.StreakImpactPayload;
@@ -143,6 +146,12 @@ public class KillstreakcodMod {
 
         PayloadRegistrar registrar = event.registrar(NETWORK_VERSION);
 
+        registrar.playToServer(ResearchActionPayload.TYPE, ResearchActionPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    if (context.player() instanceof ServerPlayer player)
+                        ResearchSystem.action(player, payload);
+                }));
+
         registrar.playToServer(RequestWhitelistPayload.TYPE, RequestWhitelistPayload.STREAM_CODEC,
                 (p, c) -> c.enqueueWork(() -> {
                     if (c.player() instanceof ServerPlayer player)
@@ -192,6 +201,8 @@ public class KillstreakcodMod {
                 }));
 
         if (FMLEnvironment.dist == Dist.DEDICATED_SERVER) {
+            registrar.playToClient(ResearchStatePayload.TYPE, ResearchStatePayload.STREAM_CODEC, (p, c) -> {
+            });
             registrar.playToClient(WhitelistStatePayload.TYPE, WhitelistStatePayload.STREAM_CODEC, (p, c) -> {
             });
             registrar.playToClient(NativeFxPayload.TYPE, NativeFxPayload.STREAM_CODEC, (p, c) -> {
@@ -236,12 +247,12 @@ public class KillstreakcodMod {
 
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {
 
-        event.put(TACTICAL_UNIT.get(), Mob.createMobAttributes()
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, 100)
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED, .25)
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.FOLLOW_RANGE, 160)
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, 1)
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.STEP_HEIGHT, 1).build());
+        event.put(TACTICAL_UNIT.get(),
+                Mob.createMobAttributes().add(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, 100)
+                        .add(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED, .25)
+                        .add(net.minecraft.world.entity.ai.attributes.Attributes.FOLLOW_RANGE, 160)
+                        .add(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, 1)
+                        .add(net.minecraft.world.entity.ai.attributes.Attributes.STEP_HEIGHT, 1).build());
 
         event.put(WHEELSON.get(), WheelsonEntity.createAttributes().build());
         event.put(SUPPORT_HELICOPTER.get(), Mob.createMobAttributes().build());

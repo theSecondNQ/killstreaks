@@ -1,6 +1,7 @@
 package net.killstreakcod.universal;
 
 import net.killstreakcod.KillstreakcodMod;
+import net.killstreakcod.killstreaks.HeadquartersTerminalBlock;
 import net.killstreakcod.killstreaks.KillstreakRewardItem;
 import net.killstreakcod.killstreaks.StreakReward;
 
@@ -10,10 +11,18 @@ import java.util.Map;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -24,14 +33,24 @@ import net.neoforged.neoforge.registries.DeferredRegister;
  */
 public final class KillstreakContent {
     public static final Map<String, DeferredItem<KillstreakRewardItem>> REWARDS = registerRewards();
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(KillstreakcodMod.MODID);
+    public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU,
+            KillstreakcodMod.MODID);
+    public static final DeferredBlock<HeadquartersTerminalBlock> HEADQUARTERS_TERMINAL = BLOCKS.registerBlock(
+            "headquarters_terminal", HeadquartersTerminalBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3, 6).sound(SoundType.METAL)
+                    .requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK));
+    public static final DeferredItem<BlockItem> HEADQUARTERS_TERMINAL_ITEM = KillstreakcodMod.ITEMS
+            .register("headquarters_terminal", () -> new BlockItem(HEADQUARTERS_TERMINAL.get(), new Item.Properties()));
+    public static final DeferredHolder<MenuType<?>, MenuType<HeadquartersTerminalMenu>> HEADQUARTERS_TERMINAL_MENU = MENUS
+            .register("headquarters_terminal",
+                    () -> new MenuType<>(HeadquartersTerminalMenu::new, FeatureFlags.VANILLA_SET));
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB,
             KillstreakcodMod.MODID);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = TABS.register("killstreaks",
-            () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.killstreakcod"))
+            () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.killstreakcod"))
                     .icon(() -> REWARDS.get("uav").get().getDefaultInstance())
-                    .withTabsBefore(CreativeModeTabs.TOOLS_AND_UTILITIES)
-                    .displayItems((parameters, output) -> {
+                    .withTabsBefore(CreativeModeTabs.TOOLS_AND_UTILITIES).displayItems((parameters, output) -> {
                         Item terminal = KillstreakcodMod.CONTROLLER.get();
                         output.accept(terminal);
                         REWARDS.values().forEach(item -> output.accept(item.get()));
@@ -58,6 +77,8 @@ public final class KillstreakContent {
     }
 
     public static void register(IEventBus bus) {
+        BLOCKS.register(bus);
+        MENUS.register(bus);
         TABS.register(bus);
     }
 }

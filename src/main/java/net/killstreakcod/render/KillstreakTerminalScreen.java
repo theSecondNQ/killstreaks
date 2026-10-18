@@ -3,6 +3,7 @@ package net.killstreakcod.render;
 import net.killstreakcod.audio.VoiceFaction;
 import net.killstreakcod.killstreaks.StreakReward;
 import net.killstreakcod.universal.SaveKillstreakLoadoutPayload;
+import net.killstreakcod.universal.ResearchCatalog;
 import net.killstreakcod.universal.TerminalStatePayload;
 
 import java.util.Arrays;
@@ -154,8 +155,10 @@ public final class KillstreakTerminalScreen extends Screen {
                         Component.translatable(scoreMode ? "mode.killstreakcod.score" : "mode.killstreakcod.kills")),
                 slotX, modeY + 6, GREEN, false);
         if (modeY + 38 <= footerY)
-            graphics.drawWordWrap(font, Component.translatable("screen.killstreakcod.world_mode_help"), slotX,
-                    modeY + 29, slotWidth, mayEdit() ? MUTED : AMBER);
+            graphics.drawWordWrap(font,
+                    Component.translatable(survival() ? "research.killstreakcod.survival_call_help"
+                            : "screen.killstreakcod.world_mode_help"),
+                    slotX, modeY + 29, slotWidth, mayEdit() ? MUTED : AMBER);
         graphics.drawString(font, Component.translatable("screen.killstreakcod.faction_header"), slotX, modeY + 65,
                 GREEN, false);
         String[] factions = { VoiceFaction.KORTAC, VoiceFaction.SPECGRU };
@@ -197,8 +200,10 @@ public final class KillstreakTerminalScreen extends Screen {
                 false);
         Component cycle = reward == StreakReward.JUGGERNAUT && !juggernautEnabled
                 ? Component.translatable("screen.killstreakcod.reward_disabled")
-                : Component.translatable("screen.killstreakcod.slot_cycle", advance,
-                        scoreMode ? reward.score() : reward.kills());
+                : survival() && !ResearchCatalog.has(TacticalClient.research.unlocked(), reward.id())
+                        ? Component.translatable("research.killstreakcod.not_researched")
+                        : Component.translatable("screen.killstreakcod.slot_cycle", advance,
+                                scoreMode ? reward.score() : reward.kills());
         graphics.drawString(font, trim(cycle.getString(), slotWidth - 54), slotX + 8, y + 33, ready ? GREEN : MUTED,
                 false);
         if (ready)
@@ -225,7 +230,9 @@ public final class KillstreakTerminalScreen extends Screen {
             graphics.drawString(font, trim(reward.displayName().getString(), textWidth), x + 37, y + 4,
                     disabled ? MUTED : WHITE, false);
             Component threshold = disabled ? Component.translatable("screen.killstreakcod.reward_disabled")
-                    : Component.translatable("screen.killstreakcod.threshold", reward.kills(), reward.score());
+                    : survival() && !ResearchCatalog.has(TacticalClient.research.unlocked(), reward.id())
+                            ? Component.translatable("research.killstreakcod.not_researched")
+                            : Component.translatable("screen.killstreakcod.threshold", reward.kills(), reward.score());
             graphics.drawString(font, trim(threshold.getString(), textWidth), x + 37, y + rewardHeight - 11, MUTED,
                     false);
         }
@@ -341,6 +348,10 @@ public final class KillstreakTerminalScreen extends Screen {
         status = Component.translatable("screen.killstreakcod.saving");
         PacketDistributor.sendToServer(
                 new SaveKillstreakLoadoutPayload(selectedIds[0], selectedIds[1], selectedIds[2], faction));
+    }
+
+    private static boolean survival() {
+        return TacticalClient.research != null && !TacticalClient.research.streakMode();
     }
 
     private boolean mayEdit() {

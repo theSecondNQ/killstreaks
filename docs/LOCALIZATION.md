@@ -19,9 +19,9 @@ Minecraft → 选项 → 语言，切换后由游戏重新加载资源。无需�
 | Русский | `ru_ru` | 已翻译 | 英文回退 |
 | Português (Brasil) | `pt_br` | 已翻译 | 英文回退 |
 
-12 个语言选项各含 423 个界面键，覆盖终端、奖励与兑换物品、按键设置、白名单、操作员皮肤、聊天提示、击杀提示、平板及手机文字、遥控 HUD、声音字幕和 NeoForge 配置界面。装备及人物名称为本模组翻译，新增语言不宣称逐项对应原游戏官方译名。
+12 个语言选项各含 431 个界面键，覆盖总部通讯终端、连杀配置终端、奖励与兑换物品、按键设置、白名单、操作员皮肤、聊天提示、击杀提示、平板及手机文字、遥控 HUD、声音字幕和 NeoForge 配置界面。装备及人物名称为本模组翻译，新增语言不宣称逐项对应原游戏官方译名。
 
-无线电仍播放原英文音频。694 条语音按实际播放资源对应原台词，播报人物继续区分阵营与载具。英语、简体中文、台湾繁中、香港繁中和文言各含完整的 1,151 个键：423 个界面键、694 个台词键、34 个人物键。其余语言的无线电字幕回退英文。
+无线电仍播放原英文音频。694 条语音按实际播放资源对应原台词，播报人物继续区分阵营与载具。英语、简体中文、台湾繁中、香港繁中和文言各含完整的 1,159 个键：431 个界面键、694 个台词键、34 个人物键。其余语言的无线电字幕回退英文。
 
 文言为本模组依现有中文字幕译写，使用“連斬之賞”“請賞”“已備”“同袍名籍”等措辞，装备专名、型号和指令 ID 保持可识别。全部 316 种不同中文台词逐条译写后对应回 694 条语音，不用通用事件文字替代实际台词，也不更改播报时序。
 
@@ -58,4 +58,4 @@ Minecraft → 选项 → 语言，切换后由游戏重新加载资源。无需�
 
 ## English summary
 
-The UI follows Minecraft's selected language and has 423 translated entries in twelve locale options. English, Simplified Chinese, Traditional Chinese (Taiwan and Hong Kong), and Literary Chinese each cover all 1,151 UI and radio keys. Literary Chinese captions are this mod's translation of the existing Chinese lines. Other locales use English radio captions. Audio remains English. Text baked into artwork is not translated. The source-only `killstreaks` synchronization excludes every `resources` directory and archives containing resources.
+The UI follows Minecraft's selected language and has 431 translated entries in twelve locale options. English, Simplified Chinese, Traditional Chinese (Taiwan and Hong Kong), and Literary Chinese each cover all 1,159 UI and radio keys. Literary Chinese captions are this mod's translation of the existing Chinese lines. Other locales use English radio captions. Audio remains English. Text baked into artwork is not translated. The source-only `killstreaks` synchronization excludes every `resources` directory and archives containing resources.

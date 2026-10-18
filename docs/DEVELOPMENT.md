@@ -2,17 +2,17 @@
 
 ## 运行源码
 
-沿用用户建立的 `src/main/java/net/killstreakcod` 根目录与四个分类，Java 包名和文件目录保持一致。共有 191 个顶层 Java 文件：
+沿用用户建立的 `src/main/java/net/killstreakcod` 根目录与四个分类，Java 包名和文件目录保持一致。共有 201 个顶层 Java 文件：
 
 | 包／目录 | 数量 | 职责 |
 | --- | ---: | --- |
 | `net.killstreakcod` | 1 | 模组入口 `KillstreakcodMod` |
 | `net.killstreakcod.audio` | 17 | 音效、无线电、字幕、音频消息和播放管理 |
-| `net.killstreakcod.killstreaks` | 23 | 连杀定义、专属飞行、载具实体、武器及物品 |
-| `net.killstreakcod.render` | 66 | 模型、动画、光照、过场、HUD、界面和客户端遥控 |
+| `net.killstreakcod.killstreaks` | 24 | 连杀定义、专属飞行、载具实体、武器、物品及总部通讯终端方块 |
+| `net.killstreakcod.render` | 68 | 模型、动画、光照、过场、HUD、界面和客户端遥控 |
 | `net.killstreakcod.render.compat` | 2 | GD656／武器模组的客户端兼容桥接，以及 Iris 光影 API 适配 |
 | `net.killstreakcod.render.tablet` | 7 | 平板画布、显示材质、手持模型、手机和平板屏幕合成、屏幕路由与表面标定 |
-| `net.killstreakcod.universal` | 48 | 公共玩法服务、网络消息、配置、队友、战斗、空域和共享资源读取 |
+| `net.killstreakcod.universal` | 55 | 公共玩法服务、网络消息、配置、队友、战斗、空域、菜单、研究系统和共享资源读取 |
 | `net.killstreakcod.universal.compat` | 2 | TaCZ 事件、遥控限制、卓越前线载具伤害及击杀结算兼容 |
 | `net.killstreakcod.mixin` | 12 | 通用 Mixin 及选择插件 |
 | `net.killstreakcod.mixin.client` | 7 | 客户端 Mixin |
@@ -55,7 +55,7 @@
 
 ## 发布
 
-版本号修改 `build.gradle`、`src/main/resources/META-INF/neoforge.mods.toml`、`killstreakcod.mcreator` 和当前说明，当前为 `1.0.1.4333`。构建及安装工具支持四段数字版本号。网络协议位于服务端与客户端的 Payload 注册入口，仅在通信格式变化时升级。
+版本号修改 `build.gradle`、`src/main/resources/META-INF/neoforge.mods.toml`、`killstreakcod.mcreator` 和当前说明，当前为 `1.1.0.4341`。构建及安装工具支持四段数字版本号。网络协议位于服务端与客户端的 Payload 注册入口，仅在通信格式变化时升级。
 
 构建后运行通用 `tools/release.py`。它按当前资源和源码生成核对结果，不依赖历史版本脚本、旧备份或 MW2022 导出目录。
 

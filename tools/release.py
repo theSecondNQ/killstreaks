@@ -26,7 +26,8 @@ JAR = LIBS / f'{MOD_ID}-{VERSION}.jar'
 SOURCE = LIBS / f'{MOD_ID}-{VERSION}-source.zip'
 SOURCE_ROOTS = ['src/main', 'gradle', 'tools', 'docs', 'build.gradle', 'settings.gradle',
                 'gradle.properties', 'gradlew', 'gradlew.bat', 'killstreakcod.mcreator', 'README.md', '.gitignore',
-                '.editorconfig']
+                '.editorconfig', 'assets/terminal.obj', 'assets/terminal.mtl', '新系统.docx']
+SOURCE_ROOTS += [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets').glob('laptop_*.png'))]
 
 
 def require(condition, message):

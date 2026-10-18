@@ -185,13 +185,19 @@ public final class TacticalRuntime {
         player.displayClientMessage(Component.translatable("message.killstreakcod.called_in", reward.displayName()),
                 true);
         switch (reward) {
-            case UAV ->
-                spawn(player, Kind.UAV, player.position().add(0, TacticalUnitEntity.UAV_HEIGHT, 0), player.position(),
-                        600);
+            case UAV -> {
+                if (!ResearchEffects.startSurvey(player, reward))
+                    spawn(player, Kind.UAV, player.position().add(0, TacticalUnitEntity.UAV_HEIGHT, 0),
+                            player.position(), 600);
+            }
             case COUNTER_UAV -> spawn(player, Kind.COUNTER_UAV,
                     player.position().add(0, TacticalUnitEntity.COUNTER_UAV_HEIGHT, 0), player.position(), 600);
-            case ADVANCED_UAV -> spawn(player, Kind.ADVANCED_UAV,
-                    player.position().add(0, TacticalUnitEntity.ADVANCED_UAV_HEIGHT, 0), player.position(), 600);
+            case ADVANCED_UAV -> {
+                if (!ResearchEffects.startSurvey(player, reward))
+                    spawn(player, Kind.ADVANCED_UAV,
+                            player.position().add(0, TacticalUnitEntity.ADVANCED_UAV_HEIGHT, 0), player.position(),
+                            600);
+            }
             case OVERWATCH_HELO ->
                 spawn(player, Kind.OVERWATCH, player.position().add(-55, 30, 0), player.position(), 1200);
             case BOMB_DRONE -> startSession(player, spawn(player, Kind.BOMB_DRONE,
@@ -210,10 +216,17 @@ public final class TacticalRuntime {
             case PRECISION_AIRSTRIKE ->
                 KillstreakService.giveItem(player, TacticalEquipmentItem.stack("designator", reward.id()));
             case MORTAR_STRIKE -> equipMortarDesignator(player);
-            case CARE_PACKAGE, EMERGENCY_AIRDROP, JUGGERNAUT ->
+            case CARE_PACKAGE, EMERGENCY_AIRDROP -> {
+                if (!ResearchEffects.instantPackage(player, reward))
+                    KillstreakService.giveItem(player, TacticalEquipmentItem.stack("drop_marker", reward.id()));
+            }
+            case JUGGERNAUT ->
                 KillstreakService.giveItem(player, TacticalEquipmentItem.stack("drop_marker", reward.id()));
-            case CLUSTER_MINE ->
-                KillstreakService.giveItem(player, TacticalEquipmentItem.stack("cluster_mine", reward.id()));
+            case CLUSTER_MINE -> {
+                int count = ResearchSystem.upgraded(player, "cluster_mine.extra") ? 2 : 1;
+                for (int i = 0; i < count; i++)
+                    KillstreakService.giveItem(player, TacticalEquipmentItem.stack("cluster_mine", reward.id()));
+            }
             case SENTRY_GUN ->
                 KillstreakService.giveItem(player, KillstreakcodMod.SENTRY_GUN.get().getDefaultInstance());
             case WHEELSON -> {
@@ -247,9 +260,10 @@ public final class TacticalRuntime {
 
     public static TacticalUnitEntity spawnChild(TacticalUnitEntity parent, Kind kind, Vec3 pos, Vec3 center, int life,
             float heading, int delay, String cargo, Vec3 velocity) {
-        return StrikeRadioReports.track(
-                spawnConfigured(parent.owner(), kind, pos, center, life, heading, delay, cargo, velocity),
-                parent.radioStrike);
+        TacticalUnitEntity child = spawnConfigured(parent.owner(), kind, pos, center, life, heading, delay, cargo,
+                velocity);
+        ResearchEffects.inherit(parent, child);
+        return StrikeRadioReports.track(child, parent.radioStrike);
     }
 
     private static void equipMortarDesignator(ServerPlayer player) {
@@ -301,6 +315,7 @@ public final class TacticalRuntime {
         unit.heading = heading;
         unit.delay = delay;
         unit.cargo = cargo;
+        ResearchEffects.configure(unit, player);
         if (!StreakAirspace.permitted(level, kind)) {
             unit.discard();
             return unit;
@@ -522,8 +537,7 @@ public final class TacticalRuntime {
         Pending pending = TARGETS.remove(player.getUUID());
         ServerPlayer body = session == null ? player : session.player;
         animate &= player.isAlive() && !player.isSpectator() && player.connection != null
-                && player.connection.isAcceptingMessages()
-                && (call == null || call.level == player.serverLevel())
+                && player.connection.isAcceptingMessages() && (call == null || call.level == player.serverLevel())
                 && (session == null || session.unit.level() == player.serverLevel())
                 && (pending == null || pending.level == player.serverLevel());
         if (!animate)
@@ -1093,6 +1107,8 @@ public final class TacticalRuntime {
     }
 
     public static boolean designate(ServerPlayer player, StreakReward reward, Vec3 point) {
+        if (!ResearchEffects.allowActivation(player))
+            return false;
         if (!StreakAirspace.target(player, reward, point, player.getYRot()))
             return false;
         ServerLevel level = player.serverLevel();
@@ -1152,18 +1168,27 @@ public final class TacticalRuntime {
                     }
                     NativeAudio.call(player, reward.id());
                     Vec3 c = ground(player.serverLevel(), at);
-                    spawnConfigured(player, Kind.DELIVERY, c.add(-300, 48, 0), c, 260, heading, 0,
-                            reward == StreakReward.EMERGENCY_AIRDROP ? "emergency"
+                    TacticalUnitEntity delivery = spawnConfigured(player, Kind.DELIVERY, c.add(-300, 48, 0), c, 260,
+                            heading, 0, reward == StreakReward.EMERGENCY_AIRDROP ? "emergency"
                                     : reward == StreakReward.JUGGERNAUT ? "juggernaut" : "care",
                             Vec3.ZERO);
+                    ResearchEffects.escort(delivery);
                 }));
     }
 
-    public static StreakReward randomPackage(MinecraftServer server) {
+    public static StreakReward randomPackage(MinecraftServer server, boolean lucky) {
         List<StreakReward> pool = StreakReward.SELECTABLE.stream()
                 .filter(reward -> reward != StreakReward.CARE_PACKAGE && reward != StreakReward.EMERGENCY_AIRDROP)
-                .filter(reward -> StreakServerConfig.rewardEnabled(server, reward.id()))
-                .toList();
+                .filter(reward -> StreakServerConfig.rewardEnabled(server, reward.id())).toList();
+        if (lucky) {
+            int high = pool.stream().filter(reward -> reward.kills() >= 10)
+                    .mapToInt(reward -> Math.max(1, 20 - reward.kills())).sum();
+            int all = pool.stream().mapToInt(reward -> Math.max(1, 20 - reward.kills())).sum();
+            if (high > 0 && high < all) {
+                boolean advanced = new Random().nextDouble() < Math.min(1, high * 1.25 / all);
+                pool = pool.stream().filter(reward -> (reward.kills() >= 10) == advanced).toList();
+            }
+        }
         int total = pool.stream().mapToInt(r -> Math.max(1, 20 - r.kills())).sum();
         int n = new Random().nextInt(total);
         for (StreakReward r : pool) {
@@ -1362,6 +1387,9 @@ public final class TacticalRuntime {
     }
 
     public static void blast(TacticalUnitEntity emitter, Vec3 center, float radius, float damage) {
+        float scale = ResearchEffects.blastScale(emitter);
+        radius *= scale;
+        damage *= scale;
         ServerLevel level = (ServerLevel) emitter.level();
         ServerPlayer player = emitter.owner();
         if (emitter.kind() == Kind.CRUISE && player != null) {
@@ -1418,16 +1446,18 @@ public final class TacticalRuntime {
                 if (entity instanceof TacticalUnitEntity u && u.isAlive() && u.onStation())
                     units.add(u);
             for (ServerPlayer player : level.players()) {
-                boolean advanced = false, active = false, jammed = false;
+                List<TacticalUnitEntity> friendlySurveys = units.stream().filter(ResearchEffects::radar)
+                        .filter(unit -> unit.owner() != null && FriendlyPlayers.allied(player, unit.owner())).toList();
+                List<ResearchEffects.Survey> virtualSurveys = ResearchEffects.surveys(player);
+                boolean active = !friendlySurveys.isEmpty() || !virtualSurveys.isEmpty();
+                boolean advanced = friendlySurveys.stream().anyMatch(unit -> unit.kind() == Kind.ADVANCED_UAV)
+                        || virtualSurveys.stream().anyMatch(ResearchEffects.Survey::advanced);
+                boolean jammed = false;
                 for (TacticalUnitEntity unit : units) {
                     ServerPlayer owner = unit.owner();
                     if (owner == null)
                         continue;
                     boolean ally = FriendlyPlayers.allied(player, owner);
-                    if (ally && (unit.kind() == Kind.UAV || unit.kind() == Kind.ADVANCED_UAV)) {
-                        active = true;
-                        advanced |= unit.kind() == Kind.ADVANCED_UAV;
-                    }
                     if (!ally && unit.kind() == Kind.COUNTER_UAV
                             && player.position().subtract(unit.position()).horizontalDistanceSqr() < 192 * 192)
                         jammed = true;
@@ -1436,23 +1466,27 @@ public final class TacticalRuntime {
                 boolean sensor = session != null;
                 Entity observer = sensor ? session.unit : player;
                 List<LivingEntity> targets = (active || sensor) && !jammed
-                        ? level.getEntitiesOfClass(LivingEntity.class, observer.getBoundingBox().inflate(sensor
-                                ? 256
-                                : 160),
-                                livingEntity -> enemy(player, livingEntity) && surfaceVisible(livingEntity) &&
-                                        (sensor ? clear(level, observer.getEyePosition(), livingEntity.getEyePosition(),
-                                                observer)
-                                                : units.stream().anyMatch(
-                                                        u -> (u.kind() == Kind.UAV || u.kind() == Kind.ADVANCED_UAV)
-                                                                && u.owner() != null
-                                                                && FriendlyPlayers.allied(player, u.owner())
-                                                                && clear(level, u.getEyePosition(),
-                                                                        livingEntity.getEyePosition(), u))))
+                        ? level.getEntitiesOfClass(LivingEntity.class,
+                                observer.getBoundingBox().inflate(sensor ? 256 : 160),
+                                livingEntity -> enemy(player, livingEntity) && surfaceVisible(livingEntity)
+                                        && (sensor
+                                                ? clear(level, observer.getEyePosition(), livingEntity.getEyePosition(),
+                                                        observer)
+                                                : friendlySurveys.stream()
+                                                        .anyMatch(unit -> clear(level, unit.getEyePosition(),
+                                                                livingEntity.getEyePosition(), unit))
+                                                        || virtualSurveys.stream()
+                                                                .anyMatch(survey -> clear(level, survey.origin(),
+                                                                        livingEntity.getEyePosition(), player))))
                         : List.of();
 
                 // 普通无人侦察机周期扫描，尖端无人机持续刷新带方向的目标信息。
                 if (!advanced && !sensor && server.getTickCount() % 60 != 0 && active && !jammed)
                     continue;
+                boolean xray = friendlySurveys.stream()
+                        .anyMatch(unit -> unit.kind() == Kind.UAV && ResearchEffects.has(unit, "uav.xray"))
+                        || virtualSurveys.stream().anyMatch(ResearchEffects.Survey::xray);
+                ResearchEffects.detected(targets, xray);
                 int size = Math.min(128, targets.size());
                 int[] contacts = new int[size * 4];
                 for (int i = 0; i < size; i++) {

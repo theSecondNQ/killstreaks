@@ -2,6 +2,7 @@ package net.killstreakcod.killstreaks;
 
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.universal.NativeArsenalLibrary;
+import net.killstreakcod.universal.ResearchEffects;
 import net.killstreakcod.universal.StreakAirspace;
 import net.killstreakcod.universal.StreakNetwork;
 import net.killstreakcod.universal.StreakPresentationPayload;
@@ -48,7 +49,7 @@ public final class TacticalEquipmentItem extends Item {
     }
 
     private boolean activate(ServerPlayer player, ItemStack stack, Vec3 at) {
-        if (TacticalRuntime.busy(player))
+        if (TacticalRuntime.busy(player) || !ResearchEffects.allowActivation(player))
             return false;
         StreakReward reward = StreakReward
                 .byId(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("Reward"))

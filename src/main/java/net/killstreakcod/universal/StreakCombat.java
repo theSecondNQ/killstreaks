@@ -163,6 +163,8 @@ public final class StreakCombat {
                     break;
                 }
             confirmed |= applied && hostile;
+            if (applied && target instanceof LivingEntity living)
+                ResearchEffects.afterDamage(emitter, living);
             if (applied && !SuperbWarfareCompat.vehicle(target) && !(target instanceof EndCrystal))
                 target.setDeltaMovement(
                         target.getDeltaMovement().add(target.position().subtract(at).normalize().scale(.6)));
