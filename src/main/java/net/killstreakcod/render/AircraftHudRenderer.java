@@ -3,6 +3,7 @@ package net.killstreakcod.render;
 import net.killstreakcod.killstreaks.GunshipFlight;
 import net.killstreakcod.killstreaks.StreakReward;
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
+import net.killstreakcod.universal.ResearchCombat;
 import net.killstreakcod.universal.TacticalViewPayload;
 
 import java.util.ArrayList;
@@ -25,9 +26,12 @@ import net.minecraft.world.phys.Vec3;
  * 以核对过的飞机控件布局显示实时任务状态，按当前状态选择分支，不叠加其他载具或单人教程界面。
  */
 public final class AircraftHudRenderer {
-    private static final int WHITE = 0xffe5ede4, MUTED = 0xff849486, RED = 0xffee7565, AMBER = 0xffe1bb75;
+    private static final int WHITE = 0xffecf0e9, MUTED = 0xffb2bdb3, RED = 0xffee7565, AMBER = 0xffe1bb75;
     private static final String[] RETICLES = { "Reticle25mm", "Reticle40mm", "Reticle105mm" };
     private static final String[] CALIBERS = { "25mm", "40mm", "105mm" };
+    private static final List<String> FIXED_INSTRUMENTS = List.of("FluffTextTitle", "OnlineStatusTitle", "OnlineStatus",
+            "FluffStats", "SpeedStats", "FluffStats3", "FluffStats6", "FluffStats7", "GunshipFluffCompass",
+            "DroneCompass", "FuelBar");
     private static int entity = -1, weapon = -1, lastCooldown;
     private static int[] lastAmmo = new int[3];
     private static long entered, switched, fired = Long.MIN_VALUE, firstVisible = Long.MIN_VALUE;
@@ -36,7 +40,14 @@ public final class AircraftHudRenderer {
     private static long targetTick = Long.MIN_VALUE;
     private static Vec3 target;
 
-    private record Widget(String name, NativeSceneUi.Rect box, float alpha) {
+    private enum Alignment {
+        LEFT, CENTER, RIGHT
+    }
+
+    private record Widget(String name, NativeSceneUi.Rect box, float alpha, Alignment alignment) {
+        Widget(String name, NativeSceneUi.Rect box, float alpha) {
+            this(name, box, alpha, Alignment.LEFT);
+        }
     }
 
     private AircraftHudRenderer() {}
@@ -106,21 +117,25 @@ public final class AircraftHudRenderer {
                             NativeSceneUi.sequenceLength("GunshipControls", "BootUp", 7300) - 300 + now - firstVisible)
                     : now - entered;
             List<RemoteHudLayout.Box> reservations = new ArrayList<>();
+            for (String field : FIXED_INSTRUMENTS)
+                reserve(reservations, child(root, field, "", 0, scale).box);
+            var vision = child(root, "VisionSystem", "", 0, scale).box;
+            reserve(reservations, new NativeSceneUi.Rect(vision.x(), vision.y(), vision.w(), vision.h() + 72 * scale));
+            Widget exit = child(new Widget(gunship ? "GunshipControls" : "ApacheControls", root.box, 1),
+                    "InstructionExit", "", 0, scale);
+            reserve(reservations, exit.box);
             reticle(gui, root, gunship, scale, now);
+            zoom(gui, root, scale, reservations);
             instruments(gui, root, gunship, scale, boot, reservations);
             fuel(gui, root, scale);
             vision(gui, root, scale);
-            zoom(gui, root, scale);
             compass(gui, root, gunship, scale);
-            health(gui, root, gunship, scale, reservations);
-            armament(gui, root, gunship, scale, reservations);
+            health(gui, gunship, scale, reservations);
+            armament(gui, gunship, scale, reservations);
             warnings(gui, root, scale, reservations);
             damage(gui);
-            Widget exit = child(new Widget(gunship ? "GunshipControls" : "ApacheControls", root.box, 1),
-                    "InstructionExit", "", 0, scale);
             label(gui, exit, "[" + key(KillstreakKeyMappings.EXIT) + "] " + nativeText("593f2b158c8908b0"), WHITE,
                     scale);
-            reserve(reservations, exit.box);
             occupied = List.copyOf(reservations);
             occupiedWidth = gui.guiWidth();
             occupiedHeight = gui.guiHeight();
@@ -133,8 +148,13 @@ public final class AircraftHudRenderer {
         if (layer == null)
             return new Widget("", new NativeSceneUi.Rect(0, 0, 0, 0), 0);
         var node = NativeSceneUi.widget(parent.name).getAsJsonObject("nodes").getAsJsonObject(field);
+        Alignment alignment = !node.has("alignment") ? Alignment.LEFT : switch (node.get("alignment").getAsString()) {
+            case "Center" -> Alignment.CENTER;
+            case "Right" -> Alignment.RIGHT;
+            default -> Alignment.LEFT;
+        };
         return new Widget(node.has("widget") ? node.get("widget").getAsString() : parent.name, layer.rect(),
-                parent.alpha * layer.alpha());
+                parent.alpha * layer.alpha(), alignment);
     }
 
     private static void image(GuiGraphics gui, Widget parent, String field, String sequence, float time, float scale) {
@@ -196,10 +216,11 @@ public final class AircraftHudRenderer {
                     WHITE, scale);
             label(gui, child(root, "FluffStats7", "", 0, scale),
                     I18n.get("hud.killstreakcod.pitch", Math.round(TacticalClient.pitch())), WHITE, scale);
-            label(gui, child(root, "FluffStats8", "", 0, scale), nativeText("4ecbf294698936f8"), MUTED, scale);
             Vec3 point = target();
             if (point != null) {
                 Widget location = child(root, "GunshipTargetLocationText", "", 0, scale);
+                location = new Widget(location.name, RemoteHudLayout.placePanel(gui, location.box, reservations), 1,
+                        Alignment.CENTER);
                 label(gui, location,
                         nativeText("2c3e296a567bdc38",
                                 String.format(Locale.ROOT, "%.0f / %.0f / %.0f", point.x, point.y, point.z)),
@@ -228,21 +249,28 @@ public final class AircraftHudRenderer {
                 "[" + key(KillstreakKeyMappings.THERMAL) + "] " + nativeText("4c8c0d7aaeb7933f"), WHITE, scale);
     }
 
-    private static void zoom(GuiGraphics gui, Widget root, float scale) {
+    private static void zoom(GuiGraphics gui, Widget root, float scale, List<RemoteHudLayout.Box> reservations) {
         Widget zoom = child(root, "ZoomMeter", "", 0, scale);
         image(gui, zoom, "Meter", "", 0, scale);
+        var meter = child(zoom, "Meter", "", 0, scale).box;
+        reserve(reservations, new NativeSceneUi.Rect(meter.x() - 220 * scale, meter.y() - 28 * scale,
+                meter.w() + 460 * scale, meter.h() + 56 * scale));
         // These are the recovered HUD meter limits; actual weapon FOV remains owned by TacticalClient.
         // 仅用恢复的 HUD 刻度上下限映射标尺，实际武器视场仍由遥控模块决定。
         float fraction = Mth.clamp((80 - TacticalClient.fov()) / 78F, 0, 1);
         Widget guide = child(zoom, "MeterGuide", "", 0, scale);
         guide = new Widget(guide.name, new NativeSceneUi.Rect(guide.box.x(),
-                zoom.box.y() + (754 - fraction * 512) * scale, guide.box.w(), guide.box.h()), 1);
+                zoom.box.y() + (754 - fraction * 512) * scale, guide.box.w(), guide.box.h()), 1, guide.alignment);
         image(gui, guide, "ZoomGuide", "", 0, scale);
         label(gui, child(zoom, "CloseRangeMeterLabel", "", 0, scale), "80°", MUTED, scale);
         label(gui, child(zoom, "LongRangeMeterLabel", "", 0, scale), "2°", MUTED, scale);
         label(gui, child(guide, "CurrentZoom", "", 0, scale), Math.round(TacticalClient.fov()) + "°", WHITE, scale);
-        label(gui, child(zoom, "MedRangeMeterLabel", "", 0, scale),
-                "[" + key(KillstreakKeyMappings.ZOOM) + "] " + nativeText("2cdc95c748efc81b"), WHITE, scale);
+        Widget binding = child(zoom, "MedRangeMeterLabel", "", 0, scale);
+        binding = new Widget(binding.name, new NativeSceneUi.Rect(binding.box.x(), binding.box.y(),
+                Math.max(1, Math.min(220 * scale, gui.guiWidth() - binding.box.x() - 24 * scale)), binding.box.h()),
+                binding.alpha);
+        label(gui, binding, "[" + key(KillstreakKeyMappings.ZOOM) + "] " + nativeText("2cdc95c748efc81b"), WHITE,
+                scale);
     }
 
     private static void compass(GuiGraphics gui, Widget root, boolean gunship, float scale) {
@@ -256,17 +284,24 @@ public final class AircraftHudRenderer {
             var box = compass.box;
             NativeSceneUi.draw(gui, "overlay_recon_drone_compass_lines",
                     new NativeSceneUi.Rect(box.x(), box.y(), box.w(), 24 * scale), .8F);
-            label(gui, compass, String.format(Locale.ROOT, "%03d°", heading()), WHITE, scale);
+            label(gui,
+                    new Widget("",
+                            new NativeSceneUi.Rect(box.x() + box.w() / 2 - 55 * scale, box.y() + 26 * scale,
+                                    110 * scale, 28 * scale),
+                            1, Alignment.CENTER),
+                    String.format(Locale.ROOT, "%03d°", heading()), WHITE, scale);
         }
     }
 
-    private static void health(GuiGraphics gui, Widget root, boolean gunship, float scale,
-            List<RemoteHudLayout.Box> reservations) {
-        Widget health = child(root, "VehicleHealthBar", "", 0, scale);
-        float size = 179 * scale;
-        NativeSceneUi.Rect area = new NativeSceneUi.Rect(health.box.x() + health.box.w() / 2 - size / 2,
-                health.box.y() + 40 * scale, size, size);
-        area = RemoteHudLayout.avoidFeedback(gui, area);
+    private static void health(GuiGraphics gui, boolean gunship, float scale, List<RemoteHudLayout.Box> reservations) {
+        float width = 280 * scale, height = 104 * scale;
+        float left = Math.max(8, gui.guiWidth() / 2F - 830 * scale);
+        var panel = RemoteHudLayout.placePanel(gui,
+                new NativeSceneUi.Rect(left, gui.guiHeight() - 145 * scale, width, height), reservations);
+        gui.fill(Math.round(panel.x()), Math.round(panel.y()), Math.round(panel.x() + panel.w()),
+                Math.round(panel.y() + panel.h()), 0x40081210);
+        float size = 88 * scale;
+        NativeSceneUi.Rect area = new NativeSceneUi.Rect(panel.x() + 8 * scale, panel.y() + 8 * scale, size, size);
         String diagram = gunship ? "veh_diagram_gunship_" : "veh_diagram_choppergunner_";
         NativeSceneUi.draw(gui, diagram + "out", area, .8F);
         float fraction = Mth.clamp(TacticalClient.state.health() / 100F, 0, 1);
@@ -274,58 +309,83 @@ public final class AircraftHudRenderer {
                 Math.round(area.x() + area.w()), Math.round(area.y() + area.h()));
         // Native mask images are opaque stencil inputs; drawing them as RGBA would cover the view with a block.
         // 原 mask 是不透明的模板输入，直接作为 RGBA 贴图绘制会出现整块遮挡；这里用透明辉光显示血量。
-        NativeSceneUi.draw(gui, diagram + "glow", area, .5F);
+        NativeSceneUi.draw(gui, diagram + "glow", area, .18F);
         gui.disableScissor();
-        label(gui, new Widget("", new NativeSceneUi.Rect(area.x(), area.y() + area.h(), area.w(), 22 * scale), 1),
-                TacticalClient.state.health() + "%", fraction < .35F ? RED : WHITE, scale);
-        reserve(reservations, new NativeSceneUi.Rect(area.x(), area.y(), area.w(), area.h() + 25 * scale));
+        float textX = panel.x() + 112 * scale, textWidth = Math.max(1, panel.w() - 124 * scale);
+        label(gui, new Widget("", new NativeSceneUi.Rect(textX, panel.y() + 25 * scale, textWidth, 30 * scale), 1),
+                I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()), fraction < .35F ? RED : WHITE,
+                scale);
+        int barY = Math.round(panel.y() + 66 * scale), barHeight = Math.max(1, Math.round(4 * scale));
+        gui.fill(Math.round(textX), barY, Math.round(textX + textWidth), barY + barHeight, 0x77717e74);
+        gui.fill(Math.round(textX), barY, Math.round(textX + textWidth * fraction), barY + barHeight,
+                fraction < .35F ? RED : WHITE);
+        reserve(reservations, panel);
     }
 
-    private static void armament(GuiGraphics gui, Widget root, boolean gunship, float scale,
+    private static void armament(GuiGraphics gui, boolean gunship, float scale,
             List<RemoteHudLayout.Box> reservations) {
-        Widget weapons = child(root, gunship ? "WeaponBar" : "Weapons", "", 0, scale);
-        var area = weapons.box;
-        NativeSceneUi.Rect panel = new NativeSceneUi.Rect(area.x() - 105 * scale, area.y() - 60 * scale,
-                Math.max(area.w(), 380 * scale), 195 * scale);
-        var safe = RemoteHudLayout.avoidFeedback(gui, panel);
-        weapons = new Widget(weapons.name, new NativeSceneUi.Rect(area.x() + safe.x() - panel.x(),
-                area.y() + safe.y() - panel.y(), area.w(), area.h()), 1);
+        int[] slots = gunship ? ResearchWeaponHud.gunshipSlots() : new int[] { 1, 0 };
+        float width = 430 * scale, rowHeight = 38 * scale, height = slots.length * rowHeight + 48 * scale;
+        float margin = Math.max(8, 92 * scale);
+        var panel = RemoteHudLayout.placePanel(gui, new NativeSceneUi.Rect(gui.guiWidth() - margin - width,
+                gui.guiHeight() - 52 * scale - height, width, height), reservations);
+        var options = Minecraft.getInstance().options;
         if (gunship) {
-            for (int slot = 2; slot >= 0; slot--) {
-                Widget name = child(weapons, "Weapon" + CALIBERS[slot], "", 0, scale);
+            for (int row = 0; row < slots.length; row++) {
+                int slot = slots[slots.length - row - 1];
                 boolean selected = TacticalClient.state.weapon() == slot;
-                if (selected)
-                    NativeSceneUi.draw(gui, "overlay_gunship_selectionbox", name.box, .8F);
-                label(gui, name, "[" + key(ResearchWeaponHud.key(slot)) + "] " + ResearchWeaponHud.name(slot),
-                        selected ? WHITE : MUTED, scale);
-                Widget ammo = child(weapons, "Ammo" + CALIBERS[slot], "", 0, scale);
-                label(gui, ammo, ResearchWeaponHud.ammo(slot), TacticalClient.reload(slot) > 0 ? AMBER : WHITE, scale);
+                int reload = TacticalClient.reload(slot);
+                String ammo = reload > 0 ? I18n.get("hud.killstreakcod.reload_time", (int) Math.ceil(reload / 20D))
+                        : ResearchWeaponHud.ammo(slot);
+                weaponRow(gui, panel, row, rowHeight, key(ResearchWeaponHud.key(slot)), ResearchWeaponHud.name(slot),
+                        ammo, selected, reload > 0 ? AMBER : WHITE, scale);
             }
-            float extraY = safe.y() - 28 * scale;
-            for (int slot : ResearchWeaponHud.gunshipSlots())
-                if (slot >= 3) {
-                    label(gui, new Widget("", new NativeSceneUi.Rect(safe.x(), extraY, safe.w(), 26 * scale), 1),
-                            "[" + key(ResearchWeaponHud.key(slot)) + "] " + ResearchWeaponHud.name(slot) + " "
-                                    + ResearchWeaponHud.ammo(slot),
-                            WHITE, scale);
-                    extraY -= 28 * scale;
-                }
-            reserve(reservations, new NativeSceneUi.Rect(safe.x(), extraY, safe.w(), safe.h() + safe.y() - extraY));
         } else {
-            var keys = Minecraft.getInstance().options;
-            label(gui, child(weapons, "CannonName", "", 0, scale), nativeText("65e537e2780b72d6"), WHITE, scale);
-            label(gui, child(weapons, "RocketName", "", 0, scale), nativeText("6fe68a58b2fbbb13"), WHITE, scale);
-            label(gui, child(weapons, "CannonKeybind", "", 0, scale), "[" + key(keys.keyAttack) + "]", WHITE, scale);
-            label(gui, child(weapons, "RocketKeybind", "", 0, scale), "[" + key(keys.keyUse) + "]", WHITE, scale);
-            Widget rounds = child(weapons, "CannonAmmo", "", 0, scale);
-            NativeSceneUi.draw(gui, "apache_icon_infinite", rounds.box, 1);
-            label(gui, child(weapons, "RocketAmmo", "", 0, scale), ResearchWeaponHud.rocketCount(), WHITE, scale);
-            reserve(reservations, safe);
+            String rockets = ResearchWeaponHud.capability(ResearchCombat.UNLIMITED_ROCKETS) ? "∞"
+                    : Integer.toString(TacticalClient.state.rockets());
+            weaponRow(gui, panel, 0, rowHeight, key(options.keyUse), nativeText("6fe68a58b2fbbb13"), rockets, false,
+                    TacticalClient.rocketCooldown() > 0 ? AMBER : WHITE, scale);
+            weaponRow(gui, panel, 1, rowHeight, key(options.keyAttack), nativeText("65e537e2780b72d6"), "∞", false,
+                    WHITE, scale);
         }
-        Widget flares = child(root, gunship ? "FlaresIndicator" : "Flares", "", 0, scale);
+        Widget flares = new Widget("", new NativeSceneUi.Rect(panel.x() + 12 * scale,
+                panel.y() + slots.length * rowHeight + 15 * scale, panel.w() - 24 * scale, 26 * scale), 1,
+                Alignment.RIGHT);
         label(gui, flares, "[" + key(KillstreakKeyMappings.FLARES) + "] " + nativeText("435dfa11cb806127") + " "
-                + TacticalClient.state.flares(), WHITE, scale);
-        reserve(reservations, flares.box);
+                + TacticalClient.state.flares(), MUTED, scale);
+        reserve(reservations, panel);
+    }
+
+    /** Shared column widths keep localized weapon names separate from key bindings and ammunition. */
+    // 中文：按键、名称与弹药各占独立列，防止长中文提示挤进相邻控件。
+    private static void weaponRow(GuiGraphics gui, NativeSceneUi.Rect panel, int row, float height, String key,
+            String name, String ammunition, boolean selected, int ammoColor, float scale) {
+        float x = panel.x(), y = panel.y() + 6 * scale + row * height, padding = 12 * scale;
+        float textHeight = 30 * scale;
+        var box = new NativeSceneUi.Rect(x, y, panel.w(), height - 3 * scale);
+        gui.fill(Math.round(x), Math.round(y), Math.round(x + panel.w()), Math.round(y + height - 3 * scale),
+                selected ? 0x66081210 : 0x40081210);
+        if (selected)
+            NativeSceneUi.draw(gui, "overlay_gunship_selectionbox", box, .65F);
+        String binding = "[" + key + "]";
+        var font = Minecraft.getInstance().font;
+        float keyWidth = Math.min(panel.w() * .38F,
+                Math.max(62 * scale, font.width(binding) * 24 * scale / font.lineHeight + 8 * scale));
+        float ammoWidth = Math.min(panel.w() * .46F,
+                Math.max(70 * scale, font.width(ammunition) * 24 * scale / font.lineHeight + 4 * scale));
+        float ammoX = x + panel.w() - padding - ammoWidth;
+        float nameX = x + padding + keyWidth + 12 * scale;
+        label(gui, new Widget("", new NativeSceneUi.Rect(x + padding, y, keyWidth, textHeight), 1), binding,
+                selected ? WHITE : MUTED, scale);
+        label(gui, new Widget("", new NativeSceneUi.Rect(nameX, y, Math.max(1, ammoX - 12 * scale - nameX), textHeight),
+                1), name, selected ? WHITE : MUTED, scale);
+        if (ammunition.equals("∞")) {
+            NativeSceneUi.draw(gui, "apache_icon_infinite",
+                    new NativeSceneUi.Rect(x + panel.w() - padding - 45 * scale, y + 5 * scale, 45 * scale, 20 * scale),
+                    .9F);
+        } else
+            label(gui, new Widget("", new NativeSceneUi.Rect(ammoX, y, ammoWidth, textHeight), 1, Alignment.RIGHT),
+                    ammunition, ammoColor, scale);
     }
 
     private static void warnings(GuiGraphics gui, Widget root, float scale, List<RemoteHudLayout.Box> reservations) {
@@ -364,19 +424,26 @@ public final class AircraftHudRenderer {
 
     private static void label(GuiGraphics gui, Widget widget, String value, int color, float scale) {
         var box = widget.box;
-        if (box.w() <= 0 || box.h() <= 0 || widget.alpha <= 0)
+        if (box.w() <= 0 || box.h() <= 0 || widget.alpha <= 0 || value.isEmpty())
             return;
         var font = Minecraft.getInstance().font;
-        float size = Math.max(5, 24 * scale) / font.lineHeight;
-        size = Math.min(size, box.w() / Math.max(1, font.width(value)));
+        float size = Math.min(Math.max(5, 24 * scale), box.h()) / font.lineHeight;
         if (size <= 0)
             return;
+        int maxWidth = Math.max(1, (int) (box.w() / size));
+        if (font.width(value) > maxWidth) {
+            int suffix = font.width("…");
+            value = maxWidth < suffix ? "" : font.plainSubstrByWidth(value, maxWidth - suffix) + "…";
+        }
+        float spare = Math.max(0, box.w() - font.width(value) * size);
+        float offset = widget.alignment == Alignment.RIGHT ? spare
+                : widget.alignment == Alignment.CENTER ? spare / 2 : 0;
         gui.pose().pushPose();
         try {
-            gui.pose().translate(box.x(), box.y() + (box.h() - font.lineHeight * size) / 2, 0);
+            gui.pose().translate(box.x() + offset, box.y() + (box.h() - font.lineHeight * size) / 2, 0);
             gui.pose().scale(size, size, 1);
             int alpha = Mth.clamp(Math.round(widget.alpha * 255), 4, 255);
-            gui.drawString(font, value, 0, 0, (color & 0xffffff) | alpha << 24, false);
+            gui.drawString(font, value, 0, 0, (color & 0xffffff) | alpha << 24, true);
         } finally {
             gui.pose().popPose();
         }

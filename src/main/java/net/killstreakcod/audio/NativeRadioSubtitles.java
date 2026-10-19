@@ -2,7 +2,6 @@ package net.killstreakcod.audio;
 
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.render.RemoteHudLayout;
-import net.killstreakcod.render.SceneNativeHud;
 import net.killstreakcod.universal.NativePresentationConfig;
 
 import java.util.HashMap;
@@ -97,11 +96,8 @@ public final class NativeRadioSubtitles {
         var caption = speaker.copy().withStyle(ChatFormatting.AQUA)
                 .append(Component.literal(": ").withStyle(ChatFormatting.AQUA))
                 .append(message.copy().withStyle(ChatFormatting.WHITE));
-        int maxWidth = Math.max(80,
-                RemoteHudLayout.active()
-                        ? Math.min((int) (graphics.guiWidth() * .66),
-                                graphics.guiWidth() - 2 * SceneNativeHud.panelWidth(graphics.guiWidth()) - 32)
-                        : (int) (graphics.guiWidth() * .76));
+        int maxWidth = RemoteHudLayout.active() ? RemoteHudLayout.captionWidth(graphics)
+                : Math.max(80, (int) (graphics.guiWidth() * .76));
         var lines = mc.font.split(caption, maxWidth);
         int visible = lines.size();
         int y = RemoteHudLayout.active() ? RemoteHudLayout.captionY(graphics, maxWidth, visible * mc.font.lineHeight)
