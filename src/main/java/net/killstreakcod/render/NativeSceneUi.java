@@ -403,6 +403,10 @@ public final class NativeSceneUi {
             return;
         if (batchDepth > 0) {
             graphics.setColor(1, 1, 1, Mth.clamp(alpha, 0, 1));
+            // Text and fill batches clear their blend state; reapply alpha blending before an immediate blit.
+            // 文字、色块批次结束时会关闭混合；每次即时绘图前恢复透明混合，避免轮廓变成实心白块。
+            RenderSystem.enableBlend();
+            RenderSystem.defaultBlendFunc();
             graphics.blit(asset.texture, Math.round(box.x), Math.round(box.y), Math.round(box.w), Math.round(box.h), 0,
                     0, asset.width, asset.height, asset.width, asset.height);
             graphics.setColor(1, 1, 1, 1);
@@ -475,7 +479,9 @@ public final class NativeSceneUi {
             gui.flush();
             gui.setColor(color[0], color[1], color[2], color[3]);
             RenderSystem.blendFuncSeparate(sr, dr, sa, da);
-            if (!enabled)
+            if (enabled)
+                RenderSystem.enableBlend();
+            else
                 RenderSystem.disableBlend();
         }
     }
