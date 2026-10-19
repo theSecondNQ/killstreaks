@@ -2,10 +2,10 @@ package net.killstreakcod.audio;
 
 import net.killstreakcod.KillstreakcodMod;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -14,9 +14,9 @@ import net.minecraft.resources.ResourceLocation;
  */
 public record SupportSoundPayload(ResourceLocation dimension, ResourceLocation sound, double x, double y, double z,
         float volume, float pitch, float radius) implements CustomPacketPayload {
-    public static final Type<SupportSoundPayload> TYPE = new Type<>(
+    public static final Type<SupportSoundPayload> TYPE = new Type<>(SupportSoundPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "support_sound"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, SupportSoundPayload> STREAM_CODEC = StreamCodec
+    public static final StreamCodec<FriendlyByteBuf, SupportSoundPayload> STREAM_CODEC = StreamCodec
             .of((b, p) -> {
                 b.writeResourceLocation(p.dimension);
                 b.writeResourceLocation(p.sound);

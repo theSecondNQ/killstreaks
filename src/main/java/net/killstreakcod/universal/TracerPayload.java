@@ -2,11 +2,11 @@ package net.killstreakcod.universal;
 
 import net.killstreakcod.KillstreakcodMod;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.ByteBufCodecs;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
 
@@ -16,9 +16,9 @@ import net.minecraft.world.phys.Vec3;
  */
 public record TracerPayload(ResourceLocation dimension, int sourceId, double x, double y, double z, float dx, float dy,
         float dz, int profile) implements CustomPacketPayload {
-    public static final Type<TracerPayload> TYPE = new Type<>(
+    public static final Type<TracerPayload> TYPE = new Type<>(TracerPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "tracer"));
-    public static final StreamCodec<ByteBuf, TracerPayload> STREAM_CODEC = StreamCodec.of(
+    public static final StreamCodec<FriendlyByteBuf, TracerPayload> STREAM_CODEC = StreamCodec.of(
             (buffer, payload) -> {
                 ByteBufCodecs.STRING_UTF8.encode(buffer, payload.dimension.toString());
                 buffer.writeInt(payload.sourceId);

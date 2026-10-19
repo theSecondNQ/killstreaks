@@ -19,9 +19,9 @@ public final class SupportHelicopterEntity extends Phantom {
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        super.defineSynchedData(builder);
-        builder.define(BOMB_DRONE, false);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        entityData.define(BOMB_DRONE, false);
     }
 
     public boolean isBombDrone() {

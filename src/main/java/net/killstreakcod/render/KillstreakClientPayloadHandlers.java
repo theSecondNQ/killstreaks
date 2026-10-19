@@ -14,6 +14,7 @@ import net.killstreakcod.universal.MgbCountdownPayload;
 import net.killstreakcod.universal.MgbEffectPayload;
 import net.killstreakcod.universal.NativeFxPayload;
 import net.killstreakcod.universal.RadarPayload;
+import net.killstreakcod.universal.ResearchStatePayload;
 import net.killstreakcod.universal.StreakEarnedPayload;
 import net.killstreakcod.universal.StreakImpactPayload;
 import net.killstreakcod.universal.StreakPresentationPayload;
@@ -26,18 +27,25 @@ import net.killstreakcod.universal.TracerPayload;
 import net.killstreakcod.universal.WhitelistStatePayload;
 
 import net.minecraft.client.Minecraft;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @EventBusSubscriber(modid = KillstreakcodMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class KillstreakClientPayloadHandlers {
     private KillstreakClientPayloadHandlers() {}
 
     @SubscribeEvent
-    public static void registerPayloads(RegisterPayloadHandlersEvent event) {
-        var registrar = event.registrar(KillstreakcodMod.NETWORK_VERSION);
+    public static void registerPayloads(FMLClientSetupEvent event) {
+        var registrar = new net.killstreakcod.network.PayloadRegistrar(true);
+        registrar.playToClient(ResearchStatePayload.TYPE, ResearchStatePayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    TacticalClient.acceptWorld();
+                    TacticalClient.research = payload;
+                    if (Minecraft.getInstance().screen instanceof HeadquartersTerminalScreen screen)
+                        screen.receiveState(payload);
+                }));
         registrar.playToClient(WhitelistStatePayload.TYPE, WhitelistStatePayload.STREAM_CODEC,
                 (p, c) -> c.enqueueWork(() -> {
                     if (Minecraft.getInstance().screen instanceof KillstreakWhitelistScreen screen)

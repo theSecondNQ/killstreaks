@@ -2,6 +2,7 @@ package net.killstreakcod.render;
 
 import net.killstreakcod.render.compat.OptionalClientIntegrations;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
@@ -31,6 +32,8 @@ public final class RemoteHudLayout {
     }
 
     static int footerHeight(GuiGraphics gui) {
+        if (AircraftHudRenderer.available(TacticalClient.state.mode()))
+            return 0;
         var font = Minecraft.getInstance().font;
         return font.split(net.minecraft.network.chat.Component.literal(SceneNativeHud.controls()),
                 Math.max(80, gui.guiWidth() - 16)).size() * font.lineHeight + 8;
@@ -38,12 +41,27 @@ public final class RemoteHudLayout {
 
     public static int captionY(GuiGraphics gui, int width, int height) {
         int left = (gui.guiWidth() - width) / 2, bottom = gui.guiHeight() - footerHeight(gui) - 7;
-        List<Box> reserved = OptionalClientIntegrations.gdHudReservations(gui);
+        List<Box> reserved = new ArrayList<>(OptionalClientIntegrations.gdHudReservations(gui));
+        reserved.addAll(AircraftHudRenderer.reservations(gui));
         for (int y = bottom - height; y >= 25; y--) {
             Box candidate = new Box(left, y, width, height);
             if (reserved.stream().noneMatch(candidate::overlaps))
                 return y;
         }
         return Mth.clamp(Math.round(gui.guiHeight() * .18F), 8, Math.max(8, bottom - height));
+    }
+
+    static NativeSceneUi.Rect avoidFeedback(GuiGraphics gui, NativeSceneUi.Rect original) {
+        List<Box> reserved = OptionalClientIntegrations.gdHudReservations(gui);
+        Box initial = new Box(Math.round(original.x()), Math.round(original.y()), Math.round(original.w()),
+                Math.round(original.h()));
+        if (reserved.stream().noneMatch(initial::overlaps))
+            return original;
+        for (int y = initial.y - 1; y >= 4; y--) {
+            Box candidate = new Box(initial.x, y, initial.w, initial.h);
+            if (reserved.stream().noneMatch(candidate::overlaps))
+                return new NativeSceneUi.Rect(original.x(), y, original.w(), original.h());
+        }
+        return original;
     }
 }

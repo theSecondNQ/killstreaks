@@ -3,7 +3,7 @@ package net.killstreakcod.render.compat;
 import java.lang.reflect.Method;
 
 import com.mojang.logging.LogUtils;
-import net.neoforged.fml.ModList;
+import net.minecraftforge.fml.ModList;
 
 /**
  * Query Iris through its public API without linking optional shader classes.
@@ -57,7 +57,7 @@ public final class OptionalShaderCompat {
             return true;
         try {
             initialized = true;
-            if (!ModList.get().isLoaded("iris"))
+            if (!ModList.get().isLoaded("iris") && !ModList.get().isLoaded("oculus"))
                 return true;
             Class<?> api = Class.forName("net.irisshaders.iris.api.v0.IrisApi", true,
                     OptionalShaderCompat.class.getClassLoader());

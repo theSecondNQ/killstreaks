@@ -7,18 +7,20 @@ import net.killstreakcod.universal.TacticalControlPayload;
 import net.killstreakcod.universal.UseKillstreakPayload;
 
 import net.minecraft.client.Minecraft;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.event.TickEvent;
+import net.killstreakcod.network.StreakPackets;
 
 @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT)
 public final class KillstreakClientEvents {
     private KillstreakClientEvents() {}
 
     @SubscribeEvent
-    public static void onClientTick(ClientTickEvent.Post event) {
+    public static void onClientTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player == null || minecraft.screen != null)
             return;
@@ -33,20 +35,20 @@ public final class KillstreakClientEvents {
             return;
         }
         if (KillstreakKeyMappings.BONUS.consumeClick())
-            PacketDistributor.sendToServer(new UseKillstreakPayload(3));
+            StreakPackets.sendToServer(new UseKillstreakPayload(3));
         if (KillstreakKeyMappings.MGB.consumeClick())
-            PacketDistributor.sendToServer(new UseKillstreakPayload(4));
+            StreakPackets.sendToServer(new UseKillstreakPayload(4));
         if (KillstreakKeyMappings.BOOST.consumeClick())
-            PacketDistributor.sendToServer(new TacticalControlPayload(0, 0, 0, 0, TacticalControlPayload.BOOST));
+            StreakPackets.sendToServer(new TacticalControlPayload(0, 0, 0, 0, TacticalControlPayload.BOOST));
 
         if (KillstreakKeyMappings.OPEN_TERMINAL.consumeClick())
-            PacketDistributor.sendToServer(new RequestTerminalStatePayload(true));
+            StreakPackets.sendToServer(new RequestTerminalStatePayload(true));
 
         if (KillstreakKeyMappings.USE_SLOT_1.consumeClick())
-            PacketDistributor.sendToServer(new UseKillstreakPayload(0));
+            StreakPackets.sendToServer(new UseKillstreakPayload(0));
         if (KillstreakKeyMappings.USE_SLOT_2.consumeClick())
-            PacketDistributor.sendToServer(new UseKillstreakPayload(1));
+            StreakPackets.sendToServer(new UseKillstreakPayload(1));
         if (KillstreakKeyMappings.USE_SLOT_3.consumeClick())
-            PacketDistributor.sendToServer(new UseKillstreakPayload(2));
+            StreakPackets.sendToServer(new UseKillstreakPayload(2));
     }
 }

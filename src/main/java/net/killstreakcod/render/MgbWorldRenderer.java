@@ -15,10 +15,10 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 
 /**
  * Camera-distance-independent original JDAM mesh and nuclear 32-frame material adapter.
@@ -43,11 +43,12 @@ public final class MgbWorldRenderer {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null)
             return;
-        float partial = event.getPartialTick().getGameTimeDeltaPartialTick(false);
+        float partial = event.getPartialTick();
         var buffers = mc.renderBuffers().bufferSource();
         buffers.endBatch();
         var matrix = RenderSystem.getModelViewStack();
-        matrix.pushMatrix().set(event.getModelViewMatrix());
+        matrix.pushPose();
+        matrix.last().pose().set(event.getPoseStack().last().pose());
         RenderSystem.applyModelViewMatrix();
         float[] color = RenderSystem.getShaderColor().clone();
         RenderSystem.setShaderColor(1, 1, 1, 1);
@@ -81,7 +82,7 @@ public final class MgbWorldRenderer {
             try {
                 buffers.endBatch();
             } finally {
-                matrix.popMatrix();
+                matrix.popPose();
                 RenderSystem.applyModelViewMatrix();
                 RenderSystem.setShaderColor(color[0], color[1], color[2], color[3]);
             }
@@ -126,7 +127,7 @@ public final class MgbWorldRenderer {
     }
 
     private static void vertex(VertexConsumer out, PoseStack pose, float x, float y, float u, float v, int color) {
-        out.addVertex(pose.last().pose(), x, y, 0).setColor(color).setUv(u, v).setOverlay(OverlayTexture.NO_OVERLAY)
-                .setLight(15728880).setNormal(pose.last(), 0, 0, 1);
+        out.vertex(pose.last().pose(), x, y, 0).color(color).uv(u, v).overlayCoords(OverlayTexture.NO_OVERLAY)
+                .uv2(15728880).normal(pose.last().normal(), 0, 0, 1).endVertex();
     }
 }

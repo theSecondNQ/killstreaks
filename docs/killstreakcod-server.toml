@@ -18,3 +18,10 @@
     # 启用无畏战甲；关闭时不能选择、获取或使用，随机空投也会排除它。
     # Enable Juggernaut selection, acquisition and activation, including random airdrops.
     juggernautEnabled = false
+
+[research]
+    # 禁用连杀升级项目；默认关闭，允许研究、装配和应用升级。
+    # 开启后，两种模式和已经部署的任务均停用升级，已有研究进度与装配选择保留。
+    # 禁用期间，终端IV级与全部20项基础研究即可开放连杀模式。
+    # Disable upgrade research, equipment and effects in both modes; retain saved progress and loadouts.
+    disableUpgrades = false

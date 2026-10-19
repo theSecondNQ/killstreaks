@@ -9,7 +9,7 @@ $taskMods = (Resolve-Path -LiteralPath (Join-Path $taskInstance 'mods')).Path
 $taskReports = Join-Path $taskWorkspace 'build\reports'
 $taskInventory = Get-Content -LiteralPath (Join-Path $taskReports 'package-inventory.json') -Raw -Encoding utf8 | ConvertFrom-Json
 if ($taskInventory.issues.Count -gt 0 -or $taskInventory.version -notmatch '^\d+\.\d+\.\d+(?:\.\d+)?$') { throw 'Release inventory is invalid.' }
-$taskSource = Join-Path $taskWorkspace ('build\libs\killstreakcod-'+$taskInventory.version+'.jar')
+$taskSource = Join-Path $taskWorkspace ('build\libs\killstreakcod-forge-1.20.1-'+$taskInventory.version+'.jar')
 $taskNewHash = (Get-FileHash -LiteralPath $taskSource -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($taskInventory.jar.sha256 -ne $taskNewHash) { throw 'Production JAR differs from the inventory.' }
 $taskNew = Join-Path $taskMods ([IO.Path]::GetFileName($taskSource))

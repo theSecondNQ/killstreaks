@@ -20,9 +20,9 @@ import com.google.gson.JsonParser;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.BufferUploader;
-import com.mojang.blaze3d.vertex.ByteBufferBuilder;
+
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.MeshData;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexSorting;
@@ -39,13 +39,13 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.RegisterShadersEvent;
-import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.client.event.RegisterShadersEvent;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL14;
@@ -92,7 +92,7 @@ public final class NativeFxRenderer {
     private static ClientLevel world;
     private static Player pawn;
     private static ShaderInstance shader;
-    private static ByteBufferBuilder storage, debrisStorage;
+    private static BufferBuilder storage, debrisStorage;
     private static boolean loaded;
 
     private NativeFxRenderer() {}
@@ -257,7 +257,9 @@ public final class NativeFxRenderer {
     }
 
     @SubscribeEvent
-    public static void tick(ClientTickEvent.Post event) {
+    public static void tick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
         if (world == null)
             return;
         var mc = Minecraft.getInstance();
@@ -296,7 +298,7 @@ public final class NativeFxRenderer {
             clear();
             return;
         }
-        float partial = event.getPartialTick().getGameTimeDeltaPartialTick(false);
+        float partial = event.getPartialTick();
         double now = world.getGameTime() + partial;
         Vec3 eye = event.getCamera().getPosition();
         List<Sprite> ordered = new ArrayList<>(SPRITES);
@@ -305,12 +307,12 @@ public final class NativeFxRenderer {
         for (Sprite p : ordered)
             batches.computeIfAbsent(new Batch(p.layer.texture, p.layer.glow), k -> new ArrayList<>()).add(p);
         if (storage == null)
-            storage = new ByteBufferBuilder(65536);
+            storage = new BufferBuilder(65536);
         try (ThermalRenderState ignored = new ThermalRenderState()) {
             var matrix = RenderSystem.getModelViewStack();
-            matrix.pushMatrix();
+            matrix.pushPose();
             try {
-                matrix.set(event.getModelViewMatrix());
+                matrix.last().pose().set(event.getPoseStack().last().pose());
                 RenderSystem.applyModelViewMatrix();
                 RenderSystem.setProjectionMatrix(event.getProjectionMatrix(), VertexSorting.DISTANCE_TO_ORIGIN);
                 RenderSystem.setShader(() -> shader);
@@ -326,11 +328,11 @@ public final class NativeFxRenderer {
                 RenderSystem.colorMask(true, true, true, true);
                 for (var group : batches.entrySet()) {
                     storage.discard();
-                    var out = new BufferBuilder(storage, VertexFormat.Mode.QUADS,
-                            DefaultVertexFormat.POSITION_TEX_COLOR);
+                    BufferBuilder out = storage;
+                    out.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR);
                     for (Sprite p : group.getValue())
                         quad(out, p, now, eye, event);
-                    MeshData mesh = out.build();
+                    BufferBuilder.RenderedBuffer mesh = out.endOrDiscardIfEmpty();
                     try {
                         if (mesh == null)
                             continue;
@@ -343,14 +345,14 @@ public final class NativeFxRenderer {
                         mesh = null;
                     } finally {
                         if (mesh != null)
-                            mesh.close();
+                            mesh.release();
                     }
                 }
                 RenderSystem.depthMask(true);
                 RenderSystem.defaultBlendFunc();
                 renderDebris(event, eye, partial);
             } finally {
-                matrix.popMatrix();
+                matrix.popPose();
                 RenderSystem.applyModelViewMatrix();
             }
         }
@@ -405,14 +407,14 @@ public final class NativeFxRenderer {
     }
 
     private static void vertex(BufferBuilder out, Vec3 p, float u, float v, int color) {
-        out.addVertex((float) p.x, (float) p.y, (float) p.z).setUv(u, v).setColor(color);
+        out.vertex((float) p.x, (float) p.y, (float) p.z).uv(u, v).color(color).endVertex();
     }
 
     private static void renderDebris(RenderLevelStageEvent event, Vec3 eye, float partial) {
         if (DEBRIS.isEmpty())
             return;
         if (debrisStorage == null)
-            debrisStorage = new ByteBufferBuilder(131072);
+            debrisStorage = new BufferBuilder(131072);
         var buffers = MultiBufferSource.immediate(debrisStorage);
         var pose = new PoseStack();
         for (Debris piece : DEBRIS) {
@@ -448,11 +450,11 @@ public final class NativeFxRenderer {
         world = null;
         pawn = null;
         if (storage != null) {
-            storage.close();
+            storage.clear();
             storage = null;
         }
         if (debrisStorage != null) {
-            debrisStorage.close();
+            debrisStorage.clear();
             debrisStorage = null;
         }
     }
@@ -470,7 +472,7 @@ public final class NativeFxRenderer {
     }
 
     @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
-    public static final class Resources {
+    public static final class NativeFxShaderEvents {
         @SubscribeEvent
         public static void shaders(RegisterShadersEvent event) {
             try {

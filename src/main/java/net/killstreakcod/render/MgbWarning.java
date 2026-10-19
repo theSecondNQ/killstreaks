@@ -18,14 +18,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import net.neoforged.neoforge.client.event.ScreenEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.client.event.RenderGuiEvent;
+import net.minecraftforge.client.event.ScreenEvent;
 
 /**
  * Original MWII warning layers, driven by the server rather than action-bar messages.
@@ -145,7 +145,9 @@ public final class MgbWarning {
     }
 
     @SubscribeEvent
-    public static void tick(ClientTickEvent.Post event) {
+    public static void tick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
         if (world == null)
             return;
         Minecraft mc = Minecraft.getInstance();
@@ -168,7 +170,7 @@ public final class MgbWarning {
     public static void hud(RenderGuiEvent.Pre event) {
         if (Minecraft.getInstance().screen != null)
             return;
-        draw(event.getGuiGraphics(), event.getPartialTick().getGameTimeDeltaPartialTick(false));
+        draw(event.getGuiGraphics(), event.getPartialTick());
     }
 
     @SubscribeEvent

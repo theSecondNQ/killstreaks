@@ -99,7 +99,7 @@ public final class StreakNoticeRenderer {
         if (active == null || mc.player == null || mc.level == null || mc.options.hideGui)
             return;
         if (!mc.isPaused())
-            renderedAge = Math.max(renderedAge, age + mc.getTimer().getGameTimeDeltaPartialTick(true));
+            renderedAge = Math.max(renderedAge, age + mc.getFrameTime());
         float t = renderedAge, leave = smooth(progress(t, duration - 12, duration)),
                 alpha = smooth(progress(t, 0, 5)) * (1 - leave);
         if (alpha <= .002F)

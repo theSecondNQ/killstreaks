@@ -6,66 +6,66 @@ import net.killstreakcod.killstreaks.TacticalUnitEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
 
 public final class StreakSounds {
     public static final DeferredRegister<SoundEvent> REGISTER = DeferredRegister.create(Registries.SOUND_EVENT,
             KillstreakcodMod.MODID);
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> ROTOR = make("rotor"), JET = make("jet"),
+    public static final RegistryObject<SoundEvent> ROTOR = make("rotor"), JET = make("jet"),
             SHOT = make("shot"), EXPLOSION = make("blast"), RADIO = make("radio"), ALARM = make("alarm"),
             SPIN = make("spin"), MOTOR = make("motor");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> TABLET_ON = make("mwii_tablet_on"),
+    public static final RegistryObject<SoundEvent> TABLET_ON = make("mwii_tablet_on"),
             TABLET_SELECT = make("mwii_tablet_select"), TABLET_CONFIRM = make("mwii_tablet_confirm"),
             PHONE_UI = make("mwii_phone"), TABLET_GEAR = make("mwii_tablet_gear");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> EARNED = make("mwii_earned"),
+    public static final RegistryObject<SoundEvent> EARNED = make("mwii_earned"),
             EARNED_AIR = make("mwii_earned_air"), EARNED_GUNSHIP = make("mwii_earned_gunship"),
             EARNED_VIP = make("mwii_earned_vip");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> WHEELSON_START = make("mwii_wheelson_start"),
+    public static final RegistryObject<SoundEvent> WHEELSON_START = make("mwii_wheelson_start"),
             WHEELSON_STOP = make("mwii_wheelson_stop"), WHEELSON_ENGINE = make("mwii_wheelson_engine");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> SENTRY_PLANT = make("mwii_sentry_plant"),
+    public static final RegistryObject<SoundEvent> SENTRY_PLANT = make("mwii_sentry_plant"),
             SENTRY_LOCK = make("mwii_sentry_lock"), SENTRY_SERVO = make("mwii_sentry_servo"),
             SENTRY_PICKUP = make("mwii_sentry_pickup");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> BOMB_DRONE_ENGINE = make("mwii_bomb_drone_engine"),
+    public static final RegistryObject<SoundEvent> BOMB_DRONE_ENGINE = make("mwii_bomb_drone_engine"),
             BOMB_DRONE_ACTIVATE = make("mwii_bomb_drone_activate"), BOMB_DRONE_BLAST = make("mwii_bomb_drone_blast");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> CHOPPER_ENGINE = make("mwii_chopper_engine"),
+    public static final RegistryObject<SoundEvent> CHOPPER_ENGINE = make("mwii_chopper_engine"),
             CHOPPER_APPROACH = make("mwii_chopper_approach"), DELIVERY_ENGINE = make("mwii_delivery_engine"),
             GUNSHIP_ENGINE = make("mwii_gunship_engine");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> CRUISE_ENGINE = make("mwii_cruise_engine"),
+    public static final RegistryObject<SoundEvent> CRUISE_ENGINE = make("mwii_cruise_engine"),
             CRUISE_BOOST = make("mwii_cruise_boost"), CRUISE_BLAST = make("mwii_cruise_blast");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> CRUISE_NATIVE_INTRO = make(
+    public static final RegistryObject<SoundEvent> CRUISE_NATIVE_INTRO = make(
             "iw9_cruise_missile_plr_intro"), CRUISE_NATIVE_PLAYER = make("iw9_cruise_missile_plr"),
             CRUISE_NATIVE_BLAST = make("iw9_cruise_missile_exp_static");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> AIRSTRIKE_APPROACH = make("mwii_airstrike_approach"),
+    public static final RegistryObject<SoundEvent> AIRSTRIKE_APPROACH = make("mwii_airstrike_approach"),
             AIRSTRIKE_FIRE = make("mwii_airstrike_fire", 256), SAE_APPROACH = make("mwii_sae_approach"),
             SAE_RELEASE = make("mwii_sae_release"), SAE_BLAST = make("mwii_sae_blast");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> STEALTH_APPROACH = make("mwii_stealth_approach", 512),
+    public static final RegistryObject<SoundEvent> STEALTH_APPROACH = make("mwii_stealth_approach", 512),
             STEALTH_FLYBY = make("mwii_stealth_flyby", 512), STEALTH_LEAVE = make("mwii_stealth_leave", 512);
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> IMPACT_40MM = make("mwii_40mm_impact"),
+    public static final RegistryObject<SoundEvent> IMPACT_40MM = make("mwii_40mm_impact"),
             IMPACT_105MM = make("mwii_105mm_impact"), CAREPACKAGE_RETRIEVE = make("mwii_carepackage_retrieve"),
             CAREPACKAGE_RELEASE = make("mwii_carepackage_release");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> MGB_TABLET = make("mwii_mgb_tablet"),
+    public static final RegistryObject<SoundEvent> MGB_TABLET = make("mwii_mgb_tablet"),
             MGB_SIREN = make("mwii_mgb_siren"), MGB_IMPACT = make("mwii_mgb_impact");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> MGB_COUNTDOWN = make("mwii_mgb_countdown"),
+    public static final RegistryObject<SoundEvent> MGB_COUNTDOWN = make("mwii_mgb_countdown"),
             MGB_DRONE = make("mwii_mgb_drone"), MGB_INCOMING = make("mwii_mgb_incoming"),
             MGB_BOMBS = make("mwii_mgb_bombs_incoming"), MGB_BASS = make("mwii_mgb_impact_bass"),
             MGB_SURROUND = make("mwii_mgb_impact_surround"), MGB_FIRE = make("mwii_mgb_fire");
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> MORTAR_BLAST = make("mwii_mortar_blast", 256);
+    public static final RegistryObject<SoundEvent> MORTAR_BLAST = make("mwii_mortar_blast", 256);
 
     public static boolean mortarOneShot(ResourceLocation id) {
         return id.equals(MORTAR_BLAST.get().getLocation()) || id
@@ -118,7 +118,7 @@ public final class StreakSounds {
         return EXPLOSION.get();
     }
 
-    private static DeferredHolder<SoundEvent, SoundEvent> make(String name) {
+    private static RegistryObject<SoundEvent> make(String name) {
         return REGISTER.register(name, () -> SoundEvent
                 .createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, name)));
     }
@@ -127,7 +127,7 @@ public final class StreakSounds {
      * Native JSON attenuation does not expand the server's default 16-block audience.
      * 原资源 JSON 中的衰减设置不会扩大服务端默认的 16 格声音接收范围。
      */
-    private static DeferredHolder<SoundEvent, SoundEvent> make(String name, float range) {
+    private static RegistryObject<SoundEvent> make(String name, float range) {
         return REGISTER.register(name, () -> SoundEvent
                 .createFixedRangeEvent(ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, name), range));
     }

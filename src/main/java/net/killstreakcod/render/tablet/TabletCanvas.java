@@ -216,7 +216,7 @@ public final class TabletCanvas {
             }
         GLYPHS.put(32, new Glyph(new int[16], 8, 0, 3));
         GLYPHS.put(63, new Glyph(new int[] { 0, 0, 0, 60, 66, 2, 4, 8, 16, 16, 0, 16, 16, 0, 0, 0 }, 8, 1, 6));
-        try (var zip = new ZipInputStream(manager.open(ResourceLocation.withDefaultNamespace("font/unifont.zip")))) {
+        try (var zip = new ZipInputStream(manager.open(ResourceLocation.parse("font/unifont.zip")))) {
             java.util.zip.ZipEntry entry;
             while ((entry = zip.getNextEntry()) != null) {
                 if (!entry.getName().endsWith(".hex"))

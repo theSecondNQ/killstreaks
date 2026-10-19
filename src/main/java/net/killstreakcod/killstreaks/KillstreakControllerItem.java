@@ -9,11 +9,16 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.killstreakcod.network.StreakPackets;
 
 public class KillstreakControllerItem extends Item {
     @Override
-    public int getUseDuration(ItemStack stack, net.minecraft.world.entity.LivingEntity livingEntity) {
+    public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+        consumer.accept(net.killstreakcod.render.KillstreakClientEntityRenderers.itemExtension("tablet_uav", "killstreak_controller"));
+    }
+
+    @Override
+    public int getUseDuration(ItemStack stack) {
         return 72000;
     }
 
@@ -30,7 +35,7 @@ public class KillstreakControllerItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level.isClientSide)
-            PacketDistributor.sendToServer(new RequestTerminalStatePayload(true));
+            StreakPackets.sendToServer(new RequestTerminalStatePayload(true));
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
 }

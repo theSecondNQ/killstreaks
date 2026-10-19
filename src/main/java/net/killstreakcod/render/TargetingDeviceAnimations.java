@@ -8,13 +8,11 @@ import java.util.HashMap;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomData;
-import net.neoforged.neoforge.client.event.RenderHandEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -49,7 +47,7 @@ public final class TargetingDeviceAnimations {
     private static String reward(ItemStack stack) {
         if (!stack.is(KillstreakcodMod.DESIGNATOR.get()))
             return "";
-        String id = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("Reward");
+        String id = stack.getOrCreateTag().getString("Reward");
         return id.equals("mortar_strike") ? id : "precision_airstrike";
     }
 
@@ -308,7 +306,7 @@ public final class TargetingDeviceAnimations {
     }
 
     private static float partial() {
-        return Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true);
+        return Minecraft.getInstance().getFrameTime();
     }
 
     public static void beginFrame() {
@@ -346,7 +344,7 @@ public final class TargetingDeviceAnimations {
             HashMap<String, Matrix4f> armBones = new HashMap<>();
             frame.cameraBones.forEach((name, m) -> armBones.put(name,
                     new Matrix4f(m).m30(m.m30() * 2.54F).m31(m.m31() * 2.54F).m32(m.m32() * 2.54F)));
-            hands.renderTrackedHands(pose, event.getMultiBufferSource(), mc.player.getSkin().texture(),
+            hands.renderTrackedHands(pose, event.getMultiBufferSource(), mc.player.getSkinTextureLocation(),
                     event.getPackedLight(), armBones, false);
             model.renderScene(pose, event.getMultiBufferSource(), event.getPackedLight(), OverlayTexture.NO_OVERLAY,
                     frame.cameraBones);

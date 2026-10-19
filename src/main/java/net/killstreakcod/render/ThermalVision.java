@@ -11,9 +11,9 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.BufferUploader;
-import com.mojang.blaze3d.vertex.ByteBufferBuilder;
+
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.MeshData;
+
 import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexSorting;
@@ -22,13 +22,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.RegisterShadersEvent;
-import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.client.event.RegisterShadersEvent;
+import net.minecraftforge.client.event.RenderGuiEvent;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL30;
 
@@ -42,7 +42,7 @@ public final class ThermalVision {
     private static RenderTarget main, heat, scene;
     private static ShaderInstance maskShader, compositeShader;
     private static ClientLevel world;
-    private static ByteBufferBuilder storage;
+    private static BufferBuilder storage;
     private static BufferBuilder vertices;
     private static int count, width, height;
     private static boolean capturing, ready;
@@ -73,9 +73,11 @@ public final class ThermalVision {
     static void capture(float x, float y, float z) {
         if (!capturing || count >= MAX_VERTICES)
             return;
-        if (vertices == null)
-            vertices = new BufferBuilder(storage, VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
-        vertices.addVertex(x, y, z);
+        if (vertices == null) {
+            vertices = storage;
+            vertices.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+        }
+        vertices.vertex(x, y, z).endVertex();
         count++;
     }
 
@@ -91,8 +93,7 @@ public final class ThermalVision {
             ready = false;
             vertices = null;
             count = 0;
-            if (storage != null)
-                storage.discard();
+            discardVertices();
             if (active() && ensure())
                 capturing = true;
         } else if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_LEVEL) {
@@ -100,7 +101,7 @@ public final class ThermalVision {
                 return;
             capturing = false;
             if (!active() || heat == null) {
-                vertices = null;
+                discardVertices();
                 return;
             }
             try (ThermalRenderState ignored = new ThermalRenderState()) {
@@ -116,9 +117,9 @@ public final class ThermalVision {
                 heat.bindWrite(true);
                 if (vertices != null && maskShader != null) {
                     var modelView = RenderSystem.getModelViewStack();
-                    modelView.pushMatrix();
+                    modelView.pushPose();
                     try {
-                        modelView.set(event.getModelViewMatrix());
+                        modelView.last().pose().set(event.getPoseStack().last().pose());
                         RenderSystem.applyModelViewMatrix();
                         RenderSystem.setProjectionMatrix(event.getProjectionMatrix(), VertexSorting.DISTANCE_TO_ORIGIN);
                         RenderSystem.setShader(() -> maskShader);
@@ -131,12 +132,12 @@ public final class ThermalVision {
                         // 原场景与遮罩的投影完全一致，通过微小偏移避免深度冲突闪烁。
                         RenderSystem.enablePolygonOffset();
                         RenderSystem.polygonOffset(-1, -1);
-                        MeshData mesh = vertices.build();
+                        BufferBuilder.RenderedBuffer mesh = vertices.endOrDiscardIfEmpty();
                         vertices = null;
                         if (mesh != null)
                             BufferUploader.drawWithShader(mesh);
                     } finally {
-                        modelView.popMatrix();
+                        modelView.popPose();
                         RenderSystem.applyModelViewMatrix();
                     }
                 }
@@ -146,10 +147,22 @@ public final class ThermalVision {
                 failed(failure);
             } finally {
                 vertices = null;
-                if (storage != null)
-                    storage.discard();
+                discardVertices();
             }
         }
+    }
+
+    private static void discardVertices() {
+        if (storage != null) {
+            // Unlike 1.21's separate storage, the 1.20 builder also owns the open batch.
+            if (storage.building()) {
+                var unfinished = storage.endOrDiscardIfEmpty();
+                if (unfinished != null)
+                    unfinished.release();
+            }
+            storage.discard();
+        }
+        vertices = null;
     }
 
     /**
@@ -180,13 +193,13 @@ public final class ThermalVision {
             compositeShader.setSampler("DiffuseSampler", scene.getColorTextureId());
             compositeShader.setSampler("HeatSampler", heat.getColorTextureId());
             RenderSystem.setShader(() -> compositeShader);
-            BufferBuilder quad = Tesselator.getInstance().begin(VertexFormat.Mode.QUADS,
-                    DefaultVertexFormat.POSITION_TEX);
-            quad.addVertex(-1, -1, 0).setUv(0, 0);
-            quad.addVertex(1, -1, 0).setUv(1, 0);
-            quad.addVertex(1, 1, 0).setUv(1, 1);
-            quad.addVertex(-1, 1, 0).setUv(0, 1);
-            BufferUploader.drawWithShader(quad.buildOrThrow());
+            BufferBuilder quad = Tesselator.getInstance().getBuilder();
+            quad.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+            quad.vertex(-1, -1, 0).uv(0, 0).endVertex();
+            quad.vertex(1, -1, 0).uv(1, 0).endVertex();
+            quad.vertex(1, 1, 0).uv(1, 1).endVertex();
+            quad.vertex(-1, 1, 0).uv(0, 1).endVertex();
+            BufferUploader.drawWithShader(quad.end());
         }
         catch (RuntimeException | LinkageError failure) {
             failed(failure);
@@ -211,7 +224,7 @@ public final class ThermalVision {
                 heat.setClearColor(0, 0, 0, 0);
                 if (target.isStencilEnabled())
                     heat.enableStencil();
-                storage = new ByteBufferBuilder(65536);
+                storage = new BufferBuilder(65536);
                 main = target;
                 world = mc.level;
             } else {
@@ -271,13 +284,14 @@ public final class ThermalVision {
         world = null;
         width = height = 0;
         if (storage != null)
-            storage.close();
+            storage.clear();
         storage = null;
     }
 
+    // Forge 1.20.1 event wrappers use the simple class name; each shader subscriber needs a distinct name.
     @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
-    public static final class Resources {
-        private Resources() {}
+    public static final class ThermalShaderEvents {
+        private ThermalShaderEvents() {}
 
         @SubscribeEvent
         public static void shaders(RegisterShadersEvent event) {

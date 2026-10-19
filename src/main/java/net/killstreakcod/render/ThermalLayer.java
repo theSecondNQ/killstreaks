@@ -48,40 +48,55 @@ public final class ThermalLayer<T extends LivingEntity, M extends EntityModel<T>
 
     private record WhiteVertices(VertexConsumer output) implements VertexConsumer {
         @Override
-        public VertexConsumer addVertex(float x, float y, float z) {
-            output.addVertex(x, y, z);
-            ThermalVision.capture(x, y, z);
+        public VertexConsumer vertex(double x, double y, double z) {
+            output.vertex(x, y, z);
+            ThermalVision.capture((float) x, (float) y, (float) z);
             return this;
         }
 
         @Override
-        public VertexConsumer setColor(int r, int g, int b, int a) {
-            output.setColor(255, 255, 255, 255);
+        public VertexConsumer color(int r, int g, int b, int a) {
+            output.color(255, 255, 255, 255);
             return this;
         }
 
         @Override
-        public VertexConsumer setUv(float u, float v) {
-            output.setUv(u, v);
+        public VertexConsumer uv(float u, float v) {
+            output.uv(u, v);
             return this;
         }
 
         @Override
-        public VertexConsumer setUv1(int u, int v) {
-            output.setOverlay(OverlayTexture.NO_OVERLAY);
+        public VertexConsumer overlayCoords(int u, int v) {
+            output.overlayCoords(OverlayTexture.NO_OVERLAY);
             return this;
         }
 
         @Override
-        public VertexConsumer setUv2(int u, int v) {
-            output.setLight(15728880);
+        public VertexConsumer uv2(int u, int v) {
+            output.uv2(15728880);
             return this;
         }
 
         @Override
-        public VertexConsumer setNormal(float x, float y, float z) {
-            output.setNormal(x, y, z);
+        public VertexConsumer normal(float x, float y, float z) {
+            output.normal(x, y, z);
             return this;
+        }
+
+        @Override
+        public void endVertex() {
+            output.endVertex();
+        }
+
+        @Override
+        public void defaultColor(int r, int g, int b, int a) {
+            output.defaultColor(255, 255, 255, 255);
+        }
+
+        @Override
+        public void unsetDefaultColor() {
+            output.unsetDefaultColor();
         }
     }
 

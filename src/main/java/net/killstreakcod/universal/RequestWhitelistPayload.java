@@ -4,10 +4,10 @@ import net.killstreakcod.KillstreakcodMod;
 
 import java.util.UUID;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -22,9 +22,9 @@ public record RequestWhitelistPayload(UUID request, int teammatePage, int online
             throw new IllegalArgumentException("Invalid teammate page request");
     }
 
-    public static final Type<RequestWhitelistPayload> TYPE = new Type<>(
+    public static final Type<RequestWhitelistPayload> TYPE = new Type<>(RequestWhitelistPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "request_whitelist"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, RequestWhitelistPayload> STREAM_CODEC = StreamCodec.of(
+    public static final StreamCodec<FriendlyByteBuf, RequestWhitelistPayload> STREAM_CODEC = StreamCodec.of(
             (b, p) -> {
                 b.writeUUID(p.request);
                 b.writeVarInt(p.teammatePage);

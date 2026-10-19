@@ -3,11 +3,11 @@ package net.killstreakcod.universal;
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.audio.VoiceFaction;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.ByteBufCodecs;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 public record TerminalStatePayload(String slot1, String slot2, String slot3, boolean scoreMode,
@@ -19,9 +19,9 @@ public record TerminalStatePayload(String slot1, String slot2, String slot3, boo
                 new int[3], true, 0, VoiceFaction.SPECGRU, false);
     }
 
-    public static final Type<TerminalStatePayload> TYPE = new Type<>(
+    public static final Type<TerminalStatePayload> TYPE = new Type<>(TerminalStatePayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "terminal_state"));
-    public static final StreamCodec<ByteBuf, TerminalStatePayload> STREAM_CODEC = StreamCodec.of(
+    public static final StreamCodec<FriendlyByteBuf, TerminalStatePayload> STREAM_CODEC = StreamCodec.of(
             (b, p) -> {
                 ByteBufCodecs.STRING_UTF8.encode(b, p.slot1);
                 ByteBufCodecs.STRING_UTF8.encode(b, p.slot2);

@@ -2,6 +2,7 @@ package net.killstreakcod.killstreaks;
 
 import net.killstreakcod.universal.KillstreakService;
 import net.killstreakcod.universal.TacticalRuntime;
+import net.killstreakcod.universal.ResearchEffects;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -18,6 +19,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class WheelsonControllerItem extends Item {
+    @Override
+    public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+        consumer.accept(net.killstreakcod.render.KillstreakClientEntityRenderers.itemExtension("tablet_wheelson", "wheelson_controller"));
+    }
+
     public WheelsonControllerItem(Properties properties) {
         super(properties.stacksTo(1));
     }
@@ -31,7 +37,7 @@ public final class WheelsonControllerItem extends Item {
             return InteractionResultHolder.fail(controller);
 
         Vec3 spawn = player.position().add(player.getLookAngle().normalize().scale(2.0D));
-        if (TacticalRuntime.busy(serverPlayer))
+        if (TacticalRuntime.busy(serverPlayer) || !ResearchEffects.allowActivation(serverPlayer))
             return InteractionResultHolder.fail(controller);
         spawn = player.position().add(player.getLookAngle().multiply(2.5D, 0.0D, 2.5D));
         if (!serverLevel

@@ -2,11 +2,11 @@ package net.killstreakcod.universal;
 
 import net.killstreakcod.KillstreakcodMod;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.ByteBufCodecs;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 public record TacticalMapPayload(String reward, int originX, int originZ, int width, int[] colors, int[] heights)
@@ -24,9 +24,9 @@ public record TacticalMapPayload(String reward, int originX, int originZ, int wi
         heights = heights.clone();
     }
 
-    public static final Type<TacticalMapPayload> TYPE = new Type<>(
+    public static final Type<TacticalMapPayload> TYPE = new Type<>(TacticalMapPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "target_map"));
-    public static final StreamCodec<ByteBuf, TacticalMapPayload> STREAM_CODEC = StreamCodec.of(
+    public static final StreamCodec<FriendlyByteBuf, TacticalMapPayload> STREAM_CODEC = StreamCodec.of(
             (b, p) -> {
                 ByteBufCodecs.STRING_UTF8.encode(b, p.reward);
                 b.writeInt(p.originX);
@@ -38,13 +38,13 @@ public record TacticalMapPayload(String reward, int originX, int originZ, int wi
             b -> new TacticalMapPayload(ByteBufCodecs.STRING_UTF8.decode(b), b.readInt(), b.readInt(), b.readInt(),
                     readArray(b, WIDTH * WIDTH), readArray(b, WIDTH * WIDTH)));
 
-    static void writeArray(ByteBuf b, int[] a) {
+    static void writeArray(FriendlyByteBuf b, int[] a) {
         b.writeInt(a.length);
         for (int i : a)
             b.writeInt(i);
     }
 
-    static int[] readArray(ByteBuf b, int limit) {
+    static int[] readArray(FriendlyByteBuf b, int limit) {
         int n = b.readInt();
         if (n < 0 || n > limit)
             throw new IllegalArgumentException("Invalid tactical array");

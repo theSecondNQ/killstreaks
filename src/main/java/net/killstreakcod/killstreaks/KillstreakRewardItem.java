@@ -12,7 +12,6 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
-import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -37,13 +36,14 @@ public final class KillstreakRewardItem extends Item {
         if (player instanceof ServerPlayer serverPlayer) {
             if (!KillstreakService.claimReward(serverPlayer, reward))
                 return InteractionResultHolder.fail(stack);
-            stack.consume(1, player);
+            if (!player.getAbilities().instabuild)
+                stack.shrink(1);
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("tooltip.killstreakcod.reward_item").withStyle(ChatFormatting.GRAY));
     }
 }

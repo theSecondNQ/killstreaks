@@ -11,9 +11,9 @@ import java.util.ArrayDeque;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.BufferUploader;
-import com.mojang.blaze3d.vertex.ByteBufferBuilder;
+
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.MeshData;
+
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexSorting;
 import com.mojang.logging.LogUtils;
@@ -26,13 +26,13 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.RegisterShadersEvent;
-import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.client.event.RegisterShadersEvent;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL14;
@@ -62,7 +62,7 @@ public final class TracerEffects {
     private static Player pawn;
     private static boolean remote;
     private static ShaderInstance shader;
-    private static ByteBufferBuilder storage;
+    private static BufferBuilder storage;
 
     private TracerEffects() {}
 
@@ -98,7 +98,9 @@ public final class TracerEffects {
     }
 
     @SubscribeEvent
-    public static void tick(ClientTickEvent.Post event) {
+    public static void tick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
         if (world == null)
             return;
         Minecraft mc = Minecraft.getInstance();
@@ -132,17 +134,17 @@ public final class TracerEffects {
         if (EntryScenes.active())
             return;
         if (storage == null)
-            storage = new ByteBufferBuilder(32768);
+            storage = new BufferBuilder(32768);
         var textures = new java.util.LinkedHashSet<ResourceLocation>();
         for (Shot shot : SHOTS)
             textures.add(texture(shot.profile));
         for (ResourceLocation texture : textures) {
             storage.discard();
-            float partial = event.getPartialTick().getGameTimeDeltaPartialTick(false);
+            float partial = event.getPartialTick();
             double now = world.getGameTime() + partial;
             Vec3 eye = event.getCamera().getPosition();
-            BufferBuilder vertices = new BufferBuilder(storage, VertexFormat.Mode.QUADS,
-                    DefaultVertexFormat.POSITION_TEX_COLOR);
+            BufferBuilder vertices = storage;
+            vertices.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR);
             int count = 0;
             for (Shot shot : SHOTS) {
                 if (!texture(shot.profile).equals(texture))
@@ -183,16 +185,16 @@ public final class TracerEffects {
                 if (count >= MAX_QUADS)
                     break;
             }
-            MeshData mesh = vertices.build();
+            BufferBuilder.RenderedBuffer mesh = vertices.endOrDiscardIfEmpty();
             if (mesh == null) {
                 storage.discard();
                 continue;
             }
             try (ThermalRenderState ignored = new ThermalRenderState()) {
                 var modelView = RenderSystem.getModelViewStack();
-                modelView.pushMatrix();
+                modelView.pushPose();
                 try {
-                    modelView.set(event.getModelViewMatrix());
+                    modelView.last().pose().set(event.getPoseStack().last().pose());
                     RenderSystem.applyModelViewMatrix();
                     RenderSystem.setProjectionMatrix(event.getProjectionMatrix(), VertexSorting.DISTANCE_TO_ORIGIN);
                     RenderSystem.setShader(() -> shader);
@@ -212,7 +214,7 @@ public final class TracerEffects {
                     BufferUploader.drawWithShader(mesh);
                     mesh = null;
                 } finally {
-                    modelView.popMatrix();
+                    modelView.popPose();
                     RenderSystem.applyModelViewMatrix();
                 }
             }
@@ -221,7 +223,7 @@ public final class TracerEffects {
                 LogUtils.getLogger().warn("Killstreaks: tracer rendering disabled until resource reload", failure);
             } finally {
                 if (mesh != null)
-                    mesh.close();
+                    mesh.release();
                 storage.discard();
             }
         }
@@ -318,7 +320,7 @@ public final class TracerEffects {
     }
 
     private static void vertex(BufferBuilder out, Vec3 at, float u, float v, int color) {
-        out.addVertex((float) at.x, (float) at.y, (float) at.z).setUv(u, v).setColor(color);
+        out.vertex((float) at.x, (float) at.y, (float) at.z).uv(u, v).color(color).endVertex();
     }
 
     private static boolean finite(Vec3 point) {
@@ -335,7 +337,7 @@ public final class TracerEffects {
         pawn = null;
         remote = false;
         if (storage != null) {
-            storage.close();
+            storage.clear();
             storage = null;
         }
     }
@@ -344,8 +346,8 @@ public final class TracerEffects {
     }
 
     @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
-    public static final class Resources {
-        private Resources() {}
+    public static final class TracerShaderEvents {
+        private TracerShaderEvents() {}
 
         @SubscribeEvent
         public static void shaders(RegisterShadersEvent event) {

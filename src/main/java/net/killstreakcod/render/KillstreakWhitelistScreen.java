@@ -16,7 +16,7 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.killstreakcod.network.StreakPackets;
 
 /**
  * A terminal page with real widgets, independent of GUI scale and server-owned friendship data.
@@ -77,7 +77,7 @@ public final class KillstreakWhitelistScreen extends Screen {
         if (name != null)
             input = name.getValue();
         clearWidgets();
-        clearFocus();
+        setFocused(null);
         actions.clear();
         name = addRenderableWidget(new EditBox(font, leftX, inputY, panelWidth - 118, 20,
                 Component.translatable("screen.killstreakcod.whitelist_name")));
@@ -185,7 +185,7 @@ public final class KillstreakWhitelistScreen extends Screen {
 
     private void requestStatePacket() {
         beginRequest();
-        PacketDistributor.sendToServer(new RequestWhitelistPayload(request, teammatePage, onlinePage, rows));
+        StreakPackets.sendToServer(new RequestWhitelistPayload(request, teammatePage, onlinePage, rows));
     }
 
     private void change(int action, String target) {
@@ -193,7 +193,7 @@ public final class KillstreakWhitelistScreen extends Screen {
             return;
         quietRequest = false;
         beginRequest();
-        PacketDistributor
+        StreakPackets
                 .sendToServer(new WhitelistActionPayload(request, action, target, teammatePage, onlinePage, rows));
     }
 
@@ -236,7 +236,7 @@ public final class KillstreakWhitelistScreen extends Screen {
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics, mouseX, mouseY, partialTick);
+        renderBackground(graphics);
         graphics.fill(panelX - 1, panelY - 1, panelX + panelWidth + 1, panelY + panelHeight + 1, 0xFF40514A);
         graphics.fill(panelX, panelY, panelX + panelWidth, panelY + panelHeight, 0xF00A1012);
         graphics.drawString(font, font.plainSubstrByWidth(title.getString(), panelWidth - 130), leftX, panelY + 18,
@@ -274,7 +274,7 @@ public final class KillstreakWhitelistScreen extends Screen {
             graphics.drawString(font, lines.get(i), leftX, statusY + i * font.lineHeight,
                     pending || state != null && !state.writable() ? AMBER : GREEN, false);
 
-        // 1.21.1 的 Screen.render 会先于控件绘制背景；在这里调用会重复绘制背景，覆盖手动绘制的名字和列表行。
+        // 本屏幕统一控制背景与列表绘制顺序，最后只绘制控件，保留手动绘制的名字和列表行。
         for (Renderable widget : renderables)
             widget.render(graphics, mouseX, mouseY, partialTick);
         if (state != null) {
@@ -322,7 +322,7 @@ public final class KillstreakWhitelistScreen extends Screen {
     @Override
     public void onClose() {
         Minecraft.getInstance().setScreen(terminal);
-        PacketDistributor.sendToServer(new RequestTerminalStatePayload(false));
+        StreakPackets.sendToServer(new RequestTerminalStatePayload(false));
     }
 
     @Override

@@ -25,7 +25,7 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.killstreakcod.network.StreakPackets;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 
@@ -51,7 +51,7 @@ public final class TabletTargeting {
     }
 
     public static float elapsed() {
-        return active() ? session.age + Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true) : 0;
+        return active() ? session.age + Minecraft.getInstance().getFrameTime() : 0;
     }
 
     public static long revision() {
@@ -84,7 +84,7 @@ public final class TabletTargeting {
         Minecraft mc = Minecraft.getInstance();
         if (cancel && mc.player == old.player && mc.level == old.level && mc.getConnection() != null
                 && mc.player.isAlive())
-            PacketDistributor.sendToServer(new TacticalTargetPayload(new int[0], 0, true));
+            StreakPackets.sendToServer(new TacticalTargetPayload(new int[0], 0, true));
         mc.options.setCameraType(old.cameraType);
         KeyMapping.releaseAll();
         GLFW.glfwSetInputMode(mc.getWindow().getWindow(), GLFW.GLFW_CURSOR, GLFW.GLFW_CURSOR_NORMAL);
@@ -686,7 +686,7 @@ public final class TabletTargeting {
             pendingTicks = 0;
             panning = false;
             revision++;
-            PacketDistributor.sendToServer(new TacticalTargetPayload(points, angles, false));
+            StreakPackets.sendToServer(new TacticalTargetPayload(points, angles, false));
         }
 
         void clampPan() {

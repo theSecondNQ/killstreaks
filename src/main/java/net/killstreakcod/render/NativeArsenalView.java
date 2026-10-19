@@ -18,7 +18,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.client.event.RenderHandEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
 import org.joml.Matrix4f;
 
 /**
@@ -198,7 +198,7 @@ public final class NativeArsenalView {
                     : mc.player.getMainArm().getOpposite();
             if (arm == HumanoidArm.LEFT)
                 pose.scale(-1, 1, 1);
-            hands.renderTrackedHands(pose, buffers, mc.player.getSkin().texture(), light, cm, false);
+            hands.renderTrackedHands(pose, buffers, mc.player.getSkinTextureLocation(), light, cm, false);
             if (!id.isEmpty()) {
                 ImportedCastModel model = ImportedCastModel.get(id);
                 if (model != null)

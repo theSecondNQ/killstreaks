@@ -18,6 +18,11 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 
 public final class MinigunItem extends Item {
+    @Override
+    public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+        consumer.accept(net.killstreakcod.render.KillstreakClientEntityRenderers.minigunExtension());
+    }
+
     public static final int FIRE_INTERVAL_TICKS = 1;
 
     public MinigunItem(Properties properties) {
@@ -31,7 +36,7 @@ public final class MinigunItem extends Item {
     }
 
     @Override
-    public int getUseDuration(ItemStack stack, LivingEntity entity) {
+    public int getUseDuration(ItemStack stack) {
         return 72_000;
     }
 
@@ -46,7 +51,7 @@ public final class MinigunItem extends Item {
     public void onUseTick(Level level, LivingEntity livingEntity, ItemStack stack, int remainingUseDuration) {
         if (!(livingEntity instanceof ServerPlayer player) || !(level instanceof ServerLevel serverLevel))
             return;
-        int ticksUsing = getUseDuration(stack, player) - remainingUseDuration;
+        int ticksUsing = getUseDuration(stack) - remainingUseDuration;
         if (ticksUsing == 1)
             TacticalRuntime.sound(serverLevel, player.getEyePosition(),
                     NativeAudio.sfx("m134_spinup", StreakSounds.SPIN.get()), .8F, 1);

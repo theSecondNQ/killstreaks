@@ -29,6 +29,9 @@ import net.killstreakcod.universal.compat.OptionalIntegrations;
 import net.killstreakcod.universal.RadarPayload;
 import net.killstreakcod.universal.RequestTerminalStatePayload;
 import net.killstreakcod.universal.RequestWhitelistPayload;
+import net.killstreakcod.universal.ResearchActionPayload;
+import net.killstreakcod.universal.ResearchStatePayload;
+import net.killstreakcod.universal.ResearchSystem;
 import net.killstreakcod.universal.SaveKillstreakLoadoutPayload;
 import net.killstreakcod.universal.StreakEarnedPayload;
 import net.killstreakcod.universal.StreakImpactPayload;
@@ -53,17 +56,14 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
-import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+
+import net.killstreakcod.network.PayloadRegistrar;
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
 
 @Mod(KillstreakcodMod.MODID)
 public class KillstreakcodMod {
@@ -74,13 +74,13 @@ public class KillstreakcodMod {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE,
             MODID);
 
-    public static final DeferredHolder<EntityType<?>, EntityType<WheelsonEntity>> WHEELSON = ENTITY_TYPES.register(
+    public static final RegistryObject<EntityType<WheelsonEntity>> WHEELSON = ENTITY_TYPES.register(
             "wheelson",
             () -> EntityType.Builder
                     .<WheelsonEntity>of((type, level) -> new WheelsonEntity(type, level), MobCategory.CREATURE)
                     .sized(1.3F, 0.9F).clientTrackingRange(10).updateInterval(2).build(MODID + ":wheelson"));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<SupportHelicopterEntity>> SUPPORT_HELICOPTER = ENTITY_TYPES
+    public static final RegistryObject<EntityType<SupportHelicopterEntity>> SUPPORT_HELICOPTER = ENTITY_TYPES
             .register("support_helicopter",
                     () -> EntityType.Builder
                             .<SupportHelicopterEntity>of((type, level) -> new SupportHelicopterEntity(type, level),
@@ -88,60 +88,67 @@ public class KillstreakcodMod {
                             .sized(3.6F, 2.4F).clientTrackingRange(12).updateInterval(2)
                             .build(MODID + ":support_helicopter"));
 
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, MODID);
 
-    public static final DeferredHolder<EntityType<?>, EntityType<TacticalUnitEntity>> TACTICAL_UNIT = ENTITY_TYPES
+    public static final RegistryObject<EntityType<TacticalUnitEntity>> TACTICAL_UNIT = ENTITY_TYPES
             .register("tactical_unit",
                     () -> EntityType.Builder.<TacticalUnitEntity>of(TacticalUnitEntity::new, MobCategory.MISC)
                             .sized(2, 1).clientTrackingRange(32).updateInterval(1).build(MODID + ":tactical_unit"));
 
-    public static final DeferredItem<Item> CONTROLLER = ITEMS.register("killstreak_controller",
+    public static final RegistryObject<Item> CONTROLLER = ITEMS.register("killstreak_controller",
             () -> new KillstreakControllerItem(new Item.Properties().stacksTo(1)));
 
-    public static final DeferredItem<Item> SENTRY_GUN = ITEMS.register("sentry_gun",
+    public static final RegistryObject<Item> SENTRY_GUN = ITEMS.register("sentry_gun",
             () -> new SentryTurretItem(new Item.Properties()));
 
-    public static final DeferredItem<Item> WHEELSON_CONTROLLER = ITEMS.register("wheelson_controller",
+    public static final RegistryObject<Item> WHEELSON_CONTROLLER = ITEMS.register("wheelson_controller",
             () -> new WheelsonControllerItem(new Item.Properties()));
 
-    public static final DeferredItem<Item> M134_MINIGUN = ITEMS.register("m134_minigun",
+    public static final RegistryObject<Item> M134_MINIGUN = ITEMS.register("m134_minigun",
             () -> new MinigunItem(new Item.Properties()));
 
-    public static final DeferredItem<Item> CARE_PACKAGE_REWARD = ITEMS.register("care_package_reward",
+    public static final RegistryObject<Item> CARE_PACKAGE_REWARD = ITEMS.register("care_package_reward",
             () -> new RewardCardItem(new Item.Properties().stacksTo(1)));
 
-    public static final DeferredItem<Item> DESIGNATOR = ITEMS.register("designator",
+    public static final RegistryObject<Item> DESIGNATOR = ITEMS.register("designator",
             () -> new TacticalEquipmentItem(new Item.Properties(), "designator"));
 
-    public static final DeferredItem<Item> DROP_MARKER = ITEMS.register("drop_marker",
+    public static final RegistryObject<Item> DROP_MARKER = ITEMS.register("drop_marker",
             () -> new TacticalEquipmentItem(new Item.Properties(), "drop_marker"));
 
-    public static final DeferredItem<Item> CLUSTER_MINE = ITEMS.register("cluster_mine",
+    public static final RegistryObject<Item> CLUSTER_MINE = ITEMS.register("cluster_mine",
             () -> new TacticalEquipmentItem(new Item.Properties(), "cluster_mine"));
 
-    public KillstreakcodMod(IEventBus modEventBus, net.neoforged.fml.ModContainer container) {
+    public KillstreakcodMod(net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
+        var container = context;
 
-        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT, NativePresentationConfig.SPEC);
-        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER, StreakServerConfig.SPEC,
+        container.registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT, NativePresentationConfig.SPEC);
+        container.registerConfig(net.minecraftforge.fml.config.ModConfig.Type.SERVER, StreakServerConfig.SPEC,
                 StreakServerConfig.FILE_NAME);
 
         modEventBus.addListener(StreakServerConfig::reloaded);
         ArmorKit.init();
-        ArmorKit.MATERIALS.register(modEventBus);
         KillstreakContent.register(modEventBus);
         NativeAudio.init();
         StreakSounds.REGISTER.register(modEventBus);
         ITEMS.register(modEventBus);
         ENTITY_TYPES.register(modEventBus);
-        modEventBus.addListener(this::registerPayloads);
+        registerPayloads();
         modEventBus.addListener(this::registerEntityAttributes);
-        NeoForge.EVENT_BUS.register(new KillstreakService());
+        MinecraftForge.EVENT_BUS.register(new KillstreakService());
         OptionalIntegrations.register();
     }
 
-    private void registerPayloads(RegisterPayloadHandlersEvent event) {
+    private void registerPayloads() {
 
-        PayloadRegistrar registrar = event.registrar(NETWORK_VERSION);
+        PayloadRegistrar registrar = new PayloadRegistrar(false);
+
+        registrar.playToServer(ResearchActionPayload.TYPE, ResearchActionPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    if (context.player() instanceof ServerPlayer player)
+                        ResearchSystem.action(player, payload);
+                }));
 
         registrar.playToServer(RequestWhitelistPayload.TYPE, RequestWhitelistPayload.STREAM_CODEC,
                 (p, c) -> c.enqueueWork(() -> {
@@ -191,7 +198,9 @@ public class KillstreakcodMod {
                         KillstreakService.saveTerminalSelection(player, p);
                 }));
 
-        if (FMLEnvironment.dist == Dist.DEDICATED_SERVER) {
+        {
+            registrar.playToClient(ResearchStatePayload.TYPE, ResearchStatePayload.STREAM_CODEC, (p, c) -> {
+            });
             registrar.playToClient(WhitelistStatePayload.TYPE, WhitelistStatePayload.STREAM_CODEC, (p, c) -> {
             });
             registrar.playToClient(NativeFxPayload.TYPE, NativeFxPayload.STREAM_CODEC, (p, c) -> {
@@ -236,12 +245,12 @@ public class KillstreakcodMod {
 
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {
 
-        event.put(TACTICAL_UNIT.get(), Mob.createMobAttributes()
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, 100)
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED, .25)
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.FOLLOW_RANGE, 160)
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, 1)
-                .add(net.minecraft.world.entity.ai.attributes.Attributes.STEP_HEIGHT, 1).build());
+        event.put(TACTICAL_UNIT.get(),
+                Mob.createMobAttributes().add(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, 100)
+                        .add(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED, .25)
+                        .add(net.minecraft.world.entity.ai.attributes.Attributes.FOLLOW_RANGE, 160)
+                        .add(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, 1)
+                        .build());
 
         event.put(WHEELSON.get(), WheelsonEntity.createAttributes().build());
         event.put(SUPPORT_HELICOPTER.get(), Mob.createMobAttributes().build());

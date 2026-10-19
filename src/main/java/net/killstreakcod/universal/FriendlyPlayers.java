@@ -15,6 +15,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
@@ -33,10 +34,10 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.storage.LevelResource;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.event.server.ServerStoppedEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.server.ServerStoppedEvent;
 
 /**
  * UUID relationships belong to the save, not to the client or installation.
@@ -328,7 +329,9 @@ public final class FriendlyPlayers {
         try {
 
             // 档案查询不能阻塞内置服务器；每名玩家只允许一个查询，并设定截止时间。
-            cache.getAsync(input).thenApply(value -> value).orTimeout(5, TimeUnit.SECONDS)
+            java.util.concurrent.CompletableFuture<Optional<GameProfile>> lookup = new java.util.concurrent.CompletableFuture<>();
+            cache.getAsync(input, lookup::complete);
+            lookup.orTimeout(5, TimeUnit.SECONDS)
                     .whenComplete((profile, failure) -> server.execute(() -> {
                         if (WORLDS.get(server) != state || server.getPlayerList().getPlayer(player.getUUID()) != player)
                             return;
@@ -489,6 +492,6 @@ public final class FriendlyPlayers {
 
     @SubscribeEvent
     public static void stopped(ServerStoppedEvent event) {
-        WORLDS.remove(event.getServer());
+        WORLDS.remove(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
     }
 }

@@ -1,9 +1,8 @@
 package net.killstreakcod.universal;
 
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
-import net.neoforged.neoforge.network.PacketDistributor;
-import net.neoforged.neoforge.network.registration.NetworkRegistry;
+import net.killstreakcod.network.StreakPackets;
 
 /**
  * Mock players and players whose connection is closing have no negotiated payload channels.
@@ -11,9 +10,7 @@ import net.neoforged.neoforge.network.registration.NetworkRegistry;
  */
 public final class StreakNetwork {
     public static void send(ServerPlayer player, CustomPacketPayload payload) {
-        if (player.connection != null && player.connection.isAcceptingMessages()
-                && NetworkRegistry.hasChannel(player.connection, payload.type().id()))
-            PacketDistributor.sendToPlayer(player, payload);
+        StreakPackets.sendToPlayer(player, payload);
     }
 
     private StreakNetwork() {}

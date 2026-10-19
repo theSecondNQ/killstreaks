@@ -94,7 +94,7 @@ public final class StreakProjectileModels {
             pose.mulPose(Axis.XP.rotationDegrees(-Mth.lerp(partial, unit.xRotO, unit.getXRot())));
             pose.mulPose(Axis.ZP.rotationDegrees(180));
             (unit.stage() == 8 ? shell : rocket).render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(TEXTURE)),
-                    light, OverlayTexture.NO_OVERLAY, 0xffffffff);
+                    light, OverlayTexture.NO_OVERLAY, 1, 1, 1, 1);
         } finally {
             pose.popPose();
         }

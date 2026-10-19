@@ -11,11 +11,11 @@ import net.killstreakcod.render.tablet.TabletCanvas;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 
 /**
  * Owns client resource invalidation order, including native images, dynamic textures and GPU buffers.

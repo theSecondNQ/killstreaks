@@ -126,6 +126,8 @@ public final class OriginalStreakAnimations {
         float seconds = Math.max(0, ticks) / 20;
         if (stage.equals("targeting"))
             return single("scene_vm_ks_tablet_raise", Float.MAX_VALUE, "tablet");
+        if (stage.equals("remote_call"))
+            return sequence(seconds, "tablet", "scene_vm_ks_tablet_raise", "scene_vm_ks_tablet_fire_tap");
         if (stage.equals("entry"))
             return switch (reward) {
                 case "gunship" -> single("gunship_intro", seconds, "station");
@@ -133,7 +135,9 @@ public final class OriginalStreakAnimations {
                 default -> null;
             };
         if (stage.equals("exit"))
-            return StreakTimings.remoteReward(reward) ? single("scene_vm_ks_tablet_drop", seconds, "tablet") : null;
+            return StreakTimings.remoteReward(reward) || reward.equals("precision_airstrike")
+                    ? single("scene_vm_ks_tablet_drop", seconds, "tablet")
+                    : null;
         if (!stage.equals("call") && !stage.equals("confirmed"))
             return null;
         if (reward.equals("cluster_mine") || reward.equals("precision_airstrike") || reward.equals("mortar_strike")

@@ -188,7 +188,7 @@ public final class ImportedUnits {
         }
         pose.pushPose();
         try {
-            pose.mulPose(converted);
+            pose.mulPoseMatrix(converted);
             child.renderScene(pose, buffers, light, OverlayTexture.NO_OVERLAY,
                     mechanicalPose(child, unit, yaw, age, partial, id.equals("wheelson_turret")));
         } finally {
@@ -206,7 +206,7 @@ public final class ImportedUnits {
                 continue;
             pose.pushPose();
             try {
-                pose.mulPose(mount);
+                pose.mulPoseMatrix(mount);
                 door.renderScene(pose, buffers, light, OverlayTexture.NO_OVERLAY, Map.of());
             } finally {
                 pose.popPose();

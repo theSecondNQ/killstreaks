@@ -4,10 +4,10 @@ import net.killstreakcod.KillstreakcodMod;
 
 import java.util.UUID;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -24,9 +24,9 @@ public record WhitelistActionPayload(UUID request, int action, String target, in
             throw new IllegalArgumentException("Invalid teammate action");
     }
 
-    public static final Type<WhitelistActionPayload> TYPE = new Type<>(
+    public static final Type<WhitelistActionPayload> TYPE = new Type<>(WhitelistActionPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "whitelist_action"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, WhitelistActionPayload> STREAM_CODEC = StreamCodec.of(
+    public static final StreamCodec<FriendlyByteBuf, WhitelistActionPayload> STREAM_CODEC = StreamCodec.of(
             (b, p) -> {
                 b.writeUUID(p.request);
                 b.writeVarInt(p.action);

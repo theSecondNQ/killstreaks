@@ -2,10 +2,10 @@ package net.killstreakcod.universal;
 
 import net.killstreakcod.KillstreakcodMod;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 public record TacticalTargetPayload(int[] points, float[] headings, boolean cancel) implements CustomPacketPayload {
@@ -26,9 +26,9 @@ public record TacticalTargetPayload(int[] points, float[] headings, boolean canc
         headings = headings.clone();
     }
 
-    public static final Type<TacticalTargetPayload> TYPE = new Type<>(
+    public static final Type<TacticalTargetPayload> TYPE = new Type<>(TacticalTargetPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "target"));
-    public static final StreamCodec<ByteBuf, TacticalTargetPayload> STREAM_CODEC = StreamCodec.of(
+    public static final StreamCodec<FriendlyByteBuf, TacticalTargetPayload> STREAM_CODEC = StreamCodec.of(
             (b, p) -> {
                 TacticalMapPayload.writeArray(b, p.points);
                 b.writeInt(p.headings.length);

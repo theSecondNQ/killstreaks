@@ -3,11 +3,11 @@ package net.killstreakcod.universal;
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.audio.VoiceFaction;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.ByteBufCodecs;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 public record StreakEarnedPayload(String reward, int count, int slot, boolean packageReward, String faction)
@@ -16,9 +16,9 @@ public record StreakEarnedPayload(String reward, int count, int slot, boolean pa
         this(reward, count, slot, packageReward, VoiceFaction.SPECGRU);
     }
 
-    public static final Type<StreakEarnedPayload> TYPE = new Type<>(
+    public static final Type<StreakEarnedPayload> TYPE = new Type<>(StreakEarnedPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "earned"));
-    public static final StreamCodec<ByteBuf, StreakEarnedPayload> STREAM_CODEC = StreamCodec.of(
+    public static final StreamCodec<FriendlyByteBuf, StreakEarnedPayload> STREAM_CODEC = StreamCodec.of(
             (b, p) -> {
                 ByteBufCodecs.STRING_UTF8.encode(b, p.reward);
                 b.writeInt(p.count);

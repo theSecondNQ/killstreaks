@@ -25,7 +25,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.enderdragon.EndCrystal;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.entity.PartEntity;
+import net.minecraftforge.entity.PartEntity;
 
 /**
  * Entity damage and multipart hit routing; normal hurt APIs retain armour and boss phases.
@@ -113,6 +113,8 @@ public final class StreakCombat {
     }
 
     static boolean hurt(ServerPlayer owner, Entity emitter, Entity entity, float damage, boolean explosive, Vec3 at) {
+        if (!explosive && emitter instanceof TacticalUnitEntity unit)
+            damage *= ResearchCombat.damageScale(unit);
         if (!Float.isFinite(damage) || damage <= 0 || entity.isRemoved())
             return false;
         Entity target = root(entity);
@@ -131,8 +133,8 @@ public final class StreakCombat {
         Map<Entity, List<Exposure>> groups = new IdentityHashMap<>();
         for (Entity entity : targets(level, owner, emitter, new AABB(at, at).inflate(radius), true)) {
             AABB box = entity.getBoundingBox();
-            Vec3 closest = new Vec3(Math.clamp(at.x, box.minX, box.maxX), Math.clamp(at.y, box.minY, box.maxY),
-                    Math.clamp(at.z, box.minZ, box.maxZ));
+            Vec3 closest = new Vec3(net.minecraft.util.Mth.clamp(at.x, box.minX, box.maxX), net.minecraft.util.Mth.clamp(at.y, box.minY, box.maxY),
+                    net.minecraft.util.Mth.clamp(at.z, box.minZ, box.maxZ));
             double distance = closest.distanceTo(at);
             if (distance >= radius)
                 continue;
@@ -163,6 +165,8 @@ public final class StreakCombat {
                     break;
                 }
             confirmed |= applied && hostile;
+            if (applied && target instanceof LivingEntity living)
+                ResearchEffects.afterDamage(emitter, living);
             if (applied && !SuperbWarfareCompat.vehicle(target) && !(target instanceof EndCrystal))
                 target.setDeltaMovement(
                         target.getDeltaMovement().add(target.position().subtract(at).normalize().scale(.6)));

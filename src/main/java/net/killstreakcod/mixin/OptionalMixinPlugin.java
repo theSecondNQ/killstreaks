@@ -24,7 +24,14 @@ public final class OptionalMixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String target, String mixin) {
         try {
-            return MixinService.getService().getBytecodeProvider().getClassNode(target) != null;
+            ClassNode node = MixinService.getService().getBytecodeProvider().getClassNode(target);
+            if (node == null)
+                return false;
+            if (mixin.endsWith("TaczShootMixin"))
+                return node.fields.stream().anyMatch(field -> field.name.equals("lastTimeShootSuccess"))
+                        && List.of("autoShoot", "autoShootController", "semiShootController").stream()
+                                .allMatch(name -> node.methods.stream().anyMatch(method -> method.name.equals(name)));
+            return true;
         }
         catch (ClassNotFoundException | java.io.IOException absent) {
             return false;

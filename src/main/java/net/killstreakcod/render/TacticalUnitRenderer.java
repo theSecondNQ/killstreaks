@@ -26,7 +26,7 @@ public final class TacticalUnitRenderer extends MobRenderer<TacticalUnitEntity, 
             public void render(PoseStack pose, MultiBufferSource buffers, int light, TacticalUnitEntity unit, float s,
                     float a, float partial, float age, float yaw, float pitch) {
                 getParentModel().renderToBuffer(pose, buffers.getBuffer(RenderType.eyes(EMISSIVE)), 15728880,
-                        OverlayTexture.NO_OVERLAY, 0xffffffff);
+                        OverlayTexture.NO_OVERLAY, 1, 1, 1, 1);
             }
         });
     }
@@ -59,6 +59,7 @@ public final class TacticalUnitRenderer extends MobRenderer<TacticalUnitEntity, 
     @Override
     public void render(TacticalUnitEntity unit, float yaw, float partial, PoseStack pose, MultiBufferSource buffers,
             int light) {
+        shadowRadius = unit.hiddenSaePayload() || unit.kind() == TacticalUnitEntity.Kind.COUNTER_UAV ? 0 : .6F;
         if (unit.hiddenSaePayload() || unit.awaitingVtolEntry() || unit.kind() == TacticalUnitEntity.Kind.COUNTER_UAV
                 || unit.kind() == TacticalUnitEntity.Kind.BOMB && unit.stage() <= -3
                 || unit.kind() == TacticalUnitEntity.Kind.PRECISION && unit.stage() < 0
@@ -68,12 +69,6 @@ public final class TacticalUnitRenderer extends MobRenderer<TacticalUnitEntity, 
                 || ImportedUnits.render(unit, partial, pose, buffers, light))
             return;
         super.render(unit, yaw, partial, pose, buffers, light);
-    }
-
-    @Override
-    protected float getShadowRadius(TacticalUnitEntity unit) {
-        return unit.hiddenSaePayload() || unit.kind() == TacticalUnitEntity.Kind.COUNTER_UAV ? 0
-                : super.getShadowRadius(unit);
     }
 
     @Override
@@ -95,9 +90,8 @@ public final class TacticalUnitRenderer extends MobRenderer<TacticalUnitEntity, 
     }
 
     @Override
-    protected void setupRotations(TacticalUnitEntity unit, PoseStack pose, float age, float yaw, float partial,
-            float scale) {
-        super.setupRotations(unit, pose, age, yaw, partial, scale);
+    protected void setupRotations(TacticalUnitEntity unit, PoseStack pose, float age, float yaw, float partial) {
+        super.setupRotations(unit, pose, age, yaw, partial);
         if (unit.kind() == TacticalUnitEntity.Kind.CRUISE || unit.kind() == TacticalUnitEntity.Kind.BOMB
                 || unit.kind() == TacticalUnitEntity.Kind.ROCKET)
             pose.mulPose(com.mojang.math.Axis.XP.rotationDegrees(-unit.getXRot()));

@@ -104,7 +104,7 @@ public final class MinigunItemRenderer extends BlockEntityWithoutLevelRenderer {
         net.minecraft.world.entity.LivingEntity wielder = context.firstPerson() ? mc.player
                 : NativeMinigunPresentation.wielder(stack);
         boolean firing = wielder != null && wielder.isUsingItem() && wielder.getUseItem() == stack;
-        float t = mc.level == null ? 0 : mc.level.getGameTime() + mc.getTimer().getGameTimeDeltaPartialTick(true);
+        float t = mc.level == null ? 0 : mc.level.getGameTime() + mc.getFrameTime();
         if (nativeGun != null) {
             pose.pushPose();
             try {
@@ -115,7 +115,7 @@ public final class MinigunItemRenderer extends BlockEntityWithoutLevelRenderer {
                     pose.mulPose(Axis.YP.rotationDegrees(75));
                     pose.mulPose(Axis.XP.rotationDegrees(-15));
                 }
-                float partial = mc.getTimer().getGameTimeDeltaPartialTick(true);
+                float partial = mc.getFrameTime();
                 int using = firing ? wielder.getTicksUsingItem() : 0;
                 var action = NativeArsenalView.gunPose(nativeGun, firing, using, partial);
                 pose.pushPose();
@@ -128,7 +128,7 @@ public final class MinigunItemRenderer extends BlockEntityWithoutLevelRenderer {
                 if (context.firstPerson() && mc.player != null && !StreakPresentation.busy()) {
                     if (nativeHands == null)
                         nativeHands = new TabletHandModel();
-                    nativeHands.renderTrackedHands(pose, buffer, mc.player.getSkin().texture(), light,
+                    nativeHands.renderTrackedHands(pose, buffer, mc.player.getSkinTextureLocation(), light,
                             NativeMinigunPresentation.wrists(nativeGun, action, fit), false);
                 }
             } finally {
@@ -154,14 +154,14 @@ public final class MinigunItemRenderer extends BlockEntityWithoutLevelRenderer {
         pose.scale(1.05F, 1.05F, 1.05F);
         if (firing)
             pose.translate(0, 0, Math.sin(t * 5) * .015);
-        root.render(pose, buffer.getBuffer(RenderType.entityCutoutNoCull(TEXTURE)), light, overlay, 0xffffffff);
+        root.render(pose, buffer.getBuffer(RenderType.entityCutoutNoCull(TEXTURE)), light, overlay, 1, 1, 1, 1);
         if (muzzleFlash.visible)
-            muzzleFlash.render(pose, buffer.getBuffer(RenderType.eyes(TEXTURE)), 15728880, overlay, 0xffffffff);
+            muzzleFlash.render(pose, buffer.getBuffer(RenderType.eyes(TEXTURE)), 15728880, overlay, 1, 1, 1, 1);
         pose.popPose();
     }
 
     private static void iconVertex(VertexConsumer v, PoseStack pose, float x, float y, float u, float vv) {
-        v.addVertex(pose.last().pose(), x, y, .5F).setColor(0xffffffff).setUv(u, vv)
-                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(15728880).setNormal(pose.last(), 0, 0, 1);
+        v.vertex(pose.last().pose(), x, y, .5F).color(0xffffffff).uv(u, vv)
+                .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(15728880).normal(pose.last().normal(), 0, 0, 1).endVertex();
     }
 }

@@ -173,7 +173,7 @@ public final class AircraftCrash {
     private static void move(TacticalUnitEntity unit, Vec3 at) {
         ServerLevel level = (ServerLevel) unit.level();
         State state = unit.crash;
-        Vec3 bounded = new Vec3(at.x, Math.clamp(at.y, level.getMinBuildHeight() + 2, level.getMaxBuildHeight() - 4),
+        Vec3 bounded = new Vec3(at.x, net.minecraft.util.Mth.clamp(at.y, level.getMinBuildHeight() + 2, level.getMaxBuildHeight() - 4),
                 at.z);
         TacticalRuntime.keepLoaded(unit, bounded);
         BlockHitResult hit = level.clip(

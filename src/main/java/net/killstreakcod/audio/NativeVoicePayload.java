@@ -2,10 +2,10 @@ package net.killstreakcod.audio;
 
 import net.killstreakcod.KillstreakcodMod;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 public record NativeVoicePayload(ResourceLocation dimension, int listenerId, String reward, String phase,
@@ -16,9 +16,9 @@ public record NativeVoicePayload(ResourceLocation dimension, int listenerId, Str
         this(dimension, listenerId, reward, phase, NONE, 0, VoiceFaction.SPECGRU);
     }
 
-    public static final Type<NativeVoicePayload> TYPE = new Type<>(
+    public static final Type<NativeVoicePayload> TYPE = new Type<>(NativeVoicePayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "native_voice"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, NativeVoicePayload> STREAM_CODEC = StreamCodec
+    public static final StreamCodec<FriendlyByteBuf, NativeVoicePayload> STREAM_CODEC = StreamCodec
             .of((b, p) -> {
                 b.writeResourceLocation(p.dimension);
                 b.writeVarInt(p.listenerId);

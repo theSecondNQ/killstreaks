@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -38,9 +38,9 @@ public record WhitelistStatePayload(UUID request, int teammatePage, int teammate
         online = List.copyOf(online);
     }
 
-    public static final Type<WhitelistStatePayload> TYPE = new Type<>(
+    public static final Type<WhitelistStatePayload> TYPE = new Type<>(WhitelistStatePayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "whitelist_state"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, WhitelistStatePayload> STREAM_CODEC = StreamCodec
+    public static final StreamCodec<FriendlyByteBuf, WhitelistStatePayload> STREAM_CODEC = StreamCodec
             .of((b, p) -> {
                 b.writeUUID(p.request);
                 b.writeVarInt(p.teammatePage);
@@ -59,7 +59,7 @@ public record WhitelistStatePayload(UUID request, int teammatePage, int teammate
                     b.readVarInt(), b.readVarInt(), b.readVarInt(), b.readVarInt(), b.readBoolean(), b.readUtf(64),
                     b.readUtf(64), read(b), read(b)));
 
-    private static void write(RegistryFriendlyByteBuf b, List<Member> members) {
+    private static void write(FriendlyByteBuf b, List<Member> members) {
         b.writeVarInt(members.size());
         for (Member member : members) {
             b.writeUUID(member.uuid);
@@ -68,7 +68,7 @@ public record WhitelistStatePayload(UUID request, int teammatePage, int teammate
         }
     }
 
-    private static List<Member> read(RegistryFriendlyByteBuf b) {
+    private static List<Member> read(FriendlyByteBuf b) {
         int count = b.readVarInt();
         if (count < 0 || count > MAX_PAGE_SIZE)
             throw new IllegalArgumentException("Too many teammate entries");

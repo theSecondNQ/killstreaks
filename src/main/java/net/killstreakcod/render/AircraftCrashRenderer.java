@@ -66,7 +66,7 @@ public final class AircraftCrashRenderer {
                 inverse = new Matrix4f(camera).invert();
         pose.pushPose();
         try {
-            pose.mulPose(TabletHandModel.sourceCameraMatrix(inverse).mul(new Matrix4f(BASIS).invert()));
+            pose.mulPoseMatrix(TabletHandModel.sourceCameraMatrix(inverse).mul(new Matrix4f(BASIS).invert()));
             ImportedCastModel helicopter = ImportedCastModel.get("scene_chopper");
             var bones = SceneEntryLibrary.pose("scene_chopper", "", 0);
             if (helicopter != null)

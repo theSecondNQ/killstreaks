@@ -86,7 +86,7 @@ public final class AircraftCrashClient {
         Minecraft mc = Minecraft.getInstance();
         float yaw = context.yaw(), pitch = context.pitch(), roll = 0;
         if (variant() != 100 && mc.level.getEntity(context.entityId()) instanceof TacticalUnitEntity unit) {
-            float partial = mc.getTimer().getGameTimeDeltaPartialTick(true);
+            float partial = mc.getFrameTime();
             yaw = unit.renderFlightYaw(partial);
             pitch = unit.renderFlightPitch(partial);
             roll = AircraftCrashLibrary.roll(variant(), unit.nativeClock(partial));
@@ -97,7 +97,7 @@ public final class AircraftCrashClient {
     static Vec3 origin() {
         Minecraft mc = Minecraft.getInstance();
         if (variant() != 100 && mc.level.getEntity(context.entityId()) instanceof TacticalUnitEntity unit)
-            return unit.getPosition(mc.getTimer().getGameTimeDeltaPartialTick(true));
+            return unit.getPosition(mc.getFrameTime());
         return new Vec3(context.x(), context.y(), context.z());
     }
 

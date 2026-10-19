@@ -2,17 +2,17 @@ package net.killstreakcod.universal;
 
 import net.killstreakcod.KillstreakcodMod;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 public record RadarPayload(boolean active, boolean advanced, boolean jammed, int[] contacts)
         implements CustomPacketPayload {
-    public static final Type<RadarPayload> TYPE = new Type<>(
+    public static final Type<RadarPayload> TYPE = new Type<>(RadarPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "radar"));
-    public static final StreamCodec<ByteBuf, RadarPayload> STREAM_CODEC = StreamCodec.of(
+    public static final StreamCodec<FriendlyByteBuf, RadarPayload> STREAM_CODEC = StreamCodec.of(
             (b, p) -> {
                 b.writeBoolean(p.active);
                 b.writeBoolean(p.advanced);

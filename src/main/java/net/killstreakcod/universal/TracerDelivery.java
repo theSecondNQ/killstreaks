@@ -11,10 +11,10 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.server.ServerStoppedEvent;
-import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.event.server.ServerStoppedEvent;
+import net.minecraftforge.event.TickEvent;
 
 /**
  * Delivery only: hitscan collision, impact, fire rate and damage remain with the caller.
@@ -36,6 +36,7 @@ public final class TracerDelivery {
             profile = switch (unit.kind()) {
                 case CHOPPER -> APACHE;
                 case GUNSHIP -> GUNSHIP25;
+                case VTOL -> ResearchEffects.has(unit, "vtol_jet.hercules") ? GUNSHIP25 : SMALL;
                 case WHEELSON, PRECISION -> CANNON;
                 default -> SMALL;
             };
@@ -95,11 +96,13 @@ public final class TracerDelivery {
     }
 
     @SubscribeEvent
-    public static void cleanup(ServerTickEvent.Post event) {
-        if (tick != event.getServer().getTickCount()) {
+    public static void cleanup(TickEvent.ServerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
+        if (tick != net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer().getTickCount()) {
             SENT.clear();
-            tick = event.getServer().getTickCount();
-            server = event.getServer();
+            tick = net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer().getTickCount();
+            server = net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer();
         }
     }
 

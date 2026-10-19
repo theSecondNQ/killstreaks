@@ -10,12 +10,12 @@ import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.PlayerSkinWidget;
+import net.killstreakcod.render.PlayerSkinWidget;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.killstreakcod.network.StreakPackets;
 
 /**
  * Local selection page; retaining the terminal also preserves its unsaved loadout/faction.
@@ -66,7 +66,7 @@ public final class OperatorSkinScreen extends Screen {
 
     private void rebuild() {
         clearWidgets();
-        clearFocus();
+        setFocused(null);
         page = Math.max(0, Math.min(page, pages() - 1));
         int tabWidth = (panelWidth - 40) / 3;
         for (var value : OperatorSkins.Role.values())
@@ -117,7 +117,7 @@ public final class OperatorSkinScreen extends Screen {
                 }).active = !selected.file().isEmpty();
         button(panelX + 14, panelY + panelHeight - 55, 132, 20,
                 Component.translatable("screen.killstreakcod.skins_folder"),
-                () -> Util.getPlatform().openPath(OperatorSkins.directory()));
+                () -> Util.getPlatform().openFile(OperatorSkins.directory().toFile()));
         button(panelX + 154, panelY + panelHeight - 55, 92, 20,
                 Component.translatable("screen.killstreakcod.whitelist_refresh"), () -> {
                     refreshFiles();
@@ -156,7 +156,7 @@ public final class OperatorSkinScreen extends Screen {
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics, mouseX, mouseY, partialTick);
+        renderBackground(graphics);
         graphics.fill(panelX - 1, panelY - 1, panelX + panelWidth + 1, panelY + panelHeight + 1, 0xFF40514A);
         graphics.fill(panelX, panelY, panelX + panelWidth, panelY + panelHeight, 0xF00A1012);
         graphics.drawString(font, title, panelX + 14, panelY + 12, GREEN, false);
@@ -187,7 +187,7 @@ public final class OperatorSkinScreen extends Screen {
             return;
         }
         mc.setScreen(terminal);
-        PacketDistributor.sendToServer(new RequestTerminalStatePayload(false));
+        StreakPackets.sendToServer(new RequestTerminalStatePayload(false));
     }
 
     @Override

@@ -13,7 +13,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.fml.ModList;
+import net.minecraftforge.fml.ModList;
 import org.joml.Vector3d;
 
 /**
@@ -37,7 +37,12 @@ public final class SuperbWarfareCompat {
         try {
             vehicleType = Class.forName("com.atsuishio.superbwarfare.entity.vehicle.base.VehicleEntity");
             health = vehicleType.getMethod("getHealth");
-            lastSource = vehicleType.getMethod("getLastDamageSource");
+            try {
+                lastSource = vehicleType.getMethod("getLastDamageSource");
+            }
+            catch (NoSuchMethodException olderVersion) {
+                lastSource = null;
+            }
             obbs = vehicleType.getMethod("getOBBs");
             clip = Class.forName("com.atsuishio.superbwarfare.tools.OBB").getMethod("clip", Vector3d.class,
                     Vector3d.class);
@@ -128,6 +133,10 @@ public final class SuperbWarfareCompat {
 
     public static Entity shooter(Object parameters) {
         try {
+            if (parameters == null)
+                return null;
+            if (parameters.getClass().isRecord())
+                return (Entity) parameters.getClass().getMethod("shooter").invoke(parameters);
             Field field = SHOOTERS.get(parameters.getClass());
             if (field == null) {
                 field = parameters.getClass().getField("shooter");

@@ -6,10 +6,8 @@ import java.util.Map;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomData;
 import org.joml.Vector3f;
 
 /**
@@ -20,7 +18,7 @@ public final class NativeTargetingDevices {
     private NativeTargetingDevices() {}
 
     private static String id(ItemStack stack, boolean view) {
-        String reward = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("Reward");
+        String reward = stack.getOrCreateTag().getString("Reward");
         return (reward.equals("mortar_strike") ? "designator_mortar" : "designator_precision") + (view ? "_vm" : "");
     }
 

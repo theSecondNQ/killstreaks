@@ -11,13 +11,12 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.neoforged.bus.api.Event;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.ICancellableEvent;
-import net.neoforged.fml.LogicalSide;
-import net.neoforged.fml.ModList;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.fml.LogicalSide;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 
 /**
  * Optional public API bridges. No third-party classes are linked when their mods are absent.
@@ -58,7 +57,7 @@ public final class OptionalIntegrations {
     private static void registerSuperbWarfare() {
         if (!ModList.get().isLoaded("superbwarfare"))
             return;
-        NeoForge.EVENT_BUS.addListener(EventPriority.LOWEST, false, EntityLeaveLevelEvent.class, event -> {
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.LOWEST, false, EntityLeaveLevelEvent.class, event -> {
             if (event.getLevel().isClientSide || !SuperbWarfareCompat.destroyed(event.getEntity()))
                 return;
             DamageSource source = SuperbWarfareCompat.lastDamage(event.getEntity());
@@ -99,7 +98,7 @@ public final class OptionalIntegrations {
     }
 
     private static void listen(Class<? extends Event> type, EventPriority priority, Consumer<Event> consumer) {
-        NeoForge.EVENT_BUS.addListener(priority, false, type, consumer::accept);
+        MinecraftForge.EVENT_BUS.addListener(priority, false, type, consumer::accept);
     }
 
     private static void registerControlGuard(String name) throws ReflectiveOperationException {
@@ -111,8 +110,8 @@ public final class OptionalIntegrations {
                 if (side.invoke(event) == LogicalSide.SERVER && shooter.invoke(event) instanceof ServerPlayer player
                         && (TacticalRuntime.busy(player) || !player.isAlive()
                                 || TacticalRuntime.mgbDetonating(player.serverLevel()))
-                        && event instanceof ICancellableEvent cancelable)
-                    cancelable.setCanceled(true);
+                        && event.isCancelable())
+                    event.setCanceled(true);
             }
             catch (ReflectiveOperationException failure) {
                 LogUtils.getLogger().error("TaCZ controller guard failed", failure);

@@ -10,7 +10,7 @@ import java.util.Map;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.resources.PlayerSkin;
+import net.killstreakcod.render.PlayerSkin;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
@@ -98,7 +98,7 @@ public final class SceneEntryRenderer {
         Matrix4f inverse = new Matrix4f(camera).invert();
         pose.pushPose();
         try {
-            pose.mulPose(TabletHandModel.sourceCameraMatrix(inverse).mul(new Matrix4f(BASIS).invert()));
+            pose.mulPoseMatrix(TabletHandModel.sourceCameraMatrix(inverse).mul(new Matrix4f(BASIS).invert()));
             if (reward.equals("chopper_gunner")) {
                 Map<String, Matrix4f> vehicle = vehicle(ticks);
                 ImportedCastModel heli = ImportedCastModel.get("scene_chopper");
@@ -124,7 +124,7 @@ public final class SceneEntryRenderer {
             if (cabin != null) {
                 pose.pushPose();
                 try {
-                    pose.mulPose(TabletHandModel.sourceCameraMatrix(frame).mul(new Matrix4f(BASIS).invert()));
+                    pose.mulPoseMatrix(TabletHandModel.sourceCameraMatrix(frame).mul(new Matrix4f(BASIS).invert()));
                     cabin.renderCabin(pose, buffers, light, OverlayTexture.NO_OVERLAY, Map.of(), CABIN_LIGHTS);
                 } finally {
                     pose.popPose();
@@ -163,12 +163,12 @@ public final class SceneEntryRenderer {
                 desk = new Matrix4f(frame).mul(deskSocket());
         pose.pushPose();
         try {
-            pose.mulPose(TabletHandModel.sourceCameraMatrix(inverse).mul(new Matrix4f(BASIS).invert()));
+            pose.mulPoseMatrix(TabletHandModel.sourceCameraMatrix(inverse).mul(new Matrix4f(BASIS).invert()));
             ImportedCastModel cabin = ImportedCastModel.get("scene_cabin");
             if (cabin != null) {
                 pose.pushPose();
                 try {
-                    pose.mulPose(TabletHandModel.sourceCameraMatrix(frame).mul(new Matrix4f(BASIS).invert()));
+                    pose.mulPoseMatrix(TabletHandModel.sourceCameraMatrix(frame).mul(new Matrix4f(BASIS).invert()));
                     cabin.renderCabin(pose, buffers, light, OverlayTexture.NO_OVERLAY, Map.of(), CABIN_LIGHTS);
                 } finally {
                     pose.popPose();
@@ -211,7 +211,7 @@ public final class SceneEntryRenderer {
         // 源摄像机相对的人物渲染器已自行完成坐标转换。
         scene.pushPose();
         try {
-            scene.mulPose(TabletHandModel.sourceCameraMatrix(new Matrix4f(inverse)).mul(new Matrix4f(BASIS).invert())
+            scene.mulPoseMatrix(TabletHandModel.sourceCameraMatrix(new Matrix4f(inverse)).mul(new Matrix4f(BASIS).invert())
                     .invert());
             EntryScenes.renderPlayer(scene, buffers, light, skin.texture(), skin.model() == PlayerSkin.Model.SLIM,
                     bones, rest);
@@ -228,7 +228,7 @@ public final class SceneEntryRenderer {
         Matrix4f converted = TabletHandModel.sourceCameraMatrix(attach).mul(new Matrix4f(BASIS).invert());
         pose.pushPose();
         try {
-            pose.mulPose(converted);
+            pose.mulPoseMatrix(converted);
             Map<String, Matrix4f> bones = SceneEntryLibrary.pose(id, action, ticks);
             if (station)
                 model.renderCabin(pose, buffers, light, OverlayTexture.NO_OVERLAY, bones, GunshipCabinLighting.STATION);

@@ -2,10 +2,10 @@ package net.killstreakcod.universal;
 
 import net.killstreakcod.KillstreakcodMod;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -14,10 +14,10 @@ import net.minecraft.resources.ResourceLocation;
  */
 public record AircraftCrashPayload(ResourceLocation dimension, int entityId, int variant, double x, double y, double z,
         float yaw, float pitch, int duration) implements CustomPacketPayload {
-    public static final Type<AircraftCrashPayload> TYPE = new Type<>(
+    public static final Type<AircraftCrashPayload> TYPE = new Type<>(AircraftCrashPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "aircraft_crash"));
-    public static final StreamCodec<ByteBuf, AircraftCrashPayload> STREAM_CODEC = StreamCodec.of((b, p) -> {
-        ResourceLocation.STREAM_CODEC.encode(b, p.dimension);
+    public static final StreamCodec<FriendlyByteBuf, AircraftCrashPayload> STREAM_CODEC = StreamCodec.of((b, p) -> {
+        net.killstreakcod.network.ByteBufCodecs.RESOURCE_LOCATION.encode(b, p.dimension);
         b.writeInt(p.entityId);
         b.writeInt(p.variant);
         b.writeDouble(p.x);
@@ -26,7 +26,7 @@ public record AircraftCrashPayload(ResourceLocation dimension, int entityId, int
         b.writeFloat(p.yaw);
         b.writeFloat(p.pitch);
         b.writeInt(p.duration);
-    }, b -> new AircraftCrashPayload(ResourceLocation.STREAM_CODEC.decode(b), b.readInt(), b.readInt(), b.readDouble(),
+    }, b -> new AircraftCrashPayload(net.killstreakcod.network.ByteBufCodecs.RESOURCE_LOCATION.decode(b), b.readInt(), b.readInt(), b.readDouble(),
             b.readDouble(), b.readDouble(), b.readFloat(), b.readFloat(), b.readInt()));
 
     @Override

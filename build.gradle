@@ -1,52 +1,91 @@
 plugins {
     id 'eclipse'
-    id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+    id 'org.spongepowered.mixin' version '0.7.38'
 }
 
-version = '1.0.1.4333'
-base.archivesName = "killstreakcod"
+version = '1.1.0.4352'
+group = 'net.killstreakcod'
+base.archivesName = 'killstreakcod-forge-1.20.1'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-neoForge {
-    version = "21.1.232"
+sourceSets {
+    gameTest {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
 
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    copyIdeResources = true
     runs {
+        configureEach {
+            workingDirectory project.file('run-forge')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'info'
+            mods {
+                killstreakcod { source sourceSets.main }
+            }
+        }
         client {
-            client()
-
-            def mcreatorJvmOptions = System.getenv('MCREATOR_JVM_OPTIONS')
-            if (mcreatorJvmOptions) {
-                mcreatorJvmOptions.split("\\s+").findAll { it.trim() }.each { arg ->
-                    jvmArgument(arg)
+            if (project.hasProperty('clientSmoke')) {
+                workingDirectory project.file('build/client-smoke')
+                property 'killstreakcod.clientSmoke', 'true'
+                args '--width', '640', '--height', '360'
+                mods {
+                    killstreakcod { source sourceSets.gameTest }
                 }
             }
         }
-        server {
-            server()
-        }
-
-        configureEach {
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-            logLevel = org.slf4j.event.Level.DEBUG
-        }
-    }
-
-    mods {
-        killstreakcod {
-            sourceSet sourceSets.main
+        server { args '--nogui' }
+        gameTestServer {
+            workingDirectory project.file('build/gametest')
+            property 'forge.enabledGameTestNamespaces', 'killstreakcod'
+            mods {
+                killstreakcod { source sourceSets.gameTest }
+            }
         }
     }
+}
+
+repositories {
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.10'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+    add sourceSets.main, 'killstreakcod.refmap.json'
+    config 'killstreakcod.common.mixins.json'
+    config 'killstreakcod.client.mixins.json'
+    config 'killstreakcod.compat.mixins.json'
+    config 'killstreakcod.superbwarfare.mixins.json'
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.compilerArgs += ['-Xmaxerrs', '1000']
     // 中文：Java 编译使用 UTF-8 字符编码。
+}
+
+tasks.named('downloadMCMeta') {
+    onlyIf { !gradle.startParameter.offline || !output.get().asFile.isFile() }
+}
+
+tasks.named('downloadAssets') {
+    onlyIf { !gradle.startParameter.offline }
 }
 
 // Keep the distributable JAR below 100 decimal MB.
 // 中文：发行 JAR 须小于十进制 100 MB，防止后续资源更新无意突破体积限制。
 tasks.named('jar') {
+    manifest.attributes('MixinConfigs': 'killstreakcod.common.mixins.json,killstreakcod.client.mixins.json,killstreakcod.compat.mixins.json,killstreakcod.superbwarfare.mixins.json')
+    finalizedBy 'reobfJar'
     doLast {
         def releaseJar = archiveFile.get().asFile
         if (releaseJar.length() >= 100000000L) {

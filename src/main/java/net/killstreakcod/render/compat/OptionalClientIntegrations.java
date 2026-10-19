@@ -14,7 +14,7 @@ import com.google.gson.JsonObject;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.neoforged.fml.ModList;
+import net.minecraftforge.fml.ModList;
 
 /**
  * Keep GD656's own configured icons, bonuses and feed visible in our replacement remote HUD.

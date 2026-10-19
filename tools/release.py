@@ -22,11 +22,13 @@ LIBS = ROOT / 'build/libs'
 MOD_ID = 'killstreakcod'
 MAX_JAR_BYTES = 100_000_000
 VERSION = re.search(r"version = '([^']+)'", (ROOT / 'build.gradle').read_text(encoding='utf-8')).group(1)
-JAR = LIBS / f'{MOD_ID}-{VERSION}.jar'
-SOURCE = LIBS / f'{MOD_ID}-{VERSION}-source.zip'
-SOURCE_ROOTS = ['src/main', 'gradle', 'tools', 'docs', 'build.gradle', 'settings.gradle',
+ARCHIVE_NAME = 'killstreakcod-forge-1.20.1'
+JAR = LIBS / f'{ARCHIVE_NAME}-{VERSION}.jar'
+SOURCE = LIBS / f'{ARCHIVE_NAME}-{VERSION}-source.zip'
+SOURCE_ROOTS = ['src/main', 'src/gameTest', 'gradle', 'tools', 'docs', 'build.gradle', 'settings.gradle',
                 'gradle.properties', 'gradlew', 'gradlew.bat', 'killstreakcod.mcreator', 'README.md', '.gitignore',
-                '.editorconfig']
+                '.editorconfig', 'assets/terminal.obj', 'assets/terminal.mtl', '新系统.docx']
+SOURCE_ROOTS += [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets').glob('laptop_*.png'))]
 
 
 def require(condition, message):
@@ -67,6 +69,14 @@ def source_files():
 
 def artifact(path):
     return {'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size}
+
+
+def validation_inventory():
+    path = REPORTS / 'forge-validation.json'
+    if not path.is_file():
+        return {}
+    validation = read(path)
+    return validation if validation.get('jarSha256') == sha(JAR) else {}
 
 
 def localization_inventory():
@@ -183,7 +193,7 @@ def inventory(baseline=None):
 
     for path in (RESOURCES / f'assets/{MOD_ID}/mw').rglob('*.json'):
         texture_references(read(path))
-    metadata = tomllib.loads((RESOURCES / 'META-INF/neoforge.mods.toml').read_text(encoding='utf-8-sig'))
+    metadata = tomllib.loads((RESOURCES / 'META-INF/mods.toml').read_text(encoding='utf-8-sig'))
     mod = next(m for m in metadata['mods'] if m['modId'] == MOD_ID)
     require(mod['version'] == VERSION, 'Metadata and build versions differ.')
     localization = localization_inventory()
@@ -205,9 +215,14 @@ def inventory(baseline=None):
         require(jar.testzip() is None, 'Production archive CRC failed.')
         names = {name for name in jar.namelist() if not name.endswith('/')}
         classes = {name for name in names if name.endswith('.class')}
+        class_versions = sorted({struct.unpack('>H', jar.read(name)[6:8])[0] for name in classes})
+        require(class_versions == [61], 'Production classes must target Java 17.')
+        require('killstreakcod.refmap.json' in names, 'Production Mixin reference map is missing.')
+        mapped_mixins = len(json.loads(jar.read('killstreakcod.refmap.json')).get('mappings', {}))
+        require(mapped_mixins > 0, 'Production Mixin reference map is empty.')
         for key, path in resources.items():
             require(key in names and jar.read(key) == path.read_bytes(), 'Packaged resource differs: ' + key)
-        extra = names - set(resources) - classes - {'META-INF/MANIFEST.MF'}
+        extra = names - set(resources) - classes - {'META-INF/MANIFEST.MF', 'killstreakcod.refmap.json'}
         require(not extra, 'Unexpected JAR entries: ' + str(sorted(extra)))
         for key in classes:
             owner = key.split('$', 1)[0] + '.class' if '$' in key else key
@@ -233,9 +248,9 @@ def inventory(baseline=None):
                 removed = prior - names
                 require(removed <= set(cleanup['removedSourceResources']), 'Unexpected removed runtime resource.')
                 require(not names - prior, 'Unexpected added runtime entries.')
-                for key in names - {'META-INF/MANIFEST.MF', 'META-INF/neoforge.mods.toml'}:
+                for key in names - {'META-INF/MANIFEST.MF', 'META-INF/mods.toml'}:
                     require(jar.read(key) == old.read(key), 'Retained runtime entry changed: ' + key)
-                before = tomllib.loads(old.read('META-INF/neoforge.mods.toml').decode('utf-8-sig'))
+                before = tomllib.loads(old.read('META-INF/mods.toml').decode('utf-8-sig'))
                 for item in before['mods']:
                     if item['modId'] == MOD_ID:
                         item['version'] = VERSION
@@ -244,11 +259,15 @@ def inventory(baseline=None):
                               'removedUnusedEntries': len(removed), 'retainedRuntimeBytesUnchanged': True}
     log = ROOT / 'build/logs/build.log'
     build_confirmed = log.is_file() and 'BUILD SUCCESSFUL' in log.read_text(encoding='utf-8-sig')
+    validation = validation_inventory()
     report = {'version': VERSION, 'jar': artifact(JAR), 'issues': [], 'buildLogConfirmsSuccess': build_confirmed,
               'jarBudgetBytes': MAX_JAR_BYTES, 'meshFormats': dict(sorted(mesh_formats.items())),
               'productionJavaFiles': len(java), 'compiledClasses': len(classes), 'resourceFiles': len(resources),
+              'classMajorVersions': class_versions, 'mappedMixins': mapped_mixins,
               'importedModels': len(list(RESOURCES.rglob('*.mesh.gz'))), 'soundFileReferences': sound_files,
-              'baseline': comparison, 'localization': localization, 'testsRun': False, 'minecraftLaunched': False}
+              'baseline': comparison, 'localization': localization,
+              'testsRun': validation.get('gameTestsPassed', 0) > 0,
+              'minecraftLaunched': validation.get('client', {}).get('titleScreen', False), 'validation': validation}
     save('package-inventory.json', report)
     print(json.dumps(report, ensure_ascii=True, indent=2))
 
@@ -280,10 +299,12 @@ def verify():
         for key, path in paths.items():
             require(archive.read(key) == path.read_bytes(), 'Source archive file differs: ' + key)
     result = {'version': VERSION, 'jar': report['jar'], 'source': artifact(SOURCE),
-              'sourceEntries': len(paths), 'sourceMatchesWorkspace': True, 'testsRun': False, 'minecraftLaunched': False}
+              'sourceEntries': len(paths), 'sourceMatchesWorkspace': True,
+              'testsRun': report.get('testsRun', False), 'minecraftLaunched': report.get('minecraftLaunched', False),
+              'installationChecked': False}
     installation = REPORTS / 'instance-update.json'
-    if installation.is_file():
-        record = read(installation)
+    record = read(installation) if installation.is_file() else None
+    if record and Path(record['installed']['path']).name == JAR.name:
         require(record['version'] == VERSION, 'Installation record is from another version.')
         require(sha(record['installed']['path']) == record['installed']['sha256'] == report['jar']['sha256'], 'Installed JAR differs.')
         if record['backup']:
@@ -301,6 +322,7 @@ def verify():
             actual_files[path.relative_to(instance).as_posix()] = sha(path)
         require(actual_files == retained, 'Config or skin files changed.')
         result.update({'installed': record['installed'], 'backup': record['backup'],
+                       'installationChecked': True,
                        'unchangedOtherMods': len(expected), 'unchangedConfigAndSkinFiles': len(retained)})
     save('delivery-verification.json', result)
     print(json.dumps(result, ensure_ascii=True, indent=2))

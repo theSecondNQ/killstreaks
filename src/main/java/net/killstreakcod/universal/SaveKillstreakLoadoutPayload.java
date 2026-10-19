@@ -3,11 +3,11 @@ package net.killstreakcod.universal;
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.audio.VoiceFaction;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.ByteBufCodecs;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 public record SaveKillstreakLoadoutPayload(String slot1, String slot2, String slot3, String faction)
@@ -16,9 +16,9 @@ public record SaveKillstreakLoadoutPayload(String slot1, String slot2, String sl
         this(a, b, c, VoiceFaction.SPECGRU);
     }
 
-    public static final Type<SaveKillstreakLoadoutPayload> TYPE = new Type<>(
+    public static final Type<SaveKillstreakLoadoutPayload> TYPE = new Type<>(SaveKillstreakLoadoutPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "save_killstreak_loadout"));
-    public static final StreamCodec<ByteBuf, SaveKillstreakLoadoutPayload> STREAM_CODEC = StreamCodec.composite(
+    public static final StreamCodec<FriendlyByteBuf, SaveKillstreakLoadoutPayload> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.STRING_UTF8, SaveKillstreakLoadoutPayload::slot1,
             ByteBufCodecs.STRING_UTF8, SaveKillstreakLoadoutPayload::slot2,
             ByteBufCodecs.STRING_UTF8, SaveKillstreakLoadoutPayload::slot3,

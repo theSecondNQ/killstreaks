@@ -38,7 +38,7 @@ public final class GunshipCabinLighting {
                 float distance = (float) Math.sqrt(dx * dx + dy * dy + dz * dz);
                 result = Math.max(result, lamp[3] - distance * 8 / lamp[4]);
             }
-            return Math.clamp(Math.round(result), chopper ? 0 : 6, 15);
+            return net.minecraft.util.Mth.clamp(Math.round(result), chopper ? 0 : 6, 15);
         }
 
         int light(int ambient, int local) {
@@ -61,18 +61,18 @@ public final class GunshipCabinLighting {
     public static void renderChopperFixture(PoseStack pose, MultiBufferSource buffers) {
         var out = buffers.getBuffer(RenderType.entityTranslucentEmissive(WHITE, false));
         float x = 0, y = -.70F, z = -2.50F, w = .10F, d = .014F;
-        out.addVertex(pose.last().pose(), x - w, y, z - d).setColor(0xffc8e4e7).setUv(0, 0)
-                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.pack(15, 0))
-                .setNormal(pose.last(), 0, -1, 0);
-        out.addVertex(pose.last().pose(), x + w, y, z - d).setColor(0xffc8e4e7).setUv(1, 0)
-                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.pack(15, 0))
-                .setNormal(pose.last(), 0, -1, 0);
-        out.addVertex(pose.last().pose(), x + w, y, z + d).setColor(0xffc8e4e7).setUv(1, 1)
-                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.pack(15, 0))
-                .setNormal(pose.last(), 0, -1, 0);
-        out.addVertex(pose.last().pose(), x - w, y, z + d).setColor(0xffc8e4e7).setUv(0, 1)
-                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.pack(15, 0))
-                .setNormal(pose.last(), 0, -1, 0);
+        out.vertex(pose.last().pose(), x - w, y, z - d).color(0xffc8e4e7).uv(0, 0)
+                .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.pack(15, 0))
+                .normal(pose.last().normal(), 0, -1, 0).endVertex();
+        out.vertex(pose.last().pose(), x + w, y, z - d).color(0xffc8e4e7).uv(1, 0)
+                .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.pack(15, 0))
+                .normal(pose.last().normal(), 0, -1, 0).endVertex();
+        out.vertex(pose.last().pose(), x + w, y, z + d).color(0xffc8e4e7).uv(1, 1)
+                .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.pack(15, 0))
+                .normal(pose.last().normal(), 0, -1, 0).endVertex();
+        out.vertex(pose.last().pose(), x - w, y, z + d).color(0xffc8e4e7).uv(0, 1)
+                .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(LightTexture.pack(15, 0))
+                .normal(pose.last().normal(), 0, -1, 0).endVertex();
     }
 
     private GunshipCabinLighting() {}

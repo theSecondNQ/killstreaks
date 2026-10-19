@@ -34,13 +34,13 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.event.server.ServerStoppingEvent;
-import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.server.ServerStoppingEvent;
+import net.minecraftforge.event.TickEvent;
 
 /**
  * Connects commands, lifecycle events and deployment to the reward ledger.
@@ -119,10 +119,12 @@ public final class KillstreakService {
     public void login(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer p))
             return;
+        ResearchSystem.login(p);
         if (!p.getTags().contains(PREFIX + "controller_given")) {
             p.addTag(PREFIX + "controller_given");
             giveItem(p, KillstreakcodMod.CONTROLLER.get().getDefaultInstance());
-            p.sendSystemMessage(Component.translatable("message.killstreakcod.welcome"));
+            p.sendSystemMessage(ResearchSystem.survival(p) ? ResearchSystem.message("welcome")
+                    : Component.translatable("message.killstreakcod.welcome"));
         }
         sendTerminalState(p, false);
         TacticalRuntime.syncMgb(p);
@@ -234,14 +236,18 @@ public final class KillstreakService {
     }
 
     @SubscribeEvent
-    public void tick(ServerTickEvent.Post event) {
-        TacticalRuntime.tick(event.getServer());
-        flushKills(event.getServer());
+    public void tick(TickEvent.ServerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
+        TacticalRuntime.tick(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
+        flushKills(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
+        ResearchSystem.tick(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
     }
 
     @SubscribeEvent
     public void stopping(ServerStoppingEvent event) {
-        TacticalRuntime.stop(event.getServer());
+        TacticalRuntime.stop(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
+        ResearchEffects.clear();
         PENDING_KILLS.clear();
         COUNTED_KILLS.clear();
         PENDING_VEHICLES.clear();
@@ -347,6 +353,7 @@ public final class KillstreakService {
     }
 
     private static void sendTerminalState(ServerPlayer player, boolean open, RewardLedger.Snapshot state) {
+        ResearchSystem.sendState(player, "");
         String[] ids = new String[3];
         int[] counts = new int[3], progress = new int[3];
         int mask = 0;
@@ -370,11 +377,17 @@ public final class KillstreakService {
         if (!player.isAlive() || player.isSpectator() || TacticalRuntime.mgbDetonating(player.serverLevel())
                 || TacticalRuntime.busy(player))
             return;
+        if (!ResearchEffects.allowActivation(player))
+            return;
         RewardLedger ledger = RewardLedger.open(player);
         RewardLedger.Snapshot state = ledger.snapshot();
         if (slot == 4) {
             if (!StreakServerConfig.requireReward(player, "mgb"))
                 return;
+            if (ResearchSystem.survival(player)) {
+                ResearchSystem.call(player, "mgb");
+                return;
+            }
             if (!TacticalRuntime.mgbActive(player.serverLevel()) && ledger.consume(slot)) {
                 TacticalRuntime.launchMgb(player);
                 sendTerminalState(player, false);
@@ -384,7 +397,7 @@ public final class KillstreakService {
         if (slot == 3) {
             if (state.bonuses().isEmpty())
                 return;
-            StreakReward reward = StreakReward.byId(state.bonuses().getFirst()).orElseThrow();
+            StreakReward reward = StreakReward.byId(state.bonuses().get(0)).orElseThrow();
             if (StreakAirspace.player(player, reward) && ledger.consume(slot)) {
                 TacticalRuntime.deploy(player, reward, true);
                 sendTerminalState(player, false);
@@ -397,6 +410,10 @@ public final class KillstreakService {
         StreakReward reward = selected.reward();
         if (!StreakServerConfig.requireReward(player, reward.id()))
             return;
+        if (ResearchSystem.survival(player)) {
+            ResearchSystem.call(player, reward);
+            return;
+        }
         if (selected.count() == 0) {
             player.displayClientMessage(Component.translatable("message.killstreakcod.not_ready", reward.displayName()),
                     true);

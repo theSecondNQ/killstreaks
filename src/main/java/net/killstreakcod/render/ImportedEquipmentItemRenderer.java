@@ -13,11 +13,9 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomData;
 
 /**
  * Original CAST equipment in hand; the inventory retains the corresponding reward icon.
@@ -43,8 +41,7 @@ public final class ImportedEquipmentItemRenderer extends BlockEntityWithoutLevel
                 : modelId;
         if (modelId.equals("drop_marker") && context.firstPerson())
             selected = "drop_marker_vm";
-        if (modelId.equals("designator_precision") && stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
-                .copyTag().getString("Reward").equals("mortar_strike"))
+        if (modelId.equals("designator_precision") && stack.getOrCreateTag().getString("Reward").equals("mortar_strike"))
             selected = "designator_mortar";
         Map<String, ResourceLocation> screenMaterials = modelId.equals("tablet_wheelson")
                 ? TabletScreens.materialTextures("wheelson_hs")
@@ -59,7 +56,7 @@ public final class ImportedEquipmentItemRenderer extends BlockEntityWithoutLevel
             ResourceLocation image = icon;
             if (context == ItemDisplayContext.GUI && (modelId.equals("drop_marker") || modelId.equals("cluster_mine")
                     || modelId.equals("designator_precision"))) {
-                String reward = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag()
+                String reward = stack.getOrCreateTag()
                         .getString("Reward");
                 String fallback = modelId.equals("drop_marker") ? "care_package"
                         : modelId.equals("cluster_mine") ? "cluster_mine" : "precision_airstrike";
@@ -83,7 +80,7 @@ public final class ImportedEquipmentItemRenderer extends BlockEntityWithoutLevel
     }
 
     private static void quad(VertexConsumer out, PoseStack pose, float x, float y, float u, float v) {
-        out.addVertex(pose.last().pose(), x, y, .5F).setColor(0xffffffff).setUv(u, v)
-                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(15728880).setNormal(pose.last(), 0, 0, 1);
+        out.vertex(pose.last().pose(), x, y, .5F).color(0xffffffff).uv(u, v)
+                .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(15728880).normal(pose.last().normal(), 0, 0, 1).endVertex();
     }
 }

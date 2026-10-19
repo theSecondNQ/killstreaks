@@ -5,7 +5,7 @@ import net.killstreakcod.render.StreakPresentation;
 import net.killstreakcod.render.TacticalClient;
 
 import net.minecraft.world.InteractionHand;
-import net.neoforged.neoforge.client.event.RenderHandEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;

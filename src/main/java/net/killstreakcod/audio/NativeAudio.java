@@ -18,13 +18,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.minecraftforge.registries.RegistryObject;
 
 /** 按原游戏资源映射选择音效和阵营语音，并维护播报时长与重复播报间隔。缺失的语音映射保持静音。
  * */
 public final class NativeAudio {
 
-    private static final Map<String, DeferredHolder<SoundEvent, SoundEvent>> EVENTS = new HashMap<>();
+    private static final Map<String, RegistryObject<SoundEvent>> EVENTS = new HashMap<>();
     private static final Map<String, String> VOICES = new HashMap<>(),
             SFX = new HashMap<>();
     private static final Map<String, Map<String, String>> FACTION_VOICES = new HashMap<>();
@@ -54,8 +54,7 @@ public final class NativeAudio {
                 EVENTS.put(id, StreakSounds.REGISTER
                         .register(id,
                                 () -> SoundEvent
-                                        .createVariableRangeEvent(ResourceLocation
-                                                .fromNamespaceAndPath(KillstreakcodMod.MODID, id))));
+                                        .createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, id))));
             }
 
             root.getAsJsonObject("voices")

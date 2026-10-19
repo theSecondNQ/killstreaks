@@ -9,13 +9,13 @@ import java.util.WeakHashMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.config.ModConfigEvent;
-import net.neoforged.neoforge.common.ModConfigSpec;
-import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
-import net.neoforged.neoforge.event.server.ServerStoppedEvent;
-import net.neoforged.neoforge.server.ServerLifecycleHooks;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
+import net.minecraftforge.event.server.ServerStoppedEvent;
+import net.minecraftforge.server.ServerLifecycleHooks;
 
 /**
  * One native global config. Gameplay always reads the hosting server's values.
@@ -24,17 +24,18 @@ import net.neoforged.neoforge.server.ServerLifecycleHooks;
 @EventBusSubscriber(modid = KillstreakcodMod.MODID)
 public final class StreakServerConfig {
     public static final String FILE_NAME = "killstreakcod-server.toml";
-    public static final ModConfigSpec SPEC;
-    public static final ModConfigSpec.BooleanValue SCORESTREAKS, REPEATABLE_REWARDS;
-    public static final ModConfigSpec.BooleanValue MGB_ENABLED, JUGGERNAUT_ENABLED;
+    public static final ForgeConfigSpec SPEC;
+    public static final ForgeConfigSpec.BooleanValue SCORESTREAKS, REPEATABLE_REWARDS;
+    public static final ForgeConfigSpec.BooleanValue MGB_ENABLED, JUGGERNAUT_ENABLED;
+    public static final ForgeConfigSpec.BooleanValue DISABLE_UPGRADES;
     private static final Map<MinecraftServer, Options> ACTIVE = new WeakHashMap<>();
 
     private record Options(boolean scorestreaks, boolean repeatableRewards, boolean mgbEnabled,
-            boolean juggernautEnabled) {
+            boolean juggernautEnabled, boolean disableUpgrades) {
     }
 
     static {
-        var builder = new ModConfigSpec.Builder();
+        var builder = new ForgeConfigSpec.Builder();
         builder.comment("连杀奖励获取设置，对本游戏实例的所有存档生效。联机时由服务端配置决定。",
                 "Global killstreak earning rules for every world. Multiplayer uses the hosting server's file.")
                 .translation("killstreakcod.configuration.earning").push("earning");
@@ -60,13 +61,22 @@ public final class StreakServerConfig {
                         "Enable Juggernaut selection, acquisition and use. Default: false.")
                 .translation("killstreakcod.configuration.juggernautEnabled").define("juggernautEnabled", false);
         builder.pop();
+        builder.comment("连杀研究升级规则，由服务器统一控制。", "Server-authoritative killstreak research upgrade rules.")
+                .translation("killstreakcod.configuration.research").push("research");
+        DISABLE_UPGRADES = builder.comment("是否禁用所有连杀升级项目。默认关闭，即允许升级。", "true：禁止研究和装配升级，两种模式均不应用升级效果；已保存的研究和装配选择保留。",
+                "禁用期间，四级终端和全部基础连杀研究即可开放连杀模式。",
+                "Disable upgrade research, equipment and effects in both modes, retaining saved progress and loadouts.",
+                "Default: false", "Allowed Values: true, false")
+                .translation("killstreakcod.configuration.disableUpgrades").define("disableUpgrades", false);
+        builder.pop();
         SPEC = builder.build();
     }
 
     private StreakServerConfig() {}
 
     private static Options configured() {
-        return new Options(SCORESTREAKS.get(), REPEATABLE_REWARDS.get(), MGB_ENABLED.get(), JUGGERNAUT_ENABLED.get());
+        return new Options(SCORESTREAKS.get(), REPEATABLE_REWARDS.get(), MGB_ENABLED.get(), JUGGERNAUT_ENABLED.get(),
+                DISABLE_UPGRADES.get());
     }
 
     private static Options current(MinecraftServer server) {
@@ -79,6 +89,10 @@ public final class StreakServerConfig {
 
     public static boolean repeatable(MinecraftServer server) {
         return current(server).repeatableRewards;
+    }
+
+    public static boolean upgradesDisabled(MinecraftServer server) {
+        return current(server).disableUpgrades;
     }
 
     /**
@@ -112,6 +126,8 @@ public final class StreakServerConfig {
             KillstreakService.repeatConfigChanged(server);
         if (previous.mgbEnabled != next.mgbEnabled || previous.juggernautEnabled != next.juggernautEnabled)
             KillstreakService.rewardConfigChanged(server);
+        if (previous.disableUpgrades != next.disableUpgrades)
+            ResearchSystem.upgradesConfigChanged(server);
     }
 
     public static boolean setScorestreaks(MinecraftServer server, boolean value) {
@@ -148,11 +164,11 @@ public final class StreakServerConfig {
 
     @SubscribeEvent
     public static void starting(ServerAboutToStartEvent event) {
-        ACTIVE.put(event.getServer(), configured());
+        ACTIVE.put(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer(), configured());
     }
 
     @SubscribeEvent
     public static void stopped(ServerStoppedEvent event) {
-        ACTIVE.remove(event.getServer());
+        ACTIVE.remove(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
     }
 }

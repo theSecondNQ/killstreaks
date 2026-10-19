@@ -544,7 +544,7 @@ public final class ImportedCastModel {
                         nz /= length;
                     }
                 }
-                pose.transformNormal(nx, ny, nz, normalScratch);
+                normalScratch.set(nx, ny, nz).mul(pose.normal()).normalize();
                 posed[p] = positionScratch.x;
                 posed[p + 1] = positionScratch.y;
                 posed[p + 2] = positionScratch.z;
@@ -556,15 +556,16 @@ public final class ImportedCastModel {
 
         void vertex(VertexConsumer out, int index, int light, int overlay, int[] drawColors, boolean fitPanel) {
             int p = index * 6, t = index * 8;
-            out.addVertex(posed[p], posed[p + 1], posed[p + 2], drawColors[index],
-                    fitPanel ? panelUvs[index * 2] : source[t + 6], fitPanel ? panelUvs[index * 2 + 1] : source[t + 7],
-                    overlay, light, posed[p + 3], posed[p + 4], posed[p + 5]);
+            out.vertex(posed[p], posed[p + 1], posed[p + 2]).color(drawColors[index])
+                    .uv(fitPanel ? panelUvs[index * 2] : source[t + 6],
+                            fitPanel ? panelUvs[index * 2 + 1] : source[t + 7])
+                    .overlayCoords(overlay).uv2(light).normal(posed[p + 3], posed[p + 4], posed[p + 5]).endVertex();
         }
 
         void lcdVertex(VertexConsumer out, int index) {
             int p = index * 6, t = index * 8;
-            out.addVertex(posed[p], posed[p + 1], posed[p + 2]).setColor(colors[index])
-                    .setUv(source[t + 6], source[t + 7]).setLight(15728880);
+            out.vertex(posed[p], posed[p + 1], posed[p + 2]).color(colors[index])
+                    .uv(source[t + 6], source[t + 7]).uv2(15728880).endVertex();
         }
     }
 

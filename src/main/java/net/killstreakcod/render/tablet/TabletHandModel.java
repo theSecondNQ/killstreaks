@@ -107,7 +107,7 @@ public final class TabletHandModel {
                 arm.getChild(child).visible = false;
             arm.x = arm.y = arm.z = arm.xRot = arm.yRot = arm.zRot = 0;
             pose.pushPose();
-            pose.mulPose(cameraMatrix(wrist, true));
+            pose.mulPoseMatrix(cameraMatrix(wrist, true));
             pose.scale(.45F, .45F, .45F);
             try {
                 arm.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light,
@@ -125,7 +125,7 @@ public final class TabletHandModel {
                             : next.getTranslation(new org.joml.Vector3f())
                                     .distance(matrix.getTranslation(new org.joml.Vector3f())) * .01F;
                     pose.pushPose();
-                    pose.mulPose(cameraMatrix(matrix, false));
+                    pose.mulPoseMatrix(cameraMatrix(matrix, false));
                     pose.scale(.45F, Mth.clamp(length, .01F, .12F) / (2.2F / 16), .45F);
                     digit.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light,
                             OverlayTexture.NO_OVERLAY);
@@ -151,7 +151,7 @@ public final class TabletHandModel {
     public void renderTrackedCompact(PoseStack pose, MultiBufferSource buffers, int light, Matrix4f anchor,
             org.joml.Quaternionf bindAlignment, float ticks, String reward) {
         pose.pushPose();
-        pose.mulPose(sourceCameraMatrix(anchor).rotate(bindAlignment));
+        pose.mulPoseMatrix(sourceCameraMatrix(anchor).rotate(bindAlignment));
         pose.scale(.30F, -.30F, .30F);
         compact.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(MATERIAL)), light,
                 OverlayTexture.NO_OVERLAY);
@@ -468,7 +468,7 @@ public final class TabletHandModel {
 
     private static void point(VertexConsumer vertices, PoseStack pose, float x, float y, float z, float u, float v,
             int color) {
-        vertices.addVertex(pose.last().pose(), x, y, z).setColor(color).setUv(u, v)
-                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(15728880).setNormal(pose.last(), 0, 0, 1);
+        vertices.vertex(pose.last().pose(), x, y, z).color(color).uv(u, v)
+                .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(15728880).normal(pose.last().normal(), 0, 0, 1).endVertex();
     }
 }

@@ -2,10 +2,10 @@ package net.killstreakcod.universal;
 
 import net.killstreakcod.KillstreakcodMod;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
 
@@ -26,9 +26,9 @@ public record NativeFxPayload(ResourceLocation dimension, String profile, double
             throw new IllegalArgumentException("Invalid native effect profile");
     }
 
-    public static final Type<NativeFxPayload> TYPE = new Type<>(
+    public static final Type<NativeFxPayload> TYPE = new Type<>(NativeFxPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "native_fx"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, NativeFxPayload> STREAM_CODEC = StreamCodec.of((b, p) -> {
+    public static final StreamCodec<FriendlyByteBuf, NativeFxPayload> STREAM_CODEC = StreamCodec.of((b, p) -> {
         b.writeResourceLocation(p.dimension);
         b.writeUtf(p.profile, MAX_PROFILE_LENGTH);
         b.writeDouble(p.x);

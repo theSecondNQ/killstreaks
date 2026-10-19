@@ -25,12 +25,12 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.level.LevelEvent;
-import net.neoforged.neoforge.event.server.ServerStoppedEvent;
-import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.event.level.LevelEvent;
+import net.minecraftforge.event.server.ServerStoppedEvent;
+import net.minecraftforge.event.TickEvent;
 import org.joml.Vector3f;
 
 /**
@@ -142,7 +142,9 @@ public final class SaeEffects {
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void tick(ServerTickEvent.Post event) {
+    public static void tick(TickEvent.ServerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
         for (var worlds = WORLDS.entrySet().iterator(); worlds.hasNext();) {
             var entry = worlds.next();
             ServerLevel level = entry.getKey();

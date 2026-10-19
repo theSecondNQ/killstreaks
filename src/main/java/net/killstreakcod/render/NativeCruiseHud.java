@@ -21,7 +21,7 @@ public final class NativeCruiseHud {
         if (widget == null || mc.level == null)
             return false;
         long now = mc.level.getGameTime();
-        float partial = mc.getTimer().getGameTimeDeltaPartialTick(true);
+        float partial = mc.getFrameTime();
         if (unit != TacticalClient.state.entityId()) {
             unit = TacticalClient.state.entityId();
             health = TacticalClient.state.health();

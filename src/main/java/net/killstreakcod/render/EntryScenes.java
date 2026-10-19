@@ -24,11 +24,11 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
-import net.neoforged.neoforge.client.event.ViewportEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
+import net.minecraftforge.client.event.ViewportEvent;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
@@ -45,7 +45,7 @@ public final class EntryScenes {
     private static PlayerModel<net.minecraft.client.player.AbstractClientPlayer> avatar, slimAvatar;
     private static float heading;
     private static int sceneLight;
-    private static final ResourceLocation FLAME = ResourceLocation.withDefaultNamespace("textures/particle/flame.png");
+    private static final ResourceLocation FLAME = ResourceLocation.parse("textures/particle/flame.png");
     private static final ResourceLocation HULL = ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID,
             "textures/entity/tactical_atlas.png");
     public static final int GUNSHIP_FLYPAST = SceneEntryLibrary.GUNSHIP_EXTERIOR;
@@ -124,7 +124,7 @@ public final class EntryScenes {
                 yaw = TacticalClient.yaw();
                 pitch = TacticalClient.pitch();
             } else {
-                float partial = Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true);
+                float partial = Minecraft.getInstance().getFrameTime();
                 yaw = unit.renderFlightYaw(partial);
                 pitch = unit.renderFlightPitch(partial);
             }
@@ -149,7 +149,7 @@ public final class EntryScenes {
         if (TacticalClient.remote() && TacticalClient.state.mode().equals("cruise")
                 && camera.getEntity() instanceof TacticalUnitEntity unit)
             return NativeCruiseScene.camera(unit, StreakPresentation.elapsed(), active(),
-                    Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true));
+                    Minecraft.getInstance().getFrameTime());
         if (!active())
             return null;
         var entity = camera.getEntity();
@@ -158,7 +158,7 @@ public final class EntryScenes {
             return null;
         Vector3f p = source.getTranslation(new Vector3f()),
                 offset = flightAttitude().transform(new Vector3f(-p.y, p.z, -p.x).mul(.01F));
-        float partial = Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true);
+        float partial = Minecraft.getInstance().getFrameTime();
         return entity.getPosition(partial).add(offset.x, offset.y, offset.z);
     }
 
@@ -188,7 +188,8 @@ public final class EntryScenes {
         int[] factors = { GL11.glGetInteger(GL14.GL_BLEND_SRC_RGB), GL11.glGetInteger(GL14.GL_BLEND_DST_RGB),
                 GL11.glGetInteger(GL14.GL_BLEND_SRC_ALPHA), GL11.glGetInteger(GL14.GL_BLEND_DST_ALPHA) };
         var modelView = RenderSystem.getModelViewStack();
-        modelView.pushMatrix().set(event.getModelViewMatrix());
+        modelView.pushPose();
+        modelView.last().pose().set(event.getPoseStack().last().pose());
         RenderSystem.applyModelViewMatrix();
         Matrix4f projection = new Matrix4f(RenderSystem.getProjectionMatrix());
         float[] color = RenderSystem.getShaderColor().clone();
@@ -198,7 +199,7 @@ public final class EntryScenes {
 
             // 将保留的源资源摄像机局部姿态转回世界相对顶点，使 Iris 在光照及最终处理前取得实体法线和深度；这里必须保留地形深度，清除它会抹掉实时世界的深度信息。
             PoseStack pose = new PoseStack();
-            pose.mulPose(new Matrix4f(event.getModelViewMatrix()).invert());
+            pose.mulPoseMatrix(new Matrix4f(event.getPoseStack().last().pose()).invert());
             TacticalClient.cinematicShake(pose);
             float time = StreakPresentation.elapsed();
             sceneLight = AircraftLighting.at(mc.level, event.getCamera().getPosition());
@@ -218,7 +219,7 @@ public final class EntryScenes {
             } finally {
                 RenderSystem.setShaderColor(color[0], color[1], color[2], color[3]);
                 RenderSystem.setProjectionMatrix(projection, VertexSorting.DISTANCE_TO_ORIGIN);
-                modelView.popMatrix();
+                modelView.popPose();
                 RenderSystem.applyModelViewMatrix();
                 if (depth)
                     RenderSystem.enableDepthTest();

@@ -16,11 +16,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -164,7 +162,7 @@ public final class NativePrecisionScopeHud {
         if (TargetingDeviceAnimations.active())
             return TargetingDeviceAnimations.opticsVisible();
         return player.isUsingItem() && player.getUseItem().is(KillstreakcodMod.DESIGNATOR.get())
-                && !player.getUseItem().getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag()
+                && !player.getUseItem().getOrCreateTag()
                         .getString("Reward").equals("mortar_strike");
     }
 
@@ -174,7 +172,7 @@ public final class NativePrecisionScopeHud {
 
     private static double now() {
         var mc = Minecraft.getInstance();
-        return mc.level == null ? 0 : (mc.level.getGameTime() + mc.getTimer().getGameTimeDeltaPartialTick(true)) * 50D;
+        return mc.level == null ? 0 : (mc.level.getGameTime() + mc.getFrameTime()) * 50D;
     }
 
     private static float alpha(String sequence, String element, double elapsed, float initial) {
@@ -241,7 +239,7 @@ public final class NativePrecisionScopeHud {
             dangerStart = 0;
             dangerAt = clock;
         } // 原标记更新器在每次恢复完全瞄准状态时重置危险提示。
-        float partial = mc.getTimer().getGameTimeDeltaPartialTick(true);
+        float partial = mc.getFrameTime();
         Vec3 from = pawn.getEyePosition(partial), to = from.add(pawn.getViewVector(partial).scale(rayRange));
         BlockHitResult hit = world
                 .clip(new ClipContext(from, to, ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, pawn));

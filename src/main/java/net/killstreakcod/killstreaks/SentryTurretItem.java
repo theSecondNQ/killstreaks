@@ -3,6 +3,8 @@ package net.killstreakcod.killstreaks;
 import net.killstreakcod.universal.StreakNetwork;
 import net.killstreakcod.universal.StreakPresentationPayload;
 import net.killstreakcod.universal.TacticalRuntime;
+import net.killstreakcod.universal.ResearchCatalog;
+import net.killstreakcod.universal.ResearchEffects;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,6 +18,11 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 public final class SentryTurretItem extends Item {
+    @Override
+    public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+        consumer.accept(net.killstreakcod.render.KillstreakClientEntityRenderers.itemExtension("item_sentry", "sentry_gun"));
+    }
+
     public SentryTurretItem(Properties properties) {
         super(properties.stacksTo(1));
     }
@@ -29,16 +36,20 @@ public final class SentryTurretItem extends Item {
             return InteractionResult.FAIL;
         if (!level.isClientSide && level instanceof ServerLevel serverLevel
                 && context.getPlayer() instanceof ServerPlayer owner) {
-            if (TacticalRuntime.busy(owner))
+            if (TacticalRuntime.busy(owner) || !ResearchEffects.allowActivation(owner))
                 return InteractionResult.FAIL;
             if (!serverLevel.noCollision(new net.minecraft.world.phys.AABB(place).expandTowards(0, 0.8, 0)))
                 return InteractionResult.FAIL;
-            var saved = context.getItemInHand().getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
-                    net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
+            var saved = context.getItemInHand().getOrCreateTag();
             var at = net.minecraft.world.phys.Vec3.atBottomCenterOf(place);
             TacticalUnitEntity unit = TacticalRuntime.spawn(owner, TacticalUnitEntity.Kind.SENTRY, at, at,
                     saved.contains("Remaining") ? Math.max(1, Math.min(2400, saved.getInt("Remaining"))) : 2400);
             unit.heading = owner.getYRot();
+            if (saved.contains("Remaining")) {
+                unit.lifetime = net.minecraft.util.Mth.clamp(saved.getInt("Remaining"), 1, 3000);
+                unit.researchUpgrades = ResearchCatalog
+                        .loadNodes(saved.getList("ResearchNodes", net.minecraft.nbt.Tag.TAG_STRING));
+            }
             if (saved.contains("Health"))
                 unit.setHealth(net.minecraft.util.Mth.clamp(saved.getFloat("Health"), 1, unit.getMaxHealth()));
             StreakNetwork.send(owner, new StreakPresentationPayload("sentry_gun", "confirmed", 18));

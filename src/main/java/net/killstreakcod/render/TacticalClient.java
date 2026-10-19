@@ -9,6 +9,7 @@ import net.killstreakcod.render.compat.OptionalClientIntegrations;
 import net.killstreakcod.render.tablet.TabletTargeting;
 import net.killstreakcod.universal.BonusStatePayload;
 import net.killstreakcod.universal.RadarPayload;
+import net.killstreakcod.universal.ResearchStatePayload;
 import net.killstreakcod.universal.TacticalControlPayload;
 import net.killstreakcod.universal.TacticalViewPayload;
 import net.killstreakcod.universal.TerminalStatePayload;
@@ -24,21 +25,20 @@ import net.minecraft.client.player.Input;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.InputEvent;
-import net.neoforged.neoforge.client.event.MovementInputUpdateEvent;
-import net.neoforged.neoforge.client.event.RenderArmEvent;
-import net.neoforged.neoforge.client.event.RenderFrameEvent;
-import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
-import net.neoforged.neoforge.client.event.RenderHandEvent;
-import net.neoforged.neoforge.client.event.ViewportEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.client.event.MovementInputUpdateEvent;
+import net.minecraftforge.client.event.RenderArmEvent;
+import net.minecraftforge.client.event.RenderGuiEvent;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
+import net.minecraftforge.client.event.ViewportEvent;
+import net.killstreakcod.network.StreakPackets;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
@@ -52,6 +52,7 @@ import static net.killstreakcod.universal.TacticalControlPayload.*;
 @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT)
 public final class TacticalClient {
     public static TerminalStatePayload terminal;
+    public static ResearchStatePayload research;
     public static BonusStatePayload bonus = new BonusStatePayload("", false);
     public static RadarPayload radar = new RadarPayload(false, false, false, new int[0]);
     public static TacticalViewPayload state = new TacticalViewPayload(-1, "", 0, 0, 0, false);
@@ -61,9 +62,10 @@ public final class TacticalClient {
     private static net.minecraft.client.multiplayer.ClientLevel previousLevel;
     private static net.minecraft.client.player.LocalPlayer previousPlayer, anchorPlayer;
     private static Vec3 bodyAnchor;
+    private static float cameraRoll;
     private static float yaw, pitch, bodyYaw, bodyPitch, bodyHeadYaw, bodyTorsoYaw, impactStrength;
     private static double mouseX, mouseY;
-    private static boolean mouseCaptured, zoom;
+    private static boolean mouseCaptured, zoom, secondaryHeld;
     private static int missingTicks, heartbeat, sequence, pendingActions, viewAge;
 
     private TacticalClient() {}
@@ -93,14 +95,14 @@ public final class TacticalClient {
     }
 
     public static int reload(int i) {
-        return Math.max(0, state.reloads()[i] - viewAge);
+        return i < 0 || i >= state.reloads().length ? 0 : Math.max(0, state.reloads()[i] - viewAge);
     }
 
     public static float fov() {
         float base = switch (state.mode()) {
             case "gunship" -> 50;
             case "chopper" -> 65;
-            case "wheelson" -> 75;
+            case "wheelson", "precision" -> 75;
             case "cruise" -> 70;
             default -> 80;
         };
@@ -118,6 +120,7 @@ public final class TacticalClient {
             return;
         resetControl();
         terminal = null;
+        research = null;
         radar = new RadarPayload(false, false, false, new int[0]);
         bonus = new BonusStatePayload("", false);
         mapContacts = new int[0];
@@ -140,10 +143,12 @@ public final class TacticalClient {
             return;
         }
         state = packet;
+        AircraftHudRenderer.accept(packet);
         heartbeat = 0;
         viewAge = 0;
         previousLevel = mc.level;
         if (start) {
+            secondaryHeld = held(mc.options.keyUse);
             if (!was) {
                 previousType = mc.options.getCameraType();
                 if (mc.player != null) {
@@ -165,7 +170,8 @@ public final class TacticalClient {
             for (KeyMapping key : new KeyMapping[] { KillstreakKeyMappings.THERMAL, KillstreakKeyMappings.CYCLE,
                     KillstreakKeyMappings.EXIT, KillstreakKeyMappings.AUTO, KillstreakKeyMappings.FLARES,
                     KillstreakKeyMappings.WEAPON_1, KillstreakKeyMappings.WEAPON_2, KillstreakKeyMappings.WEAPON_3,
-                    KillstreakKeyMappings.ZOOM, KillstreakKeyMappings.BOOST })
+                    KillstreakKeyMappings.WEAPON_4, KillstreakKeyMappings.WEAPON_5, KillstreakKeyMappings.ZOOM,
+                    KillstreakKeyMappings.BOOST })
                 while (key.consumeClick()) {
                 }
             mc.setScreen(null);
@@ -199,6 +205,7 @@ public final class TacticalClient {
         bodyAnchor = null;
         anchorPlayer = null;
         zoom = false;
+        secondaryHeld = false;
         mouseCaptured = false;
         pendingActions = missingTicks = heartbeat = sequence = viewAge = 0;
         state = new TacticalViewPayload(-1, "", 0, 0, 0, false);
@@ -284,7 +291,9 @@ public final class TacticalClient {
     }
 
     @SubscribeEvent
-    public static void beforeTick(ClientTickEvent.Pre event) {
+    public static void beforeTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.START)
+            return;
         acceptWorld();
         Minecraft mc = Minecraft.getInstance();
         if ((remote() || StreakPresentation.busy()) && (mc.player == null || !mc.player.isAlive())) {
@@ -309,7 +318,9 @@ public final class TacticalClient {
     }
 
     @SubscribeEvent
-    public static void tick(ClientTickEvent.Post event) {
+    public static void tick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
         Minecraft mc = Minecraft.getInstance();
         acceptWorld();
         StreakPresentation.tick();
@@ -369,16 +380,22 @@ public final class TacticalClient {
             flags |= WEAPON_2;
         if (clicked(KillstreakKeyMappings.WEAPON_3))
             flags |= WEAPON_3;
+        if (clicked(KillstreakKeyMappings.WEAPON_4))
+            flags |= WEAPON_4;
+        if (clicked(KillstreakKeyMappings.WEAPON_5))
+            flags |= WEAPON_5;
         if (clicked(KillstreakKeyMappings.ZOOM) && !StreakPresentation.busy())
             zoom = !zoom;
         float forward = 0, strafe = 0;
+        boolean useHeld = held(mc.options.keyUse);
+        if (useHeld && !secondaryHeld)
+            flags |= SECONDARY;
+        secondaryHeld = useHeld;
         if (mc.screen == null && mc.isWindowActive()) {
             forward = (held(mc.options.keyUp) ? 1 : 0) - (held(mc.options.keyDown) ? 1 : 0);
             strafe = (held(mc.options.keyRight) ? 1 : 0) - (held(mc.options.keyLeft) ? 1 : 0);
             if (held(mc.options.keyAttack))
                 flags |= FIRE;
-            if (held(mc.options.keyUse))
-                flags |= SECONDARY;
             if (held(mc.options.keyJump))
                 flags |= UP;
             if (held(mc.options.keyShift))
@@ -390,11 +407,11 @@ public final class TacticalClient {
             forward = strafe = 0;
             flags &= EXIT;
         }
-        PacketDistributor.sendToServer(new TacticalControlPayload(yaw, pitch, forward, strafe, flags, ++sequence));
+        StreakPackets.sendToServer(new TacticalControlPayload(yaw, pitch, forward, strafe, flags, ++sequence));
     }
 
     private static void sendExit() {
-        PacketDistributor.sendToServer(new TacticalControlPayload(yaw, pitch, 0, 0, EXIT, ++sequence));
+        StreakPackets.sendToServer(new TacticalControlPayload(yaw, pitch, 0, 0, EXIT, ++sequence));
     }
 
     @SubscribeEvent
@@ -413,7 +430,9 @@ public final class TacticalClient {
     }
 
     @SubscribeEvent
-    public static void frame(RenderFrameEvent.Pre event) {
+    public static void frame(TickEvent.RenderTickEvent event) {
+        if (event.phase != TickEvent.Phase.START)
+            return;
         StreakPresentation.beginFrame();
         TargetingDeviceAnimations.beginFrame();
         NativeArsenalView.beginFrame();
@@ -438,7 +457,7 @@ public final class TacticalClient {
         }
         if (state.mode().equals("gunship") && mc.level != null
                 && mc.level.getEntity(state.entityId()) instanceof TacticalUnitEntity unit) {
-            yaw = GunshipFlight.clampYaw(yaw, unit.renderFlightYaw(mc.getTimer().getGameTimeDeltaPartialTick(true)));
+            yaw = GunshipFlight.clampYaw(yaw, unit.renderFlightYaw(mc.getFrameTime()));
             pitch = GunshipFlight.clampPitch(pitch);
         }
         mouseX = x;
@@ -449,21 +468,32 @@ public final class TacticalClient {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void tabletMouse(InputEvent.MouseButton.Pre event) {
-        if (TabletTargeting.mouseButton(event.getButton(), event.getAction()))
+        if (TabletTargeting.mouseButton(event.getButton(), event.getAction())) {
             event.setCanceled(true);
+            return;
+        }
+        Minecraft mc = Minecraft.getInstance();
+        // Capture a short tap even when press and release both fall between client ticks.
+        // 即使按下、松开都发生在两次客户端刻之间，也保留一次短按发射意图。
+        if (remote() && !StreakPresentation.busy() && mc.screen == null && mc.isWindowActive()
+                && event.getAction() == GLFW.GLFW_PRESS && mc.options.keyUse.isConflictContextAndModifierActive()
+                && mc.options.keyUse.matchesMouse(event.getButton())) {
+            pendingActions |= SECONDARY;
+            event.setCanceled(true);
+        }
     }
 
     @SubscribeEvent
     public static void scroll(InputEvent.MouseScrollingEvent event) {
-        if (TabletTargeting.scroll(event.getScrollDeltaY())) {
+        if (TabletTargeting.scroll(event.getScrollDelta())) {
             event.setCanceled(true);
             return;
         }
         if (remote() || StreakPresentation.busy()) {
             event.setCanceled(true);
             if (remote() && !StreakPresentation.busy() && state.mode().equals("gunship")
-                    && event.getScrollDeltaY() != 0)
-                pendingActions |= event.getScrollDeltaY() > 0 ? CYCLE : CYCLE_BACK;
+                    && event.getScrollDelta() != 0)
+                pendingActions |= event.getScrollDelta() > 0 ? CYCLE : CYCLE_BACK;
         }
     }
 
@@ -474,7 +504,7 @@ public final class TacticalClient {
         else if (TargetingDeviceAnimations.active())
             event.setFOV(Mth.lerp(
                     (double) TargetingDeviceAnimations
-                            .zoom(Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true)),
+                            .zoom(Minecraft.getInstance().getFrameTime()),
                     event.getFOV(), TargetingDeviceAnimations.aimedFov()));
         else if (scoping())
             event.setFOV(28);
@@ -493,13 +523,14 @@ public final class TacticalClient {
         event.setYaw(event.getYaw() + shake.x);
         event.setPitch(event.getPitch() + shake.y);
         event.setRoll(event.getRoll() + shake.z);
+        cameraRoll = event.getRoll();
     }
 
     private static Vector3f shakeAngles() {
         Minecraft mc = Minecraft.getInstance();
         if (impactStrength <= 0 || mc.level == null)
             return new Vector3f();
-        float t = mc.level.getGameTime() + mc.getTimer().getGameTimeDeltaPartialTick(true),
+        float t = mc.level.getGameTime() + mc.getFrameTime(),
                 n = impactStrength * mc.options.screenEffectScale().get().floatValue();
         return new Vector3f((float) Math.cos(t * 3.7) * n * .7F, (float) Math.sin(t * 2.6) * n,
                 (float) Math.sin(t * 4.1) * n * .5F);
@@ -517,7 +548,7 @@ public final class TacticalClient {
         Camera camera = Minecraft.getInstance().gameRenderer.getMainCamera();
         Quaternionf unshaken = new Quaternionf().rotationYXZ(
                 (float) Math.PI - (camera.getYRot() - shake.x) * Mth.DEG_TO_RAD,
-                -(camera.getXRot() - shake.y) * Mth.DEG_TO_RAD, -(camera.getRoll() - shake.z) * Mth.DEG_TO_RAD);
+                -(camera.getXRot() - shake.y) * Mth.DEG_TO_RAD, -(cameraRoll - shake.z) * Mth.DEG_TO_RAD);
         pose.mulPose(new Quaternionf(camera.rotation()).invert().mul(unshaken));
     }
 
@@ -527,9 +558,7 @@ public final class TacticalClient {
         var player = Minecraft.getInstance().player;
         return player != null && player.isUsingItem() && player.getUseItem().is(KillstreakcodMod.DESIGNATOR.get())
                 && !player.getUseItem()
-                        .getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
-                                net.minecraft.world.item.component.CustomData.EMPTY)
-                        .copyTag().getString("Reward").equals("mortar_strike");
+                        .getOrCreateTag().getString("Reward").equals("mortar_strike");
     }
 
     @SubscribeEvent
@@ -556,9 +585,9 @@ public final class TacticalClient {
     }
 
     @SubscribeEvent
-    public static void tabletCrosshair(RenderGuiLayerEvent.Pre event) {
+    public static void tabletCrosshair(RenderGuiOverlayEvent.Pre event) {
         if ((TabletTargeting.active() || NativePrecisionScopeHud.visible())
-                && event.getName().equals(net.neoforged.neoforge.client.gui.VanillaGuiLayers.CROSSHAIR))
+                && event.getOverlay().id().equals(net.minecraftforge.client.gui.overlay.VanillaGuiOverlay.CROSSHAIR.id()))
             event.setCanceled(true);
     }
 
@@ -571,7 +600,7 @@ public final class TacticalClient {
                 TacticalHud.banner(event.getGuiGraphics());
                 StreakPresentation.renderGui(event.getGuiGraphics());
                 OptionalClientIntegrations.remoteOverlay(event.getGuiGraphics(),
-                        event.getPartialTick().getGameTimeDeltaPartialTick(false));
+                        event.getPartialTick());
                 NativeRadioSubtitles.render(event.getGuiGraphics());
             } else
                 StreakPresentation.renderBlackout(event.getGuiGraphics());

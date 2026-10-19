@@ -1,5 +1,6 @@
 package net.killstreakcod.render;
 
+import com.mojang.blaze3d.vertex.BufferBuilder;
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.audio.SupportAudioPayload;
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
@@ -18,12 +19,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 
 /**
  * Visual aircraft snapshots outside entity/chunk tracking; never added to the client world or combat.
@@ -81,7 +82,7 @@ public final class DistantPrecisionAircraft {
 
     private static final Map<Integer, Visual> PLANES = new HashMap<>();
     private static ClientLevel world;
-    private static com.mojang.blaze3d.vertex.ByteBufferBuilder storage;
+    private static com.mojang.blaze3d.vertex.BufferBuilder storage;
     private static boolean renderingEnabled = true;
 
     private DistantPrecisionAircraft() {}
@@ -115,7 +116,9 @@ public final class DistantPrecisionAircraft {
     }
 
     @SubscribeEvent
-    public static void tick(ClientTickEvent.Post event) {
+    public static void tick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END)
+            return;
         var mc = Minecraft.getInstance();
         if (mc.level != world || mc.player == null || !mc.player.isAlive()) {
             PLANES.clear();
@@ -135,19 +138,19 @@ public final class DistantPrecisionAircraft {
             return;
         if (PLANES.keySet().stream().allMatch(id -> world.getEntity(id) != null))
             return;
-        float partial = event.getPartialTick().getGameTimeDeltaPartialTick(false);
+        float partial = event.getPartialTick();
         double clock = world.getGameTime() + partial;
         Vec3 eye = event.getCamera().getPosition();
         if (storage == null)
-            storage = new com.mojang.blaze3d.vertex.ByteBufferBuilder(65536);
+            storage = new com.mojang.blaze3d.vertex.BufferBuilder(65536);
         var buffers = net.minecraft.client.renderer.MultiBufferSource.immediate(storage);
         PoseStack pose = new PoseStack();
         float fogStart = RenderSystem.getShaderFogStart(), fogEnd = RenderSystem.getShaderFogEnd();
         try (ThermalRenderState ignored = new ThermalRenderState()) {
             var matrix = RenderSystem.getModelViewStack();
-            matrix.pushMatrix();
+            matrix.pushPose();
             try {
-                matrix.set(event.getModelViewMatrix());
+                matrix.last().pose().set(event.getPoseStack().last().pose());
                 RenderSystem.applyModelViewMatrix();
                 RenderSystem.setProjectionMatrix(event.getProjectionMatrix(), VertexSorting.DISTANCE_TO_ORIGIN);
                 RenderSystem.setShaderFogStart(512);
@@ -175,7 +178,7 @@ public final class DistantPrecisionAircraft {
             } finally {
                 RenderSystem.setShaderFogStart(fogStart);
                 RenderSystem.setShaderFogEnd(fogEnd);
-                matrix.popMatrix();
+                matrix.popPose();
                 RenderSystem.applyModelViewMatrix();
             }
         }
@@ -193,7 +196,7 @@ public final class DistantPrecisionAircraft {
         world = null;
         renderingEnabled = true;
         if (storage != null) {
-            storage.close();
+            storage.clear();
             storage = null;
         }
     }

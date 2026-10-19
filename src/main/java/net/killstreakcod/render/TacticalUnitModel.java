@@ -518,7 +518,7 @@ public final class TacticalUnitModel extends EntityModel<TacticalUnitEntity> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack pose, VertexConsumer v, int light, int overlay, int color) {
-        root.render(pose, v, light, overlay, color);
+    public void renderToBuffer(PoseStack pose, VertexConsumer v, int light, int overlay, float red, float green, float blue, float alpha) {
+        root.render(pose, v, light, overlay, red, green, blue, alpha);
     }
 }

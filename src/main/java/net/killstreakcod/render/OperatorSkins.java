@@ -29,7 +29,7 @@ import com.google.gson.JsonParser;
 import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
-import net.minecraft.client.resources.PlayerSkin;
+import net.killstreakcod.render.PlayerSkin;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -196,9 +196,9 @@ public final class OperatorSkins {
     public static PlayerSkin preview(Selection selection) {
         var player = Minecraft.getInstance().player;
         PlayerSkin fallback = player == null
-                ? new PlayerSkin(ResourceLocation.withDefaultNamespace("textures/entity/player/wide/steve.png"), null,
+                ? new PlayerSkin(ResourceLocation.parse("textures/entity/player/wide/steve.png"), null,
                         null, null, PlayerSkin.Model.WIDE, false)
-                : player.getSkin();
+                : PlayerSkin.current(player);
         if (selection.file.isEmpty())
             return fallback;
         ResourceLocation texture = TEXTURES.computeIfAbsent(selection.file, OperatorSkins::loadTexture).orElse(null);

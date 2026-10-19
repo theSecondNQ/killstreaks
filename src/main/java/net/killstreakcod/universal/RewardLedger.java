@@ -105,13 +105,11 @@ final class RewardLedger {
         List<Slot> slots = new ArrayList<>(loadout.length);
         for (StreakReward reward : loadout) {
             boolean enabled = enabled(reward.id());
-            int progress = !repeatable && tags.contains(LIFE_EARNED + reward.id())
-                    ? threshold(reward)
+            int progress = !repeatable && tags.contains(LIFE_EARNED + reward.id()) ? threshold(reward)
                     : number(PROGRESS + reward.id() + "=");
             slots.add(new Slot(reward, enabled ? stock(reward.id()) : 0, enabled ? progress : 0));
         }
-        return new Snapshot(scoreMode, number(KILLS), number(SCORE), List.copyOf(slots),
-                mgbEnabled ? stock("mgb") : 0,
+        return new Snapshot(scoreMode, number(KILLS), number(SCORE), List.copyOf(slots), mgbEnabled ? stock("mgb") : 0,
                 bonuses.stream().filter(id -> StreakReward.byId(id).isPresent() && enabled(id)).toList());
     }
 
@@ -159,6 +157,18 @@ final class RewardLedger {
         if (slot < 0 || slot > 4)
             return false;
         String id = slot == 4 ? "mgb" : loadout[slot].id();
+        return consume(id);
+    }
+
+    int count(StreakReward reward) {
+        return count(reward.id());
+    }
+
+    int count(String id) {
+        return enabled(id) ? stock(id) : 0;
+    }
+
+    boolean consume(String id) {
         if (!enabled(id) || stock(id) == 0)
             return false;
         stock(id, stock(id) - 1);
@@ -215,12 +225,13 @@ final class RewardLedger {
             stock("mgb", 0);
             bonuses.clear();
             put(BONUS, "");
+            ResearchSystem.clearRequisitions(player);
         }
         save();
     }
 
     private void earn(String id, int threshold, int amount, int slot, List<Earned> earned) {
-        if (!enabled(id) || !repeatable && tags.contains(LIFE_EARNED + id))
+        if (!enabled(id) || !ResearchSystem.earnable(player, id) || !repeatable && tags.contains(LIFE_EARNED + id))
             return;
         String key = PROGRESS + id + "=";
         long progress = (long) number(key) + amount;
@@ -228,7 +239,13 @@ final class RewardLedger {
         putNumber(key, repeatable ? (int) (progress % threshold) : (int) Math.min(threshold, progress));
         if (count == 0)
             return;
-        stock(id, saturatingAdd(stock(id), repeatable ? count : 1));
+        // Conversion spends prepaid reserves only when a threshold produces a real reward.
+        // 仅在达到门槛并实际增加可呼叫库存时扣除预付储备；连杀模式不扣储备。
+        int requested = Math.min(repeatable ? count : 1, Integer.MAX_VALUE - stock(id));
+        int granted = ResearchSystem.consumeRequisitions(player, id, requested);
+        if (granted == 0)
+            return;
+        stock(id, stock(id) + granted);
         dirty |= tags.add(LIFE_EARNED + id);
         earned.add(new Earned(id, stock(id), slot, false));
     }

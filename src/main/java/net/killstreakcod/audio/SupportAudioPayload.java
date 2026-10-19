@@ -5,10 +5,10 @@ import net.killstreakcod.KillstreakcodMod;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
+import net.minecraft.network.FriendlyByteBuf;
+import net.killstreakcod.network.StreamCodec;
+import net.killstreakcod.network.CustomPacketPayload;
+import net.killstreakcod.network.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -20,7 +20,7 @@ public record SupportAudioPayload(ResourceLocation dimension, List<Source> sourc
             float flightYaw, float flightPitch, int clock, int stage, boolean departing, float vx, float vy, float vz) {
     }
 
-    public static final Type<SupportAudioPayload> TYPE = new Type<>(
+    public static final Type<SupportAudioPayload> TYPE = new Type<>(SupportAudioPayload.class,
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "support_audio"));
 
     public SupportAudioPayload {
@@ -29,7 +29,7 @@ public record SupportAudioPayload(ResourceLocation dimension, List<Source> sourc
             throw new IllegalArgumentException("Too many audio sources");
     }
 
-    public static final StreamCodec<RegistryFriendlyByteBuf, SupportAudioPayload> STREAM_CODEC = StreamCodec
+    public static final StreamCodec<FriendlyByteBuf, SupportAudioPayload> STREAM_CODEC = StreamCodec
             .of((buffer, value) -> {
                 buffer.writeResourceLocation(value.dimension());
                 buffer.writeVarInt(value.sources().size());
