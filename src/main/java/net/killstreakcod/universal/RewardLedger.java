@@ -157,18 +157,18 @@ final class RewardLedger {
         if (slot < 0 || slot > 4)
             return false;
         String id = slot == 4 ? "mgb" : loadout[slot].id();
-        return consumeStock(id);
+        return consume(id);
     }
 
     int count(StreakReward reward) {
-        return enabled(reward.id()) ? stock(reward.id()) : 0;
+        return count(reward.id());
     }
 
-    boolean consume(StreakReward reward) {
-        return consumeStock(reward.id());
+    int count(String id) {
+        return enabled(id) ? stock(id) : 0;
     }
 
-    private boolean consumeStock(String id) {
+    boolean consume(String id) {
         if (!enabled(id) || stock(id) == 0)
             return false;
         stock(id, stock(id) - 1);
@@ -225,6 +225,7 @@ final class RewardLedger {
             stock("mgb", 0);
             bonuses.clear();
             put(BONUS, "");
+            ResearchSystem.clearRequisitions(player);
         }
         save();
     }
@@ -238,7 +239,13 @@ final class RewardLedger {
         putNumber(key, repeatable ? (int) (progress % threshold) : (int) Math.min(threshold, progress));
         if (count == 0)
             return;
-        stock(id, saturatingAdd(stock(id), repeatable ? count : 1));
+        // Conversion spends prepaid reserves only when a threshold produces a real reward.
+        // 仅在达到门槛并实际增加可呼叫库存时扣除预付储备；连杀模式不扣储备。
+        int requested = Math.min(repeatable ? count : 1, Integer.MAX_VALUE - stock(id));
+        int granted = ResearchSystem.consumeRequisitions(player, id, requested);
+        if (granted == 0)
+            return;
+        stock(id, stock(id) + granted);
         dirty |= tags.add(LIFE_EARNED + id);
         earned.add(new Earned(id, stock(id), slot, false));
     }

@@ -1,6 +1,6 @@
 # Killstreak
 
-Minecraft Java Edition **1.21.1** · NeoForge **21.1.232+** · **Java 21** · 当前版本 **1.1.0.4341**
+Minecraft Java Edition **1.21.1** · NeoForge **21.1.232+** · **Java 21** · 当前版本 **1.1.0.4352**
 
 提供 19 种可配置连杀奖励与隐藏核弹，包括按键呼叫、遥控载具、平板标定、侦察雷达、空投、低多边形模型／像素材质、原骨骼动画／音效及字幕。客户端与服务器均须安装同一版本模组。
 
@@ -10,17 +10,15 @@ Minecraft Java Edition **1.21.1** · NeoForge **21.1.232+** · **Java 21** · �
 
 NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物品栏标签页显示 **连杀奖励**。
 
+本次更新接入空中炮艇与攻击直升机的原始 HUD 布局、准星动画及座舱显示屏，使用实时武器、弹药与按键状态，并避让 GD656 和字幕。原资源范围、引擎差异及两个版本的源码同步方式见 [飞机 HUD](docs/AIRCRAFT-HUD.md)。
+
 界面支持 12 个语言选项：简体中文、台湾繁中、香港繁中、文言（华夏）、英语、日语、韩语、德语、法语、西班牙语、俄语和巴西葡萄牙语，跟随 Minecraft 的语言设置。英语、简体中文、两种繁中和文言均完整覆盖界面及无线电字幕，其余语言的播报字幕回退到英文；语音音频仍为英文。覆盖范围和翻译维护方式见 [语言支持](docs/LOCALIZATION.md)。
 
 ## 使用
 
-<<<<<<< Updated upstream
-- 将 `build/libs/killstreakcod-1.0.1.4333.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
-=======
-- 将 `build/libs/killstreakcod-1.1.0.4341.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
->>>>>>> Stashed changes
+- 将 `build/libs/killstreakcod-1.1.0.4352.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
 - 按 **K** 或使用连杀终端配置奖励、阵营、队友白名单和操作员皮肤。
-- 可放置的“总部通讯终端”已接入侦察／支援科技树、四级终端、生存与连杀模式；现有9项连杀研究和29项升级。生存模式需要先研究、通过击杀／得分获取次数，再消耗次数和材料呼叫。玩法说明见[研究系统](docs/RESEARCH.md)，配方及模型说明见[总部通讯终端](docs/HEADQUARTERS-TERMINAL.md)。
+- 可放置的“总部通讯终端”已接入侦察、支援、火力、现代化四棵科技树，含20项基础研究（包括核弹）、59项升级和四级终端。生存模式先研究并在总部支付材料预购储备，击杀／得分达标时扣一次储备并获得可呼叫奖励，呼叫时只扣奖励库存。升级可免费装卸，在两种模式中生效；科技树按终端等级及所需经验排列。玩法说明见[研究系统](docs/RESEARCH.md)，新增费用及武器操作见[火力与现代化研究](docs/RESEARCH-EXPANSION.md)，配方及模型说明见[总部通讯终端](docs/HEADQUARTERS-TERMINAL.md)。
 - 规则配置位于游戏或服务器根目录的 `config/killstreakcod-server.toml`；原生 SERVER 配置支持已有世界中的同名覆盖文件。
 - 客户端表现设置位于 `config/killstreakcod-client.toml`。
 - 自定义玩家皮肤 PNG 放入游戏根目录的 `killstreakcod-skins` 文件夹，在终端中选择。
@@ -50,6 +48,8 @@ NeoForge 模组列表显示 **Killstreak**；中文环境下，创造模式物�
 | `build/reports`、`build/logs` | 核对结果与构建日志，自动生成 |
 
 ## 构建和交付
+
+服务端可在 `config/killstreakcod-server.toml` 的 `[research]` 中设置 `disableUpgrades = true`，禁用连杀升级研究、装配和效果，默认值为 `false`。具体规则见[研究说明](docs/RESEARCH-EXPANSION.md#禁用升级项目)。
 
 在工程目录使用 JDK 21：
 

@@ -28,7 +28,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 /**
  * Pannable research branches and a separately scrollable cost panel, driven by server snapshots.
- * 可平移的研究分支与独立滚动的费用面板；所有解锁状态以服务端快照为准。
+ * 可平移的研究分支与独立滚动的费用面板；解锁及装配状态均以服务端快照为准。
  */
 @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public final class HeadquartersTerminalScreen extends AbstractContainerScreen<HeadquartersTerminalMenu> {
@@ -51,7 +51,7 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
     private final List<Visual> visuals = new ArrayList<>();
     private final List<Button> tabs = new ArrayList<>();
     private Box canvas, details;
-    private Button modeButton, tierButton, primaryButton, unlockAll;
+    private Button modeButton, tierButton, primaryButton, callButton, unlockAll;
     private Component status = text("loading");
     private double scrollX, scrollY, detailScroll;
     private int contentWidth, contentHeight, detailHeight;
@@ -97,6 +97,10 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
         }
         primaryButton = addRenderableWidget(Button.builder(text("loading"), button -> perform())
                 .bounds(details.x + 6, details.y + details.height - 25, details.width - 12, 19).build());
+        callButton = addRenderableWidget(Button.builder(text("call"), button -> {
+            if (selected != null && selected.base() && owned(selected))
+                send(ResearchActionPayload.CALL, selected.id());
+        }).bounds(details.x + 6, details.y + details.height - 25, details.width - 12, 19).build());
         unlockAll = addRenderableWidget(
                 Button.builder(text("unlock_all"), button -> send(ResearchActionPayload.UNLOCK_ALL, ""))
                         .bounds(leftPos + imageWidth - 172, topPos + imageHeight - 26, 90, 18).build());
@@ -123,11 +127,19 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
     }
 
     private boolean owned(Node node) {
-        return state != null && ResearchCatalog.has(state.unlocked(), node.id());
+        return node != null && state != null && ResearchCatalog.has(state.unlocked(), node.id());
+    }
+
+    private boolean equipped(Node node) {
+        return owned(node) && !upgradeDisabled(node) && ResearchCatalog.has(state.equipped(), node.id());
+    }
+
+    private boolean upgradeDisabled(Node node) {
+        return node != null && !node.base() && state != null && state.upgradesDisabled();
     }
 
     private boolean prerequisites(Node node) {
-        return state != null && (state.creative() || state.tier() >= node.tier()
+        return state != null && !upgradeDisabled(node) && (state.creative() || state.tier() >= node.tier()
                 && (node.base() || ResearchCatalog.has(state.unlocked(), node.reward().id())));
     }
 
@@ -136,9 +148,12 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
             return null;
         if (selected == null)
             return ResearchCatalog.terminalCost(state.tier());
+        if (!selected.base() && owned(selected))
+            return null;
         if (selected.base() && owned(selected)) {
-            var definition = ResearchCatalog.definition(selected.reward());
-            return (state.repairs() & selected.bit()) != 0 ? definition.repair() : definition.call();
+            var definition = ResearchCatalog.definition(selected.id());
+            return !state.upgradesDisabled() && state.repairs().contains(selected.index()) ? definition.repair()
+                    : definition.call();
         }
         return selected.cost();
     }
@@ -156,24 +171,44 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
         unlockAll.active = ready;
         for (int i = 0; i < tabs.size(); i++)
             tabs.get(i).active = i != category.ordinal();
+        boolean baseOwned = selected != null && selected.base() && owned(selected);
+        int buttonWidth = (details.width - 16) / 2;
+        primaryButton.setWidth(baseOwned ? buttonWidth : details.width - 12);
+        callButton.visible = baseOwned;
+        callButton.setX(details.x + 10 + buttonWidth);
+        callButton.setWidth(details.width - 16 - buttonWidth);
+        boolean earned = baseOwned && state.count(selected.id()) > 0;
+        callButton.setMessage(text(earned ? "call" : "need_earned"));
+        callButton.active = ready && earned && (!state.streakMode() || state.creative()) && !state.busy();
+        if (upgradeDisabled(selected)) {
+            primaryButton.active = false;
+            primaryButton.setMessage(text("upgrades_disabled"));
+            return;
+        }
+        if (selected != null && !selected.base() && owned(selected)) {
+            primaryButton.active = ready;
+            primaryButton.setMessage(pending ? text("working") : text(equipped(selected) ? "unequip" : "equip"));
+            return;
+        }
         Cost cost = selectedCost();
         boolean affordable = cost != null && minecraft.player != null && cost.affordable(minecraft.player);
-        boolean call = selected != null && selected.base() && owned(selected);
-        boolean earned = call && state.count(selected.reward()) > 0;
         primaryButton.active = ready && affordable
-                && (selected == null || call && earned && (!state.streakMode() || state.creative()) && !state.busy()
+                && (selected == null
+                        || baseOwned && (!state.streakMode() || state.creative())
+                                && state.requisitionCount(selected.id()) < Integer.MAX_VALUE
                         || !owned(selected) && prerequisites(selected));
         primaryButton.setMessage(pending ? text("working")
                 : selected == null ? text("upgrade_terminal")
-                        : call ? text(earned ? "call" : "need_earned")
-                                : owned(selected) ? text("owned") : text("research"));
+                        : baseOwned ? text("prepare") : owned(selected) ? text("owned") : text("research"));
     }
 
     private void perform() {
         if (selected == null)
             send(ResearchActionPayload.UPGRADE, "");
         else if (selected.base() && owned(selected))
-            send(ResearchActionPayload.CALL, selected.reward().id());
+            send(ResearchActionPayload.PREPARE, selected.id());
+        else if (owned(selected))
+            send(equipped(selected) ? ResearchActionPayload.UNEQUIP : ResearchActionPayload.EQUIP, selected.id());
         else
             send(ResearchActionPayload.RESEARCH, selected.id());
     }
@@ -194,9 +229,10 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
         graphics.renderItem(KillstreakContent.HEADQUARTERS_TERMINAL_ITEM.get().getDefaultInstance(), leftPos + 12,
                 topPos + 12);
         line(graphics, title, leftPos + 34, topPos + 13, imageWidth - 224, WHITE);
-        int learned = state == null ? 0 : Long.bitCount(state.unlocked());
-        line(graphics, text("progress", learned, ResearchCatalog.nodes().size()), leftPos + 12, topPos + 36,
-                imageWidth - 208, MUTED);
+        var required = state != null && state.upgradesDisabled() ? ResearchCatalog.baseMask()
+                : ResearchCatalog.fullMask();
+        int learned = state == null ? 0 : state.unlocked().intersect(required).count();
+        line(graphics, text("progress", learned, required.count()), leftPos + 12, topPos + 36, imageWidth - 208, MUTED);
         frame(graphics, canvas, CANVAS);
         frame(graphics, details, HEADER);
         drawTree(graphics, mouseX, mouseY);
@@ -223,7 +259,8 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
             var definition = definitions.get(column);
             int x = canvas.x + 8 + column * (nodeWidth + 20) - (int) scrollX;
             int y = canvas.y + 10 - (int) scrollY;
-            graphics.vLine(x + 5, y + 43, y + 82 + (definition.upgrades().size() - 1) * 48, EDGE);
+            if (!definition.upgrades().isEmpty())
+                graphics.vLine(x + 5, y + 43, y + 82 + (definition.upgrades().size() - 1) * 48, EDGE);
             drawNode(graphics, definition.research(), new Box(x, y, nodeWidth, 44), mouseX, mouseY);
             for (int index = 0; index < definition.upgrades().size(); index++) {
                 int childY = y + 66 + index * 48;
@@ -237,18 +274,22 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
 
     private void drawNode(GuiGraphics graphics, Node node, Box box, int mouseX, int mouseY) {
         boolean chosen = selected == node;
-        int color = owned(node) ? ACCENT : prerequisites(node) ? WHITE : MUTED;
+        int color = owned(node) ? node.base() || equipped(node) ? ACCENT : MUTED : prerequisites(node) ? WHITE : MUTED;
+        if (upgradeDisabled(node))
+            color = MUTED;
         frame(graphics, box, chosen ? 0xff203b47 : HEADER);
         if (chosen || canvas.contains(mouseX, mouseY) && box.contains(mouseX, mouseY))
             graphics.fill(box.x, box.y, box.x + box.width, box.y + 2, ACCENT);
         int labelX = box.x + 7;
         if (node.base()) {
-            OriginalRewardUi.icon(graphics, node.reward().id(), box.x + 21, box.y + 21, 29, color, 1);
+            OriginalRewardUi.icon(graphics, node.id(), box.x + 21, box.y + 21, 29, color, 1);
             labelX += 34;
         }
         line(graphics, node.title(), labelX, box.y + 8, box.x + box.width - labelX - 5, color);
-        line(graphics, owned(node) ? text("owned") : text("requires_tier", text("tier." + node.tier())), labelX,
-                box.y + 22, box.x + box.width - labelX - 5, MUTED);
+        Component condition = upgradeDisabled(node) ? text("upgrades_disabled")
+                : owned(node) ? text(node.base() ? "owned" : equipped(node) ? "equipped" : "unequipped")
+                        : text("requires_tier_levels", text("tier." + node.tier()), node.cost().levels());
+        line(graphics, condition, labelX, box.y + 22, box.x + box.width - labelX - 5, MUTED);
         visuals.add(new Visual(node, box));
     }
 
@@ -260,7 +301,7 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
         y = wrapped(graphics, selected == null ? text("terminal_title") : selected.title(), x, y, width, WHITE) + 8;
         if (state != null) {
             Component condition = selected == null ? text("terminal_description")
-                    : text("requires_tier", text("tier." + selected.tier()));
+                    : text("requires_tier_levels", text("tier." + selected.tier()), selected.cost().levels());
             y = wrapped(graphics, condition, x, y, width, selected == null || prerequisites(selected) ? MUTED : LOCKED)
                     + 8;
             if (selected != null) {
@@ -268,22 +309,36 @@ public final class HeadquartersTerminalScreen extends AbstractContainerScreen<He
                     y = wrapped(graphics, text("requires_research", selected.reward().displayName()), x, y, width,
                             LOCKED) + 7;
                 y = wrapped(graphics, selected.description(), x, y, width, MUTED) + 10;
+                if (upgradeDisabled(selected))
+                    y = wrapped(graphics, text("upgrades_disabled_hint"), x, y, width, LOCKED) + 8;
+                if (!selected.base() && owned(selected) && !upgradeDisabled(selected)) {
+                    y = wrapped(graphics, text(equipped(selected) ? "equipped" : "unequipped"), x, y, width,
+                            equipped(selected) ? ACCENT : MUTED) + 7;
+                    y = wrapped(graphics, text("upgrade_hint"), x, y, width, MUTED) + 8;
+                }
             }
             Cost cost = selectedCost();
             if (cost != null) {
                 boolean calling = selected != null && selected.base() && owned(selected);
                 if (calling) {
-                    int count = state.count(selected.reward());
+                    int requisitions = state.requisitionCount(selected.id());
+                    y = wrapped(graphics, text("requisition_count", requisitions), x, y, width,
+                            requisitions > 0 ? ACCENT : LOCKED) + 7;
+                    int count = state.count(selected.id());
                     y = wrapped(graphics, text("earned_count", count), x, y, width, count > 0 ? ACCENT : LOCKED) + 7;
-                    boolean score = TacticalClient.terminal != null && TacticalClient.terminal.scoreMode();
+                    boolean score = selected.reward() != null && TacticalClient.terminal != null
+                            && TacticalClient.terminal.scoreMode();
                     y = wrapped(graphics,
                             text(score ? "requires_score" : "requires_kills",
-                                    score ? selected.reward().score() : selected.reward().kills()),
+                                    selected.reward() == null ? 30
+                                            : score ? selected.reward().score() : selected.reward().kills()),
                             x, y, width, MUTED) + 7;
                     y = wrapped(graphics, text("earning_hint"), x, y, width, MUTED) + 8;
                 }
                 y = wrapped(graphics,
-                        calling ? text((state.repairs() & selected.bit()) != 0 ? "repair_cost" : "call_cost")
+                        calling ? text(
+                                !state.upgradesDisabled() && state.repairs().contains(selected.index()) ? "repair_cost"
+                                        : "call_cost")
                                 : text("research_cost"),
                         x, y, width, ACCENT) + 8;
                 y = wrapped(graphics, text("levels", cost.levels()), x, y, width,

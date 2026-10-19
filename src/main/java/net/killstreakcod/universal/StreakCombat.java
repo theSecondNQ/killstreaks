@@ -113,6 +113,8 @@ public final class StreakCombat {
     }
 
     static boolean hurt(ServerPlayer owner, Entity emitter, Entity entity, float damage, boolean explosive, Vec3 at) {
+        if (!explosive && emitter instanceof TacticalUnitEntity unit)
+            damage *= ResearchCombat.damageScale(unit);
         if (!Float.isFinite(damage) || damage <= 0 || entity.isRemoved())
             return false;
         Entity target = root(entity);

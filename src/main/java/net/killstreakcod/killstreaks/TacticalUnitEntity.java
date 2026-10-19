@@ -20,6 +20,9 @@ import net.killstreakcod.universal.StreakTimings;
 import net.killstreakcod.universal.TacticalRuntime;
 import net.killstreakcod.universal.ResearchCatalog;
 import net.killstreakcod.universal.ResearchEffects;
+import net.killstreakcod.universal.ResearchCombat;
+import net.killstreakcod.universal.ResearchMask;
+import net.killstreakcod.universal.ResearchOrdnance;
 import net.killstreakcod.universal.ResearchSystem;
 import net.killstreakcod.universal.TracerDelivery;
 
@@ -85,12 +88,14 @@ public final class TacticalUnitEntity extends PathfinderMob {
             EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> CRASH_CANOPY = SynchedEntityData.defineId(TacticalUnitEntity.class,
             EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> REMOTE_PRECISION = SynchedEntityData
+            .defineId(TacticalUnitEntity.class, EntityDataSerializers.BOOLEAN);
     public UUID ownerId;
     public UUID radioStrike;
     public Vec3 center = Vec3.ZERO;
     public float heading;
     public int age, lifetime = 1200, delay, shotAt, rockets = 8;
-    public long researchUpgrades;
+    public ResearchMask researchUpgrades = ResearchMask.EMPTY;
     public String researchSource = "";
     public int researchStarted = -1, researchSonicRounds, researchMineGeneration;
 
@@ -112,6 +117,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
     private int lockTicks, burstShots, burstPauseUntil;
     private boolean targetLockAnnounced;
     private Vec3 delayedMotion;
+    private Vec3 jammedMotion;
     private double projectileSpeed;
     private float previousAimYaw, previousAimPitch;
     private float previousFlightYaw, previousFlightPitch;
@@ -183,10 +189,19 @@ public final class TacticalUnitEntity extends PathfinderMob {
         b.define(NATIVE_CLOCK, 0);
         b.define(DEPARTING, false);
         b.define(CRASH_CANOPY, false);
+        b.define(REMOTE_PRECISION, false);
     }
 
     public boolean departing() {
         return entityData.get(DEPARTING);
+    }
+
+    public void remotePrecision(boolean enabled) {
+        entityData.set(REMOTE_PRECISION, enabled);
+    }
+
+    public boolean remotePrecision() {
+        return entityData.get(REMOTE_PRECISION);
     }
 
     public boolean awaitingVtolEntry() {
@@ -203,7 +218,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
     }
 
     public boolean onStation() {
-        return !departing() && !crashing()
+        return !departing() && !crashing() && (level().isClientSide || !ResearchCombat.disabled(this))
                 && (kind() == Kind.VTOL ? vtolPatrol() && age - delay >= NativeVtolFlight.SECOND_INGRESS_TICKS
                         : age - delay >= AircraftFlight.approachTicks(kind()));
     }
@@ -522,6 +537,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
             case UAV, COUNTER_UAV, ADVANCED_UAV, BOMB_DRONE, CRUISE, WHEELSON, CHOPPER, GUNSHIP, VTOL, OVERWATCH,
                     SENTRY ->
                 true;
+            case PRECISION -> remotePrecision();
             default -> false;
         };
     }
@@ -547,7 +563,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
             discard();
             return true;
         }
-        return super.hurt(source, damage);
+        return super.hurt(source, ResearchCombat.incomingDamage(this, damage));
     }
 
     @Override
@@ -637,6 +653,31 @@ public final class TacticalUnitEntity extends PathfinderMob {
             if (!level().isClientSide)
                 AircraftCrash.tick(this);
             return;
+        }
+        if (!level().isClientSide && kind() == Kind.WHEELSON) {
+            // Only the researched patrol enables navigation; manual control keeps vanilla AI disabled.
+            // 仅研究后的自动巡航启用寻路；手动操控继续关闭原版 AI，避免争抢移动控制。
+            boolean patrol = autopilot && !TacticalRuntime.controlled(this)
+                    && ResearchEffects.has(this, "wheelson_hs.patrol") && !ResearchCombat.disabled(this);
+            setNoAi(!patrol);
+            if (!patrol)
+                getNavigation().stop();
+        }
+        if (!level().isClientSide && ResearchCombat.disabled(this)) {
+            if (jammedMotion == null)
+                jammedMotion = getDeltaMovement();
+            getNavigation().stop();
+            setNoGravity(true);
+            setDeltaMovement(Vec3.ZERO);
+            Vec3 frozen = position();
+            super.tick();
+            setPos(frozen);
+            setDeltaMovement(Vec3.ZERO);
+            return;
+        }
+        if (!level().isClientSide && jammedMotion != null) {
+            setDeltaMovement(jammedMotion);
+            jammedMotion = null;
         }
         Vec3 previousPosition = position();
         boolean waiting = age < delay;
@@ -737,8 +778,10 @@ public final class TacticalUnitEntity extends PathfinderMob {
             if (kind() == Kind.VTOL)
                 entityData.set(NATIVE_CLOCK, elapsed);
             flight(AircraftFlight.departure(departureStart, departureYaw, departurePitch, kind(), elapsed));
-            if (elapsed >= AircraftFlight.DEPARTURE_TICKS)
+            if (elapsed >= AircraftFlight.DEPARTURE_TICKS) {
+                ResearchOrdnance.departed(this);
                 discard();
+            }
             return;
         }
 
@@ -841,6 +884,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
                 }
             }
             case CHOPPER, BOMB_DRONE, CRUISE -> {
+                if (ResearchOrdnance.autonomousCruise(this))
+                    break;
                 if (!TacticalRuntime.controlled(this)) {
                     if (kind() == Kind.CHOPPER)
                         beginDeparture();
@@ -1033,6 +1078,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
                     patrolLife = Math.max(1, lifetime - NativeVtolFlight.INGRESS_TICKS);
             next = TacticalRuntime.spawnConfigured(player, Kind.VTOL, position(), center, patrolLife, heading,
                     remaining, "vtol_patrol", Vec3.ZERO, flightLift);
+            ResearchEffects.inherit(this, next);
+            next.lifetime = patrolLife;
             vtolSuccessor = next.getUUID();
             StrikeRadioReports.track(next, radioStrike);
         }
@@ -1050,7 +1097,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
             if (t == PrecisionFlight.ATTACK_START)
                 TacticalRuntime.sound((ServerLevel) level(), position(), StreakSounds.AIRSTRIKE_FIRE.get(), 1, 1);
             if (t >= PrecisionFlight.ATTACK_START && t <= PrecisionFlight.ATTACK_END
-                    && (t - PrecisionFlight.ATTACK_START) % 3 == 0) {
+                    && (t - PrecisionFlight.ATTACK_START) % 3 == 0 && !TacticalRuntime.controlled(this)) {
                 ServerLevel server = (ServerLevel) level();
                 Vec3 muzzle = PrecisionCannonMount.muzzle(this),
                         direction = PrecisionCannonMount.direction(flightYaw(), flightPitch());
@@ -1234,6 +1281,12 @@ public final class TacticalUnitEntity extends PathfinderMob {
     }
 
     private void automaticFire(double range, int interval, float damage, boolean incendiary) {
+        boolean advancedFire = kind() == Kind.VTOL && ResearchEffects.has(this, "vtol_jet.fire_control");
+        if (advancedFire) {
+            range *= 1.5;
+            interval = 1;
+            burstPauseUntil = 0;
+        }
         if (kind() == Kind.SENTRY && ResearchEffects.has(this, "sentry_gun.heavy"))
             damage *= 1.5F;
         ServerPlayer operator = owner();
@@ -1271,11 +1324,15 @@ public final class TacticalUnitEntity extends PathfinderMob {
             case VTOL -> 2.8F;
             default -> 3.2F;
         };
+        if (advancedFire)
+            turn = 10;
         float nextYaw = Mth.approachDegrees(aimYaw(), yaw, turn), nextPitch = Mth.approachDegrees(aimPitch(), pitch, 3);
         aim(nextYaw, nextPitch);
         boolean aligned = Math.abs(Mth.wrapDegrees(yaw - nextYaw)) <= 4 && Math.abs(pitch - nextPitch) <= 4;
         lockTicks = aligned ? Math.min(40, lockTicks + 1) : Math.max(0, lockTicks - 2);
         int requiredLock = kind() == Kind.SENTRY || kind() == Kind.WHEELSON ? 12 : 18;
+        if (advancedFire)
+            requiredLock = 3;
         if (kind() == Kind.SENTRY && lockTicks >= requiredLock && !targetLockAnnounced) {
             targetLockAnnounced = true;
             TacticalRuntime.sound((ServerLevel) level(), position(), StreakSounds.SENTRY_LOCK.get(), .55F, 1);
@@ -1289,10 +1346,12 @@ public final class TacticalUnitEntity extends PathfinderMob {
         if (kind() == Kind.WHEELSON)
             TacticalRuntime.explosiveFire(this, WheelsonMount.muzzle(this, nextYaw, nextPitch), direction, range,
                     damage, 2, 6);
+        else if (kind() == Kind.VTOL && ResearchEffects.has(this, "vtol_jet.hercules"))
+            TacticalRuntime.explosiveFire(this, getEyePosition(), direction, range + targetingLift(), 8, 3, 12);
         else
             TacticalRuntime.fire(this, getEyePosition(), direction, range + targetingLift(), damage, incendiary);
         int burstLength = kind() == Kind.VTOL ? 8 : kind() == Kind.SENTRY ? 7 : 6;
-        if (++burstShots >= burstLength
+        if (++burstShots >= burstLength && !advancedFire
                 && !(kind() == Kind.SENTRY && ResearchEffects.has(this, "sentry_gun.continuous"))) {
             burstShots = 0;
             burstPauseUntil = age + (kind() == Kind.SENTRY ? 14 : 20);
@@ -1350,6 +1409,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
      * 检查整个游戏刻的运动路径，防止高速炮弹越过屋顶或薄墙而漏检碰撞。
      */
     private Vec3 projectileImpact(ServerLevel level, Vec3 from, Vec3 to) {
+        if (ResearchOrdnance.penetrates(this))
+            return null;
         if (from.distanceToSqr(to) < .00001)
             return null;
         BlockHitResult block = level
@@ -1461,6 +1522,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
         n.putInt("Delay", delay);
         n.putString("Cargo", cargo);
         n.putBoolean("Auto", autopilot);
+        n.putBoolean("RemotePrecision", remotePrecision());
         n.putInt("Rockets", rockets);
         n.putInt("UnitStage", stage());
         n.putInt("NextShot", shotAt);
@@ -1486,6 +1548,11 @@ public final class TacticalUnitEntity extends PathfinderMob {
         n.putInt("ResearchStarted", researchStarted);
         n.putInt("ResearchSonicRounds", researchSonicRounds);
         n.putInt("ResearchMineGeneration", researchMineGeneration);
+        if (jammedMotion != null) {
+            n.putDouble("ResearchResumeX", jammedMotion.x);
+            n.putDouble("ResearchResumeY", jammedMotion.y);
+            n.putDouble("ResearchResumeZ", jammedMotion.z);
+        }
         if (delayedMotion != null) {
             n.putDouble("LaunchX", delayedMotion.x);
             n.putDouble("LaunchY", delayedMotion.y);
@@ -1500,8 +1567,11 @@ public final class TacticalUnitEntity extends PathfinderMob {
         researchUpgrades = ResearchCatalog.loadNodes(n.getList("ResearchNodes", net.minecraft.nbt.Tag.TAG_STRING));
         researchSource = n.getString("ResearchSource");
         researchStarted = n.contains("ResearchStarted") ? n.getInt("ResearchStarted") : -1;
-        researchSonicRounds = Math.clamp(n.getInt("ResearchSonicRounds"), 0, 3);
+        researchSonicRounds = Math.clamp(n.getInt("ResearchSonicRounds"), 0, 7);
         researchMineGeneration = Math.clamp(n.getInt("ResearchMineGeneration"), 0, 1);
+        if (n.contains("ResearchResumeX"))
+            jammedMotion = new Vec3(n.getDouble("ResearchResumeX"), n.getDouble("ResearchResumeY"),
+                    n.getDouble("ResearchResumeZ"));
         flightLift = Mth.clamp(n.getInt("FlightLift"), 0, level().getMaxBuildHeight() - level().getMinBuildHeight());
         kind(Kind.values()[Mth.clamp(n.getInt("UnitKind"), 0, Kind.values().length - 1)]);
         if (n.hasUUID("Operator"))
@@ -1512,6 +1582,9 @@ public final class TacticalUnitEntity extends PathfinderMob {
         lifetime = Math.max(1, n.getInt("Life"));
         delay = n.getInt("Delay");
         cargo = n.getString("Cargo");
+        remotePrecision(n.getBoolean("RemotePrecision"));
+        if (kind() == Kind.BOMB && cargo.equals("mortar"))
+            noPhysics = !level().isClientSide && ResearchOrdnance.penetrates(this);
         autopilot = n.getBoolean("Auto");
         rockets = n.getInt("Rockets");
         stage(n.getInt("UnitStage"));

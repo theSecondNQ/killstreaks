@@ -65,7 +65,7 @@ public final class TacticalClient {
     private static Vec3 bodyAnchor;
     private static float yaw, pitch, bodyYaw, bodyPitch, bodyHeadYaw, bodyTorsoYaw, impactStrength;
     private static double mouseX, mouseY;
-    private static boolean mouseCaptured, zoom;
+    private static boolean mouseCaptured, zoom, secondaryHeld;
     private static int missingTicks, heartbeat, sequence, pendingActions, viewAge;
 
     private TacticalClient() {}
@@ -95,14 +95,14 @@ public final class TacticalClient {
     }
 
     public static int reload(int i) {
-        return Math.max(0, state.reloads()[i] - viewAge);
+        return i < 0 || i >= state.reloads().length ? 0 : Math.max(0, state.reloads()[i] - viewAge);
     }
 
     public static float fov() {
         float base = switch (state.mode()) {
             case "gunship" -> 50;
             case "chopper" -> 65;
-            case "wheelson" -> 75;
+            case "wheelson", "precision" -> 75;
             case "cruise" -> 70;
             default -> 80;
         };
@@ -143,10 +143,12 @@ public final class TacticalClient {
             return;
         }
         state = packet;
+        AircraftHudRenderer.accept(packet);
         heartbeat = 0;
         viewAge = 0;
         previousLevel = mc.level;
         if (start) {
+            secondaryHeld = held(mc.options.keyUse);
             if (!was) {
                 previousType = mc.options.getCameraType();
                 if (mc.player != null) {
@@ -168,7 +170,8 @@ public final class TacticalClient {
             for (KeyMapping key : new KeyMapping[] { KillstreakKeyMappings.THERMAL, KillstreakKeyMappings.CYCLE,
                     KillstreakKeyMappings.EXIT, KillstreakKeyMappings.AUTO, KillstreakKeyMappings.FLARES,
                     KillstreakKeyMappings.WEAPON_1, KillstreakKeyMappings.WEAPON_2, KillstreakKeyMappings.WEAPON_3,
-                    KillstreakKeyMappings.ZOOM, KillstreakKeyMappings.BOOST })
+                    KillstreakKeyMappings.WEAPON_4, KillstreakKeyMappings.WEAPON_5, KillstreakKeyMappings.ZOOM,
+                    KillstreakKeyMappings.BOOST })
                 while (key.consumeClick()) {
                 }
             mc.setScreen(null);
@@ -202,6 +205,7 @@ public final class TacticalClient {
         bodyAnchor = null;
         anchorPlayer = null;
         zoom = false;
+        secondaryHeld = false;
         mouseCaptured = false;
         pendingActions = missingTicks = heartbeat = sequence = viewAge = 0;
         state = new TacticalViewPayload(-1, "", 0, 0, 0, false);
@@ -372,16 +376,22 @@ public final class TacticalClient {
             flags |= WEAPON_2;
         if (clicked(KillstreakKeyMappings.WEAPON_3))
             flags |= WEAPON_3;
+        if (clicked(KillstreakKeyMappings.WEAPON_4))
+            flags |= WEAPON_4;
+        if (clicked(KillstreakKeyMappings.WEAPON_5))
+            flags |= WEAPON_5;
         if (clicked(KillstreakKeyMappings.ZOOM) && !StreakPresentation.busy())
             zoom = !zoom;
         float forward = 0, strafe = 0;
+        boolean useHeld = held(mc.options.keyUse);
+        if (useHeld && !secondaryHeld)
+            flags |= SECONDARY;
+        secondaryHeld = useHeld;
         if (mc.screen == null && mc.isWindowActive()) {
             forward = (held(mc.options.keyUp) ? 1 : 0) - (held(mc.options.keyDown) ? 1 : 0);
             strafe = (held(mc.options.keyRight) ? 1 : 0) - (held(mc.options.keyLeft) ? 1 : 0);
             if (held(mc.options.keyAttack))
                 flags |= FIRE;
-            if (held(mc.options.keyUse))
-                flags |= SECONDARY;
             if (held(mc.options.keyJump))
                 flags |= UP;
             if (held(mc.options.keyShift))
@@ -452,8 +462,19 @@ public final class TacticalClient {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void tabletMouse(InputEvent.MouseButton.Pre event) {
-        if (TabletTargeting.mouseButton(event.getButton(), event.getAction()))
+        if (TabletTargeting.mouseButton(event.getButton(), event.getAction())) {
             event.setCanceled(true);
+            return;
+        }
+        Minecraft mc = Minecraft.getInstance();
+        // Capture a short tap even when press and release both fall between client ticks.
+        // 即使按下、松开都发生在两次客户端刻之间，也保留一次短按发射意图。
+        if (remote() && !StreakPresentation.busy() && mc.screen == null && mc.isWindowActive()
+                && event.getAction() == GLFW.GLFW_PRESS && mc.options.keyUse.isConflictContextAndModifierActive()
+                && mc.options.keyUse.matchesMouse(event.getButton())) {
+            pendingActions |= SECONDARY;
+            event.setCanceled(true);
+        }
     }
 
     @SubscribeEvent

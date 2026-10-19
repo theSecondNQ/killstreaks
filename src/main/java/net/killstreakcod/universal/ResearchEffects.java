@@ -29,7 +29,8 @@ public final class ResearchEffects {
     public record Survey(Vec3 origin, boolean advanced, boolean xray) {
     }
 
-    private record VirtualSurvey(UUID owner, ServerLevel level, Vec3 center, Kind kind, long upgrades, long until) {
+    private record VirtualSurvey(UUID owner, ServerLevel level, Vec3 center, Kind kind, ResearchMask upgrades,
+            long until) {
     }
 
     private record Frozen(ServerLevel level, Vec3 anchor, long until) {
@@ -50,6 +51,14 @@ public final class ResearchEffects {
             case CLUSTER, MINE -> StreakReward.CLUSTER_MINE;
             case SENTRY -> StreakReward.SENTRY_GUN;
             case OVERWATCH -> StreakReward.OVERWATCH_HELO;
+            case PRECISION -> StreakReward.PRECISION_AIRSTRIKE;
+            case SAE -> StreakReward.SAE;
+            case VTOL -> StreakReward.VTOL_JET;
+            case STEALTH -> StreakReward.STEALTH_BOMBER;
+            case CRUISE -> StreakReward.CRUISE_MISSILE;
+            case WHEELSON -> StreakReward.WHEELSON;
+            case CHOPPER -> StreakReward.CHOPPER_GUNNER;
+            case GUNSHIP -> StreakReward.GUNSHIP;
             default -> null;
         };
     }
@@ -64,26 +73,36 @@ public final class ResearchEffects {
         unit.lifetime += durationBonus(unit.kind(), unit.researchUpgrades);
     }
 
-    private static int durationBonus(Kind kind, long upgrades) {
+    private static int durationBonus(Kind kind, ResearchMask upgrades) {
         StreakReward reward = reward(kind);
-        return reward != null && ResearchCatalog.has(upgrades, reward.id() + ".endurance") ? 600 : 0;
+        return reward != null && ResearchCatalog.has(upgrades, reward.id() + ".endurance")
+                ? kind == Kind.GUNSHIP ? 1200 : 600
+                : 0;
     }
 
     public static void inherit(TacticalUnitEntity parent, TacticalUnitEntity child) {
-        child.lifetime += durationBonus(child.kind(), parent.researchUpgrades)
-                - durationBonus(child.kind(), child.researchUpgrades);
-        child.researchUpgrades = parent.researchUpgrades;
+        select(child, parent.researchUpgrades);
         child.researchSource = parent.researchSource;
     }
 
     public static void withoutUpgrades(TacticalUnitEntity unit) {
-        unit.lifetime = Math.max(1, unit.lifetime - durationBonus(unit.kind(), unit.researchUpgrades));
-        unit.researchUpgrades = 0;
+        select(unit, ResearchMask.EMPTY);
         unit.researchSource = "";
     }
 
+    public static void select(TacticalUnitEntity unit, ResearchMask upgrades) {
+        if (unit.level() instanceof ServerLevel level && StreakServerConfig.upgradesDisabled(level.getServer()))
+            upgrades = ResearchMask.EMPTY;
+        ResearchMask previous = unit.researchUpgrades;
+        unit.lifetime = Math.max(1,
+                unit.lifetime + durationBonus(unit.kind(), upgrades) - durationBonus(unit.kind(), previous));
+        unit.researchUpgrades = upgrades;
+        ResearchCombat.refreshArmor(unit, previous);
+    }
+
     public static boolean has(TacticalUnitEntity unit, String node) {
-        return ResearchCatalog.has(unit.researchUpgrades, node);
+        return (!(unit.level() instanceof ServerLevel level) || !StreakServerConfig.upgradesDisabled(level.getServer()))
+                && ResearchCatalog.has(unit.researchUpgrades, node);
     }
 
     public static boolean noAircraft(ServerPlayer player, StreakReward reward) {
@@ -98,7 +117,7 @@ public final class ResearchEffects {
     public static boolean startSurvey(ServerPlayer player, StreakReward reward) {
         if (!noAircraft(player, reward))
             return false;
-        long upgrades = ResearchSystem.activeUpgrades(player);
+        ResearchMask upgrades = ResearchSystem.activeUpgrades(player);
         Kind kind = reward == StreakReward.ADVANCED_UAV ? Kind.ADVANCED_UAV : Kind.UAV;
         SURVEYS.add(new VirtualSurvey(player.getUUID(), player.serverLevel(), player.position(), kind, upgrades,
                 player.serverLevel().getGameTime() + 600 + durationBonus(kind, upgrades)));
@@ -113,6 +132,8 @@ public final class ResearchEffects {
                 continue;
             ServerPlayer owner = survey.level.getServer().getPlayerList().getPlayer(survey.owner);
             if (owner == null || owner.level() != survey.level || !FriendlyPlayers.allied(receiver, owner))
+                continue;
+            if (ResearchCombat.blackout(owner))
                 continue;
             result.add(new Survey(survey.center.add(0, 160, 0), survey.kind == Kind.ADVANCED_UAV,
                     survey.kind == Kind.UAV && ResearchCatalog.has(survey.upgrades, "uav.xray")));
@@ -132,8 +153,14 @@ public final class ResearchEffects {
     }
 
     public static void unitTick(TacticalUnitEntity unit) {
+        if (StreakServerConfig.upgradesDisabled(((ServerLevel) unit.level()).getServer())) {
+            disableUpgrades(unit);
+            return;
+        }
+        ResearchCombat.tick(unit);
         ServerPlayer player = unit.owner();
-        if (player == null || unit.researchUpgrades == 0 || !unit.onStation() || unit.departing() || unit.crashing())
+        if (player == null || unit.researchUpgrades.isEmpty() || !unit.onStation() || unit.departing()
+                || unit.crashing())
             return;
         if (unit.researchStarted < 0) {
             unit.researchStarted = unit.age;
@@ -147,26 +174,31 @@ public final class ResearchEffects {
         }
         if (unit.age % 20 != 0)
             return;
+        ResearchCombat.station(unit);
         ongoing(player, unit.center, unit.kind(), unit.researchUpgrades);
         if (unit.kind() == Kind.COUNTER_UAV && has(unit, "counter_uav.sonic") && unit.researchSonicRounds < 3
                 && unit.age - unit.researchStarted >= unit.researchSonicRounds * 200) {
             unit.researchSonicRounds++;
             for (LivingEntity target : enemies(player, unit.center, 192)) {
-                FROZEN.put(target,
-                        new Frozen(player.serverLevel(), target.position(), player.serverLevel().getGameTime() + 100));
-                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 255, false, false));
+                freeze(target, 100);
             }
         }
     }
 
-    private static List<LivingEntity> enemies(ServerPlayer owner, Vec3 center, double range) {
+    static List<LivingEntity> enemies(ServerPlayer owner, Vec3 center, double range) {
         return owner.serverLevel().getEntitiesOfClass(LivingEntity.class, new AABB(center, center).inflate(range),
                 target -> TacticalRuntime.enemy(owner, target)
                         && !(target instanceof ServerPlayer player && player.getAbilities().invulnerable)
                         && target.position().subtract(center).horizontalDistanceSqr() <= range * range);
     }
 
-    private static void started(ServerPlayer owner, Vec3 center, Kind kind, long upgrades) {
+    static void freeze(LivingEntity target, int ticks) {
+        ServerLevel level = (ServerLevel) target.level();
+        FROZEN.put(target, new Frozen(level, target.position(), level.getGameTime() + ticks));
+        target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, ticks, 255, false, false));
+    }
+
+    private static void started(ServerPlayer owner, Vec3 center, Kind kind, ResearchMask upgrades) {
         if (kind == Kind.ADVANCED_UAV && ResearchCatalog.has(upgrades, "advanced_uav.watcher"))
             for (LivingEntity target : enemies(owner, center, 160))
                 target.setHealth(target.getHealth() * .5F);
@@ -178,7 +210,7 @@ public final class ResearchEffects {
             }
     }
 
-    private static void ongoing(ServerPlayer owner, Vec3 center, Kind kind, long upgrades) {
+    private static void ongoing(ServerPlayer owner, Vec3 center, Kind kind, ResearchMask upgrades) {
         if (kind == Kind.ADVANCED_UAV && ResearchCatalog.has(upgrades, "advanced_uav.nowhere"))
             for (LivingEntity target : enemies(owner, center, 160))
                 target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0, false, false));
@@ -253,6 +285,7 @@ public final class ResearchEffects {
     }
 
     public static void tick(MinecraftServer server) {
+        ResearchCombat.cleanup();
         var virtuals = SURVEYS.iterator();
         while (virtuals.hasNext()) {
             VirtualSurvey survey = virtuals.next();
@@ -262,7 +295,7 @@ public final class ResearchEffects {
                 virtuals.remove();
                 if (player != null && survey.until <= survey.level.getGameTime())
                     NativeAudio.ended(player, survey.kind == Kind.ADVANCED_UAV ? "advanced_uav" : "uav");
-            } else if (server.getTickCount() % 20 == 0) {
+            } else if (server.getTickCount() % 20 == 0 && !StreakServerConfig.upgradesDisabled(server)) {
                 ongoing(player, survey.center, survey.kind, survey.upgrades);
             }
         }
@@ -291,8 +324,44 @@ public final class ResearchEffects {
     }
 
     public static void clear() {
+        ResearchCombat.clear();
         SURVEYS.clear();
         JAMMED.clear();
         FROZEN.clear();
+    }
+
+    private static void disableUpgrades(TacticalUnitEntity unit) {
+        if (!unit.researchUpgrades.isEmpty()) {
+            select(unit, ResearchMask.EMPTY);
+            unit.rockets = Math.min(unit.rockets, unit.kind() == Kind.CHOPPER ? 8 : 0);
+            if (unit.kind() == Kind.WHEELSON && unit.autopilot && !TacticalRuntime.controlled(unit)) {
+                unit.getNavigation().stop();
+                unit.setNoAi(true);
+            }
+        }
+        if (unit.kind() == Kind.PRECISION && unit.remotePrecision()) {
+            if (TacticalRuntime.controlled(unit) && unit.owner() != null)
+                TacticalRuntime.endSession(unit.owner(), false);
+            unit.remotePrecision(false);
+        }
+    }
+
+    public static void upgradesConfigChanged(MinecraftServer server) {
+        if (!StreakServerConfig.upgradesDisabled(server))
+            return;
+        for (ServerLevel level : server.getAllLevels())
+            for (var entity : level.getAllEntities())
+                if (entity instanceof TacticalUnitEntity unit)
+                    disableUpgrades(unit);
+        SURVEYS.replaceAll(survey -> new VirtualSurvey(survey.owner, survey.level, survey.center, survey.kind,
+                ResearchMask.EMPTY, survey.until - durationBonus(survey.kind, survey.upgrades)));
+        JAMMED.clear();
+        for (LivingEntity target : FROZEN.keySet()) {
+            var effect = target.getEffect(MobEffects.MOVEMENT_SLOWDOWN);
+            if (effect != null && effect.getAmplifier() == 255)
+                target.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+        }
+        FROZEN.clear();
+        ResearchCombat.cleanup();
     }
 }

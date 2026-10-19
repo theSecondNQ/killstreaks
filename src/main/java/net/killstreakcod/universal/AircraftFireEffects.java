@@ -29,7 +29,9 @@ public final class AircraftFireEffects {
     public static boolean shot(Entity emitter, Vec3 muzzle, float directDamage) {
         if (!(emitter instanceof TacticalUnitEntity unit))
             return false;
-        int weapon = unit.kind() == Kind.CHOPPER ? -1 : unit.kind() == Kind.GUNSHIP ? (directDamage == 0 ? 1 : 0) : -2;
+        int weapon = unit.kind() == Kind.CHOPPER ? -1
+                : unit.kind() == Kind.GUNSHIP ? (directDamage == 0 ? 1 : 0)
+                        : unit.kind() == Kind.VTOL && ResearchEffects.has(unit, "vtol_jet.hercules") ? 0 : -2;
         return weapon != -2 && shot(unit, muzzle, weapon);
     }
 
@@ -112,7 +114,8 @@ public final class AircraftFireEffects {
             role = water(level, at) ? "apache_water" : "apache_impact";
         else if (unit.kind() == Kind.ROCKET && unit.cargo.equals("105mm"))
             role = water(level, at) ? "gunship105_water" : "gunship105_impact";
-        else if ((unit.kind() == Kind.CHOPPER || unit.kind() == Kind.GUNSHIP) && radius <= 5) {
+        else if ((unit.kind() == Kind.CHOPPER || unit.kind() == Kind.GUNSHIP
+                || unit.kind() == Kind.VTOL && ResearchEffects.has(unit, "vtol_jet.hercules")) && radius <= 5) {
             String caliber = unit.kind() == Kind.GUNSHIP && radius > 3 ? "40" : "25";
             String surface = surface(level, at);
             if (caliber.equals("40") && surface.equals("glass"))

@@ -25,8 +25,11 @@ public final class RemoteTerrainRange {
 
     public static int effective(int serverDistance) {
         String mode = TacticalClient.state.mode();
-        boolean cruise = mode.equals("cruise"), aerial = mode.equals("gunship") || cruise;
+        boolean cruise = mode.equals("cruise"), precision = mode.equals("precision"),
+                aerial = mode.equals("gunship") || precision || cruise;
         int horizontal = Math.min(aerial ? 16 : 8, serverDistance > 0 ? serverDistance : 8);
+        if (precision)
+            horizontal = Math.clamp((serverDistance > 0 ? serverDistance : 24) + 24, 48, 64);
         if (!aerial)
             return horizontal;
         var mc = Minecraft.getInstance();
@@ -42,7 +45,8 @@ public final class RemoteTerrainRange {
 
         // 一次性预留摄像机及抬升高度余量，本次飞行中不缩小地形网格范围。
         double vertical = Math.max(0, (eye - mc.level.getMinBuildHeight() + (cruise ? 16 : 0)) / 16);
-        int range = Mth.clamp(Mth.ceil(Math.hypot(horizontal, vertical)) + 1, horizontal, cruise ? 48 : 32);
+        int range = Mth.clamp(Mth.ceil(Math.hypot(horizontal, vertical)) + 1, horizontal,
+                precision ? 72 : cruise ? 48 : 32);
         if (cruise) {
             cruiseWorld = mc.level;
             cruiseEntity = TacticalClient.state.entityId();

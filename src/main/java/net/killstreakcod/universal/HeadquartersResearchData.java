@@ -26,11 +26,16 @@ import net.minecraft.world.level.storage.LevelResource;
 final class HeadquartersResearchData extends SavedData {
     static final class Progress {
         int tier;
-        long unlocked, repairs;
-        boolean streakMode, legacyAccess;
+        ResearchMask unlocked = ResearchMask.EMPTY, equipped = ResearchMask.EMPTY, repairs = ResearchMask.EMPTY;
+        final Map<String, Integer> requisitions = new LinkedHashMap<>();
+        boolean streakMode, legacyAccess, modeUnlocked;
 
         boolean complete() {
-            return tier == 4 && unlocked == ResearchCatalog.fullMask();
+            return tier == 4 && unlocked.equals(ResearchCatalog.fullMask());
+        }
+
+        boolean canSwitch() {
+            return legacyAccess || modeUnlocked || complete();
         }
     }
 
@@ -99,9 +104,26 @@ final class HeadquartersResearchData extends SavedData {
             Progress progress = new Progress();
             progress.tier = Math.clamp(tag.getInt("Tier"), 0, 4);
             progress.unlocked = ResearchCatalog.loadNodes(tag.getList("UnlockedNodes", Tag.TAG_STRING));
+            // Older saves applied every researched upgrade; retain that behavior until the player removes one.
+            // 旧存档默认应用全部已研究升级；迁移时保持装配，直到玩家主动卸下。
+            progress.equipped = tag.contains("EquippedNodes", Tag.TAG_LIST) ? ResearchCatalog
+                    .loadNodes(tag.getList("EquippedNodes", Tag.TAG_STRING)).intersect(progress.unlocked)
+                    : progress.unlocked;
+            for (ResearchCatalog.Node node : ResearchCatalog.nodes())
+                if (node.base())
+                    progress.equipped = progress.equipped.union(progress.unlocked.intersect(node.bit()));
             progress.repairs = ResearchCatalog.loadNodes(tag.getList("Repairs", Tag.TAG_STRING));
+            CompoundTag requisitions = tag.getCompound("Requisitions");
+            for (ResearchCatalog.Node node : ResearchCatalog.nodes())
+                if (node.base() && requisitions.getInt(node.id()) > 0)
+                    progress.requisitions.put(node.id(), requisitions.getInt(node.id()));
             progress.streakMode = tag.getBoolean("StreakMode");
             progress.legacyAccess = tag.getBoolean("LegacyAccess");
+            // Keep a mode earned by completing the previous 38-node tree when the tree expands.
+            // 科技树扩充后，保留完成旧版 38 项研究取得的连杀模式资格。
+            ResearchMask previousTree = ResearchMask.first(38);
+            progress.modeUnlocked = tag.getBoolean("ModeUnlocked") || progress.complete() || root.getInt("Schema") < 3
+                    && progress.tier == 4 && progress.unlocked.intersect(previousTree).equals(previousTree);
             data.players.put(tag.getUUID("Player"), progress);
         }
         data.setDirty(false);
@@ -110,7 +132,7 @@ final class HeadquartersResearchData extends SavedData {
 
     @Override
     public CompoundTag save(CompoundTag root, HolderLookup.Provider registries) {
-        root.putInt("Schema", 1);
+        root.putInt("Schema", 4);
         root.putBoolean("LegacyWorld", legacyWorld);
         ListTag entries = new ListTag();
         players.forEach((id, progress) -> {
@@ -118,9 +140,19 @@ final class HeadquartersResearchData extends SavedData {
             tag.putUUID("Player", id);
             tag.putInt("Tier", progress.tier);
             tag.put("UnlockedNodes", ResearchCatalog.saveNodes(progress.unlocked));
+            tag.put("EquippedNodes", ResearchCatalog.saveNodes(progress.equipped.intersect(progress.unlocked)));
             tag.put("Repairs", ResearchCatalog.saveNodes(progress.repairs));
+            // Stable reward IDs keep paid reserves independent of catalog order and player respawns.
+            // 按稳定奖励 ID 保存已付款储备，目录调整和玩家重生均不改变其归属。
+            CompoundTag requisitions = new CompoundTag();
+            progress.requisitions.forEach((reward, count) -> {
+                if (count > 0)
+                    requisitions.putInt(reward, count);
+            });
+            tag.put("Requisitions", requisitions);
             tag.putBoolean("StreakMode", progress.streakMode);
             tag.putBoolean("LegacyAccess", progress.legacyAccess);
+            tag.putBoolean("ModeUnlocked", progress.modeUnlocked || progress.complete());
             entries.add(tag);
         });
         root.put("Players", entries);

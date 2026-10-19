@@ -10,6 +10,7 @@
 | `python tools/release.py package` | 按明确目录清单生成当前源码包及 SHA256，不收录缓存、日志、旧发行包、参考输入 |
 | `./tools/update_instance.ps1 -InstanceRoot '实例绝对路径'` | 在游戏退出后安装已核对的 JAR，备份旧版并记录其他模组、配置和皮肤的校验和 |
 | `python tools/release.py verify` | 核对源码包、模组包、已安装文件、旧版备份及保留文件 |
+| `python tools/import_aircraft_hud.py '原资源导出目录'` | 核对并导入飞机 HUD 原始 PNG、控件数值、动画与文本，不执行 Lua；详见[飞机 HUD](../docs/AIRCRAFT-HUD.md) |
 | `node tools/pixel_models.mjs` | 从原始模型生成低多边形与像素贴图暂存结果，核对骨骼头、顶点属性和材质，并写入 `build/reports/pixel-models/rebuild.json` |
 
 工具不会启动游戏。安装器会在发现 Java 进程、重复模组或哈希不一致时停止。无需针对每个版本生成新脚本。
@@ -25,7 +26,7 @@ node tools/pixel_models.mjs
 
 依赖安装在 `build`，不进入模组运行包。复现转换时先在独立副本恢复原始资源；当前工程资源已经减面。脚本只写入 `build/pixel-models/staged`，接入生产资源前应保留原文件备份，按校验清单核对。现有批次的备份位置及接入文件哈希记录在 `build/reports/pixel-models/backup.json` 和 `deploy.json`。
 
-版本号支持三段或四段数字，例如 `4.32.1`、`1.1.0.4341`；安装器仍限制版本号只包含数字和对应的分隔点。
+版本号支持三段或四段数字，例如 `4.32.1`、`1.1.0.4342`；安装器仍限制版本号只包含数字和对应的分隔点。
 
 `mesh_codec.mjs` 负责模型版本 1 至 4 的无损打包与解包，输出暂存目录；`pixel_models.mjs` 使用同一解码入口。生产 JAR 必须小于 100,000,000 字节，构建与发行清单均会检查。压缩范围和维护命令见 [资源压缩](../docs/COMPRESSION.md)。
 

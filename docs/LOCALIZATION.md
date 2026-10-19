@@ -19,9 +19,9 @@ Minecraft → 选项 → 语言，切换后由游戏重新加载资源。无需�
 | Русский | `ru_ru` | 已翻译 | 英文回退 |
 | Português (Brasil) | `pt_br` | 已翻译 | 英文回退 |
 
-12 个语言选项各含 431 个界面键，覆盖总部通讯终端、连杀配置终端、奖励与兑换物品、按键设置、白名单、操作员皮肤、聊天提示、击杀提示、平板及手机文字、遥控 HUD、声音字幕和 NeoForge 配置界面。装备及人物名称为本模组翻译，新增语言不宣称逐项对应原游戏官方译名。
+12 个语言选项各含 726 个界面键，覆盖总部通讯终端、研究及升级装卸、连杀配置终端、奖励与兑换物品、按键设置、白名单、操作员皮肤、聊天提示、击杀提示、平板及手机文字、遥控 HUD、声音字幕和 NeoForge 配置界面。原有 431 个界面键保留各语言翻译，新增 217 个研究及扩展武器界面键提供英文、简体中文、繁体中文及文言，其余语言本阶段使用英文回退。升级禁用规则、终端禁用提示及智能投射操作另有6个界面键，已译至全部12种语言；终端预购、储备数量及结果另有6个键，也覆盖全部12种语言。飞机 HUD 新增66个原版中英文键，繁中和文言由模组译写，其余语言暂用英文。装备及人物名称为本模组翻译，新增语言不宣称逐项对应原游戏官方译名。
 
-无线电仍播放原英文音频。694 条语音按实际播放资源对应原台词，播报人物继续区分阵营与载具。英语、简体中文、台湾繁中、香港繁中和文言各含完整的 1,159 个键：431 个界面键、694 个台词键、34 个人物键。其余语言的无线电字幕回退英文。
+无线电仍播放原英文音频。694 条语音按实际播放资源对应原台词，播报人物继续区分阵营与载具。英语、简体中文、台湾繁中、香港繁中和文言各含完整的 1,454 个键：726 个界面键、694 个台词键、34 个人物键。其余语言的无线电字幕回退英文。
 
 文言为本模组依现有中文字幕译写，使用“連斬之賞”“請賞”“已備”“同袍名籍”等措辞，装备专名、型号和指令 ID 保持可识别。全部 316 种不同中文台词逐条译写后对应回 694 条语音，不用通用事件文字替代实际台词，也不更改播报时序。
 
@@ -52,10 +52,10 @@ Minecraft → 选项 → 语言，切换后由游戏重新加载资源。无需�
 
 ## 源码同步
 
-`D:\Projects\killstreakcod` 为含运行资源的完整开发工程。按本次要求，`D:\Projects\killstreaks` 仅同步源码、版本、文档和维护工具，跳过所有名为 `resources` 的目录。
+`D:\Projects\killstreakcod` 为含运行资源的完整开发工程。按本次要求，`D:\Projects\killstreaks` 的 `1.20.1` 分支和 `D:\Projects\killstreaks-develop\killstreaks` 仅同步各平台源码、版本、文档和维护工具，跳过所有名为 `resources` 的目录。
 
 同步不会复制模组 JAR、完整源码 ZIP、构建缓存、游戏运行目录或素材转换目录，因为它们可能间接带入运行资源。目标仓库的 `.git`、`LICENSE` 和其他既有文件保留。新语言 JSON 只存在于完整工程及其发行包中；源码仓库需要另外提供匹配资源才能构建完整模组。
 
 ## English summary
 
-The UI follows Minecraft's selected language and has 431 translated entries in twelve locale options. English, Simplified Chinese, Traditional Chinese (Taiwan and Hong Kong), and Literary Chinese each cover all 1,159 UI and radio keys. Literary Chinese captions are this mod's translation of the existing Chinese lines. Other locales use English radio captions. Audio remains English. Text baked into artwork is not translated. The source-only `killstreaks` synchronization excludes every `resources` directory and archives containing resources.
+The UI follows Minecraft's selected language and has 726 entries in twelve locale options. The original 431 UI entries retain their translations; the 217 research and additional weapon entries use English fallback outside the English and Chinese locales. The 66 aircraft HUD keys use the supplied original English and Chinese text, with mod translations for Traditional and Literary Chinese; other locales currently use English for those additions. English and the four Chinese locales each contain all 1,454 UI and radio keys. Audio remains English. Text baked into artwork is not translated. Both source synchronization targets exclude every `resources` directory and archives containing resources.

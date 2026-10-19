@@ -3,7 +3,6 @@ package net.killstreakcod.render;
 import net.killstreakcod.killstreaks.GunshipFlight;
 import net.killstreakcod.killstreaks.StreakReward;
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
-import net.killstreakcod.universal.StreakWeaponProfiles;
 
 import java.util.Locale;
 
@@ -27,12 +26,14 @@ public final class SceneNativeHud {
     }
 
     static boolean render(GuiGraphics graphics, String mode) {
+        if (AircraftHudRenderer.render(graphics, mode))
+            return true;
         String widget = mode.equals("chopper") ? "ApacheControls" : mode.equals("gunship") ? "GunshipControls" : "";
         if (widget.isEmpty() || NativeSceneUi.widget(widget) == null)
             return false;
         int w = graphics.guiWidth(), h = graphics.guiHeight(), pw = panelWidth(w), right = w - pw - 8,
-                weapon = Mth.clamp(TacticalClient.state.weapon(), 0, 2);
-        boolean reload = mode.equals("gunship") && TacticalClient.reload(weapon) > 0;
+                selected = TacticalClient.state.weapon(), weapon = Mth.clamp(selected, 0, 2);
+        boolean reload = mode.equals("gunship") && selected < 3 && TacticalClient.reload(weapon) > 0;
         String field = mode.equals("chopper") ? "Reticle25mm"
                 : reload ? "ReticleInactive" : new String[] { "Reticle25mm", "Reticle40mm", "Reticle105mm" }[weapon];
         String image = reload ? "overlay_gunship_inactive_reticle"
@@ -51,7 +52,7 @@ public final class SceneNativeHud {
                 barHeight = Math.min(86, usable), diagramHeight = Math.min(86, usable);
         var fuel = new NativeSceneUi.Rect(10, 64, 12, barHeight);
         NativeSceneUi.draw(graphics, "overlay_gunship_fuelbar_frame", fuel, 1);
-        float fraction = Mth.clamp(TacticalClient.fuel() / 1200F, 0, 1);
+        float fraction = NativeRemoteHud.fuelFraction();
         int top = Math.round(fuel.y() + 2 + (fuel.h() - 4) * (1 - fraction));
         graphics.fill(12, top, 20, Math.round(fuel.y() + fuel.h() - 2), fraction < .2 ? RED : WHITE);
         NativeSceneUi.draw(graphics,
@@ -66,13 +67,16 @@ public final class SceneNativeHud {
                 .75F);
         int armamentTop = Math.max(62, Math.round(h * .42F));
         if (mode.equals("gunship")) {
-            String[] label = { "25 MM", "40 MM", "105 MM" };
-            for (int i = 0; i < 3; i++) {
-                String info = label[i] + "  " + TacticalClient.state.ammo()[i] + "/" + StreakWeaponProfiles.MAGAZINE[i];
-                text(graphics, right, armamentTop + i * 23, pw, info,
-                        i == weapon ? reload ? AMBER : WHITE : 0xff78877b);
-                if (TacticalClient.reload(i) > 0)
-                    text(graphics, right, armamentTop + i * 23 + 10, pw,
+            int[] slots = ResearchWeaponHud.gunshipSlots();
+            int rowHeight = Math.clamp((h - footer - armamentTop - 8) / slots.length, 10, 23);
+            for (int row = 0; row < slots.length; row++) {
+                int i = slots[row];
+                String info = "[" + key(ResearchWeaponHud.key(i)) + "] " + ResearchWeaponHud.name(i) + "  "
+                        + ResearchWeaponHud.ammo(i);
+                text(graphics, right, armamentTop + row * rowHeight, pw, info,
+                        i == selected ? reload ? AMBER : WHITE : 0xff78877b);
+                if (TacticalClient.reload(i) > 0 && rowHeight >= 20)
+                    text(graphics, right, armamentTop + row * rowHeight + 10, pw,
                             I18n.get("hud.killstreakcod.reload_time", (int) Math.ceil(TacticalClient.reload(i) / 20D)),
                             AMBER);
             }
@@ -85,8 +89,7 @@ public final class SceneNativeHud {
                 text(graphics, 8, 54, pw, I18n.get("hud.killstreakcod.gimbal_limit"), AMBER);
         } else {
             text(graphics, right, armamentTop, pw, I18n.get("hud.killstreakcod.cannon_30mm"), WHITE);
-            text(graphics, right, armamentTop + 13, pw,
-                    I18n.get("hud.killstreakcod.rockets_count", TacticalClient.state.rockets()), WHITE);
+            text(graphics, right, armamentTop + 13, pw, ResearchWeaponHud.rocketCount(), WHITE);
             text(graphics, right, armamentTop + 26, pw,
                     TacticalClient.rocketCooldown() > 0
                             ? I18n.get("hud.killstreakcod.reload_time",
@@ -110,7 +113,7 @@ public final class SceneNativeHud {
 
     static String controls() {
         var o = Minecraft.getInstance().options;
-        String controls = key(o.keyAttack) + " "
+        String controls = key(ResearchWeaponHud.fireKey()) + " "
                 + Component.translatable("hud.killstreakcod.native_action_fire").getString() + "   "
                 + key(KillstreakKeyMappings.THERMAL) + " "
                 + Component.translatable("hud.killstreakcod.native_action_thermal").getString() + "   "

@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
  */
 public record ResearchActionPayload(int containerId, int action, String target) implements CustomPacketPayload {
     public static final int REQUEST = 0, RESEARCH = 1, UPGRADE = 2, CALL = 3, MODE = 4, UNLOCK_ALL = 5;
+    public static final int EQUIP = 6, UNEQUIP = 7, PREPARE = 8;
     public static final Type<ResearchActionPayload> TYPE = new Type<>(
             ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "headquarters_action"));
     public static final StreamCodec<RegistryFriendlyByteBuf, ResearchActionPayload> STREAM_CODEC = StreamCodec

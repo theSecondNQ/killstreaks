@@ -27,10 +27,11 @@ public final class StreakServerConfig {
     public static final ModConfigSpec SPEC;
     public static final ModConfigSpec.BooleanValue SCORESTREAKS, REPEATABLE_REWARDS;
     public static final ModConfigSpec.BooleanValue MGB_ENABLED, JUGGERNAUT_ENABLED;
+    public static final ModConfigSpec.BooleanValue DISABLE_UPGRADES;
     private static final Map<MinecraftServer, Options> ACTIVE = new WeakHashMap<>();
 
     private record Options(boolean scorestreaks, boolean repeatableRewards, boolean mgbEnabled,
-            boolean juggernautEnabled) {
+            boolean juggernautEnabled, boolean disableUpgrades) {
     }
 
     static {
@@ -60,13 +61,22 @@ public final class StreakServerConfig {
                         "Enable Juggernaut selection, acquisition and use. Default: false.")
                 .translation("killstreakcod.configuration.juggernautEnabled").define("juggernautEnabled", false);
         builder.pop();
+        builder.comment("连杀研究升级规则，由服务器统一控制。", "Server-authoritative killstreak research upgrade rules.")
+                .translation("killstreakcod.configuration.research").push("research");
+        DISABLE_UPGRADES = builder.comment("是否禁用所有连杀升级项目。默认关闭，即允许升级。", "true：禁止研究和装配升级，两种模式均不应用升级效果；已保存的研究和装配选择保留。",
+                "禁用期间，四级终端和全部基础连杀研究即可开放连杀模式。",
+                "Disable upgrade research, equipment and effects in both modes, retaining saved progress and loadouts.",
+                "Default: false", "Allowed Values: true, false")
+                .translation("killstreakcod.configuration.disableUpgrades").define("disableUpgrades", false);
+        builder.pop();
         SPEC = builder.build();
     }
 
     private StreakServerConfig() {}
 
     private static Options configured() {
-        return new Options(SCORESTREAKS.get(), REPEATABLE_REWARDS.get(), MGB_ENABLED.get(), JUGGERNAUT_ENABLED.get());
+        return new Options(SCORESTREAKS.get(), REPEATABLE_REWARDS.get(), MGB_ENABLED.get(), JUGGERNAUT_ENABLED.get(),
+                DISABLE_UPGRADES.get());
     }
 
     private static Options current(MinecraftServer server) {
@@ -79,6 +89,10 @@ public final class StreakServerConfig {
 
     public static boolean repeatable(MinecraftServer server) {
         return current(server).repeatableRewards;
+    }
+
+    public static boolean upgradesDisabled(MinecraftServer server) {
+        return current(server).disableUpgrades;
     }
 
     /**
@@ -112,6 +126,8 @@ public final class StreakServerConfig {
             KillstreakService.repeatConfigChanged(server);
         if (previous.mgbEnabled != next.mgbEnabled || previous.juggernautEnabled != next.juggernautEnabled)
             KillstreakService.rewardConfigChanged(server);
+        if (previous.disableUpgrades != next.disableUpgrades)
+            ResearchSystem.upgradesConfigChanged(server);
     }
 
     public static boolean setScorestreaks(MinecraftServer server, boolean value) {

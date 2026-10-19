@@ -382,6 +382,10 @@ public final class KillstreakService {
         if (slot == 4) {
             if (!StreakServerConfig.requireReward(player, "mgb"))
                 return;
+            if (ResearchSystem.survival(player)) {
+                ResearchSystem.call(player, "mgb");
+                return;
+            }
             if (!TacticalRuntime.mgbActive(player.serverLevel()) && ledger.consume(slot)) {
                 TacticalRuntime.launchMgb(player);
                 sendTerminalState(player, false);

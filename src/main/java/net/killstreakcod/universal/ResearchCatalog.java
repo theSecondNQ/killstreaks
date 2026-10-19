@@ -4,7 +4,6 @@ import net.killstreakcod.killstreaks.StreakReward;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,12 +75,13 @@ public final class ResearchCatalog {
 
     public record Node(int index, String id, StreakReward reward, Category category, int tier, Cost cost,
             boolean base) {
-        public long bit() {
-            return 1L << index;
+        public ResearchMask bit() {
+            return ResearchMask.single(index);
         }
 
         public Component title() {
-            return base ? reward.displayName() : Component.translatable("research.killstreakcod.node." + id + ".name");
+            return base ? reward == null ? Component.translatable("streak.killstreakcod.mgb") : reward.displayName()
+                    : Component.translatable("research.killstreakcod.node." + id + ".name");
         }
 
         public Component description() {
@@ -95,8 +95,10 @@ public final class ResearchCatalog {
     private record Upgrade(String id, int tier, Cost cost) {
     }
 
+    private static final Comparator<Node> DISPLAY_ORDER = Comparator.comparingInt(Node::tier)
+            .thenComparingInt(node -> node.cost().levels()).thenComparingInt(Node::index);
     private static final Map<String, Node> BY_ID = new LinkedHashMap<>();
-    private static final Map<StreakReward, Definition> REWARDS = new EnumMap<>(StreakReward.class);
+    private static final Map<String, Definition> REWARDS = new LinkedHashMap<>();
     private static final List<Cost> TERMINAL = List.of(
             cost(0, need(Items.COAL, 64), need(Items.COPPER_INGOT, 64), need(Items.IRON_INGOT, 32),
                     need(Items.GOLD_INGOT, 32), need(Items.REDSTONE, 16), need(Items.LAPIS_LAZULI, 16),
@@ -163,6 +165,104 @@ public final class ResearchCatalog {
                 cost(0, need(Items.REDSTONE, 10), need(Items.IRON_INGOT, 10), need(Items.GUNPOWDER, 16)),
                 upgrade("continuous", 2, cost(10, need(Items.GUNPOWDER, 16), need(Items.REPEATER, 8))),
                 upgrade("heavy", 3, cost(30, need(Items.GUNPOWDER, 32), need(Items.GLOWSTONE_DUST, 16))), endurance(1));
+        define(StreakReward.PRECISION_AIRSTRIKE, Category.FIREPOWER, 0,
+                cost(0, need(Items.REDSTONE_BLOCK, 8), need(Items.IRON_BLOCK, 8), need(Items.GUNPOWDER, 32)),
+                cost(0, need(Items.REDSTONE_BLOCK, 3), need(Items.GUNPOWDER, 16)),
+                cost(0, need(Items.REDSTONE_BLOCK, 3), need(Items.GUNPOWDER, 16)),
+                upgrade("crossfire", 2, cost(10, need(Items.IRON_BLOCK, 8), need(Items.GUNPOWDER, 32))),
+                upgrade("smart", 3,
+                        cost(30, need(Items.REPEATER, 16), need(Items.SCULK_SENSOR, 8), need(Items.ENDER_EYE, 8))),
+                upgrade("overload", 1, cost(5, need(Items.GUNPOWDER, 16), need(Items.GLOWSTONE_DUST, 8))));
+        define(StreakReward.MORTAR_STRIKE, Category.FIREPOWER, 0,
+                cost(0, need(Items.REDSTONE, 8), need(Items.IRON_INGOT, 16), need(Items.GUNPOWDER, 64)),
+                cost(0, need(Items.IRON_INGOT, 8), need(Items.GUNPOWDER, 32)),
+                cost(0, need(Items.IRON_INGOT, 8), need(Items.GUNPOWDER, 32)),
+                upgrade("extra", 1, cost(5, need(Items.IRON_INGOT, 8), need(Items.GUNPOWDER, 16))),
+                upgrade("second_sun", 2, cost(10, need(Items.IRON_INGOT, 24), need(Items.GUNPOWDER, 48))),
+                upgrade("bunker", 3, cost(30, need(Items.DIAMOND, 16), need(Items.NETHERITE_SCRAP, 1))));
+        define(StreakReward.SAE, Category.FIREPOWER, 1,
+                cost(0, need(Items.REDSTONE_BLOCK, 16), need(Items.IRON_BLOCK, 24), need(Items.GUNPOWDER, 128)),
+                cost(0, need(Items.REDSTONE_BLOCK, 4), need(Items.GUNPOWDER, 32)),
+                cost(0, need(Items.REDSTONE_BLOCK, 4), need(Items.GUNPOWDER, 32)),
+                upgrade("squadron", 1,
+                        cost(5, need(Items.IRON_BLOCK, 16), need(Items.GUNPOWDER, 32), need(Items.REDSTONE_BLOCK, 8))),
+                upgrade("charge", 2, cost(10, need(Items.GUNPOWDER, 32), need(Items.IRON_INGOT, 32))),
+                upgrade("chemical", 3, cost(30, need(Items.SPIDER_EYE, 32), need(Items.WITHER_SKELETON_SKULL, 1),
+                        need(Items.PUFFERFISH, 8))));
+        define(StreakReward.VTOL_JET, Category.FIREPOWER, 1,
+                cost(0, need(Items.REDSTONE_BLOCK, 16), need(Items.IRON_BLOCK, 16), need(Items.GUNPOWDER, 32)),
+                cost(0, need(Items.REDSTONE_BLOCK, 5), need(Items.GUNPOWDER, 16)),
+                cost(0, need(Items.REDSTONE_BLOCK, 5), need(Items.IRON_BLOCK, 5), need(Items.GUNPOWDER, 16)),
+                upgrade("endurance", 1,
+                        cost(5, need(Items.REDSTONE_BLOCK, 5), need(Items.REPEATER, 10), need(Items.IRON_BLOCK, 5))),
+                upgrade("fire_control", 2,
+                        cost(10, need(Items.AMETHYST_SHARD, 16), need(Items.GOLD_INGOT, 16),
+                                need(Items.REDSTONE_BLOCK, 8))),
+                upgrade("hercules", 3, cost(30, need(Items.GUNPOWDER, 64), need(Items.END_CRYSTAL, 8),
+                        need(Items.NETHERITE_INGOT, 8))));
+        define(StreakReward.STEALTH_BOMBER, Category.FIREPOWER, 2,
+                cost(0, need(Items.REDSTONE_BLOCK, 20), need(Items.IRON_BLOCK, 25), need(Items.GUNPOWDER, 64)),
+                cost(0, need(Items.REDSTONE_BLOCK, 10), need(Items.GUNPOWDER, 32)),
+                cost(0, need(Items.REDSTONE_BLOCK, 10), need(Items.IRON_BLOCK, 10), need(Items.GUNPOWDER, 32)),
+                upgrade("special_ops", 2,
+                        cost(5, need(Items.REDSTONE_BLOCK, 25), need(Items.IRON_BLOCK, 30), need(Items.GUNPOWDER, 96))),
+                upgrade("overpressure", 2,
+                        cost(10, need(Items.GUNPOWDER, 128), need(Items.GLOWSTONE_DUST, 64), need(Items.REDSTONE, 64))),
+                upgrade("homing", 3, cost(30, need(Items.AMETHYST_SHARD, 32), need(Items.SCULK_SENSOR, 16))),
+                upgrade("dark", 4, cost(45, need(Items.END_CRYSTAL, 5), need(Items.SCULK_SHRIEKER, 5),
+                        need(Items.NETHER_STAR, 1))));
+        define(StreakReward.JUGGERNAUT, Category.FIREPOWER, 3,
+                cost(0, need(Items.IRON_BLOCK, 64), need(Items.GUNPOWDER, 256)),
+                cost(0, need(Items.REDSTONE_BLOCK, 16), need(Items.IRON_BLOCK, 32), need(Items.GUNPOWDER, 128)),
+                cost(0, need(Items.REDSTONE_BLOCK, 16), need(Items.IRON_BLOCK, 32), need(Items.GUNPOWDER, 128)));
+        define(StreakReward.CRUISE_MISSILE, Category.MODERNIZATION, 0,
+                cost(0, need(Items.IRON_INGOT, 64), need(Items.GUNPOWDER, 64), need(Items.REDSTONE, 64),
+                        need(Items.AMETHYST_SHARD, 16), need(Items.COPPER_INGOT, 16)),
+                cost(0, need(Items.IRON_INGOT, 16), need(Items.GUNPOWDER, 16), need(Items.REDSTONE, 16),
+                        need(Items.AMETHYST_SHARD, 4), need(Items.COPPER_INGOT, 4)),
+                cost(0, need(Items.IRON_INGOT, 16), need(Items.GUNPOWDER, 16), need(Items.REDSTONE, 16),
+                        need(Items.AMETHYST_SHARD, 4), need(Items.COPPER_INGOT, 4)),
+                upgrade("endurance", 1, cost(5, need(Items.REDSTONE, 16), need(Items.REPEATER, 2))),
+                upgrade("hellfire", 2, cost(10, need(Items.IRON_INGOT, 32), need(Items.GUNPOWDER, 32))),
+                upgrade("charge", 3, cost(30, need(Items.GUNPOWDER, 64), need(Items.GLOWSTONE_DUST, 32))));
+        define(StreakReward.WHEELSON, Category.MODERNIZATION, 1,
+                cost(0, need(Items.IRON_INGOT, 32), need(Items.GUNPOWDER, 32), need(Items.REDSTONE, 32),
+                        need(Items.AMETHYST_SHARD, 16), need(Items.COPPER_INGOT, 16)),
+                cost(0, need(Items.GUNPOWDER, 8), need(Items.REDSTONE, 8)),
+                cost(0, need(Items.IRON_INGOT, 8), need(Items.GUNPOWDER, 8), need(Items.REDSTONE, 8),
+                        need(Items.AMETHYST_SHARD, 4), need(Items.COPPER_INGOT, 4)),
+                upgrade("endurance", 1, cost(5, need(Items.REDSTONE, 16), need(Items.REPEATER, 2))),
+                upgrade("armor", 2, cost(10, need(Items.DIAMOND, 16), need(Items.NETHERITE_SCRAP, 1))),
+                upgrade("patrol", 3, cost(30, need(Items.SCULK_SENSOR, 4), need(Items.GOLD_INGOT, 8),
+                        need(Items.REDSTONE, 16), need(Items.LAPIS_LAZULI, 16), need(Items.AMETHYST_SHARD, 16))));
+        define(StreakReward.CHOPPER_GUNNER, Category.MODERNIZATION, 2,
+                cost(0, need(Items.REDSTONE_BLOCK, 16), need(Items.IRON_BLOCK, 16), need(Items.GUNPOWDER, 64)),
+                cost(0, need(Items.REDSTONE_BLOCK, 5), need(Items.GUNPOWDER, 32)),
+                cost(0, need(Items.REDSTONE_BLOCK, 5), need(Items.IRON_BLOCK, 5), need(Items.GUNPOWDER, 32)),
+                upgrade("endurance", 2, cost(5, need(Items.REDSTONE, 16), need(Items.REPEATER, 2))),
+                upgrade("armor", 2, cost(10, need(Items.DIAMOND, 32), need(Items.NETHERITE_SCRAP, 2))),
+                upgrade("shadow", 3,
+                        cost(30, need(Items.SPECTRAL_ARROW, 64), need(Items.REDSTONE, 32), need(Items.IRON_INGOT, 32),
+                                need(Items.GUNPOWDER, 32), need(Items.GOLD_INGOT, 32))),
+                upgrade("charlie", 4, cost(45, need(Items.SCULK_SHRIEKER, 5), need(Items.TURTLE_SCUTE, 5),
+                        need(Items.NETHERITE_INGOT, 5), need(Items.GUNPOWDER, 256), need(Items.NETHER_STAR, 1))));
+        define(StreakReward.GUNSHIP, Category.MODERNIZATION, 2,
+                cost(0, need(Items.REDSTONE_BLOCK, 32), need(Items.IRON_BLOCK, 48), need(Items.GUNPOWDER, 256)),
+                cost(0, need(Items.REDSTONE_BLOCK, 16), need(Items.GUNPOWDER, 128)),
+                cost(0, need(Items.REDSTONE_BLOCK, 16), need(Items.IRON_BLOCK, 24), need(Items.GUNPOWDER, 128)),
+                upgrade("endurance", 2, cost(5, need(Items.REDSTONE_BLOCK, 8), need(Items.REPEATER, 32))),
+                upgrade("armor", 2, cost(10, need(Items.DIAMOND_BLOCK, 8), need(Items.NETHERITE_INGOT, 2))),
+                upgrade("coordination", 3,
+                        cost(30, need(Items.AMETHYST_SHARD, 64), need(Items.COPPER_BLOCK, 16),
+                                need(Items.GOLD_BLOCK, 16), need(Items.IRON_BLOCK, 16), need(Items.GUNPOWDER, 64))),
+                upgrade("iron_maiden", 4,
+                        cost(45, need(Items.SCULK_SHRIEKER, 10), need(Items.TURTLE_SCUTE, 5),
+                                need(Items.NETHERITE_INGOT, 10), need(Items.GUNPOWDER, 512),
+                                need(Items.IRON_INGOT, 128), need(Items.REDSTONE, 128), need(Items.AMETHYST_SHARD, 64),
+                                need(Items.COPPER_INGOT, 64), need(Items.NETHER_STAR, 1))));
+        Node nuclear = add("mgb", null, Category.MODERNIZATION, 4, cost(0, need(Items.BEACON, 4)), true);
+        REWARDS.put("mgb", new Definition(null, nuclear, cost(0, need(Items.BEACON, 1), need(Items.DIAMOND, 32)),
+                cost(0, need(Items.BEACON, 1), need(Items.DIAMOND, 32)), List.of()));
     }
 
     private ResearchCatalog() {}
@@ -176,22 +276,33 @@ public final class ResearchCatalog {
     }
 
     public static Definition definition(StreakReward reward) {
-        return REWARDS.get(reward);
+        return reward == null ? null : REWARDS.get(reward.id());
+    }
+
+    public static Definition definition(String id) {
+        return REWARDS.get(id);
     }
 
     public static List<Definition> definitions(Category category) {
-        return BY_ID.values().stream().filter(node -> node.base && node.category == category)
-                .sorted(Comparator.comparingInt(Node::tier).thenComparingInt(Node::index))
-                .map(node -> REWARDS.get(node.reward)).toList();
+        return BY_ID.values().stream().filter(node -> node.base && node.category == category).sorted(DISPLAY_ORDER)
+                .map(node -> REWARDS.get(node.id)).toList();
     }
 
-    public static long fullMask() {
-        return (1L << BY_ID.size()) - 1;
+    public static ResearchMask fullMask() {
+        return ResearchMask.first(BY_ID.size());
     }
 
-    public static boolean has(long unlocked, String id) {
+    public static ResearchMask baseMask() {
+        ResearchMask result = ResearchMask.EMPTY;
+        for (Node node : BY_ID.values())
+            if (node.base())
+                result = result.union(node.bit());
+        return result;
+    }
+
+    public static boolean has(ResearchMask unlocked, String id) {
         Node node = node(id);
-        return node != null && (unlocked & node.bit()) != 0;
+        return node != null && unlocked.contains(node.index);
     }
 
     public static Cost terminalCost(int currentTier) {
@@ -202,20 +313,20 @@ public final class ResearchCatalog {
      * Save names instead of bit positions so future nodes cannot reassign existing research.
      * 存档使用稳定名称而非位序，避免后续插入节点时错误对应已有研究。
      */
-    public static ListTag saveNodes(long mask) {
+    public static ListTag saveNodes(ResearchMask mask) {
         ListTag result = new ListTag();
         for (Node node : BY_ID.values())
-            if ((mask & node.bit()) != 0)
+            if (mask.contains(node.index))
                 result.add(StringTag.valueOf(node.id()));
         return result;
     }
 
-    public static long loadNodes(ListTag nodes) {
-        long result = 0;
+    public static ResearchMask loadNodes(ListTag nodes) {
+        ResearchMask result = ResearchMask.EMPTY;
         for (Tag tag : nodes) {
             Node node = node(tag.getAsString());
             if (node != null)
-                result |= node.bit();
+                result = result.union(node.bit());
         }
         return result;
     }
@@ -238,13 +349,12 @@ public final class ResearchCatalog {
         List<Node> children = new ArrayList<>();
         for (Upgrade upgrade : upgrades)
             children.add(add(reward.id() + "." + upgrade.id, reward, category, upgrade.tier, upgrade.cost, false));
-        List<Node> ordered = children.stream().sorted(Comparator.comparingInt(Node::tier).thenComparingInt(Node::index))
-                .toList();
-        REWARDS.put(reward, new Definition(reward, base, call, repair, ordered));
+        List<Node> ordered = children.stream().sorted(DISPLAY_ORDER).toList();
+        REWARDS.put(reward.id(), new Definition(reward, base, call, repair, ordered));
     }
 
     private static Node add(String id, StreakReward reward, Category category, int tier, Cost cost, boolean base) {
-        if (BY_ID.size() >= 63)
+        if (BY_ID.size() >= ResearchMask.CAPACITY)
             throw new IllegalStateException("Expand the research network mask before adding more nodes.");
         Node node = new Node(BY_ID.size(), id, reward, category, tier, cost, base);
         BY_ID.put(id, node);

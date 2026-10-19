@@ -57,7 +57,7 @@ def main():
         model = {'parent': 'minecraft:block/block', 'loader': 'killstreakcod:terminal_obj',
                  'model': 'killstreakcod:models/block/headquarters_terminal/terminal.obj', 'part': section,
                  'textures': {'particle': 'killstreakcod:block/headquarters_terminal/laptop_body'},
-                 'render_type': 'minecraft:cutout'}
+                 'render_type': 'minecraft:solid'}
         if section == 'full':
             model['display'] = display
         suffix = '' if section == 'full' else '_' + section

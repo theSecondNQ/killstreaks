@@ -111,7 +111,7 @@ public final class HeadquartersTerminalObjModel extends SimpleUnbakedGeometry<He
                                     coordinates.get(index(indices[1], coordinates.size())),
                                     normals.get(index(indices[2], normals.size()))));
                         }
-                        faces.add(new Face(texture, List.copyOf(corners)));
+                        faces.add(new Face(texture, corners));
                     }
                     default -> {
                         // Object labels, comments and smoothing flags do not replace per-corner normals.
@@ -184,6 +184,11 @@ public final class HeadquartersTerminalObjModel extends SimpleUnbakedGeometry<He
                 quad.setSprite(texture);
                 quad.setTintIndex(-1);
                 quad.setShade(true);
+                Vector2f center = new Vector2f();
+                for (Corner corner : face.corners)
+                    center.add(corner.uv);
+                center.div(face.corners.size());
+                float shrink = texture.uvShrinkRatio();
                 for (int i = 0; i < 4; i++) {
                     Corner corner = face.corners.get(Math.min(i, face.corners.size() - 1));
                     // OBJ uses a centered X/Z origin; upper block quads use their own local Y origin.
@@ -197,7 +202,11 @@ public final class HeadquartersTerminalObjModel extends SimpleUnbakedGeometry<He
                     quad.setColor(255, 255, 255, 255);
                     // Wavefront V starts at the bottom, while Minecraft's texture atlas starts at the top.
                     // Wavefront 的 V 从底部起算，Minecraft 图集则从顶部起算；不翻转或重编码 PNG。
-                    quad.setUv(texture.getU(corner.uv.x), texture.getV(1 - corner.uv.y));
+                    // Keep border samples inside this atlas sprite, especially under mipmaps and shaders.
+                    // 将边缘采样收进当前图块，防止多级纹理和光影采到相邻贴图或透明边界。
+                    float u = corner.uv.x + (center.x - corner.uv.x) * shrink;
+                    float v = corner.uv.y + (center.y - corner.uv.y) * shrink;
+                    quad.setUv(texture.getU(u), texture.getV(1 - v));
                     quad.setLight(0);
                     quad.setNormal(normal.x, normal.y, normal.z);
                     if (i == 0)
@@ -228,9 +237,47 @@ public final class HeadquartersTerminalObjModel extends SimpleUnbakedGeometry<He
     }
 
     private record Face(Material material, List<Corner> corners) {
+        Face {
+            Vector3f first = corners.getFirst().position;
+            Vector3f edge = new Vector3f(corners.get(1).position).sub(first);
+            Vector3f next = new Vector3f(corners.get(2).position).sub(first);
+            // Match winding to the face normal; Part corrects inward normals without changing geometry or UVs.
+            // 让顶点绕序与面法线一致；部件负责校正朝内法线，不改形状及逐顶点 UV。
+            if (edge.cross(next).dot(corners.getFirst().normal) < 0)
+                corners = corners.reversed();
+            corners = List.copyOf(corners);
+        }
+
+        private Face outwardFrom(Vector3f interior) {
+            Vector3f center = new Vector3f();
+            for (Corner corner : corners)
+                center.add(corner.position);
+            center.div(corners.size());
+            if (center.sub(interior).dot(corners.getFirst().normal) >= 0)
+                return this;
+            // The pedestal's front and rear normals point inward in the export; winding alone cannot fix them.
+            // 原导出中立式底座的前后法线朝内；仅按原法线校正绕序仍会从外部看到缺面。
+            List<Corner> corrected = corners.stream()
+                    .map(corner -> new Corner(corner.position, corner.uv, new Vector3f(corner.normal).negate()))
+                    .toList();
+            return new Face(material, corrected);
+        }
     }
 
     private record Part(List<Face> faces) {
+        Part {
+            Vector3f min = new Vector3f(Float.POSITIVE_INFINITY);
+            Vector3f max = new Vector3f(Float.NEGATIVE_INFINITY);
+            for (Face face : faces)
+                for (Corner corner : face.corners) {
+                    min.min(corner.position);
+                    max.max(corner.position);
+                }
+            // Each original OBJ object is a closed cuboid; its bounds center lies inside every face.
+            // 此终端 OBJ 的每个原始部件都是封闭长方体，以包围盒中心判断各面的真实朝外方向。
+            Vector3f interior = min.add(max).mul(.5f);
+            faces = faces.stream().map(face -> face.outwardFrom(interior)).toList();
+        }
     }
 
     private record ModelData(List<Part> parts) {
