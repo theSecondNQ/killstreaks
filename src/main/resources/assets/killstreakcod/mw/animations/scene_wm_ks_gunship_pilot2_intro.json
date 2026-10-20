@@ -1,0 +1,6426 @@
+{
+  "format": 1,
+  "id": "scene_wm_ks_gunship_pilot2_intro",
+  "source": "wm_ks_gunship_pilot2_intro_complete.json",
+  "fps": 30.0,
+  "last_frame": 102,
+  "loop": false,
+  "translationCoordinateScale": 2.54,
+  "nativeVectorChannelsExpanded": true,
+  "curves": [
+    {
+      "bone": "tag_sync",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c24298e7",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shield_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec0d0519",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spine4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f999fb37",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_chest",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "41a64537",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_helmet",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0726faab",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_nvg",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb7d3457",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_tongue_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "09b97dbb",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_tongue_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "08b97c28",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_knee_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "781034f1",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.6337168216705322,
+        0.773552656173706
+      ]
+    },
+    {
+      "bone": "j_knee_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "6fd87b5f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.6112552285194397,
+        0.791436493396759
+      ]
+    },
+    {
+      "bone": "j_spineupper",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ed4ffd33",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.11310159415006638,
+        0.9935911297798157
+      ]
+    },
+    {
+      "bone": "j_ball_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "4bd4efbb",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.2561418414115906,
+        0.9666432738304138
+      ]
+    },
+    {
+      "bone": "j_ball_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "4bbcead5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.2561418414115906,
+        0.9666432738304138
+      ]
+    },
+    {
+      "bone": "j_neck",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2f03365",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.14654988050460815,
+        0.9891964197158813
+      ]
+    },
+    {
+      "bone": "j_index_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9ca23899",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.3881649076938629,
+        0.921597957611084
+      ]
+    },
+    {
+      "bone": "j_index_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9ba23706",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.17899106442928314,
+        0.9838557243347168
+      ]
+    },
+    {
+      "bone": "j_mid_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "793e133b",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.5310220718383789,
+        0.8473464250564575
+      ]
+    },
+    {
+      "bone": "j_mid_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "783e11a8",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.20502334833145142,
+        0.9787591099739075
+      ]
+    },
+    {
+      "bone": "j_pinky_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e59fc504",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.3663136661052704,
+        0.9304788112640381
+      ]
+    },
+    {
+      "bone": "j_pinky_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e69fc697",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.47090059518814087,
+        0.8821985721588135
+      ]
+    },
+    {
+      "bone": "j_ring_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9a00b133",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.43913084268569946,
+        0.8984344005584717
+      ]
+    },
+    {
+      "bone": "j_thumb_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2704cada",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.13010039925575256,
+        0.9915158748626709
+      ]
+    },
+    {
+      "bone": "j_mid_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ab569efa",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.1897335797548294,
+        0.981841504573822
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0b658ed5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.5062410235404968,
+        0.8623920679092407
+      ]
+    },
+    {
+      "bone": "j_ring_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "68a021d2",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.2526017129421234,
+        0.9675588011741638
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8ebf5248",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.16550187766551971,
+        0.9862056374549866
+      ]
+    },
+    {
+      "bone": "j_mainroot",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0aacd3f3",
+      "property": "rq",
+      "values": [
+        0.47389140725135803,
+        -0.5482040047645569,
+        0.5162816047668457,
+        0.45646533370018005
+      ]
+    },
+    {
+      "bone": "tag_ik_foot_loc_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "80eb9bb4",
+      "property": "rq",
+      "values": [
+        -0.6747642159461975,
+        0.21143223345279694,
+        0.1504562497138977,
+        0.6909085512161255
+      ]
+    },
+    {
+      "bone": "tag_ik_foot_loc_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "68c8e3aa",
+      "property": "rq",
+      "values": [
+        -0.6932584643363953,
+        0.13928647339344025,
+        0.2222663015127182,
+        0.6712851524353027
+      ]
+    },
+    {
+      "bone": "j_hip_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9eab7f6f",
+      "property": "rq",
+      "values": [
+        -0.5178685784339905,
+        0.8491165041923523,
+        0.02945036068558693,
+        0.09988708049058914
+      ]
+    },
+    {
+      "bone": "j_hip_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "86a6dc79",
+      "property": "rq",
+      "values": [
+        -0.5376750826835632,
+        0.8335825800895691,
+        0.0238044373691082,
+        -0.12433240562677383
+      ]
+    },
+    {
+      "bone": "j_spinelower",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "557ecf66",
+      "property": "rq",
+      "values": [
+        -0.007690664380788803,
+        -0.013672292232513428,
+        -0.11673329770565033,
+        0.9930417537689209
+      ]
+    },
+    {
+      "bone": "j_ankle_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ea6927cd",
+      "property": "rq",
+      "values": [
+        -0.01898251287639141,
+        0.08380382508039474,
+        -0.5545823574066162,
+        0.8276619911193848
+      ]
+    },
+    {
+      "bone": "j_ankle_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ba1f3a8b",
+      "property": "rq",
+      "values": [
+        0.02069154940545559,
+        -0.08587908744812012,
+        -0.5141453146934509,
+        0.8531449437141418
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "b6cb016d",
+      "property": "rq",
+      "values": [
+        -0.05212561413645744,
+        0.7325662970542908,
+        0.003326517529785633,
+        0.6786705851554871
+      ]
+    },
+    {
+      "bone": "tag_inhand",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f82f87f2",
+      "property": "rq",
+      "values": [
+        -0.5911435484886169,
+        0.4352244734764099,
+        -0.3881649076938629,
+        0.557206928730011
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "867f812b",
+      "property": "rq",
+      "values": [
+        0.07003998011350632,
+        -0.7216406464576721,
+        -0.03671376779675484,
+        0.6877651214599609
+      ]
+    },
+    {
+      "bone": "j_shoulder_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "fdbe03ac",
+      "property": "rq",
+      "values": [
+        -0.09030427038669586,
+        0.5099642872810364,
+        -0.11819818615913391,
+        0.8472548723220825
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "71b486e0",
+      "property": "rq",
+      "values": [
+        0.006408886983990669,
+        -0.12527848780155182,
+        0.024781029671430588,
+        0.9917905330657959
+      ]
+    },
+    {
+      "bone": "j_head",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "119cd9b0",
+      "property": "rq",
+      "values": [
+        0.16052736341953278,
+        0.07214576005935669,
+        0.2155522257089615,
+        0.9605090618133545
+      ]
+    },
+    {
+      "bone": "j_shoulder_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2d883542",
+      "property": "rq",
+      "values": [
+        0.04516739398241043,
+        -0.3319193124771118,
+        -0.09079256653785706,
+        0.9378337860107422
+      ]
+    },
+    {
+      "bone": "tag_weapon_right",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd08c195",
+      "property": "rq",
+      "values": [
+        -0.079317606985569,
+        -0.13650929927825928,
+        -0.05182042717933655,
+        0.9860835671424866
+      ]
+    },
+    {
+      "bone": "j_gun",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d8274dd4",
+      "property": "rq",
+      "values": [
+        -0.079317606985569,
+        -0.13650929927825928,
+        -0.05182042717933655,
+        0.9860835671424866
+      ]
+    },
+    {
+      "bone": "j_elbow_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a5e21d51",
+      "property": "rq",
+      "values": [
+        3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        -0.5861079692840576,
+        0.8102359175682068
+      ]
+    },
+    {
+      "bone": "j_wrist_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "51e03e0d",
+      "property": "rq",
+      "values": [
+        0.269722580909729,
+        -0.19501326978206635,
+        -0.020294807851314545,
+        0.9427778124809265
+      ]
+    },
+    {
+      "bone": "j_shield_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0411a80f",
+      "property": "rq",
+      "values": [
+        0.5141147971153259,
+        -0.11743522435426712,
+        -0.05145420879125595,
+        0.8480788469314575
+      ]
+    },
+    {
+      "bone": "tag_accessory_left",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "33cc111a",
+      "property": "rq",
+      "values": [
+        0.24829858541488647,
+        0.051240578293800354,
+        -0.09985656291246414,
+        0.9621570706367493
+      ]
+    },
+    {
+      "bone": "j_metaindex_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9c2c607d",
+      "property": "rq",
+      "values": [
+        -0.7358623147010803,
+        0.017273476347327232,
+        -0.1105380430817604,
+        0.6678365468978882
+      ]
+    },
+    {
+      "bone": "j_metamid_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ea6cae3f",
+      "property": "rq",
+      "values": [
+        -0.7394024729728699,
+        -0.019623402506113052,
+        -0.07083345949649811,
+        0.669240415096283
+      ]
+    },
+    {
+      "bone": "j_metaring_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c52c73a1",
+      "property": "rq",
+      "values": [
+        -0.7705007791519165,
+        -0.036164432764053345,
+        -0.010101626627147198,
+        0.6363109350204468
+      ]
+    },
+    {
+      "bone": "j_thumb_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2504c7b4",
+      "property": "rq",
+      "values": [
+        0.1429181843996048,
+        0.04474013298749924,
+        -0.41010773181915283,
+        0.8996551632881165
+      ]
+    },
+    {
+      "bone": "j_metapinky_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8da4f744",
+      "property": "rq",
+      "values": [
+        -0.7629322409629822,
+        -0.03430280461907387,
+        0.04257332161068916,
+        0.6441541910171509
+      ]
+    },
+    {
+      "bone": "j_index_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "99a233e0",
+      "property": "rq",
+      "values": [
+        0.01748710498213768,
+        -0.0868556797504425,
+        0.24735252559185028,
+        0.964873194694519
+      ]
+    },
+    {
+      "bone": "j_mid_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7a3e14ce",
+      "property": "rq",
+      "values": [
+        0.0016174810007214546,
+        -0.004791405983269215,
+        0.32999664545059204,
+        0.9439679980278015
+      ]
+    },
+    {
+      "bone": "j_pinky_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e89fc9bd",
+      "property": "rq",
+      "values": [
+        -0.11178930103778839,
+        0.0318918414413929,
+        0.4440748393535614,
+        0.8884243369102478
+      ]
+    },
+    {
+      "bone": "j_ring_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9b00b2c6",
+      "property": "rq",
+      "values": [
+        -0.01678518019616604,
+        0.02151554822921753,
+        0.4115115702152252,
+        0.9110080003738403
+      ]
+    },
+    {
+      "bone": "j_thumb_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2804cc6d",
+      "property": "rq",
+      "values": [
+        -0.24283577501773834,
+        0.07211523503065109,
+        0.3074434697628021,
+        0.9172338247299194
+      ]
+    },
+    {
+      "bone": "j_ring_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9900afa0",
+      "property": "rq",
+      "values": [
+        3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        0.29105502367019653,
+        0.9566942453384399
+      ]
+    },
+    {
+      "bone": "j_elbow_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9dabf6bf",
+      "property": "rq",
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        -0.6385082602500916,
+        0.7696157693862915
+      ]
+    },
+    {
+      "bone": "j_wrist_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "219650cb",
+      "property": "rq",
+      "values": [
+        -0.010925626382231712,
+        0.05615405738353729,
+        -0.11551255732774734,
+        0.9916684627532959
+      ]
+    },
+    {
+      "bone": "j_metapinky_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "27d0475e",
+      "property": "rq",
+      "values": [
+        0.7629322409629822,
+        0.03430280461907387,
+        0.042542800307273865,
+        0.6441541910171509
+      ]
+    },
+    {
+      "bone": "tag_accessory_right",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2882fa67",
+      "property": "rq",
+      "values": [
+        0.9076510071754456,
+        0.09958189725875854,
+        -0.03582873195409775,
+        0.4061708450317383
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "90bf556e",
+      "property": "rq",
+      "values": [
+        -0.22043518722057343,
+        -0.02536088228225708,
+        -0.38532671332359314,
+        0.8957182765007019
+      ]
+    },
+    {
+      "bone": "j_metaindex_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bf6c8b6f",
+      "property": "rq",
+      "values": [
+        0.7358623147010803,
+        -0.017273476347327232,
+        -0.1105380430817604,
+        0.6678060293197632
+      ]
+    },
+    {
+      "bone": "j_metamid_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "4e81afd5",
+      "property": "rq",
+      "values": [
+        0.7394024729728699,
+        0.019623402506113052,
+        -0.07086397707462311,
+        0.669240415096283
+      ]
+    },
+    {
+      "bone": "j_metaring_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "35ee1103",
+      "property": "rq",
+      "values": [
+        0.7705618739128113,
+        0.036164432764053345,
+        -0.010101626627147198,
+        0.6362804174423218
+      ]
+    },
+    {
+      "bone": "j_mid_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a9569bd4",
+      "property": "rq",
+      "values": [
+        0.037690360099077225,
+        0.011017181910574436,
+        0.33564257621765137,
+        0.9411603212356567
+      ]
+    },
+    {
+      "bone": "j_ring_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "66a01eac",
+      "property": "rq",
+      "values": [
+        0.04986724257469177,
+        -0.019989624619483948,
+        0.3716544210910797,
+        0.9268166422843933
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "09658baf",
+      "property": "rq",
+      "values": [
+        0.1270485520362854,
+        -0.04040650650858879,
+        0.40150150656700134,
+        0.9060945510864258
+      ]
+    },
+    {
+      "bone": "j_index_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d1ed2b5a",
+      "property": "rq",
+      "values": [
+        -0.0157780684530735,
+        0.06967375427484512,
+        0.23398540914058685,
+        0.9696035385131836
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8fbf53db",
+      "property": "rq",
+      "values": [
+        0.251747190952301,
+        -0.062379833310842514,
+        0.23224586248397827,
+        0.9374370574951172
+      ]
+    },
+    {
+      "bone": "j_index_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d0ed29c7",
+      "property": "rq",
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.41630297899246216,
+        0.9092379808425903
+      ]
+    },
+    {
+      "bone": "j_index_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "cfed2834",
+      "property": "rq",
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        0.26602983474731445,
+        0.963957667350769
+      ]
+    },
+    {
+      "bone": "j_mid_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ac56a08d",
+      "property": "rq",
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        0.52189701795578,
+        0.8529923558235168
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0a658d42",
+      "property": "rq",
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.5100558400154114,
+        0.8601336479187012
+      ]
+    },
+    {
+      "bone": "j_ring_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "69a02365",
+      "property": "rq",
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.47953733801841736,
+        0.8775292038917542
+      ]
+    },
+    {
+      "bone": "j_jaw",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7fd15098",
+      "property": "rq",
+      "values": [
+        0.012665181420743465,
+        0.7070833444595337,
+        -0.0056764427572488785,
+        0.7069917917251587
+      ]
+    },
+    {
+      "bone": "j_brow_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c9718d0a",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_brow_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c8718b77",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_brow_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c77189e4",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_brow_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "5a0386a9",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_brow_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "570381f0",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_brow_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "59038516",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_cheek_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "92117896",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_cheek_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3d247a9c",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_chin",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "95b0c3ce",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eye_lid_bot_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a0e9902f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eye_lid_bot_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "88e35a39",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eye_lid_top_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "cc0179d9",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eye_lid_top_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "155684fb",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eyeball_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "10ccebdc",
+      "property": "rq",
+      "values": [
+        0.13385418057441711,
+        0.6979888081550598,
+        0.11319315433502197,
+        0.6943265795707703
+      ]
+    },
+    {
+      "bone": "j_eyeball_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "00e66a92",
+      "property": "rq",
+      "values": [
+        0.13376262784004211,
+        0.6979888081550598,
+        0.11310159415006638,
+        0.6943265795707703
+      ]
+    },
+    {
+      "bone": "j_eyelash_bot_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "63c8c89d",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eyelash_bot_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "60c8c3e4",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eyelash_bot_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a055a88f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eyelash_bot_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a155aa22",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eyelash_top_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dd4d969f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eyelash_top_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "de4d9832",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eyelash_top_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "597218b5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_eyelash_top_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "567213fc",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_forehead_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "11cb51ea",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_forehead_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9e6a0710",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_forehead",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2fd92da",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_furrow_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d98fb249",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_furrow_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c18081f7",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_insidegum",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "303ac7c9",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_insidegum_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "145f5915",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_insidegum_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8eafbb47",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_levator_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "af4502b9",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_levator_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ac44fe00",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_levator_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f75cd95b",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_levator_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f85cdaee",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dcc31c4d",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "225b0a01",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1f5b0548",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "205b06db",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot_le_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "255b0eba",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "145aa563",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "155aa6f6",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "165aa889",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_bot_ri_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "175aaa1c",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_inside_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bfc8000e",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_inside_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec661e14",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7ba0bfdb",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ba23cb23",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb23ccb6",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bc23ce49",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top_le_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd23cfdc",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a33319a9",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a03314f0",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a1331683",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lip_top_ri_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a6331e62",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_lowergum",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8c90c5ca",
+      "property": "rq",
+      "values": [
+        0.012665181420743465,
+        0.7070833444595337,
+        -0.0056764427572488785,
+        0.7069917917251587
+      ]
+    },
+    {
+      "bone": "j_mouthcorner_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "266fcdde",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_mouthcorner_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "36564f28",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nasolabial_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2e506e0",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nasolabial_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a5e50b99",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nasolabial_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a4e50a06",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nasolabial_le_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a7e50ebf",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nasolabial_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "db2ffe5a",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nasolabial_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "da2ffcc7",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nasolabial_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d92ffb34",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nasolabial_ri_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d82ff9a1",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_nose_tip",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "37cd3a3f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_periorbital_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "16013fc5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_periorbital_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "13013b0c",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_periorbital_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "14013c9f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_periorbital_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ce69597",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_periorbital_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3de6972a",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_periorbital_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ee698bd",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_temple_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9f85917b",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_temple_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9f6bf995",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_tongue_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0ab97f4e",
+      "property": "rq",
+      "values": [
+        -0.4516434073448181,
+        0.5449079871177673,
+        -0.539506196975708,
+        0.45609912276268005
+      ]
+    },
+    {
+      "bone": "j_underchin",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bfe6f380",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_underlip",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "302c1af5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_uppergum",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "951f1011",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_upperlip",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9c1af763",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7070833444595337,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_shield_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec0d0519",
+      "property": "tx",
+      "values": [
+        8.185911436080932
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_shield_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec0d0519",
+      "property": "ty",
+      "values": [
+        -3.3147007751464845
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_shield_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec0d0519",
+      "property": "tz",
+      "values": [
+        -35.8924893951416
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nvg",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb7d3457",
+      "property": "tx",
+      "values": [
+        -1.7117269134521484
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nvg",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb7d3457",
+      "property": "ty",
+      "values": [
+        -1.1932096290588379
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nvg",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb7d3457",
+      "property": "tz",
+      "values": [
+        -0.0004893112182617188
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mainroot",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0aacd3f3",
+      "property": "tx",
+      "values": [
+        -1.026921935081482
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mainroot",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0aacd3f3",
+      "property": "ty",
+      "values": [
+        0.07950580596923829
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mainroot",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0aacd3f3",
+      "property": "tz",
+      "values": [
+        -31.3128706741333
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_foot_loc_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "80eb9bb4",
+      "property": "tx",
+      "values": [
+        41.77817180633545
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_foot_loc_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "80eb9bb4",
+      "property": "ty",
+      "values": [
+        -14.973549451828003
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_foot_loc_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "80eb9bb4",
+      "property": "tz",
+      "values": [
+        0.019557914733886718
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_foot_loc_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "68c8e3aa",
+      "property": "tx",
+      "values": [
+        36.87927509307861
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_foot_loc_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "68c8e3aa",
+      "property": "ty",
+      "values": [
+        15.32890082359314
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_foot_loc_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "68c8e3aa",
+      "property": "tz",
+      "values": [
+        0.019557914733886718
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_inhand",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f82f87f2",
+      "property": "tx",
+      "values": [
+        -73.99690773010254
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_inhand",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f82f87f2",
+      "property": "ty",
+      "values": [
+        -32.705246925354004
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_inhand",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f82f87f2",
+      "property": "tz",
+      "values": [
+        6.161687850952148
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "71b486e0",
+      "property": "tx",
+      "values": [
+        57.855489883422855
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "71b486e0",
+      "property": "ty",
+      "values": [
+        -12.01671564102173
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "71b486e0",
+      "property": "tz",
+      "values": [
+        -126.66770439147949
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd08c195",
+      "property": "tx",
+      "values": [
+        60.43747859954834
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd08c195",
+      "property": "ty",
+      "values": [
+        -2.006146926879883
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd08c195",
+      "property": "tz",
+      "values": [
+        -123.86217796325684
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_gun",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d8274dd4",
+      "property": "tx",
+      "values": [
+        60.43747859954834
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_gun",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d8274dd4",
+      "property": "ty",
+      "values": [
+        -2.006146926879883
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_gun",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d8274dd4",
+      "property": "tz",
+      "values": [
+        -123.86217796325684
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_shield_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0411a80f",
+      "property": "tx",
+      "values": [
+        -19.325405912399294
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_shield_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0411a80f",
+      "property": "ty",
+      "values": [
+        -27.812575607299806
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_shield_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0411a80f",
+      "property": "tz",
+      "values": [
+        -0.0026524543762207033
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "33cc111a",
+      "property": "tx",
+      "values": [
+        -17.20877275466919
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "33cc111a",
+      "property": "ty",
+      "values": [
+        28.023919296264648
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "33cc111a",
+      "property": "tz",
+      "values": [
+        -102.11439689636231
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2882fa67",
+      "property": "tx",
+      "values": [
+        0.1352461051940918
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2882fa67",
+      "property": "ty",
+      "values": [
+        52.53465187072754
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2882fa67",
+      "property": "tz",
+      "values": [
+        98.69975067138672
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_jaw",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7fd15098",
+      "property": "tx",
+      "values": [
+        -0.07723365783691406
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_jaw",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7fd15098",
+      "property": "ty",
+      "values": [
+        -0.08123504877090454
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_jaw",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7fd15098",
+      "property": "tz",
+      "values": [
+        -0.09346328735351563
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c9718d0a",
+      "property": "tx",
+      "values": [
+        -0.32017425537109373
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c9718d0a",
+      "property": "ty",
+      "values": [
+        -0.11167922973632813
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c9718d0a",
+      "property": "tz",
+      "values": [
+        0.15898118138313294
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c8718b77",
+      "property": "tx",
+      "values": [
+        -0.38203094482421873
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c8718b77",
+      "property": "ty",
+      "values": [
+        -0.20406336784362794
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c8718b77",
+      "property": "tz",
+      "values": [
+        0.31571322679519653
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c77189e4",
+      "property": "tx",
+      "values": [
+        -0.26877235412597655
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c77189e4",
+      "property": "ty",
+      "values": [
+        -0.32526297092437745
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c77189e4",
+      "property": "tz",
+      "values": [
+        0.1778673529624939
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "5a0386a9",
+      "property": "tx",
+      "values": [
+        -0.47071739196777346
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "5a0386a9",
+      "property": "ty",
+      "values": [
+        0.49268310546875
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "5a0386a9",
+      "property": "tz",
+      "values": [
+        1.561957106590271
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "570381f0",
+      "property": "tx",
+      "values": [
+        -0.5719612121582032
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "570381f0",
+      "property": "ty",
+      "values": [
+        -1.1689814567565917
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "570381f0",
+      "property": "tz",
+      "values": [
+        -2.3074590826034544
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "59038516",
+      "property": "tx",
+      "values": [
+        -0.16893348693847657
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "59038516",
+      "property": "ty",
+      "values": [
+        -0.24591098308563233
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_brow_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "59038516",
+      "property": "tz",
+      "values": [
+        -0.09071515083312988
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_cheek_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "92117896",
+      "property": "tx",
+      "values": [
+        0.9087623596191406
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_cheek_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "92117896",
+      "property": "ty",
+      "values": [
+        -0.3193664073944092
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_cheek_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "92117896",
+      "property": "tz",
+      "values": [
+        -0.12983098030090331
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_cheek_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3d247a9c",
+      "property": "tx",
+      "values": [
+        0.8587847900390625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_cheek_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3d247a9c",
+      "property": "ty",
+      "values": [
+        -0.32890313148498534
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_cheek_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3d247a9c",
+      "property": "tz",
+      "values": [
+        0.31617892026901245
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_chin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "95b0c3ce",
+      "property": "tx",
+      "values": [
+        0.21544227600097657
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_chin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "95b0c3ce",
+      "property": "ty",
+      "values": [
+        0.061245050430297855
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_chin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "95b0c3ce",
+      "property": "tz",
+      "values": [
+        -0.3433056408166885
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_bot_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a0e9902f",
+      "property": "tx",
+      "values": [
+        0.2631912994384766
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_bot_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a0e9902f",
+      "property": "ty",
+      "values": [
+        -0.17481733322143556
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_bot_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a0e9902f",
+      "property": "tz",
+      "values": [
+        0.028162949085235596
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_bot_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "88e35a39",
+      "property": "tx",
+      "values": [
+        0.3208137512207031
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_bot_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "88e35a39",
+      "property": "ty",
+      "values": [
+        -0.17167556762695313
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_bot_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "88e35a39",
+      "property": "tz",
+      "values": [
+        -0.15986911773681642
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "cc0179d9",
+      "property": "tx",
+      "values": [
+        -0.2623773956298828
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "cc0179d9",
+      "property": "ty",
+      "values": [
+        -0.05450248718261719
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "cc0179d9",
+      "property": "tz",
+      "values": [
+        0.03426238298416138
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "155684fb",
+      "property": "tx",
+      "values": [
+        -0.29251121520996093
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "155684fb",
+      "property": "ty",
+      "values": [
+        -0.052241239547729496
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eye_lid_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "155684fb",
+      "property": "tz",
+      "values": [
+        -0.10894865512847901
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "63c8c89d",
+      "property": "tx",
+      "values": [
+        0.22104270935058595
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "63c8c89d",
+      "property": "ty",
+      "values": [
+        -0.24044498920440674
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "63c8c89d",
+      "property": "tz",
+      "values": [
+        0.0006316232681274415
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "60c8c3e4",
+      "property": "tx",
+      "values": [
+        0.162935791015625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "60c8c3e4",
+      "property": "ty",
+      "values": [
+        -0.1550898551940918
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "60c8c3e4",
+      "property": "tz",
+      "values": [
+        0.029021514654159548
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a055a88f",
+      "property": "tx",
+      "values": [
+        0.19538536071777343
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a055a88f",
+      "property": "ty",
+      "values": [
+        -0.07309025764465332
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a055a88f",
+      "property": "tz",
+      "values": [
+        -0.1588481044769287
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a155aa22",
+      "property": "tx",
+      "values": [
+        0.2188238525390625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a155aa22",
+      "property": "ty",
+      "values": [
+        -0.2780226373672485
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_bot_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a155aa22",
+      "property": "tz",
+      "values": [
+        -0.09291311502456664
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dd4d969f",
+      "property": "tx",
+      "values": [
+        -0.21127586364746095
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dd4d969f",
+      "property": "ty",
+      "values": [
+        -0.17188752174377442
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dd4d969f",
+      "property": "tz",
+      "values": [
+        -0.06354656934738159
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "de4d9832",
+      "property": "tx",
+      "values": [
+        -0.13282135009765625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "de4d9832",
+      "property": "ty",
+      "values": [
+        -0.08477316856384277
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "de4d9832",
+      "property": "tz",
+      "values": [
+        -0.004386087656021118
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "597218b5",
+      "property": "tx",
+      "values": [
+        0.031325607299804686
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "597218b5",
+      "property": "ty",
+      "values": [
+        -0.06444374084472657
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "597218b5",
+      "property": "tz",
+      "values": [
+        -0.13176824092864992
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "567213fc",
+      "property": "tx",
+      "values": [
+        -0.09958694458007812
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "567213fc",
+      "property": "ty",
+      "values": [
+        -0.013133888244628907
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_eyelash_top_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "567213fc",
+      "property": "tz",
+      "values": [
+        -0.09078691244125367
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "11cb51ea",
+      "property": "tx",
+      "values": [
+        -0.6214155578613282
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "11cb51ea",
+      "property": "ty",
+      "values": [
+        0.18085015296936036
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "11cb51ea",
+      "property": "tz",
+      "values": [
+        2.3190252673625946
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9e6a0710",
+      "property": "tx",
+      "values": [
+        -0.24746551513671874
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9e6a0710",
+      "property": "ty",
+      "values": [
+        -0.10308479309082032
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9e6a0710",
+      "property": "tz",
+      "values": [
+        0.18109753370285034
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2fd92da",
+      "property": "tx",
+      "values": [
+        -0.0771270751953125
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2fd92da",
+      "property": "ty",
+      "values": [
+        -0.4885336494445801
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_forehead",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2fd92da",
+      "property": "tz",
+      "values": [
+        -2.608627715110779
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_furrow_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d98fb249",
+      "property": "tx",
+      "values": [
+        -0.1915483856201172
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_furrow_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d98fb249",
+      "property": "ty",
+      "values": [
+        -0.20723783493041992
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_furrow_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d98fb249",
+      "property": "tz",
+      "values": [
+        0.06219961985945702
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_furrow_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c18081f7",
+      "property": "tx",
+      "values": [
+        -0.3187208557128906
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_furrow_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c18081f7",
+      "property": "ty",
+      "values": [
+        -0.3112951946258545
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_furrow_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c18081f7",
+      "property": "tz",
+      "values": [
+        -0.13434249937534332
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "303ac7c9",
+      "property": "tx",
+      "values": [
+        0.0021800994873046875
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "303ac7c9",
+      "property": "ty",
+      "values": [
+        1.0927627563476563
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "303ac7c9",
+      "property": "tz",
+      "values": [
+        -0.28233787178993225
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "145f5915",
+      "property": "tx",
+      "values": [
+        0.1054974365234375
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "145f5915",
+      "property": "ty",
+      "values": [
+        0.09155630588531494
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "145f5915",
+      "property": "tz",
+      "values": [
+        -0.19545197486877441
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8eafbb47",
+      "property": "tx",
+      "values": [
+        0.09214553833007813
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8eafbb47",
+      "property": "ty",
+      "values": [
+        0.4427364206314087
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_insidegum_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8eafbb47",
+      "property": "tz",
+      "values": [
+        -0.19584620952606202
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "af4502b9",
+      "property": "tx",
+      "values": [
+        0.6776911926269531
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "af4502b9",
+      "property": "ty",
+      "values": [
+        0.3507331943511963
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "af4502b9",
+      "property": "tz",
+      "values": [
+        -0.32770801305770875
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ac44fe00",
+      "property": "tx",
+      "values": [
+        0.7863861083984375
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ac44fe00",
+      "property": "ty",
+      "values": [
+        0.14534602165222169
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ac44fe00",
+      "property": "tz",
+      "values": [
+        -0.2731242263317108
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f75cd95b",
+      "property": "tx",
+      "values": [
+        0.6646493530273437
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f75cd95b",
+      "property": "ty",
+      "values": [
+        0.38721958160400394
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f75cd95b",
+      "property": "tz",
+      "values": [
+        0.33427980184555056
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f85cdaee",
+      "property": "tx",
+      "values": [
+        0.8723110961914062
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f85cdaee",
+      "property": "ty",
+      "values": [
+        0.15857559204101562
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_levator_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f85cdaee",
+      "property": "tz",
+      "values": [
+        0.3720379137992859
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dcc31c4d",
+      "property": "tx",
+      "values": [
+        -0.4095292663574219
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dcc31c4d",
+      "property": "ty",
+      "values": [
+        0.46061747550964355
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dcc31c4d",
+      "property": "tz",
+      "values": [
+        -0.2766538490355015
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "225b0a01",
+      "property": "tx",
+      "values": [
+        -0.40291145324707034
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "225b0a01",
+      "property": "ty",
+      "values": [
+        0.5590295886993408
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "225b0a01",
+      "property": "tz",
+      "values": [
+        -0.6124567872285843
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1f5b0548",
+      "property": "tx",
+      "values": [
+        -0.1632361602783203
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1f5b0548",
+      "property": "ty",
+      "values": [
+        0.7881059646606445
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1f5b0548",
+      "property": "tz",
+      "values": [
+        -0.9398931205272675
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "205b06db",
+      "property": "tx",
+      "values": [
+        0.04823348999023438
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "205b06db",
+      "property": "ty",
+      "values": [
+        0.647018404006958
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "205b06db",
+      "property": "tz",
+      "values": [
+        -0.664166249036789
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "255b0eba",
+      "property": "tx",
+      "values": [
+        -0.48644317626953126
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "255b0eba",
+      "property": "ty",
+      "values": [
+        0.928728437423706
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "255b0eba",
+      "property": "tz",
+      "values": [
+        -0.9895480656623841
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "145aa563",
+      "property": "tx",
+      "values": [
+        -0.4137053680419922
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "145aa563",
+      "property": "ty",
+      "values": [
+        0.3877246379852295
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "145aa563",
+      "property": "tz",
+      "values": [
+        -0.03995811998844147
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "155aa6f6",
+      "property": "tx",
+      "values": [
+        -0.31284912109375
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "155aa6f6",
+      "property": "ty",
+      "values": [
+        0.4802129364013672
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "155aa6f6",
+      "property": "tz",
+      "values": [
+        0.17760104775428773
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "165aa889",
+      "property": "tx",
+      "values": [
+        0.008894805908203126
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "165aa889",
+      "property": "ty",
+      "values": [
+        0.5794450092315674
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "165aa889",
+      "property": "tz",
+      "values": [
+        0.16932696461677552
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "175aaa1c",
+      "property": "tx",
+      "values": [
+        -0.4361071014404297
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "175aaa1c",
+      "property": "ty",
+      "values": [
+        0.5929834270477295
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_bot_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "175aaa1c",
+      "property": "tz",
+      "values": [
+        0.0801855731010437
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_inside_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bfc8000e",
+      "property": "tx",
+      "values": [
+        -0.2609918212890625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_inside_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bfc8000e",
+      "property": "ty",
+      "values": [
+        0.5676264476776123
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_inside_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bfc8000e",
+      "property": "tz",
+      "values": [
+        -0.47704849928617477
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_inside_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec661e14",
+      "property": "tx",
+      "values": [
+        -0.29434249877929686
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_inside_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec661e14",
+      "property": "ty",
+      "values": [
+        0.49535372734069827
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_inside_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec661e14",
+      "property": "tz",
+      "values": [
+        -0.08678105533123016
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7ba0bfdb",
+      "property": "tx",
+      "values": [
+        0.5512744903564453
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7ba0bfdb",
+      "property": "ty",
+      "values": [
+        0.22838722229003908
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7ba0bfdb",
+      "property": "tz",
+      "values": [
+        -0.09293026059865951
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ba23cb23",
+      "property": "tx",
+      "values": [
+        0.46351821899414064
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ba23cb23",
+      "property": "ty",
+      "values": [
+        0.053718862533569334
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ba23cb23",
+      "property": "tz",
+      "values": [
+        -0.3547647887468338
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb23ccb6",
+      "property": "tx",
+      "values": [
+        0.4431318664550781
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb23ccb6",
+      "property": "ty",
+      "values": [
+        0.10382360458374024
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb23ccb6",
+      "property": "tz",
+      "values": [
+        -0.45333367228508
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bc23ce49",
+      "property": "tx",
+      "values": [
+        0.29507888793945314
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bc23ce49",
+      "property": "ty",
+      "values": [
+        0.25844473838806153
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bc23ce49",
+      "property": "tz",
+      "values": [
+        -0.47312261700630187
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd23cfdc",
+      "property": "tx",
+      "values": [
+        0.5153658294677734
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd23cfdc",
+      "property": "ty",
+      "values": [
+        0.438430118560791
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd23cfdc",
+      "property": "tz",
+      "values": [
+        -0.4759814238548279
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a33319a9",
+      "property": "tx",
+      "values": [
+        0.586630859375
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a33319a9",
+      "property": "ty",
+      "values": [
+        0.2779239273071289
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a33319a9",
+      "property": "tz",
+      "values": [
+        0.19026311099529267
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a03314f0",
+      "property": "tx",
+      "values": [
+        0.6524795532226563
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a03314f0",
+      "property": "ty",
+      "values": [
+        0.43968246459960936
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a03314f0",
+      "property": "tz",
+      "values": [
+        0.4040330690145493
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a1331683",
+      "property": "tx",
+      "values": [
+        0.4538676452636719
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a1331683",
+      "property": "ty",
+      "values": [
+        0.6596920490264893
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a1331683",
+      "property": "tz",
+      "values": [
+        0.22856662631034852
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a6331e62",
+      "property": "tx",
+      "values": [
+        0.9431207275390625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a6331e62",
+      "property": "ty",
+      "values": [
+        0.8134387207031251
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lip_top_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a6331e62",
+      "property": "tz",
+      "values": [
+        0.5924476373195648
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lowergum",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8c90c5ca",
+      "property": "tx",
+      "values": [
+        -0.20762298583984376
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lowergum",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8c90c5ca",
+      "property": "ty",
+      "values": [
+        0.01695511817932129
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_lowergum",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8c90c5ca",
+      "property": "tz",
+      "values": [
+        -0.17229076445102692
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mouthcorner_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "266fcdde",
+      "property": "tx",
+      "values": [
+        0.1876048278808594
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mouthcorner_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "266fcdde",
+      "property": "ty",
+      "values": [
+        0.495141773223877
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mouthcorner_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "266fcdde",
+      "property": "tz",
+      "values": [
+        -0.5825731492042542
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mouthcorner_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "36564f28",
+      "property": "tx",
+      "values": [
+        0.19931922912597658
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mouthcorner_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "36564f28",
+      "property": "ty",
+      "values": [
+        0.662618227005005
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_mouthcorner_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "36564f28",
+      "property": "tz",
+      "values": [
+        0.01974534273147583
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2e506e0",
+      "property": "tx",
+      "values": [
+        0.8070146942138672
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2e506e0",
+      "property": "ty",
+      "values": [
+        0.272128496170044
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2e506e0",
+      "property": "tz",
+      "values": [
+        -0.371966757774353
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a5e50b99",
+      "property": "tx",
+      "values": [
+        0.4676458740234375
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a5e50b99",
+      "property": "ty",
+      "values": [
+        0.5311497497558594
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a5e50b99",
+      "property": "tz",
+      "values": [
+        -0.46781967639923094
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a4e50a06",
+      "property": "tx",
+      "values": [
+        -0.20197410583496095
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a4e50a06",
+      "property": "ty",
+      "values": [
+        0.7216492652893066
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a4e50a06",
+      "property": "tz",
+      "values": [
+        -0.8583963084220886
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a7e50ebf",
+      "property": "tx",
+      "values": [
+        0.5567877197265625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a7e50ebf",
+      "property": "ty",
+      "values": [
+        0.5778910827636718
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_le_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a7e50ebf",
+      "property": "tz",
+      "values": [
+        -0.2988713526725769
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "db2ffe5a",
+      "property": "tx",
+      "values": [
+        0.7863861083984375
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "db2ffe5a",
+      "property": "ty",
+      "values": [
+        0.38328329086303714
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "db2ffe5a",
+      "property": "tz",
+      "values": [
+        0.3141341686248779
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "da2ffcc7",
+      "property": "tx",
+      "values": [
+        0.15403129577636718
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "da2ffcc7",
+      "property": "ty",
+      "values": [
+        0.526176700592041
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "da2ffcc7",
+      "property": "tz",
+      "values": [
+        -0.04659357070922852
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d92ffb34",
+      "property": "tx",
+      "values": [
+        -0.2799247741699219
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d92ffb34",
+      "property": "ty",
+      "values": [
+        0.39205092430114746
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d92ffb34",
+      "property": "tz",
+      "values": [
+        -0.009463448524475098
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d82ff9a1",
+      "property": "tx",
+      "values": [
+        0.38399787902832033
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d82ff9a1",
+      "property": "ty",
+      "values": [
+        0.6300366401672364
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nasolabial_ri_4",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d82ff9a1",
+      "property": "tz",
+      "values": [
+        -0.023973524570465088
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nose_tip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "37cd3a3f",
+      "property": "tx",
+      "values": [
+        -0.17551254272460937
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nose_tip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "37cd3a3f",
+      "property": "ty",
+      "values": [
+        0.24735408782958984
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nose_tip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "37cd3a3f",
+      "property": "tz",
+      "values": [
+        4.290178418159485e-05
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "16013fc5",
+      "property": "tx",
+      "values": [
+        0.44538948059082034
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "16013fc5",
+      "property": "ty",
+      "values": [
+        -0.23365337371826173
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "16013fc5",
+      "property": "tz",
+      "values": [
+        0.11116221308708191
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "13013b0c",
+      "property": "tx",
+      "values": [
+        0.5549273681640625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "13013b0c",
+      "property": "ty",
+      "values": [
+        -0.19704102516174316
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "13013b0c",
+      "property": "tz",
+      "values": [
+        0.20772623777389526
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "14013c9f",
+      "property": "tx",
+      "values": [
+        0.19298240661621094
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "14013c9f",
+      "property": "ty",
+      "values": [
+        -0.43757927417755127
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_le_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "14013c9f",
+      "property": "tz",
+      "values": [
+        0.11289736032485963
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ce69597",
+      "property": "tx",
+      "values": [
+        0.25754241943359374
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ce69597",
+      "property": "ty",
+      "values": [
+        -0.05241080284118652
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ce69597",
+      "property": "tz",
+      "values": [
+        -0.09229466319084167
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3de6972a",
+      "property": "tx",
+      "values": [
+        0.5935393524169922
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3de6972a",
+      "property": "ty",
+      "values": [
+        -0.1746744155883789
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3de6972a",
+      "property": "tz",
+      "values": [
+        -0.1283236837387085
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ee698bd",
+      "property": "tx",
+      "values": [
+        0.22674972534179688
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ee698bd",
+      "property": "ty",
+      "values": [
+        -0.47105106830596927
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_periorbital_ri_3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ee698bd",
+      "property": "tz",
+      "values": [
+        -0.14797092199325562
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_temple_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9f85917b",
+      "property": "tx",
+      "values": [
+        -0.047913742065429685
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_temple_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9f85917b",
+      "property": "ty",
+      "values": [
+        -0.1836854934692383
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_temple_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9f85917b",
+      "property": "tz",
+      "values": [
+        0.08832430839538574
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_temple_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9f6bf995",
+      "property": "tx",
+      "values": [
+        -0.052768096923828126
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_temple_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9f6bf995",
+      "property": "ty",
+      "values": [
+        -0.167084641456604
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_temple_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9f6bf995",
+      "property": "tz",
+      "values": [
+        -0.08799426555633545
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_tongue_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0ab97f4e",
+      "property": "tx",
+      "values": [
+        -0.12785072326660157
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_tongue_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0ab97f4e",
+      "property": "ty",
+      "values": [
+        -0.020766658782958986
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_tongue_1",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0ab97f4e",
+      "property": "tz",
+      "values": [
+        -0.14104119569063187
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_underchin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bfe6f380",
+      "property": "tx",
+      "values": [
+        -0.3101361083984375
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_underchin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bfe6f380",
+      "property": "ty",
+      "values": [
+        -0.15644091129302978
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_underchin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bfe6f380",
+      "property": "tz",
+      "values": [
+        -0.2654280588030815
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_underlip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "302c1af5",
+      "property": "tx",
+      "values": [
+        -0.14591163635253906
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_underlip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "302c1af5",
+      "property": "ty",
+      "values": [
+        0.3366158390045166
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_underlip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "302c1af5",
+      "property": "tz",
+      "values": [
+        -0.362511106133461
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_upperlip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9c1af763",
+      "property": "tx",
+      "values": [
+        0.41232948303222655
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_upperlip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9c1af763",
+      "property": "ty",
+      "values": [
+        0.4688788414001465
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_upperlip",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9c1af763",
+      "property": "tz",
+      "values": [
+        -0.0005058991117402911
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "tx",
+      "values": [
+        -102.49128280639648
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "ty",
+      "values": [
+        69.7336650466919
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "tz",
+      "values": [
+        0.7564121627807617
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "rq",
+      "values": [
+        0,
+        0,
+        -0.70709228515625,
+        0.70709228515625
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "tx",
+      "values": [
+        -102.49128280639648
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "ty",
+      "values": [
+        69.7336650466919
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "tz",
+      "values": [
+        0.7564121627807617
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "rq",
+      "values": [
+        0,
+        0,
+        -0.70709228515625,
+        0.70709228515625
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "name": "end",
+      "frames": [
+        102
+      ],
+      "normalized_time": 1.0
+    }
+  ]
+}

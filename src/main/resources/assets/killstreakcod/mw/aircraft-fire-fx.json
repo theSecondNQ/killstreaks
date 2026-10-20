@@ -1,0 +1,2192 @@
+{
+  "format": 1,
+  "profiles": {
+    "aircraft25_apache_muzzle": {
+      "sourceEffect": "vfx/iw8_mp/muzflash/vfx_muz_apache_w",
+      "sourceEffectId": "02867af13e49d5cf",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/13863f4e9c45053d.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "staticVariant": true,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_muzzle_flash_view_body_blur",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\56b0d47273d64ca4.png",
+          "sourceColorSha256": "761c28eceeaf4525c0d6d856af10d7e4478710c48f8010a98f19441ba5bf8f51",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/13863f4e9c45053d.png",
+          "outputSha256": "8c0eea5a25e290ec10ad9685c030018481e06465a646d69c549fd590e3853b3b",
+          "sourceEffect": "vfx/iw8_mp/muzflash/vfx_muz_apache_w_c",
+          "sourceEffectId": "08379a721d521f89",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            0.029999999329447746,
+            0.03999999910593033
+          ],
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/6f2d08bee518ace0.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "staticVariant": true,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fire_puff_sheet_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\37b1eb7a2876223a.png",
+          "sourceColorSha256": "39c0f83dca1bd009c824e300e0c8c3c5cb1ff6972275d64034e84856a138dd64",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/6f2d08bee518ace0.png",
+          "outputSha256": "79a375ab30018c93f33bf9b2e6dbefa8aa7485aba3acee73037b908c133d6c66",
+          "sourceEffect": "vfx/iw8_mp/muzflash/vfx_muz_apache_w_c",
+          "sourceEffectId": "08379a721d521f89",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            0.029999999329447746,
+            0.03999999910593033
+          ],
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/0d1470f7aacb37cb.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_postfx_glow_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\2aaf5b77611f6237.png",
+          "sourceColorSha256": "bc5fb773e0b0f44527d53252e22f9fc89fee9cf0170b7e50e3b64214f4282933",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/0d1470f7aacb37cb.png",
+          "outputSha256": "5c2573bb5c3a8bf9bd5e9e66ee71a1b131ddaa91573b637fd8e8e43d2846773b",
+          "sourceEffect": "vfx/iw8_mp/muzflash/vfx_muz_apache_w",
+          "sourceEffectId": "02867af13e49d5cf",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            0.029999999329447746,
+            0.03999999910593033
+          ],
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ]
+        }
+      ]
+    },
+    "aircraft25_gunship25_muzzle": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_ac130_25mm",
+      "sourceEffectId": "344aad5af554f460",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/6ecc5b96bddf4a2d.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_postfx_glow_round_2",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0f42e170ce2009b9.png",
+          "sourceColorSha256": "22fc7078779fd1ba50c8becd540ce7fb42aed6d50a0e25c4912782377b30ea3c",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/6ecc5b96bddf4a2d.png",
+          "outputSha256": "d33c46362a2bca78fec4055a9b1deec5ae06d1a9f4199eaba48522ff3d4fa482",
+          "sourceEffect": "vfx/iw8_mp/killstreak/vfx_ac130_25mm",
+          "sourceEffectId": "344aad5af554f460",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.017000000923871994,
+            0.017000000923871994
+          ],
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/3b477800782ddeca.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 2,
+          "staticVariant": true,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_pyro_spark_streak_wiggle_sheet_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\1902e9bce5944618.png",
+          "sourceColorSha256": "9e488907a2ce1226e28ff62ffd5cee834bc37f610618f6eac7b837af6597179f",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/3b477800782ddeca.png",
+          "outputSha256": "32abb4bc82b97f3bd8b2fc68ecdbae7550eeb6095491b485deca6c65865e1bc2",
+          "sourceEffect": "vfx/iw8_mp/killstreak/vfx_ac130_25mm",
+          "sourceEffectId": "344aad5af554f460",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            0.017000000923871994,
+            0.017000000923871994
+          ],
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ]
+        }
+      ]
+    },
+    "aircraft25_gunship40_muzzle": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_ac130_40mm",
+      "sourceEffectId": "6d525a8d8722b111",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/3b477800782ddeca.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 2,
+          "staticVariant": true,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_pyro_spark_streak_wiggle_sheet_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\1902e9bce5944618.png",
+          "sourceColorSha256": "9e488907a2ce1226e28ff62ffd5cee834bc37f610618f6eac7b837af6597179f",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/3b477800782ddeca.png",
+          "outputSha256": "32abb4bc82b97f3bd8b2fc68ecdbae7550eeb6095491b485deca6c65865e1bc2",
+          "sourceEffect": "vfx/iw8_mp/killstreak/vfx_ac130_40mm",
+          "sourceEffectId": "6d525a8d8722b111",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            0.017000000923871994,
+            0.017000000923871994
+          ],
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ]
+        }
+      ]
+    },
+    "aircraft25_apache_launch": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_apache_rocket_launch",
+      "sourceEffectId": "1bd1b1e36cda70e9",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/47fcaf69643fcfbc.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 64,
+          "textureHeight": 128,
+          "material": "elcq/vfx_pyro_fire_thruster_core_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\6b87bddbe7fd63a9.png",
+          "sourceColorSha256": "81b82d7e8e1b9216caf7ff7f3088770bf4093f253bbd807ee6d36f49102913a3",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/47fcaf69643fcfbc.png",
+          "outputSha256": "5a3f7bc9aa6813843b50798e7868100f53d2487b4a8d9853607701d880a2d800",
+          "sourceEffect": "vfx/iw8_mp/killstreak/vfx_apache_rocket_launch",
+          "sourceEffectId": "1bd1b1e36cda70e9",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            0.17000000178813934,
+            0.1899999976158142
+          ],
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ]
+        }
+      ]
+    },
+    "aircraft25_gunship105_launch": {
+      "sourceEffect": "vfx/iw9/killstreaks/gunship/vfx_gunship_hellfire_rocket",
+      "sourceEffectId": "4d721f885aac3d72",
+      "layers": []
+    },
+    "aircraft25_apache_trail": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_apache_rocket_trail",
+      "sourceEffectId": "58a4147b791f4bba",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/47fcaf69643fcfbc.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 64,
+          "textureHeight": 128,
+          "material": "elcq/vfx_pyro_fire_thruster_core_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\6b87bddbe7fd63a9.png",
+          "sourceColorSha256": "81b82d7e8e1b9216caf7ff7f3088770bf4093f253bbd807ee6d36f49102913a3",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/47fcaf69643fcfbc.png",
+          "outputSha256": "5a3f7bc9aa6813843b50798e7868100f53d2487b4a8d9853607701d880a2d800",
+          "sourceEffect": "vfx/iw8_mp/killstreak/vfx_apache_rocket_trail",
+          "sourceEffectId": "58a4147b791f4bba",
+          "sourceEmitter": 4,
+          "sourceLifeSeconds": [
+            0.17000000178813934,
+            0.1899999976158142
+          ],
+          "lifeSeconds": [
+            0.12,
+            0.4
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/260b596813ef95d7.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 128,
+          "material": "ecv/vfx_vol_trail_fire_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0d9ec733663bb53a.png",
+          "sourceColorSha256": "d7e3a1ed1acdb836903a8b0da5612a5021232a32ac685a99fe89fdf0e1b8a30d",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/260b596813ef95d7.png",
+          "outputSha256": "8647f9263a7e63f62a4db88b596d74164937048aa2f0d8cd4fc97aac2ba5ba5b",
+          "sourceEffect": "vfx/iw8_mp/killstreak/vfx_apache_rocket_trail",
+          "sourceEffectId": "58a4147b791f4bba",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "lifeSeconds": [
+            0.12,
+            0.4
+          ]
+        }
+      ]
+    },
+    "aircraft25_gunship105_trail": {
+      "sourceEffect": "vfx/iw9/killstreaks/gunship/vfx_gunship_hellfire_trail",
+      "sourceEffectId": "037961bab97bc426",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/260b596813ef95d7.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 128,
+          "material": "ecv/vfx_vol_trail_fire_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0d9ec733663bb53a.png",
+          "sourceColorSha256": "d7e3a1ed1acdb836903a8b0da5612a5021232a32ac685a99fe89fdf0e1b8a30d",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/260b596813ef95d7.png",
+          "outputSha256": "8647f9263a7e63f62a4db88b596d74164937048aa2f0d8cd4fc97aac2ba5ba5b",
+          "sourceEffect": "vfx/iw9/killstreaks/gunship/vfx_gunship_hellfire_trail_ch",
+          "sourceEffectId": "4ff1a282e0d72000",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "lifeSeconds": [
+            0.12,
+            0.4
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/123f628281e872c2.png",
+          "blend": "smoke",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 64,
+          "material": "ecv/vfx_vol_trail_smoke_billow_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\43b84e1b975126c8.png",
+          "sourceColorSha256": "3d8510c14eb58ac10691391f3cd4b0549b8543106ba45d6c91d5912094041b88",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\652a25c53fecd5a9.png",
+          "sourceOpacitySha256": "3122eca9774403ec2ac5452a32b8936e334f1db0fde76303ba8749698885087e",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/123f628281e872c2.png",
+          "outputSha256": "c5b1e2dddd95e00deac7f486efae48d70161e5518e34ca04de09619a4fa18864",
+          "sourceEffect": "vfx/iw9/killstreaks/gunship/vfx_gunship_hellfire_trail_ch",
+          "sourceEffectId": "4ff1a282e0d72000",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            1.7000000476837158,
+            1.7000000476837158
+          ],
+          "lifeSeconds": [
+            0.12,
+            0.4
+          ]
+        }
+      ]
+    },
+    "aircraft25_25_gen": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_gen",
+      "sourceEffectId": "3e4ce9e83fdb27c1",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/1e91a1ae1cb570db.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0e783ac0ab010703.png",
+          "sourceColorSha256": "68829a9cdcce4b8e331409c5d8de4ca9d4094e588a324b5227cd65b79d446bb9",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ff8cb8450f0014b.png",
+          "sourceOpacitySha256": "522569a6de6d997e33c55a854ca24bb98d93ce49d8ce384795c3b1bc04dd12f8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1e91a1ae1cb570db.png",
+          "outputSha256": "e7fbe7f5fffc9d570bcbb87915be073642f087f613346d39570ccde4fb645ef7",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_gen_a",
+          "sourceEffectId": "4a2d7b87dd75d0e1",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            1.0,
+            2.0
+          ],
+          "lifeSeconds": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_gen",
+          "sourceEffectId": "3e4ce9e83fdb27c1",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            6.0,
+            12.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/128a856b642f861a.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\5ddb072b8c81dfb8.png",
+          "sourceColorSha256": "27018aaeda64887f19b3ecd15ebb5af10b3459239045198ba24b955afc13641c",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0f10a959b2c09042.png",
+          "sourceOpacitySha256": "7466661bd6f58d3dcd9fa8d575d92a2a726397bd6aa773d43309370beaf878a8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/128a856b642f861a.png",
+          "outputSha256": "0af881f99beed35a51b7399dc612c7f6f28ccc743b10b877f103dc67c95cd5dd",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_gen_b",
+          "sourceEffectId": "4a2d7887dd75cbc8",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            2.200000047683716,
+            3.0
+          ],
+          "lifeSeconds": [
+            2.200000047683716,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/5a28bcb8dda5d77e.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_pyro_spark_long_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\72a0492ac1f616cf.png",
+          "sourceColorSha256": "f647f0770ddb46447b7bde092e8cfc10c1a1947b27a2b655393061ce8e254c73",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/5a28bcb8dda5d77e.png",
+          "outputSha256": "5028fb0f83e35d76866fc50c9968f55f43524c27fe11bbcb36c429c381e31a5c",
+          "sourceEffect": "vfx/iw9/core/airstrike/25mm_kinetic/vfx_imp_25mm_rico_a",
+          "sourceEffectId": "00dc7e664a1c8f3f",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ],
+          "lifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ]
+        }
+      ]
+    },
+    "aircraft25_25_dirt": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_dirt",
+      "sourceEffectId": "491e149971ddfe8c",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/02d56b69989eaca8.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\398bd936efb3a0c5.png",
+          "sourceColorSha256": "a85e93fbf8e0142fee3a24f75de913e3374304b1a08971846bff5409df7d66d3",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\28cdb1d1f650a4f5.png",
+          "sourceOpacitySha256": "ff7a7e6b6fccb223a3eaa822ec89726e3f25996cc35d11950eb2339055116cb3",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/02d56b69989eaca8.png",
+          "outputSha256": "d92c64144c9ca827fc3b088946aa9516355e473f65b717fb9391d4107f5ebf2c",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_dirt_a",
+          "sourceEffectId": "7b49b14713298a38",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            1.0,
+            3.0
+          ],
+          "lifeSeconds": [
+            1.0,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_dirt",
+          "sourceEffectId": "491e149971ddfe8c",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            6.0,
+            12.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/128a856b642f861a.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\5ddb072b8c81dfb8.png",
+          "sourceColorSha256": "27018aaeda64887f19b3ecd15ebb5af10b3459239045198ba24b955afc13641c",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0f10a959b2c09042.png",
+          "sourceOpacitySha256": "7466661bd6f58d3dcd9fa8d575d92a2a726397bd6aa773d43309370beaf878a8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/128a856b642f861a.png",
+          "outputSha256": "0af881f99beed35a51b7399dc612c7f6f28ccc743b10b877f103dc67c95cd5dd",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_dirt_b",
+          "sourceEffectId": "7b49b44713298f51",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            2.200000047683716,
+            3.0
+          ],
+          "lifeSeconds": [
+            2.200000047683716,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/5a28bcb8dda5d77e.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_pyro_spark_long_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\72a0492ac1f616cf.png",
+          "sourceColorSha256": "f647f0770ddb46447b7bde092e8cfc10c1a1947b27a2b655393061ce8e254c73",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/5a28bcb8dda5d77e.png",
+          "outputSha256": "5028fb0f83e35d76866fc50c9968f55f43524c27fe11bbcb36c429c381e31a5c",
+          "sourceEffect": "vfx/iw9/core/airstrike/25mm_kinetic/vfx_imp_25mm_rico_a",
+          "sourceEffectId": "00dc7e664a1c8f3f",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ],
+          "lifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ]
+        }
+      ]
+    },
+    "aircraft25_25_wood": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_wood",
+      "sourceEffectId": "1860ff278f9380e4",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/1e91a1ae1cb570db.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0e783ac0ab010703.png",
+          "sourceColorSha256": "68829a9cdcce4b8e331409c5d8de4ca9d4094e588a324b5227cd65b79d446bb9",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ff8cb8450f0014b.png",
+          "sourceOpacitySha256": "522569a6de6d997e33c55a854ca24bb98d93ce49d8ce384795c3b1bc04dd12f8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1e91a1ae1cb570db.png",
+          "outputSha256": "e7fbe7f5fffc9d570bcbb87915be073642f087f613346d39570ccde4fb645ef7",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_gen_a",
+          "sourceEffectId": "4a2d7b87dd75d0e1",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            1.0,
+            2.0
+          ],
+          "lifeSeconds": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_wood",
+          "sourceEffectId": "1860ff278f9380e4",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            6.0,
+            12.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/128a856b642f861a.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\5ddb072b8c81dfb8.png",
+          "sourceColorSha256": "27018aaeda64887f19b3ecd15ebb5af10b3459239045198ba24b955afc13641c",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0f10a959b2c09042.png",
+          "sourceOpacitySha256": "7466661bd6f58d3dcd9fa8d575d92a2a726397bd6aa773d43309370beaf878a8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/128a856b642f861a.png",
+          "outputSha256": "0af881f99beed35a51b7399dc612c7f6f28ccc743b10b877f103dc67c95cd5dd",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_gen_b",
+          "sourceEffectId": "4a2d7887dd75cbc8",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            2.200000047683716,
+            3.0
+          ],
+          "lifeSeconds": [
+            2.200000047683716,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/5a28bcb8dda5d77e.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_pyro_spark_long_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\72a0492ac1f616cf.png",
+          "sourceColorSha256": "f647f0770ddb46447b7bde092e8cfc10c1a1947b27a2b655393061ce8e254c73",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/5a28bcb8dda5d77e.png",
+          "outputSha256": "5028fb0f83e35d76866fc50c9968f55f43524c27fe11bbcb36c429c381e31a5c",
+          "sourceEffect": "vfx/iw9/core/airstrike/25mm_kinetic/vfx_imp_25mm_rico_a",
+          "sourceEffectId": "00dc7e664a1c8f3f",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ],
+          "lifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ]
+        }
+      ]
+    },
+    "aircraft25_25_metal": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_metal",
+      "sourceEffectId": "28708319e335a5a0",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_metal",
+          "sourceEffectId": "28708319e335a5a0",
+          "sourceEmitter": 10,
+          "sourceLifeSeconds": [
+            7.0,
+            9.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/128a856b642f861a.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\5ddb072b8c81dfb8.png",
+          "sourceColorSha256": "27018aaeda64887f19b3ecd15ebb5af10b3459239045198ba24b955afc13641c",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0f10a959b2c09042.png",
+          "sourceOpacitySha256": "7466661bd6f58d3dcd9fa8d575d92a2a726397bd6aa773d43309370beaf878a8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/128a856b642f861a.png",
+          "outputSha256": "0af881f99beed35a51b7399dc612c7f6f28ccc743b10b877f103dc67c95cd5dd",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_metal_b",
+          "sourceEffectId": "1699360941c67fdd",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            1.2999999523162842,
+            1.600000023841858
+          ],
+          "lifeSeconds": [
+            1.2999999523162842,
+            1.600000023841858
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/5a28bcb8dda5d77e.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_pyro_spark_long_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\72a0492ac1f616cf.png",
+          "sourceColorSha256": "f647f0770ddb46447b7bde092e8cfc10c1a1947b27a2b655393061ce8e254c73",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/5a28bcb8dda5d77e.png",
+          "outputSha256": "5028fb0f83e35d76866fc50c9968f55f43524c27fe11bbcb36c429c381e31a5c",
+          "sourceEffect": "vfx/iw9/core/airstrike/25mm_kinetic/vfx_imp_25mm_rico_a",
+          "sourceEffectId": "00dc7e664a1c8f3f",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ],
+          "lifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/324fe2e40fa94212.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\626b5a532a850391.png",
+          "sourceColorSha256": "433568a2888c9b7eae6ee55d089599a4d0ab17a0e6ae6ad606c2fd5f746e3fc3",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\69318f68867f2044.png",
+          "sourceOpacitySha256": "42cd1f94790ed80b7852c3d31f4082afcfa6b535141c3caff94aefd1daa45229",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/324fe2e40fa94212.png",
+          "outputSha256": "9d97d631f39bc9c29094c074385dcec4352b30c6473826715c0ffec93f3c5997",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_metal",
+          "sourceEffectId": "28708319e335a5a0",
+          "sourceEmitter": 10,
+          "sourceLifeSeconds": [
+            7.0,
+            9.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        }
+      ]
+    },
+    "aircraft25_25_glass": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_glass",
+      "sourceEffectId": "2a352ec35b5881df",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_glass",
+          "sourceEffectId": "2a352ec35b5881df",
+          "sourceEmitter": 11,
+          "sourceLifeSeconds": [
+            7.0,
+            9.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/5a28bcb8dda5d77e.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_pyro_spark_long_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\72a0492ac1f616cf.png",
+          "sourceColorSha256": "f647f0770ddb46447b7bde092e8cfc10c1a1947b27a2b655393061ce8e254c73",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/5a28bcb8dda5d77e.png",
+          "outputSha256": "5028fb0f83e35d76866fc50c9968f55f43524c27fe11bbcb36c429c381e31a5c",
+          "sourceEffect": "vfx/iw9/core/airstrike/25mm_kinetic/vfx_imp_25mm_rico_a",
+          "sourceEffectId": "00dc7e664a1c8f3f",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ],
+          "lifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/324fe2e40fa94212.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\626b5a532a850391.png",
+          "sourceColorSha256": "433568a2888c9b7eae6ee55d089599a4d0ab17a0e6ae6ad606c2fd5f746e3fc3",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\69318f68867f2044.png",
+          "sourceOpacitySha256": "42cd1f94790ed80b7852c3d31f4082afcfa6b535141c3caff94aefd1daa45229",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/324fe2e40fa94212.png",
+          "outputSha256": "9d97d631f39bc9c29094c074385dcec4352b30c6473826715c0ffec93f3c5997",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_glass",
+          "sourceEffectId": "2a352ec35b5881df",
+          "sourceEmitter": 11,
+          "sourceLifeSeconds": [
+            7.0,
+            9.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        }
+      ]
+    },
+    "aircraft25_25_water": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_water",
+      "sourceEffectId": "5180b4e55b19fa2c",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/1424b916133936fc.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "material": "elcq/vfx_fluid_water_splash_anim_3_nospec",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\60286d8a38b79e21.png",
+          "sourceColorSha256": "d14481ae042c9cee8084ed28251612e944a82a90080cab8cde3056520a0eefca",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\47cee9378621ed00.png",
+          "sourceOpacitySha256": "42e8355d86f7761dbcfed8f9e631e9ba3786f278c7e85a7b509a2184c499920e",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1424b916133936fc.png",
+          "outputSha256": "42b5c932452bdbfc67d29f2bda943aeb6c8962d852426e7f46f11b06b947699e",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_water_a",
+          "sourceEffectId": "60f17fb795227098",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            2.0,
+            2.5
+          ],
+          "lifeSeconds": [
+            2.0,
+            2.5
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/701724bf9a90790a.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_fluid_water_splash_anim_1_nospec",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\05f65b8c56f13d76.png",
+          "sourceColorSha256": "c859609b55d04a2118aab81104895f23a10d763e4595f640f218720f611dc734",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\76b11ea6dbd56419.png",
+          "sourceOpacitySha256": "46b2e7fb6996fcc35a1aa7dae5474c132126ceb32996ac6df68a615f022072c8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/701724bf9a90790a.png",
+          "outputSha256": "1eff548f812dd87672f5ae9681b8f01e43cfe79c33c3066efc9966e026478869",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_water_a",
+          "sourceEffectId": "60f17fb795227098",
+          "sourceEmitter": 11,
+          "sourceLifeSeconds": [
+            0.699999988079071,
+            1.0
+          ],
+          "lifeSeconds": [
+            0.699999988079071,
+            1.0
+          ]
+        }
+      ]
+    },
+    "aircraft25_40_gen": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_gen",
+      "sourceEffectId": "5b6332e2e4ef807f",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/1e91a1ae1cb570db.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0e783ac0ab010703.png",
+          "sourceColorSha256": "68829a9cdcce4b8e331409c5d8de4ca9d4094e588a324b5227cd65b79d446bb9",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ff8cb8450f0014b.png",
+          "sourceOpacitySha256": "522569a6de6d997e33c55a854ca24bb98d93ce49d8ce384795c3b1bc04dd12f8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1e91a1ae1cb570db.png",
+          "outputSha256": "e7fbe7f5fffc9d570bcbb87915be073642f087f613346d39570ccde4fb645ef7",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_gen_b",
+          "sourceEffectId": "6c34833609374566",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/02d56b69989eaca8.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\398bd936efb3a0c5.png",
+          "sourceColorSha256": "a85e93fbf8e0142fee3a24f75de913e3374304b1a08971846bff5409df7d66d3",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\28cdb1d1f650a4f5.png",
+          "sourceOpacitySha256": "ff7a7e6b6fccb223a3eaa822ec89726e3f25996cc35d11950eb2339055116cb3",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/02d56b69989eaca8.png",
+          "outputSha256": "d92c64144c9ca827fc3b088946aa9516355e473f65b717fb9391d4107f5ebf2c",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_gen_b",
+          "sourceEffectId": "6c34833609374566",
+          "sourceEmitter": 4,
+          "sourceLifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_gen",
+          "sourceEffectId": "5b6332e2e4ef807f",
+          "sourceEmitter": 9,
+          "sourceLifeSeconds": [
+            6.0,
+            12.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/128a856b642f861a.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\5ddb072b8c81dfb8.png",
+          "sourceColorSha256": "27018aaeda64887f19b3ecd15ebb5af10b3459239045198ba24b955afc13641c",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0f10a959b2c09042.png",
+          "sourceOpacitySha256": "7466661bd6f58d3dcd9fa8d575d92a2a726397bd6aa773d43309370beaf878a8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/128a856b642f861a.png",
+          "outputSha256": "0af881f99beed35a51b7399dc612c7f6f28ccc743b10b877f103dc67c95cd5dd",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_gen_b",
+          "sourceEffectId": "6c34833609374566",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            1.5,
+            2.0
+          ],
+          "lifeSeconds": [
+            1.5,
+            2.0
+          ]
+        }
+      ]
+    },
+    "aircraft25_40_dirt": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_dirt",
+      "sourceEffectId": "4744cca2fe600e22",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/1e91a1ae1cb570db.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0e783ac0ab010703.png",
+          "sourceColorSha256": "68829a9cdcce4b8e331409c5d8de4ca9d4094e588a324b5227cd65b79d446bb9",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ff8cb8450f0014b.png",
+          "sourceOpacitySha256": "522569a6de6d997e33c55a854ca24bb98d93ce49d8ce384795c3b1bc04dd12f8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1e91a1ae1cb570db.png",
+          "outputSha256": "e7fbe7f5fffc9d570bcbb87915be073642f087f613346d39570ccde4fb645ef7",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_dirt_b",
+          "sourceEffectId": "75fbb66a0734827f",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/02d56b69989eaca8.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\398bd936efb3a0c5.png",
+          "sourceColorSha256": "a85e93fbf8e0142fee3a24f75de913e3374304b1a08971846bff5409df7d66d3",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\28cdb1d1f650a4f5.png",
+          "sourceOpacitySha256": "ff7a7e6b6fccb223a3eaa822ec89726e3f25996cc35d11950eb2339055116cb3",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/02d56b69989eaca8.png",
+          "outputSha256": "d92c64144c9ca827fc3b088946aa9516355e473f65b717fb9391d4107f5ebf2c",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_dirt_b",
+          "sourceEffectId": "75fbb66a0734827f",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_dirt",
+          "sourceEffectId": "4744cca2fe600e22",
+          "sourceEmitter": 9,
+          "sourceLifeSeconds": [
+            6.0,
+            12.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/128a856b642f861a.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\5ddb072b8c81dfb8.png",
+          "sourceColorSha256": "27018aaeda64887f19b3ecd15ebb5af10b3459239045198ba24b955afc13641c",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0f10a959b2c09042.png",
+          "sourceOpacitySha256": "7466661bd6f58d3dcd9fa8d575d92a2a726397bd6aa773d43309370beaf878a8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/128a856b642f861a.png",
+          "outputSha256": "0af881f99beed35a51b7399dc612c7f6f28ccc743b10b877f103dc67c95cd5dd",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_dirt_b",
+          "sourceEffectId": "75fbb66a0734827f",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            1.5,
+            2.0
+          ],
+          "lifeSeconds": [
+            1.5,
+            2.0
+          ]
+        }
+      ]
+    },
+    "aircraft25_40_wood": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_wood",
+      "sourceEffectId": "5cf9ab0f111656c2",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/1e91a1ae1cb570db.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0e783ac0ab010703.png",
+          "sourceColorSha256": "68829a9cdcce4b8e331409c5d8de4ca9d4094e588a324b5227cd65b79d446bb9",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ff8cb8450f0014b.png",
+          "sourceOpacitySha256": "522569a6de6d997e33c55a854ca24bb98d93ce49d8ce384795c3b1bc04dd12f8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1e91a1ae1cb570db.png",
+          "outputSha256": "e7fbe7f5fffc9d570bcbb87915be073642f087f613346d39570ccde4fb645ef7",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_gen_b",
+          "sourceEffectId": "6c34833609374566",
+          "sourceEmitter": 3,
+          "sourceLifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/02d56b69989eaca8.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\398bd936efb3a0c5.png",
+          "sourceColorSha256": "a85e93fbf8e0142fee3a24f75de913e3374304b1a08971846bff5409df7d66d3",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\28cdb1d1f650a4f5.png",
+          "sourceOpacitySha256": "ff7a7e6b6fccb223a3eaa822ec89726e3f25996cc35d11950eb2339055116cb3",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/02d56b69989eaca8.png",
+          "outputSha256": "d92c64144c9ca827fc3b088946aa9516355e473f65b717fb9391d4107f5ebf2c",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_gen_b",
+          "sourceEffectId": "6c34833609374566",
+          "sourceEmitter": 4,
+          "sourceLifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_wood",
+          "sourceEffectId": "5cf9ab0f111656c2",
+          "sourceEmitter": 9,
+          "sourceLifeSeconds": [
+            6.0,
+            12.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/128a856b642f861a.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\5ddb072b8c81dfb8.png",
+          "sourceColorSha256": "27018aaeda64887f19b3ecd15ebb5af10b3459239045198ba24b955afc13641c",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0f10a959b2c09042.png",
+          "sourceOpacitySha256": "7466661bd6f58d3dcd9fa8d575d92a2a726397bd6aa773d43309370beaf878a8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/128a856b642f861a.png",
+          "outputSha256": "0af881f99beed35a51b7399dc612c7f6f28ccc743b10b877f103dc67c95cd5dd",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_gen_b",
+          "sourceEffectId": "6c34833609374566",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            1.5,
+            2.0
+          ],
+          "lifeSeconds": [
+            1.5,
+            2.0
+          ]
+        }
+      ]
+    },
+    "aircraft25_40_metal": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_metal",
+      "sourceEffectId": "70af6f2509488696",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_metal",
+          "sourceEffectId": "70af6f2509488696",
+          "sourceEmitter": 6,
+          "sourceLifeSeconds": [
+            6.0,
+            12.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/324fe2e40fa94212.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\626b5a532a850391.png",
+          "sourceColorSha256": "433568a2888c9b7eae6ee55d089599a4d0ab17a0e6ae6ad606c2fd5f746e3fc3",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\69318f68867f2044.png",
+          "sourceOpacitySha256": "42cd1f94790ed80b7852c3d31f4082afcfa6b535141c3caff94aefd1daa45229",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/324fe2e40fa94212.png",
+          "outputSha256": "9d97d631f39bc9c29094c074385dcec4352b30c6473826715c0ffec93f3c5997",
+          "sourceEffect": "vfx/iw9/core/explosions/shared/vfx_explo_chunkhit_s_c",
+          "sourceEffectId": "61ad6cc7af790abc",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            4.0,
+            6.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/1ad3aebb988ad515.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_smoke_ball_flak_lrg_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\637e2950b401fe15.png",
+          "sourceColorSha256": "f7520f15ab38e703c0b63e9ffe4141d325105c7ae1413dcbeb490748a3cb3328",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\151578137eb0bfbf.png",
+          "sourceOpacitySha256": "4d2ecc3bf5c48ae0494a2db296abe4f9364f331461946b0c3ba3c9c64337cdef",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1ad3aebb988ad515.png",
+          "outputSha256": "76d1afc2bb2dff86d1f18608e5fa236d561d234b3ce3740c14d74a25f1da40ba",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_metal_b",
+          "sourceEffectId": "74002abad9b470eb",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            2.0,
+            2.0
+          ],
+          "lifeSeconds": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/3b477800782ddeca.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 2,
+          "staticVariant": true,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "material": "elcq/vfx_pyro_spark_streak_wiggle_sheet_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\1902e9bce5944618.png",
+          "sourceColorSha256": "9e488907a2ce1226e28ff62ffd5cee834bc37f610618f6eac7b837af6597179f",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/3b477800782ddeca.png",
+          "outputSha256": "32abb4bc82b97f3bd8b2fc68ecdbae7550eeb6095491b485deca6c65865e1bc2",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_metal",
+          "sourceEffectId": "70af6f2509488696",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.07500000298023224,
+            0.07500000298023224
+          ],
+          "lifeSeconds": [
+            0.15,
+            0.2
+          ]
+        }
+      ]
+    },
+    "aircraft25_40_water": {
+      "sourceEffect": "vfx/iw9/core/weapons/impacts/40mm/vfx_imp_40mm_water",
+      "sourceEffectId": "537025edafea8362",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/1424b916133936fc.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "material": "elcq/vfx_fluid_water_splash_anim_3_nospec",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\60286d8a38b79e21.png",
+          "sourceColorSha256": "d14481ae042c9cee8084ed28251612e944a82a90080cab8cde3056520a0eefca",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\47cee9378621ed00.png",
+          "sourceOpacitySha256": "42e8355d86f7761dbcfed8f9e631e9ba3786f278c7e85a7b509a2184c499920e",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1424b916133936fc.png",
+          "outputSha256": "42b5c932452bdbfc67d29f2bda943aeb6c8962d852426e7f46f11b06b947699e",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_water_a",
+          "sourceEffectId": "60f17fb795227098",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            2.0,
+            2.5
+          ],
+          "lifeSeconds": [
+            2.0,
+            2.5
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/701724bf9a90790a.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_fluid_water_splash_anim_1_nospec",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\05f65b8c56f13d76.png",
+          "sourceColorSha256": "c859609b55d04a2118aab81104895f23a10d763e4595f640f218720f611dc734",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\76b11ea6dbd56419.png",
+          "sourceOpacitySha256": "46b2e7fb6996fcc35a1aa7dae5474c132126ceb32996ac6df68a615f022072c8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/701724bf9a90790a.png",
+          "outputSha256": "1eff548f812dd87672f5ae9681b8f01e43cfe79c33c3066efc9966e026478869",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/25mm/vfx_imp_25mm_water_a",
+          "sourceEffectId": "60f17fb795227098",
+          "sourceEmitter": 11,
+          "sourceLifeSeconds": [
+            0.699999988079071,
+            1.0
+          ],
+          "lifeSeconds": [
+            0.699999988079071,
+            1.0
+          ]
+        }
+      ]
+    },
+    "aircraft25_apache_impact": {
+      "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_chopper_rocket",
+      "sourceEffectId": "3ab9912db018655c",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/02d56b69989eaca8.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\398bd936efb3a0c5.png",
+          "sourceColorSha256": "a85e93fbf8e0142fee3a24f75de913e3374304b1a08971846bff5409df7d66d3",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\28cdb1d1f650a4f5.png",
+          "sourceOpacitySha256": "ff7a7e6b6fccb223a3eaa822ec89726e3f25996cc35d11950eb2339055116cb3",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/02d56b69989eaca8.png",
+          "outputSha256": "d92c64144c9ca827fc3b088946aa9516355e473f65b717fb9391d4107f5ebf2c",
+          "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_chopper_rocket",
+          "sourceEffectId": "3ab9912db018655c",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            8.0,
+            9.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/1e91a1ae1cb570db.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0e783ac0ab010703.png",
+          "sourceColorSha256": "68829a9cdcce4b8e331409c5d8de4ca9d4094e588a324b5227cd65b79d446bb9",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ff8cb8450f0014b.png",
+          "sourceOpacitySha256": "522569a6de6d997e33c55a854ca24bb98d93ce49d8ce384795c3b1bc04dd12f8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1e91a1ae1cb570db.png",
+          "outputSha256": "e7fbe7f5fffc9d570bcbb87915be073642f087f613346d39570ccde4fb645ef7",
+          "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_chopper_rocket",
+          "sourceEffectId": "3ab9912db018655c",
+          "sourceEmitter": 12,
+          "sourceLifeSeconds": [
+            4.5,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/18b8a87b7b2a8903.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0bc037b8f59022b4.png",
+          "sourceColorSha256": "941142a4f82a6be07059d3a021ed161bbd83728b92643ab619e112077f889612",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/18b8a87b7b2a8903.png",
+          "outputSha256": "172573b97d1773a4932e9f65b20d5edb0c24169f7b4b3c992285f843c9db01f8",
+          "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_chopper_rocket",
+          "sourceEffectId": "3ab9912db018655c",
+          "sourceEmitter": 22,
+          "sourceLifeSeconds": [
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "lifeSeconds": [
+            0.15,
+            0.2
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/explosions/shared/vfx_explo_cld_chockhit_main",
+          "sourceEffectId": "1463820a8d567ea5",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            3.5,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        }
+      ]
+    },
+    "aircraft25_apache_water": {
+      "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_hellfire_mp_water",
+      "sourceEffectId": "472a5fe78ffe2235",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/3baa05efc0a44140.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_fluid_water_splash_lar_anim_2",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\489776c754d2c856.png",
+          "sourceColorSha256": "20cfe9edb32ce1c21082663f928d34ecd11efa9a21f2bcbe9483497ffe1084e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\453d76e5a86d0d45.png",
+          "sourceOpacitySha256": "6284968c5102380d052c3cfa58733556a68f2a6c32057535cbeb8584f7bc684d",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/3baa05efc0a44140.png",
+          "outputSha256": "1d6bed15f0073ac2cf11e6bddfb43336e1ebfa23cecf53f475102d195bfa6d7f",
+          "sourceEffect": "vfx/iw9/core/equipment/shared/vfx_equip_above_water_exp_lrg",
+          "sourceEffectId": "13020e89c0b5d79b",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            3.0,
+            3.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/0c8b3a0aaaf182b9.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 2,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "material": "elcq/vfx_fluid_viscous_splash_anim_4",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ea14ae28a7786b6.png",
+          "sourceColorSha256": "197bde07fb38eddd5a3662c295244408377d2cf2fd169eb8980abfd2837b75ce",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\617f94b5327ad627.png",
+          "sourceOpacitySha256": "2dd3dcd3d54fb45b02f3e0f59a9b470572068159c8969394f834f6c14594017d",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/0c8b3a0aaaf182b9.png",
+          "outputSha256": "7c9e7d530ea770db0486a73780d74b6f692137fb4f60e8c85b6adce7be3172a5",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/shared/vfx_impact_residual_splashes",
+          "sourceEffectId": "250ff9734822cf20",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.25,
+            0.30000001192092896
+          ],
+          "lifeSeconds": [
+            0.25,
+            0.30000001192092896
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/18b8a87b7b2a8903.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0bc037b8f59022b4.png",
+          "sourceColorSha256": "941142a4f82a6be07059d3a021ed161bbd83728b92643ab619e112077f889612",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/18b8a87b7b2a8903.png",
+          "outputSha256": "172573b97d1773a4932e9f65b20d5edb0c24169f7b4b3c992285f843c9db01f8",
+          "sourceEffect": "vfx/iw9/core/equipment/shared/vfx_equip_underwater_exp",
+          "sourceEffectId": "1eba4cab01767353",
+          "sourceEmitter": 11,
+          "sourceLifeSeconds": [
+            0.07000000029802322,
+            0.07000000029802322
+          ],
+          "lifeSeconds": [
+            0.15,
+            0.2
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/explosions/shared/vfx_explo_cld_chockhit_main",
+          "sourceEffectId": "1463820a8d567ea5",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            3.5,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        }
+      ]
+    },
+    "aircraft25_gunship105_impact": {
+      "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_hellfire_mp_gen",
+      "sourceEffectId": "4128c0b1d5a85478",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/02d56b69989eaca8.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\398bd936efb3a0c5.png",
+          "sourceColorSha256": "a85e93fbf8e0142fee3a24f75de913e3374304b1a08971846bff5409df7d66d3",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\28cdb1d1f650a4f5.png",
+          "sourceOpacitySha256": "ff7a7e6b6fccb223a3eaa822ec89726e3f25996cc35d11950eb2339055116cb3",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/02d56b69989eaca8.png",
+          "outputSha256": "d92c64144c9ca827fc3b088946aa9516355e473f65b717fb9391d4107f5ebf2c",
+          "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_hellfire_mp_gen",
+          "sourceEffectId": "4128c0b1d5a85478",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            8.0,
+            9.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/1e91a1ae1cb570db.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0e783ac0ab010703.png",
+          "sourceColorSha256": "68829a9cdcce4b8e331409c5d8de4ca9d4094e588a324b5227cd65b79d446bb9",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ff8cb8450f0014b.png",
+          "sourceOpacitySha256": "522569a6de6d997e33c55a854ca24bb98d93ce49d8ce384795c3b1bc04dd12f8",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/1e91a1ae1cb570db.png",
+          "outputSha256": "e7fbe7f5fffc9d570bcbb87915be073642f087f613346d39570ccde4fb645ef7",
+          "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_hellfire_mp_gen",
+          "sourceEffectId": "4128c0b1d5a85478",
+          "sourceEmitter": 5,
+          "sourceLifeSeconds": [
+            5.0,
+            6.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/18b8a87b7b2a8903.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0bc037b8f59022b4.png",
+          "sourceColorSha256": "941142a4f82a6be07059d3a021ed161bbd83728b92643ab619e112077f889612",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/18b8a87b7b2a8903.png",
+          "outputSha256": "172573b97d1773a4932e9f65b20d5edb0c24169f7b4b3c992285f843c9db01f8",
+          "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_hellfire_mp_gen",
+          "sourceEffectId": "4128c0b1d5a85478",
+          "sourceEmitter": 24,
+          "sourceLifeSeconds": [
+            0.07500000298023224,
+            0.08500000089406967
+          ],
+          "lifeSeconds": [
+            0.15,
+            0.2
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/explosions/shared/vfx_explo_cld_chockhit_main",
+          "sourceEffectId": "1463820a8d567ea5",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            3.5,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        }
+      ]
+    },
+    "aircraft25_gunship105_water": {
+      "sourceEffect": "vfx/iw9/core/explosions/vfx_explo_hellfire_mp_water",
+      "sourceEffectId": "472a5fe78ffe2235",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/aircraft25/3baa05efc0a44140.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_fluid_water_splash_lar_anim_2",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\489776c754d2c856.png",
+          "sourceColorSha256": "20cfe9edb32ce1c21082663f928d34ecd11efa9a21f2bcbe9483497ffe1084e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\453d76e5a86d0d45.png",
+          "sourceOpacitySha256": "6284968c5102380d052c3cfa58733556a68f2a6c32057535cbeb8584f7bc684d",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/3baa05efc0a44140.png",
+          "outputSha256": "1d6bed15f0073ac2cf11e6bddfb43336e1ebfa23cecf53f475102d195bfa6d7f",
+          "sourceEffect": "vfx/iw9/core/equipment/shared/vfx_equip_above_water_exp_lrg",
+          "sourceEffectId": "13020e89c0b5d79b",
+          "sourceEmitter": 2,
+          "sourceLifeSeconds": [
+            3.0,
+            3.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/0c8b3a0aaaf182b9.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 2,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "material": "elcq/vfx_fluid_viscous_splash_anim_4",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\7ea14ae28a7786b6.png",
+          "sourceColorSha256": "197bde07fb38eddd5a3662c295244408377d2cf2fd169eb8980abfd2837b75ce",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\617f94b5327ad627.png",
+          "sourceOpacitySha256": "2dd3dcd3d54fb45b02f3e0f59a9b470572068159c8969394f834f6c14594017d",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/0c8b3a0aaaf182b9.png",
+          "outputSha256": "7c9e7d530ea770db0486a73780d74b6f692137fb4f60e8c85b6adce7be3172a5",
+          "sourceEffect": "vfx/iw9/core/weapons/impacts/shared/vfx_impact_residual_splashes",
+          "sourceEffectId": "250ff9734822cf20",
+          "sourceEmitter": 0,
+          "sourceLifeSeconds": [
+            0.25,
+            0.30000001192092896
+          ],
+          "lifeSeconds": [
+            0.25,
+            0.30000001192092896
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/18b8a87b7b2a8903.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\0bc037b8f59022b4.png",
+          "sourceColorSha256": "941142a4f82a6be07059d3a021ed161bbd83728b92643ab619e112077f889612",
+          "sourceColorSemantic": 8,
+          "sourceOpacity": null,
+          "sourceOpacitySha256": null,
+          "alphaAdapter": "emissive RGB coverage",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/18b8a87b7b2a8903.png",
+          "outputSha256": "172573b97d1773a4932e9f65b20d5edb0c24169f7b4b3c992285f843c9db01f8",
+          "sourceEffect": "vfx/iw9/core/equipment/shared/vfx_equip_underwater_exp",
+          "sourceEffectId": "1eba4cab01767353",
+          "sourceEmitter": 11,
+          "sourceLifeSeconds": [
+            0.07000000029802322,
+            0.07000000029802322
+          ],
+          "lifeSeconds": [
+            0.15,
+            0.2
+          ]
+        },
+        {
+          "texture": "killstreakcod:textures/aircraft25/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "staticVariant": false,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "sourceColor": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\07dc8471393c94dc.png",
+          "sourceColorSha256": "bb318f796dd74c3f1830681334def192593361eb98e4409c806f73979a5328e4",
+          "sourceColorSemantic": 0,
+          "sourceOpacity": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\aircraft_fire_fx_textures\\23acfcde882ecfe1.png",
+          "sourceOpacitySha256": "4e9ebe82d6b5680c70ab950675b5ee89b2e25440d7360dbb78717e02f0b13528",
+          "alphaAdapter": "inverted native transmittance",
+          "frameBorderPixels": 2,
+          "output": "src/main/resources/assets/killstreakcod/textures/aircraft25/120233e6c242a3df.png",
+          "outputSha256": "75d7f08f309dfa730253cdcf4beaf115fdf3995375aa689145f35976d7d6195f",
+          "sourceEffect": "vfx/iw9/core/explosions/shared/vfx_explo_cld_chockhit_main",
+          "sourceEffectId": "1463820a8d567ea5",
+          "sourceEmitter": 1,
+          "sourceLifeSeconds": [
+            3.5,
+            5.0
+          ],
+          "lifeSeconds": [
+            2.5,
+            3
+          ]
+        }
+      ]
+    },
+    "aircraft25_apache_brass": {
+      "sourceEffect": "vfx/core/shell/vfx_shej_apache_turret_w",
+      "layers": []
+    }
+  },
+  "debris": {
+    "aircraft25_apache_brass": [
+      "aircraft25_fx_vfx_shell_snpr_alpha50"
+    ]
+  },
+  "scope": "Verified original primary SFX, descendant sprites and original casing; bounded Minecraft placement/blending/lifetimes. IW graph scheduler, distortion, collision modules and complete mixing are not emulated."
+}

@@ -546,10 +546,15 @@ public final class TacticalClient {
         if (shake.lengthSquared() == 0)
             return;
         Camera camera = Minecraft.getInstance().gameRenderer.getMainCamera();
-        Quaternionf unshaken = new Quaternionf().rotationYXZ(
-                (float) Math.PI - (camera.getYRot() - shake.x) * Mth.DEG_TO_RAD,
-                -(camera.getXRot() - shake.y) * Mth.DEG_TO_RAD, -(cameraRoll - shake.z) * Mth.DEG_TO_RAD);
-        pose.mulPose(new Quaternionf(camera.rotation()).invert().mul(unshaken));
+        // 1.20.1 Camera.rotation() uses a different basis from the OpenGL world view.
+        // Build both views in the same basis so an impulse remains a small camera-local delta.
+        Quaternionf view = new Quaternionf().rotateZ(cameraRoll * Mth.DEG_TO_RAD)
+                .rotateX(camera.getXRot() * Mth.DEG_TO_RAD)
+                .rotateY((camera.getYRot() + 180) * Mth.DEG_TO_RAD);
+        Quaternionf unshaken = new Quaternionf().rotateZ((cameraRoll - shake.z) * Mth.DEG_TO_RAD)
+                .rotateX((camera.getXRot() - shake.y) * Mth.DEG_TO_RAD)
+                .rotateY((camera.getYRot() - shake.x + 180) * Mth.DEG_TO_RAD);
+        pose.mulPose(view.mul(unshaken.invert()));
     }
 
     private static boolean scoping() {

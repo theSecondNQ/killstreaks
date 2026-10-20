@@ -1,0 +1,559 @@
+{
+  "format": 1,
+  "id": "csj21_vm_lm_dblmg_pose_r",
+  "source": "vm_lm_dblmg_pose_r",
+  "fps": 30.0,
+  "last_frame": 0,
+  "loop": false,
+  "source_type": 6,
+  "curves": [
+    {
+      "bone": "j_spinelower",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spineupper",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spine4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shoulder_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shouldertwist_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_elbow_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_wrist_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shield_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_wristfronttwist1_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metamid_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metapinky_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metaring_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metaindex_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_gun",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_accessory_right",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_weapon_right",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_ri_4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "name": "end",
+      "frames": [
+        0
+      ]
+    }
+  ]
+}

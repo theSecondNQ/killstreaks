@@ -1,0 +1,14 @@
+[
+  {
+    "full_hash": "4175ce220d857d01",
+    "english": "Launch",
+    "zh_Hans": "启动",
+    "basis": "exact full64 original phone bytecode key -> captured type60 value in both locales"
+  },
+  {
+    "full_hash": "51915ac855865ed7",
+    "english": "Launch\nInitiated",
+    "zh_Hans": "确认\n启动",
+    "basis": "exact full64 original phone bytecode key -> captured type60 value in both locales"
+  }
+]

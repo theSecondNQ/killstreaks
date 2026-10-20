@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "profiles": {
+    "sae21_impact": {
+      "sourceEffect": "vfx/iw9/killstreaks/precisionairstrike/vfx_25mm_impact_runner",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/csj22/5a28bcb8dda5d77e.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "lifeSeconds": [
+            0.15000000596046448,
+            0.30000001192092896
+          ],
+          "material": "elcq/vfx_pyro_spark_long_anim_1",
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/5a28bcb8dda5d77e.png",
+          "staticVariant": false
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/324fe2e40fa94212.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "lifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/324fe2e40fa94212.png",
+          "staticVariant": false
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "lifeSeconds": [
+            3.0,
+            4.0
+          ],
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/120233e6c242a3df.png",
+          "staticVariant": false
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/71c1d09958f6bfd8.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "lifeSeconds": [
+            4.0,
+            6.0
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/71c1d09958f6bfd8.png",
+          "staticVariant": false
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/3b477800782ddeca.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 2,
+          "lifeSeconds": [
+            0.5,
+            1.5
+          ],
+          "material": "elcq/vfx_pyro_spark_streak_wiggle_sheet_1",
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/3b477800782ddeca.png",
+          "staticVariant": true
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/107b9e75a7cf9197.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "lifeSeconds": [
+            0.5,
+            1.0
+          ],
+          "material": "elcq/vfx_pyro_spark_dot_flicker_loop_1",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/107b9e75a7cf9197.png",
+          "staticVariant": false
+        }
+      ]
+    },
+    "m13421_muzzle": {
+      "sourceEffect": "vfx/iw9/core/weapons/muzzleflash/lmg/vfx_muz_dblmg_m",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/csj22/773922a6ec3edba8.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ],
+          "material": "elcq/vfx_flash_muzzle_side_sheet_1_ecomp",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/773922a6ec3edba8.png",
+          "staticVariant": true
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/516ef7f117579956.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ],
+          "material": "elcq/vfx_flash_muzzle_smg_front_sheet_1_nc_ec",
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/516ef7f117579956.png",
+          "staticVariant": true
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/6419a000b83d30d4.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ],
+          "material": "elcq/vfx_flash_muzzle_front_sheet_1_ec",
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/6419a000b83d30d4.png",
+          "staticVariant": true
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/2101eb7f3a84f429.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "lifeSeconds": [
+            0.1,
+            0.15
+          ],
+          "material": "elcq/vfx_flash_muzzle_smg_front_sheet_1",
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/2101eb7f3a84f429.png",
+          "staticVariant": true
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/5a28bcb8dda5d77e.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "lifeSeconds": [
+            0.06499999761581421,
+            0.1599999964237213
+          ],
+          "material": "elcq/vfx_pyro_spark_long_anim_1",
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/5a28bcb8dda5d77e.png",
+          "staticVariant": false
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "lifeSeconds": [
+            0.25,
+            0.800000011920929
+          ],
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/120233e6c242a3df.png",
+          "staticVariant": false
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/6ed03bbd3eaab5d2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "material": "elcq/vfx_vol_dust_impact_anim_9",
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/6ed03bbd3eaab5d2.png",
+          "staticVariant": false
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/6ed03cbd3eaab785.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "material": "elcq/vfx_vol_dust_impact_anim_8",
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/6ed03cbd3eaab785.png",
+          "staticVariant": false
+        }
+      ]
+    },
+    "cluster21_plant": {
+      "sourceEffect": "vfx/iw9/core/equipment/shared/vfx_equip_plant",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/csj22/324fe2e40fa94212.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "lifeSeconds": [
+            1.2000000476837158,
+            1.7000000476837158
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/324fe2e40fa94212.png",
+          "staticVariant": false
+        },
+        {
+          "texture": "killstreakcod:textures/csj22/120233e6c242a3df.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "lifeSeconds": [
+            7.0,
+            9.0
+          ],
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "sourceDelaySeconds": 0,
+          "sourceTexture422": "killstreakcod:textures/csj21/fx/120233e6c242a3df.png",
+          "staticVariant": false
+        }
+      ]
+    },
+    "m13421_brass": {
+      "sourceEffect": "Original weapon-linked spent 7.62 cartridge and link meshes",
+      "layers": []
+    }
+  },
+  "scope": "Verified descendant sprites with bounded Minecraft life, opacity and atlas adapters; not full IW particle simulation",
+  "debris": {
+    "sae21_impact": [
+      "csj21_fx_vfx_debris_asphalt_1_g1",
+      "csj21_fx_vfx_debris_concrete_1_g1",
+      "csj21_fx_vfx_debris_dirt_chunks_1_g1"
+    ],
+    "m13421_brass": [
+      "csj21_fx_ammo_spent_762n",
+      "csj21_fx_link_762n"
+    ]
+  }
+}

@@ -1,0 +1,2164 @@
+{
+  "format": 1,
+  "id": "csj21_vm_lm_dblmg_idle",
+  "source": "vm_lm_dblmg_idle",
+  "fps": 30.0,
+  "last_frame": 1,
+  "loop": true,
+  "source_type": 1,
+  "curves": [
+    {
+      "bone": "tag_sync",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_view",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_cambone",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_torso",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_camera",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spinelower",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_hiptwist_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_hiptwist_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spineupper",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spine4",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_chest",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_4",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_4",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_lever_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_trigger",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_mag_attach",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_rotating_barrels",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_helmet",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_nvg",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_visor",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_visor_inner",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_player",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_playerhelmet",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_clip",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mag1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mag2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ammo_13",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_groinprotector",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0004882961511611938,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_knee_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.05957213044166565,
+        0.9982299208641052
+      ]
+    },
+    {
+      "bone": "j_knee_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.05957213044166565,
+        0.9982299208641052
+      ]
+    },
+    {
+      "bone": "j_ankle_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -0.5475935935974121,
+        0.8367564678192139
+      ]
+    },
+    {
+      "bone": "j_kneedq_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -0.029786065220832825,
+        0.999542236328125
+      ]
+    },
+    {
+      "bone": "j_ball_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -0.2561418414115906,
+        0.9666432738304138
+      ]
+    },
+    {
+      "bone": "j_ankle_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -0.5475935935974121,
+        0.8367564678192139
+      ]
+    },
+    {
+      "bone": "j_kneedq_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -0.029786065220832825,
+        0.999542236328125
+      ]
+    },
+    {
+      "bone": "j_ball_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -0.2561418414115906,
+        0.9666432738304138
+      ]
+    },
+    {
+      "bone": "j_neck",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -0.14651936292648315,
+        0.9891964197158813
+      ]
+    },
+    {
+      "bone": "j_head",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.14651936292648315,
+        0.9891964197158813
+      ]
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.1816766858100891,
+        0.983367383480072
+      ]
+    },
+    {
+      "bone": "j_mid_le_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.5612658858299255,
+        0.8276314735412598
+      ]
+    },
+    {
+      "bone": "j_pinky_le_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.7203894257545471,
+        0.6935636401176453
+      ]
+    },
+    {
+      "bone": "j_ring_le_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.6553850173950195,
+        0.7553026080131531
+      ]
+    },
+    {
+      "bone": "j_index_ri_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.23377178609371185,
+        0.9722892045974731
+      ]
+    },
+    {
+      "bone": "j_index_ri_4",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.269508957862854,
+        0.9630115628242493
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.44856104254722595,
+        0.8937650918960571
+      ]
+    },
+    {
+      "bone": "j_ring_ri_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.2459791898727417,
+        0.9692678451538086
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.33005768060684204,
+        0.9439679980278015
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_4",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "bone": "j_mainroot",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.5000152587890625,
+        -0.4999847412109375,
+        0.5000152587890625,
+        0.5000152587890625
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.08529923111200333,
+        -0.08832056820392609,
+        0.009735404513776302,
+        0.9923703670501709
+      ]
+    },
+    {
+      "bone": "j_hip_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.006500442512333393,
+        0.999969482421875,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bone": "j_hip_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.006500442512333393,
+        0.999969482421875,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bone": "j_crotch",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.7071138620376587,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.13055817782878876,
+        0.6915494203567505,
+        -0.13180944323539734,
+        0.6981108784675598
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.01992858573794365,
+        -0.7034821510314941,
+        -0.01989806815981865,
+        0.7101657390594482
+      ]
+    },
+    {
+      "bone": "j_shoulder_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.2058168351650238,
+        0.23200170695781708,
+        -0.5936460494995117,
+        0.7425458431243896
+      ]
+    },
+    {
+      "bone": "j_shoulder_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.02221747487783432,
+        -0.41026031970977783,
+        -0.10428174585103989,
+        0.9057283401489258
+      ]
+    },
+    {
+      "bone": "j_shouldertwist_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.06060975790023804,
+        0.0,
+        0.0,
+        0.9981688857078552
+      ]
+    },
+    {
+      "bone": "j_elbow_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        -0.3573107123374939,
+        0.9339884519577026
+      ]
+    },
+    {
+      "bone": "j_wristfronttwist1_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.3645435869693756,
+        0.0,
+        0.0,
+        0.9311807751655579
+      ]
+    },
+    {
+      "bone": "j_shield_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.18549150228500366,
+        0.0,
+        3.0518509447574615e-05,
+        0.982634961605072
+      ]
+    },
+    {
+      "bone": "j_wrist_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.3551744222640991,
+        -0.026734214276075363,
+        0.15677358210086823,
+        0.921170711517334
+      ]
+    },
+    {
+      "bone": "j_thumb_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.1975768357515335,
+        0.05102694779634476,
+        -0.3908505439758301,
+        0.8975493907928467
+      ]
+    },
+    {
+      "bone": "j_metapinky_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.7629322409629822,
+        -0.03427228704094887,
+        0.042542800307273865,
+        0.6441847085952759
+      ]
+    },
+    {
+      "bone": "j_metaring_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.7705312967300415,
+        -0.036133915185928345,
+        -0.010101626627147198,
+        0.6363109350204468
+      ]
+    },
+    {
+      "bone": "j_metaindex_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.7358928322792053,
+        0.01730399578809738,
+        -0.1105380430817604,
+        0.6678060293197632
+      ]
+    },
+    {
+      "bone": "j_metamid_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.7394024729728699,
+        -0.019592883065342903,
+        -0.07086397707462311,
+        0.669240415096283
+      ]
+    },
+    {
+      "bone": "j_webbing_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.43986326456069946,
+        -0.01547288428992033,
+        -0.2796716094017029,
+        0.8532670140266418
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.0709860548377037,
+        0.04684591293334961,
+        0.23996703326702118,
+        0.9670400023460388
+      ]
+    },
+    {
+      "bone": "j_index_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.06442457437515259,
+        -0.09161656349897385,
+        0.39219337701797485,
+        0.9130527377128601
+      ]
+    },
+    {
+      "bone": "j_mid_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.003997924737632275,
+        -0.025208288803696632,
+        0.6874904632568359,
+        0.7257301807403564
+      ]
+    },
+    {
+      "bone": "j_thumb_le_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.2145451158285141,
+        0.0477309487760067,
+        0.33011871576309204,
+        0.9179967641830444
+      ]
+    },
+    {
+      "bone": "j_pinky_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.10443434119224548,
+        0.0029602954164147377,
+        0.7780083417892456,
+        0.6195257306098938
+      ]
+    },
+    {
+      "bone": "j_ring_le_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.03555406257510185,
+        -0.03231910243630409,
+        0.7438581585884094,
+        0.6665852665901184
+      ]
+    },
+    {
+      "bone": "j_index_le_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        0.0,
+        0.8226569294929504,
+        0.5685598254203796
+      ]
+    },
+    {
+      "bone": "j_index_le_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.0013733329251408577,
+        -0.001739555038511753,
+        0.5449385046958923,
+        0.8384655117988586
+      ]
+    },
+    {
+      "bone": "j_mid_le_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        0.7702261209487915,
+        0.6377758383750916
+      ]
+    },
+    {
+      "bone": "j_pinky_le_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.03418073058128357,
+        -0.009949034079909325,
+        0.5090792775154114,
+        0.8599810600280762
+      ]
+    },
+    {
+      "bone": "j_ring_le_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        0.6542252898216248,
+        0.7563096880912781
+      ]
+    },
+    {
+      "bone": "j_thumb_le_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.0018616290763020515,
+        0.06018250063061714,
+        0.19608142971992493,
+        0.9787285923957825
+      ]
+    },
+    {
+      "bone": "j_elbow_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -6.103701889514923e-05,
+        3.0518509447574615e-05,
+        -0.860621988773346,
+        0.5092623829841614
+      ]
+    },
+    {
+      "bone": "j_shouldertwist_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.005767998285591602,
+        0.0,
+        0.0,
+        0.999969482421875
+      ]
+    },
+    {
+      "bone": "j_wristfronttwist1_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.17288735508918762,
+        3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        0.9849543571472168
+      ]
+    },
+    {
+      "bone": "j_shield_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0867946445941925,
+        0.0,
+        0.0,
+        0.9962157011032104
+      ]
+    },
+    {
+      "bone": "j_wrist_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.16013062000274658,
+        0.04467909783124924,
+        0.15717032551765442,
+        0.9734793901443481
+      ]
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        0.0,
+        0.49537643790245056,
+        0.868678867816925
+      ]
+    },
+    {
+      "bone": "j_metamid_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.7394024729728699,
+        0.019653920084238052,
+        -0.07083345949649811,
+        0.669240415096283
+      ]
+    },
+    {
+      "bone": "j_metapinky_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.7635731101036072,
+        0.014038514345884323,
+        0.05966368690133095,
+        0.6428113579750061
+      ]
+    },
+    {
+      "bone": "j_metaring_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.7706839442253113,
+        0.0318308062851429,
+        -0.006500442512333393,
+        0.6363719701766968
+      ]
+    },
+    {
+      "bone": "j_metaindex_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.7359843850135803,
+        0.00946073792874813,
+        -0.1346781849861145,
+        0.6633808612823486
+      ]
+    },
+    {
+      "bone": "j_gun",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.7566148638725281,
+        0.14447462558746338,
+        -0.06454664468765259,
+        0.634418785572052
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.49665823578834534,
+        -0.10614337772130966,
+        -0.4674215018749237,
+        0.7235938310623169
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.43989378213882446,
+        0.015442365780472755,
+        -0.2796716094017029,
+        0.8532364964485168
+      ]
+    },
+    {
+      "bone": "tag_weapon_right",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.7566148638725281,
+        0.14447462558746338,
+        -0.06454664468765259,
+        0.634418785572052
+      ]
+    },
+    {
+      "bone": "j_mid_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.03466902673244476,
+        0.15588854253292084,
+        0.5843989253044128,
+        0.7956175208091736
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.07486190646886826,
+        0.09176915884017944,
+        0.6099123954772949,
+        0.7835932374000549
+      ]
+    },
+    {
+      "bone": "j_ring_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.03341776877641678,
+        0.1429487019777298,
+        0.6290475130081177,
+        0.7633594870567322
+      ]
+    },
+    {
+      "bone": "j_index_ri_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.095797598361969,
+        0.13739432394504547,
+        0.1425824761390686,
+        0.9755241274833679
+      ]
+    },
+    {
+      "bone": "tag_ik_loc_le",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0709860548377037,
+        -0.04684591293334961,
+        -0.23996703326702118,
+        0.9670400023460388
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.15604114532470703,
+        -0.1497238129377365,
+        0.35340434312820435,
+        0.9101229906082153
+      ]
+    },
+    {
+      "bone": "j_index_ri_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.6245613098144531,
+        0.7809686660766602
+      ]
+    },
+    {
+      "bone": "j_mid_ri_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        0.0,
+        0.65141761302948,
+        0.7587206363677979
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        0.33109530806541443,
+        0.9436017870903015
+      ]
+    },
+    {
+      "bone": "j_ring_ri_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.5482955574989319,
+        0.8362987041473389
+      ]
+    },
+    {
+      "bone": "j_ammo_1",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.03677480295300484,
+        0.0,
+        0.0,
+        0.99932861328125
+      ]
+    },
+    {
+      "bone": "j_ammo_2",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.04373302310705185,
+        0.0,
+        0.0,
+        0.999053955078125
+      ]
+    },
+    {
+      "bone": "j_ammo_3",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.004028443247079849,
+        -3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ammo_4",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.05249183624982834,
+        -3.0518509447574615e-05,
+        0.0,
+        0.9986266493797302
+      ]
+    },
+    {
+      "bone": "j_ammo_5",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.02621540054678917,
+        0.0,
+        0.0,
+        0.999664306640625
+      ]
+    },
+    {
+      "bone": "j_ammo_6",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.017700735479593277,
+        6.103701889514923e-05,
+        -6.103701889514923e-05,
+        0.999847412109375
+      ]
+    },
+    {
+      "bone": "j_ammo_7",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.04190191254019737,
+        9.155552834272385e-05,
+        -3.0518509447574615e-05,
+        0.999114990234375
+      ]
+    },
+    {
+      "bone": "j_ammo_8",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.03729362040758133,
+        -6.103701889514923e-05,
+        3.0518509447574615e-05,
+        0.999298095703125
+      ]
+    },
+    {
+      "bone": "j_ammo_9",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.03247169405221939,
+        -3.0518509447574615e-05,
+        0.00015259254723787308,
+        0.999481201171875
+      ]
+    },
+    {
+      "bone": "j_ammo_10",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0139469588175416,
+        9.155552834272385e-05,
+        0.0001831110566854477,
+        0.999908447265625
+      ]
+    },
+    {
+      "bone": "j_ammo_11",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.044801171869039536,
+        -0.00033570360392332077,
+        -0.0005188146606087685,
+        0.9989928603172302
+      ]
+    },
+    {
+      "bone": "j_ammo_12",
+      "property": "rq",
+      "mode": "absolute",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.022858362644910812,
+        0.0002136295661330223,
+        0.00030518509447574615,
+        0.999725341796875
+      ]
+    },
+    {
+      "bone": "tag_view",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.00039999932050704956
+      ]
+    },
+    {
+      "bone": "tag_view",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0
+      ]
+    },
+    {
+      "bone": "tag_view",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -64.32019805908203
+      ]
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0007338523864746094
+      ]
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.00012969970703125
+      ]
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.05649566650390625
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0005655288696289062
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0001583099365234375
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.18619918823242188
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        11.404400825500488
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -5.3881001472473145
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        5.138999938964844
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.000896453857421875
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        2.0865001678466797
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.16919994354248047
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.000896453857421875
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        4.874800205230713
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0018000602722167969
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        16.271188735961914
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        27.735822677612305
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        33.055206298828125
+      ]
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.8982830047607422
+      ]
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.32714271545410156
+      ]
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.000885009765625
+      ]
+    },
+    {
+      "bone": "j_gun",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        39.05344772338867
+      ]
+    },
+    {
+      "bone": "j_gun",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        9.290618896484375
+      ]
+    },
+    {
+      "bone": "j_gun",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.062061309814453
+      ]
+    },
+    {
+      "bone": "tag_weapon_right",
+      "property": "tx",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        39.05344772338867
+      ]
+    },
+    {
+      "bone": "tag_weapon_right",
+      "property": "ty",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        9.290618896484375
+      ]
+    },
+    {
+      "bone": "tag_weapon_right",
+      "property": "tz",
+      "mode": "relative",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.062061309814453
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "name": "loop_end",
+      "frames": [
+        1
+      ]
+    }
+  ]
+}

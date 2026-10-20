@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "id": "scene_vm_ks_gunship_clipboard2_intro",
+  "source": "vm_ks_gunship_clipboard2_intro_complete.json",
+  "fps": 30.0,
+  "last_frame": 102,
+  "loop": false,
+  "translationCoordinateScale": 2.54,
+  "nativeVectorChannelsExpanded": true,
+  "curves": [
+    {
+      "bone": "bone_99237a3c",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "99237a3c",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.9844355583190918,
+        0.17575609683990479
+      ]
+    },
+    {
+      "bone": "bone_99237a3c",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "99237a3c",
+      "property": "tx",
+      "values": [
+        -103.07802993774415
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_99237a3c",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "99237a3c",
+      "property": "ty",
+      "values": [
+        20.552408294677736
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_99237a3c",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "99237a3c",
+      "property": "tz",
+      "values": [
+        77.09915538787843
+      ],
+      "sourceProperty": "t"
+    }
+  ],
+  "notifications": [
+    {
+      "name": "end",
+      "frames": [
+        102
+      ],
+      "normalized_time": 1.0
+    }
+  ]
+}

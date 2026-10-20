@@ -1,0 +1,1726 @@
+{
+  "format": 1,
+  "id": "csj21_vm_lm_dblmg_super_sprint_offset_additive",
+  "source": "vm_lm_dblmg_super_sprint_offset_additive",
+  "fps": 30.0,
+  "last_frame": 0,
+  "loop": false,
+  "source_type": 6,
+  "curves": [
+    {
+      "bone": "tag_sync",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_view",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_cambone",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_torso",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mainroot",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_hip_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_hip_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spinelower",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_crotch",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_groinprotector",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_hiptwist_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_knee_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_hiptwist_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_knee_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spineupper",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ankle_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_kneedq_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ball_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ankle_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_kneedq_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ball_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spine4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_neck",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_chest",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_head",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metaring_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shouldertwist_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_wrist_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_ri_4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_helmet",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_visor_inner",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_visor",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_player",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_playerhelmet",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.1895504593849182,
+        0.981872022151947
+      ]
+    },
+    {
+      "bone": "j_pinky_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metaring_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_weapon_right",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metaindex_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_camera",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.0010986663401126862,
+        0.00079348124563694,
+        -0.0007629627361893654,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.08584856986999512,
+        -0.3962523341178894,
+        0.3041779696941376,
+        0.862025797367096
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.00030518509447574615,
+        0.0013122959062457085,
+        -0.0007324442267417908,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.33744317293167114,
+        0.15579698979854584,
+        -0.34464552998542786,
+        0.862025797367096
+      ]
+    },
+    {
+      "bone": "j_shoulder_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.05392620712518692,
+        -0.17139194905757904,
+        0.4775231182575226,
+        0.8600420951843262
+      ]
+    },
+    {
+      "bone": "j_shoulder_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_elbow_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        -0.3722647726535797,
+        0.9281288981437683
+      ]
+    },
+    {
+      "bone": "j_shouldertwist_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.11301004141569138,
+        -3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        0.9935911297798157
+      ]
+    },
+    {
+      "bone": "j_wristfronttwist1_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.30683308839797974,
+        0.0,
+        0.0,
+        0.9517502188682556
+      ]
+    },
+    {
+      "bone": "j_wrist_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.27454450726509094,
+        -0.024414807558059692,
+        0.10031434148550034,
+        0.9560227990150452
+      ]
+    },
+    {
+      "bone": "j_shield_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.15527817606925964,
+        0.0,
+        -3.0518509447574615e-05,
+        0.9878841638565063
+      ]
+    },
+    {
+      "bone": "j_metamid_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.025025177747011185,
+        -0.3747367858886719,
+        0.07849361002445221,
+        0.9234595894813538
+      ]
+    },
+    {
+      "bone": "j_metapinky_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        0.0,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metaindex_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        6.103701889514923e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        0.0,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_elbow_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_wristfronttwist1_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shield_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        0.0,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metamid_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metapinky_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        0.0,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -3.0518509447574615e-05,
+        0.0,
+        3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        -3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_ri_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.0518509447574615e-05,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_nvg",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.0007629627361893654,
+        0.0010986663401126862,
+        -0.00079348124563694,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "property": "tx",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.30956023931503296
+      ]
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "property": "ty",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.17076438665390015
+      ]
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "property": "tz",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -1.5152259948081337e-05
+      ]
+    },
+    {
+      "bone": "tag_camera",
+      "property": "tx",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0
+      ]
+    },
+    {
+      "bone": "tag_camera",
+      "property": "ty",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0
+      ]
+    },
+    {
+      "bone": "tag_camera",
+      "property": "tz",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.5794029235839844
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "property": "tx",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -5.877853870391846
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "property": "ty",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        11.726835250854492
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "property": "tz",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.009851694107055664
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "tx",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -2.3402798175811768
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "ty",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.453869342803955
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "tz",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        5.18977689743042
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "tx",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -16.585588455200195
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "ty",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -7.147448539733887
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "property": "tz",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        10.311129570007324
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "tx",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.39701950550079346
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "ty",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        1.0483601093292236
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "tz",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        3.954906463623047
+      ]
+    },
+    {
+      "bone": "j_nvg",
+      "property": "tx",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.5895004272460938
+      ]
+    },
+    {
+      "bone": "j_nvg",
+      "property": "ty",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.009900093078613281
+      ]
+    },
+    {
+      "bone": "j_nvg",
+      "property": "tz",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        -0.00430000014603138
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "name": "end",
+      "frames": [
+        0
+      ]
+    }
+  ]
+}

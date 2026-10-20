@@ -47,6 +47,7 @@ public final class ForgeClientSmoke {
         shader(ThermalVision.class, "compositeShader");
         shader(TracerEffects.class, "shader");
         shader(NativeFxRenderer.class, "shader");
+        shader(NativeFxRenderer.class, "glowShader");
         int imported = 0;
         try (var resources = minecraft.getResourceManager().listResources("mw/models", path -> path.getPath().endsWith(".mesh.gz"))
                 .keySet().stream()) {
@@ -61,7 +62,7 @@ public final class ForgeClientSmoke {
         if (imported == 0)
             throw new IllegalStateException("No imported models found");
         Path report = minecraft.gameDirectory.toPath().resolve("client-smoke.json");
-        Files.writeString(report, "{\"titleScreen\":true,\"terminalModel\":true,\"shaders\":4,\"importedModels\":" + imported + "}\n");
+        Files.writeString(report, "{\"titleScreen\":true,\"terminalModel\":true,\"shaders\":5,\"importedModels\":" + imported + "}\n");
         complete = true;
         minecraft.stop();
     }

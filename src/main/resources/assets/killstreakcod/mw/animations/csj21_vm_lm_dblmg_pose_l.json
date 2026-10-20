@@ -1,0 +1,544 @@
+{
+  "format": 1,
+  "id": "csj21_vm_lm_dblmg_pose_l",
+  "source": "vm_lm_dblmg_pose_l",
+  "fps": 30.0,
+  "last_frame": 0,
+  "loop": false,
+  "source_type": 6,
+  "curves": [
+    {
+      "bone": "j_spinelower",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spineupper",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spine4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shoulder_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shouldertwist_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_elbow_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_wristfronttwist1_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_shield_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_wrist_le",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metaindex_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metamid_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_accessory_left",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metapinky_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_metaring_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_le_1",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pinky_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_le_2",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_ring_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_3",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_4",
+      "property": "rq",
+      "mode": "additive",
+      "weight": 1.0,
+      "frames": [
+        0
+      ],
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "name": "end",
+      "frames": [
+        0
+      ]
+    }
+  ]
+}

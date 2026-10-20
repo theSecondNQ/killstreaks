@@ -1,0 +1,60 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Not specified"
+
+[[mods]]
+modId="killstreakcod"
+version="1.1.0.4355"
+displayName="Killstreak"
+description="Tactical killstreaks with remote cameras, modeled support units, radar, airdrops and animated weapons."
+credits="User-supplied MWII exported assets; Minecraft integration and procedural fallback resources"
+authors="NQ_Snvw"
+
+# 中文：自定义模组配置区块开始。
+# Start of user code block mod configuration
+# 中文：自定义模组配置区块结束。
+# End of user code block mod configuration
+
+
+
+
+[[dependencies.killstreakcod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.4.10,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.killstreakcod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="AFTER"
+    side="BOTH"
+
+
+
+
+# 中文：自定义依赖配置区块开始。
+# Start of user code block dependencies configuration
+[[dependencies.killstreakcod]]
+    modId="tacz"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.killstreakcod]]
+    modId="gd656killicon"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.killstreakcod]]
+    modId="superbwarfare"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
+# 中文：自定义依赖配置区块结束。
+# End of user code block dependencies configuration

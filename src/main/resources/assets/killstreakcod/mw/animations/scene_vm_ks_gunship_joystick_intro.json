@@ -1,0 +1,230 @@
+{
+  "format": 1,
+  "id": "scene_vm_ks_gunship_joystick_intro",
+  "source": "vm_ks_gunship_joystick_intro_complete.json",
+  "fps": 30.0,
+  "last_frame": 102,
+  "loop": false,
+  "translationCoordinateScale": 2.54,
+  "nativeVectorChannelsExpanded": true,
+  "curves": [
+    {
+      "bone": "bone_866ad52a",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        91,
+        92,
+        94,
+        97,
+        100,
+        102
+      ],
+      "sourceBoneId": "866ad52a",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.011139255948364735,
+        0.006927701644599438,
+        -0.007599108852446079,
+        0.9998779296875,
+        0.03091524913907051,
+        0.01892147585749626,
+        -0.010010071098804474,
+        0.999298095703125,
+        0.04531998559832573,
+        0.023224584758281708,
+        -0.01071199681609869,
+        0.9986571669578552,
+        0.058290354907512665,
+        0.025971252471208572,
+        -0.011261329986155033,
+        0.9978942275047302,
+        0.0639362782239914,
+        0.02694784477353096,
+        -0.01150547806173563,
+        0.9975280165672302,
+        0.059755243360996246,
+        0.02627643570303917,
+        -0.009216589853167534,
+        0.9978331923484802,
+        0.04943998530507088,
+        0.02462843805551529,
+        -0.003723258152604103,
+        0.9984740614891052,
+        0.024140141904354095,
+        0.02059999480843544,
+        0.008209479041397572,
+        0.99945068359375,
+        0.0158696249127388,
+        0.01974547654390335,
+        0.010528885759413242,
+        0.9996337890625,
+        0.006378368474543095,
+        0.02069154940545559,
+        0.007843256928026676,
+        0.999725341796875,
+        -0.004669331945478916,
+        0.024964140728116035,
+        -0.0029908139258623123,
+        0.999664306640625,
+        -0.011078218929469585,
+        0.02932828664779663,
+        -0.0138248847797513,
+        0.999420166015625,
+        -0.01235999632626772,
+        0.030518509447574615,
+        -0.01669362559914589,
+        0.99932861328125
+      ]
+    },
+    {
+      "bone": "bone_866ad52a",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "866ad52a",
+      "property": "tx",
+      "values": [
+        0.0
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_866ad52a",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "866ad52a",
+      "property": "ty",
+      "values": [
+        0.0
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_866ad52a",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "866ad52a",
+      "property": "tz",
+      "values": [
+        -1.8999227905273437
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "tx",
+      "values": [
+        46.58131855010986
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "ty",
+      "values": [
+        19.385279922485353
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "tz",
+      "values": [
+        77.12709941864014
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "tx",
+      "values": [
+        46.58131855010986
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "ty",
+      "values": [
+        19.385279922485353
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "tz",
+      "values": [
+        77.12709941864014
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "name": "end",
+      "frames": [
+        102
+      ],
+      "normalized_time": 1.0
+    }
+  ]
+}

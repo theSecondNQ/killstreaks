@@ -48,7 +48,7 @@ public final class MgbWorldRenderer {
         buffers.endBatch();
         var matrix = RenderSystem.getModelViewStack();
         matrix.pushPose();
-        matrix.last().pose().set(event.getPoseStack().last().pose());
+        matrix.last().pose().set(WorldRenderMatrices.view(event));
         RenderSystem.applyModelViewMatrix();
         float[] color = RenderSystem.getShaderColor().clone();
         RenderSystem.setShaderColor(1, 1, 1, 1);

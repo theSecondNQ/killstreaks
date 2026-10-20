@@ -1,0 +1,509 @@
+{
+  "format": 1,
+  "profiles": {
+    "smoke": {
+      "sourceEffect": "vfx/core/mp/killstreaks/vfx_sg_damage_blacksmoke",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "explosion": {
+      "sourceEffect": "vfx/core/expl/aerial_explosion",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.399999976158142,
+            1.399999976158142
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 4,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            3.5,
+            4.5
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 5,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "cruise": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_cruise_predator_explosion",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/ec670dd77701bdb986597154.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            2.0,
+            2.5
+          ],
+          "material": "elcq/vfx_vol_tendril_thin_fork_anim_1",
+          "sourceEmitter": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/6696cbc043a03f92.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/9f13795685efbc0a896c6a4d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 1,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            3.0,
+            5.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 1,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/f2f01976432505dac8457353.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            4.0,
+            5.0
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "sourceEmitter": 13,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3a8308bacbe7e949.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/c73cb56f9fe072e195357b0c.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "sentry": {
+      "sourceEffect": "vfx/core/mp/killstreaks/vfx_sentry_gun_explosion",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.399999976158142,
+            1.399999976158142
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 4,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "landing": {
+      "sourceEffect": "vfx/iw9/killstreaks/smk_signal/vfx_carepkg_landing_dust",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            0.6000000238418579,
+            0.8000000715255737
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/f2f01976432505dac8457353.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.1000001430511475,
+            1.2999999523162842
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "sourceEmitter": 1,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3a8308bacbe7e949.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/c73cb56f9fe072e195357b0c.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/9ae215b7343b6e7aba2cc1a2.png",
+          "blend": "smoke",
+          "grid": 1,
+          "lifeSeconds": [
+            0.7322098016738892,
+            0.9470502138137817
+          ],
+          "material": "elcq/vfx_debris_dirt_filler_sheet_1",
+          "sourceEmitter": 4,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/104b04ac0998ac94.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/904d7d89b2694ffb75c2a875.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/7bd25e1c24d7cfee4bd1322d.png",
+          "blend": "glow",
+          "grid": 1,
+          "lifeSeconds": [
+            0.3768751919269562,
+            0.7312503457069397
+          ],
+          "material": "elcq/vfx_debris_blur_sheet_1",
+          "sourceEmitter": 5,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3ec59b03c0edd0a1.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/dd9fd721cdeeec9785689139.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        }
+      ]
+    },
+    "mine": {
+      "sourceEffect": "vfx/core/expl/bouncing_betty_explosion",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.399999976158142,
+            1.399999976158142
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 4,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "helicopter": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_apache_explosion",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            5.0,
+            8.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 12,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "equipment": {
+      "sourceEffect": "vfx/iw7/_requests/mp/vfx_generic_equipment_exp",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.399999976158142,
+            1.399999976158142
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 4,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "flares": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_apache_angel_flares",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/bbff1a0c604c10a8faff036c.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            2.5,
+            3.5
+          ],
+          "material": "elcq/vfx_vol_smoke_puff_rolling_anim_1",
+          "sourceEmitter": 2,
+          "columns": 8,
+          "rows": 4,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3c25d3f7ab624c83.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/911579c4c48e94e66fb88b55.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "uav": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_uav_death",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/ec670dd77701bdb986597154.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            4.5,
+            5.5
+          ],
+          "material": "elcq/vfx_vol_tendril_thin_fork_anim_1",
+          "sourceEmitter": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/6696cbc043a03f92.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/9f13795685efbc0a896c6a4d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            2.0,
+            5.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 1,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/4e274826c730f6b1120803cc.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            1.2000000476837158,
+            1.5
+          ],
+          "material": "elcq/vfx_pyro_fireball_expl_rise_2",
+          "sourceEmitter": 7,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/7b610167cbafe75e.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/4d7bec4739a2442d051b69b9.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/4e274826c730f6b1120803cc.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            1.2000000476837158,
+            1.5
+          ],
+          "material": "elcq/vfx_pyro_fireball_expl_rise_2",
+          "sourceEmitter": 8,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/7b610167cbafe75e.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/4d7bec4739a2442d051b69b9.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        }
+      ]
+    },
+    "advanced_uav": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_auav_death",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/ec670dd77701bdb986597154.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            0.800000011920929,
+            1.2000000476837158
+          ],
+          "material": "elcq/vfx_vol_tendril_thin_fork_anim_1",
+          "sourceEmitter": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/6696cbc043a03f92.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/9f13795685efbc0a896c6a4d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            2.0,
+            5.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 1,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/4e274826c730f6b1120803cc.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            1.2000000476837158,
+            1.5
+          ],
+          "material": "elcq/vfx_pyro_fireball_expl_rise_2",
+          "sourceEmitter": 7,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/7b610167cbafe75e.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/4d7bec4739a2442d051b69b9.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/4e274826c730f6b1120803cc.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            1.2000000476837158,
+            1.5
+          ],
+          "material": "elcq/vfx_pyro_fireball_expl_rise_2",
+          "sourceEmitter": 8,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/7b610167cbafe75e.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/4d7bec4739a2442d051b69b9.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        }
+      ]
+    },
+    "tracer": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_tracer_pers_airstrike",
+      "layers": []
+    }
+  },
+  "scope": "Original sprites/lifetime ranges with Minecraft adapters; debug materials rejected"
+}

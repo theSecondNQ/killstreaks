@@ -1,0 +1,3692 @@
+{
+  "format": 1,
+  "profiles": {
+    "crash_0900d8d4ae6924ad": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_outro_player_shot_2",
+      "sourceRootId": "0900d8d4ae6924ad",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/fe5b0ccc141731a970db9b8c.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_front_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "6b2155f219e040cf",
+            "sourceMask": "3112d085f411f9de",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.4000000059604645,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "67fa5937aba361b9",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6b2155f219e040cf_3112d085f411f9de.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/2d6a49b5d37714b8059b52f2.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_fluid_blood_flingsplat_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "05bef55f4dc02453",
+            "sourceMask": "53cc9274d8adb7d7",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "5f106e62385a6557",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/05bef55f4dc02453_53cc9274d8adb7d7.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/4ea42ed9d2b99bf8e35d17c4.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_vol_dust_impact_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "sourceMaterialId": "6ed043bd3eaac36a",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/798573410e3ecfad.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/f17b2c65141e19b7bb92e31d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/12514d3c43f3eb04ad6e5e93.png",
+          "blend": "smoke",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_fluid_blood_splat_sheet_6",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "11ff1fdd77bb2690",
+            "sourceMask": "6cbec3a6e8ec985e",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "1008c799108abd5e",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/11ff1fdd77bb2690_6cbec3a6e8ec985e.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/0453cae1416762730bb91e8c.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_side_blur_anim_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "05bef55f4dc02453",
+            "sourceMask": "4b928e74f461c4f4",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.10999999940395355,
+            0.10999999940395355
+          ],
+          "sourceMaterialId": "6fce67db5499661a",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/05bef55f4dc02453_4b928e74f461c4f4.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/65d3ea2e8c9ebe856705a68c.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_fluid_blood_impact_mblur_01",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.11999999731779099,
+            0.11999999731779099
+          ],
+          "sourceMaterialId": "0079569d1d2ba8f8",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/08050ebf6a5a37ef.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/cd413fa942d196618d2b9d4e.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_front_anim_5",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "6b2155f219e040cf",
+            "sourceMask": "111e437540d869da",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.30000001192092896,
+            0.30000001192092896
+          ],
+          "sourceMaterialId": "67fa5d37aba36885",
+          "sourceEmitter": 6,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6b2155f219e040cf_111e437540d869da.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/ce03a03a57ebc02eb2e69796.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_side_anim_4",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "6b2155f219e040cf",
+            "sourceMask": "449bc62540a7dbea",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.30000001192092896,
+            0.30000001192092896
+          ],
+          "sourceMaterialId": "3ab28f43c85382be",
+          "sourceEmitter": 7,
+          "sourceDelaySeconds": 0.029999999329447746,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6b2155f219e040cf_449bc62540a7dbea.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/4ea514935a29a7f4f86933e8.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_front_anim_3",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "6b2155f219e040cf",
+            "sourceMask": "6567e3687d0885d4",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.3499999940395355,
+            0.3499999940395355
+          ],
+          "sourceMaterialId": "67fa5737aba35e53",
+          "sourceEmitter": 8,
+          "sourceDelaySeconds": 0.029999999329447746,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6b2155f219e040cf_6567e3687d0885d4.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c8e459b64144b0415684a9aa.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_vol_dust_impact_pinksmk_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.399999976158142,
+            1.5
+          ],
+          "sourceMaterialId": "7a3fdf185c922f90",
+          "sourceEmitter": 9,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/2f0dc3731ed92dd9.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/cd5be4cdf3503c8cc39636c2.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/37aa3e8bf6865fa75fbfb225.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_vol_dust_ball_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.4000000059604645,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "16884e9eeba10a4f",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5f62055d903d1bc2.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/3c662196d427b52eee5b3bb2.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "crash_13ffee139ea96474": {
+      "sourceEffect": "vfx/iw9/killstreaks/hover_jet/vfx_hover_jet_death_explosion",
+      "sourceRootId": "13ffee139ea96474",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 0,
+          "sourceMaterialId": "74e3c0a841318952",
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            10.0,
+            13.0
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 1.1500000059604645,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/1b1fe3119500ecdd7fc741e5.png",
+          "blend": "smoke",
+          "grid": 16,
+          "columns": 16,
+          "rows": 4,
+          "material": "elcq/vfx_vol_tendril_smoke_13",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            3.5,
+            5.0
+          ],
+          "sourceMaterialId": "03d814ecb8ab31ec",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 1024,
+          "textureHeight": 1024,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/156c07c3b5a1ac6f.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7fafef810349b80344f57eb1.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            5.0,
+            6.0
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/4b22694010a65daa075c7805.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_sheet_mblur_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.0,
+            1.5
+          ],
+          "sourceMaterialId": "1eae6780a6b30a92",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0faf4057834dd04e.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/fb443673189ac8d0117b9981.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.200000047683716
+          ],
+          "sourceMaterialId": "02d56b69989eaca8",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/3dfd8dc10571df93.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/52834cffe4e5aa2f22232c07.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/bc8c4ccae0558afbff127606.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcqp/vfx_pyro_spark_dot_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "sourceMaterialId": "26a537bc37d74cfb",
+          "sourceEmitter": 8,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/522c05b6dab7144c.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/ec670dd77701bdb986597154.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            0.699999988079071,
+            1.2000000476837158
+          ],
+          "material": "elcq/vfx_vol_tendril_thin_fork_anim_1",
+          "sourceEmitter": 9,
+          "sourceMaterialId": "0f1cb612f420cd42",
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/6696cbc043a03f92.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/9f13795685efbc0a896c6a4d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/8110483938d6530f06773391.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_filler_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.0
+          ],
+          "sourceMaterialId": "1118e317cfbae036",
+          "sourceEmitter": 10,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5b3d2103a80e3436.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/91b21e7c6c317d9e2065439e.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "sourceMaterialId": "18b8a87b7b2a8903",
+          "sourceEmitter": 11,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0bc037b8f59022b4.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/61e74364e8e071cabcc11e95.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcqp/vfx_particulate_ash_loop_emis_3_noec",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "sourceMaterialId": "1f161ec5ee997d60",
+          "sourceEmitter": 12,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6ef9c745ab418e58.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/47dd422cc8b23467c18d57e6.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/8110483938d6530f06773391.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_filler_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.5
+          ],
+          "sourceMaterialId": "1118e317cfbae036",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0.25,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5b3d2103a80e3436.png"
+        }
+      ]
+    },
+    "crash_19e82a440e9fe95d": {
+      "sourceEffect": "vfx/iw9/killstreaks/escort/vfx_escort_chopper_explosion",
+      "sourceRootId": "19e82a440e9fe95d",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/275cb0b007a29a5f717862e2.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 1,
+          "material": "elcq/vfx_pyro_spark_streak_fat_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            2.0
+          ],
+          "sourceMaterialId": "4c5989f117d0f742",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/731110b3a4a7170f.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/f2f01976432505dac8457353.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.0,
+            1.5
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "sourceEmitter": 1,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "sourceMaterialId": "71c1d09958f6bfd8",
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3a8308bacbe7e949.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/c73cb56f9fe072e195357b0c.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 0,
+          "sourceMaterialId": "74e3c0a841318952",
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            10.0,
+            13.0
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 1.1500000059604645,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/1b1fe3119500ecdd7fc741e5.png",
+          "blend": "smoke",
+          "grid": 16,
+          "columns": 16,
+          "rows": 4,
+          "material": "elcq/vfx_vol_tendril_smoke_13",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            3.5,
+            5.0
+          ],
+          "sourceMaterialId": "03d814ecb8ab31ec",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0.2500000074505806,
+          "textureWidth": 1024,
+          "textureHeight": 1024,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/156c07c3b5a1ac6f.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7fafef810349b80344f57eb1.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            5.0,
+            6.0
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/4b22694010a65daa075c7805.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_sheet_mblur_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.0,
+            1.5
+          ],
+          "sourceMaterialId": "1eae6780a6b30a92",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0faf4057834dd04e.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/fb443673189ac8d0117b9981.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.200000047683716
+          ],
+          "sourceMaterialId": "02d56b69989eaca8",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/3dfd8dc10571df93.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/52834cffe4e5aa2f22232c07.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/bc8c4ccae0558afbff127606.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcqp/vfx_pyro_spark_dot_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "sourceMaterialId": "26a537bc37d74cfb",
+          "sourceEmitter": 8,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/522c05b6dab7144c.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/61e74364e8e071cabcc11e95.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcqp/vfx_particulate_ash_loop_emis_3_noec",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "sourceMaterialId": "1f161ec5ee997d60",
+          "sourceEmitter": 9,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6ef9c745ab418e58.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/47dd422cc8b23467c18d57e6.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/ec670dd77701bdb986597154.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            0.699999988079071,
+            1.2000000476837158
+          ],
+          "material": "elcq/vfx_vol_tendril_thin_fork_anim_1",
+          "sourceEmitter": 10,
+          "sourceMaterialId": "0f1cb612f420cd42",
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/6696cbc043a03f92.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/9f13795685efbc0a896c6a4d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/8110483938d6530f06773391.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_filler_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.0
+          ],
+          "sourceMaterialId": "1118e317cfbae036",
+          "sourceEmitter": 11,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5b3d2103a80e3436.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/91b21e7c6c317d9e2065439e.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "sourceMaterialId": "18b8a87b7b2a8903",
+          "sourceEmitter": 12,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0bc037b8f59022b4.png"
+        }
+      ]
+    },
+    "crash_1ca4755f343f089c": {
+      "sourceEffect": "vfx/iw9/killstreaks/hover_jet/vfx_hover_jet_canopy_launch",
+      "sourceRootId": "1ca4755f343f089c",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            0.5,
+            0.5
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 0,
+          "sourceMaterialId": "324fe2e40fa94212",
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "crash_1ffaacab51081351": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_explosion",
+      "sourceRootId": "1ffaacab51081351",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/275cb0b007a29a5f717862e2.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 1,
+          "material": "elcq/vfx_pyro_spark_streak_fat_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            2.0
+          ],
+          "sourceMaterialId": "4c5989f117d0f742",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/731110b3a4a7170f.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/f2f01976432505dac8457353.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.0,
+            1.5
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "sourceEmitter": 1,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "sourceMaterialId": "71c1d09958f6bfd8",
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3a8308bacbe7e949.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/c73cb56f9fe072e195357b0c.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 0,
+          "sourceMaterialId": "74e3c0a841318952",
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            10.0,
+            13.0
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 1.1500000059604645,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/1b1fe3119500ecdd7fc741e5.png",
+          "blend": "smoke",
+          "grid": 16,
+          "columns": 16,
+          "rows": 4,
+          "material": "elcq/vfx_vol_tendril_smoke_13",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            3.5,
+            5.0
+          ],
+          "sourceMaterialId": "03d814ecb8ab31ec",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 1024,
+          "textureHeight": 1024,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/156c07c3b5a1ac6f.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7fafef810349b80344f57eb1.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            5.0,
+            6.0
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/4b22694010a65daa075c7805.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_sheet_mblur_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.0,
+            1.5
+          ],
+          "sourceMaterialId": "1eae6780a6b30a92",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0faf4057834dd04e.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/fb443673189ac8d0117b9981.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.200000047683716
+          ],
+          "sourceMaterialId": "02d56b69989eaca8",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/3dfd8dc10571df93.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/52834cffe4e5aa2f22232c07.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/bc8c4ccae0558afbff127606.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcqp/vfx_pyro_spark_dot_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "sourceMaterialId": "26a537bc37d74cfb",
+          "sourceEmitter": 8,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/522c05b6dab7144c.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/ec670dd77701bdb986597154.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            0.699999988079071,
+            1.2000000476837158
+          ],
+          "material": "elcq/vfx_vol_tendril_thin_fork_anim_1",
+          "sourceEmitter": 9,
+          "sourceMaterialId": "0f1cb612f420cd42",
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/6696cbc043a03f92.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/9f13795685efbc0a896c6a4d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/8110483938d6530f06773391.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_filler_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.0
+          ],
+          "sourceMaterialId": "1118e317cfbae036",
+          "sourceEmitter": 10,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5b3d2103a80e3436.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/91b21e7c6c317d9e2065439e.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "sourceMaterialId": "18b8a87b7b2a8903",
+          "sourceEmitter": 11,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0bc037b8f59022b4.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/61e74364e8e071cabcc11e95.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcqp/vfx_particulate_ash_loop_emis_3_noec",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "sourceMaterialId": "1f161ec5ee997d60",
+          "sourceEmitter": 12,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6ef9c745ab418e58.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/47dd422cc8b23467c18d57e6.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        }
+      ]
+    },
+    "crash_276e6fc4d011c5d8": {
+      "sourceEffect": "vfx/iw9/killstreaks/hover_jet/vfx_hover_jet_body_damage_3",
+      "sourceRootId": "276e6fc4d011c5d8",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c4781d63c9bd20c36ad6f3b.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.6000000238418579,
+            0.699999988079071
+          ],
+          "sourceMaterialId": "120233e6c242a3df",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/07dc8471393c94dc.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7d9d92e15f4bea5f9882b50e.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/7de33fec4733c534c57ec4f1.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_pyro_fire_fuel_tall_lrg_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.75,
+            1.2999999523162842
+          ],
+          "sourceMaterialId": "6e1330107044e472",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/608aca5657b24b73.png"
+        }
+      ]
+    },
+    "crash_276e70c4d011c78b": {
+      "sourceEffect": "vfx/iw9/killstreaks/hover_jet/vfx_hover_jet_body_damage_2",
+      "sourceRootId": "276e70c4d011c78b",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c4781d63c9bd20c36ad6f3b.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            0.699999988079071
+          ],
+          "sourceMaterialId": "120233e6c242a3df",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/07dc8471393c94dc.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7d9d92e15f4bea5f9882b50e.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "crash_276e71c4d011c93e": {
+      "sourceEffect": "vfx/iw9/killstreaks/hover_jet/vfx_hover_jet_body_damage_1",
+      "sourceRootId": "276e71c4d011c93e",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/19d060d91192ceeecd3d5e03.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ball_lrg_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.07999999821186066,
+            0.11999999731779099
+          ],
+          "sourceMaterialId": "583c935c6c75e4f1",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/605d81d30e4f2c9b.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/94f04e7fda21d92d829ee920.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "material": "elcq/vfx_pyro_fireball_expl_fxelem_anim_3",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.25,
+            0.3199999928474426
+          ],
+          "sourceMaterialId": "5826e8bf5eb2219b",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/1171da994dbfe485.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b7c1b5abf8d0b7e7aa66d8f3.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_dot_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.20000000298023224,
+            1.0
+          ],
+          "sourceMaterialId": "61ce201808d5543b",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 128,
+          "textureHeight": 64,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/4d9e620c3b45b99b.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b537b43462453ecd461a4b02.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_spark_dot_flicker_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.75,
+            1.5
+          ],
+          "sourceMaterialId": "107b9e75a7cf9197",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/32d648288d5964cf.png"
+        }
+      ]
+    },
+    "crash_288763a94107b6c0": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_outro_player_shot",
+      "sourceRootId": "288763a94107b6c0",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/fe5b0ccc141731a970db9b8c.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_front_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "6b2155f219e040cf",
+            "sourceMask": "3112d085f411f9de",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.4000000059604645,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "67fa5937aba361b9",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6b2155f219e040cf_3112d085f411f9de.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/2d6a49b5d37714b8059b52f2.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_fluid_blood_flingsplat_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "05bef55f4dc02453",
+            "sourceMask": "53cc9274d8adb7d7",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "5f106e62385a6557",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/05bef55f4dc02453_53cc9274d8adb7d7.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/4ea42ed9d2b99bf8e35d17c4.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_vol_dust_impact_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "sourceMaterialId": "6ed043bd3eaac36a",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/798573410e3ecfad.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/f17b2c65141e19b7bb92e31d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/12514d3c43f3eb04ad6e5e93.png",
+          "blend": "smoke",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_fluid_blood_splat_sheet_6",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "11ff1fdd77bb2690",
+            "sourceMask": "6cbec3a6e8ec985e",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "1008c799108abd5e",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/11ff1fdd77bb2690_6cbec3a6e8ec985e.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/0453cae1416762730bb91e8c.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_side_blur_anim_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "05bef55f4dc02453",
+            "sourceMask": "4b928e74f461c4f4",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.10999999940395355,
+            0.10999999940395355
+          ],
+          "sourceMaterialId": "6fce67db5499661a",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/05bef55f4dc02453_4b928e74f461c4f4.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/65d3ea2e8c9ebe856705a68c.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_fluid_blood_impact_mblur_01",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.11999999731779099,
+            0.11999999731779099
+          ],
+          "sourceMaterialId": "0079569d1d2ba8f8",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/08050ebf6a5a37ef.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/cd413fa942d196618d2b9d4e.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_front_anim_5",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "6b2155f219e040cf",
+            "sourceMask": "111e437540d869da",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.30000001192092896,
+            0.30000001192092896
+          ],
+          "sourceMaterialId": "67fa5d37aba36885",
+          "sourceEmitter": 6,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6b2155f219e040cf_111e437540d869da.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/ce03a03a57ebc02eb2e69796.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_side_anim_4",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "6b2155f219e040cf",
+            "sourceMask": "449bc62540a7dbea",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.30000001192092896,
+            0.30000001192092896
+          ],
+          "sourceMaterialId": "3ab28f43c85382be",
+          "sourceEmitter": 7,
+          "sourceDelaySeconds": 0.029999999329447746,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6b2155f219e040cf_449bc62540a7dbea.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/4ea514935a29a7f4f86933e8.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_fluid_blood_squib_front_anim_3",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "opacityAdapter": {
+            "constantColorImage": "6b2155f219e040cf",
+            "sourceMask": "6567e3687d0885d4",
+            "semantic": 12,
+            "method": "Original one-pixel RGBA multiplied by original opacity mask; Minecraft RGBA adaptation, not IW fluid shader recreation."
+          },
+          "lifeSeconds": [
+            0.3499999940395355,
+            0.3499999940395355
+          ],
+          "sourceMaterialId": "67fa5737aba35e53",
+          "sourceEmitter": 8,
+          "sourceDelaySeconds": 0.029999999329447746,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6b2155f219e040cf_6567e3687d0885d4.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c8e459b64144b0415684a9aa.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_vol_dust_impact_pinksmk_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.399999976158142,
+            1.5
+          ],
+          "sourceMaterialId": "7a3fdf185c922f90",
+          "sourceEmitter": 9,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/2f0dc3731ed92dd9.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/cd5be4cdf3503c8cc39636c2.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/37aa3e8bf6865fa75fbfb225.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_vol_dust_ball_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.4000000059604645,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "16884e9eeba10a4f",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5f62055d903d1bc2.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/3c662196d427b52eee5b3bb2.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/6ffd3ba31e7e9ae76bec80c1.png",
+          "blend": "smoke",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_fluid_blood_imp_flesh_exit_m01_dec",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            20.0,
+            20.0
+          ],
+          "sourceMaterialId": "63ff5aebcb560c31",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/4a4e21cda0256579.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/507e955e91b1df6d7be183a5.png",
+          "blend": "smoke",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_fluid_blood_splat_m02_dec",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            20.0,
+            20.0
+          ],
+          "sourceMaterialId": "7a1ff4b7a818fe0e",
+          "sourceEmitter": 11,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/72cea666bccea69e.png"
+        }
+      ]
+    },
+    "crash_3ccb9814ee9a58c2": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_outro_glass",
+      "sourceRootId": "3ccb9814ee9a58c2",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/2bd2ae6d7ec679400b89c88e.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_debris_glass_shard_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.0
+          ],
+          "sourceMaterialId": "07f7c007f0f351ca",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/4ce316cbe3581d97.png"
+        }
+      ]
+    },
+    "crash_478e1c7edb43ed90": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_ac130_ground_expl",
+      "sourceRootId": "478e1c7edb43ed90",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/c84261721ba59b7de8deee15.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_7",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.7000000476837158,
+            2.0999999046325684
+          ],
+          "sourceMaterialId": "735bd8d57371d541",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/22742f8082884300.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/e3fc2a83b244a968dfc07dda.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_streak_wiggle_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            1.5
+          ],
+          "sourceMaterialId": "3b477800782ddeca",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/1902e9bce5944618.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c4781d63c9bd20c36ad6f3b.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.5,
+            4.5
+          ],
+          "sourceMaterialId": "120233e6c242a3df",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0.800000011920929,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/07dc8471393c94dc.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7d9d92e15f4bea5f9882b50e.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b537b43462453ecd461a4b02.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_spark_dot_flicker_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            2.5
+          ],
+          "sourceMaterialId": "107b9e75a7cf9197",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/32d648288d5964cf.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b537b43462453ecd461a4b02.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_spark_dot_flicker_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.0,
+            3.0
+          ],
+          "sourceMaterialId": "107b9e75a7cf9197",
+          "sourceEmitter": 6,
+          "sourceDelaySeconds": 2.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/32d648288d5964cf.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/8110483938d6530f06773391.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_filler_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.5
+          ],
+          "sourceMaterialId": "1118e317cfbae036",
+          "sourceEmitter": 6,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5b3d2103a80e3436.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            3.0,
+            3.0
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 8,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 0.10000000149011612,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            3.5,
+            3.5
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 9,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/07e8f3d8c4152c00d2272f72.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_vol_smoke_soft_billow_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            6.0,
+            8.0
+          ],
+          "sourceMaterialId": "5901d40383a39b40",
+          "sourceEmitter": 10,
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5729b9c2a8787920.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/aed1bf90111892d9c9f03d6d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            0.5,
+            0.5
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 11,
+          "sourceMaterialId": "324fe2e40fa94212",
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/c84261721ba59b7de8deee15.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_7",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.7000000476837158,
+            3.0
+          ],
+          "sourceMaterialId": "735bd8d57371d541",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/22742f8082884300.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/6e798dd94f401548675d2325.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_postfx_glow_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.5,
+            1.5
+          ],
+          "sourceMaterialId": "0d1470f7aacb37cb",
+          "sourceEmitter": 13,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 256,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/2aaf5b77611f6237.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/fb443673189ac8d0117b9981.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            3.0,
+            3.5
+          ],
+          "sourceMaterialId": "02d56b69989eaca8",
+          "sourceEmitter": 14,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/3dfd8dc10571df93.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/52834cffe4e5aa2f22232c07.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        }
+      ]
+    },
+    "crash_4d1d9a61467ff1f5": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_ac130_body_damage_3_explode",
+      "sourceRootId": "4d1d9a61467ff1f5",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/e9e21ca8700dd75a5ed407b6.png",
+          "blend": "smoke",
+          "grid": 2,
+          "columns": 2,
+          "rows": 4,
+          "material": "elcq/vfx_debris_embers_sheet_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.5
+          ],
+          "sourceMaterialId": "2b2fc582e2da9db6",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0ea4b610d55b521f.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.5,
+            1.5
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 4,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.200000047683716
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/c84261721ba59b7de8deee15.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_7",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.7000000476837158,
+            3.0
+          ],
+          "sourceMaterialId": "735bd8d57371d541",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/22742f8082884300.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b537b43462453ecd461a4b02.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_spark_dot_flicker_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.800000011920929,
+            1.600000023841858
+          ],
+          "sourceMaterialId": "107b9e75a7cf9197",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/32d648288d5964cf.png"
+        }
+      ]
+    },
+    "crash_5dccca5f51ffb014": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_engine_explosion",
+      "sourceRootId": "5dccca5f51ffb014",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/19d060d91192ceeecd3d5e03.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ball_lrg_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            0.5
+          ],
+          "sourceMaterialId": "583c935c6c75e4f1",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/605d81d30e4f2c9b.png"
+        }
+      ]
+    },
+    "crash_66417eeab994f07a": {
+      "sourceEffect": "vfx/iw9/killstreaks/gunship/vfx_gunship_death_explode",
+      "sourceRootId": "66417eeab994f07a",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/19d060d91192ceeecd3d5e03.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ball_lrg_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.0
+          ],
+          "sourceMaterialId": "583c935c6c75e4f1",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/605d81d30e4f2c9b.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/f2f01976432505dac8457353.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            5.0,
+            6.0
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "sourceEmitter": 2,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "sourceMaterialId": "71c1d09958f6bfd8",
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3a8308bacbe7e949.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/c73cb56f9fe072e195357b0c.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            3.0,
+            4.0
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 3,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.5
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 6.3499999940395355,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.5
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 6.119999997317791,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.5
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 6.0599999986588955,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/2fbe350605e5c406a22f313a.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "material": "elcq/vfx_debris_metal_shrapnel_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.5999999046325684,
+            5.199999809265137
+          ],
+          "sourceMaterialId": "6c642902bd2552d6",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 6.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5fd8ae0a173a7fea.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b537b43462453ecd461a4b02.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_spark_dot_flicker_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            3.0
+          ],
+          "sourceMaterialId": "107b9e75a7cf9197",
+          "sourceEmitter": 6,
+          "sourceDelaySeconds": 6.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/32d648288d5964cf.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/275cb0b007a29a5f717862e2.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 1,
+          "material": "elcq/vfx_pyro_spark_streak_fat_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.2891699969768524,
+            1.2851999998092651
+          ],
+          "sourceMaterialId": "4c5989f117d0f742",
+          "sourceEmitter": 7,
+          "sourceDelaySeconds": 6.0,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/731110b3a4a7170f.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/91b21e7c6c317d9e2065439e.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.1264999955892563,
+            0.1264999955892563
+          ],
+          "sourceMaterialId": "18b8a87b7b2a8903",
+          "sourceEmitter": 8,
+          "sourceDelaySeconds": 6.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0bc037b8f59022b4.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/946e44b25104808a76dae4b4.png",
+          "blend": "smoke",
+          "grid": 16,
+          "columns": 16,
+          "rows": 4,
+          "material": "elcq/vfx_vol_tendril_thick_fork_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.4000000059604645,
+            0.6000000238418579
+          ],
+          "sourceMaterialId": "09f9e354ab240884",
+          "sourceEmitter": 9,
+          "sourceDelaySeconds": 6.0,
+          "textureWidth": 1024,
+          "textureHeight": 1024,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/4a8af4e0f4671309.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/69ee5fac804c6b94603918b1.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/866668496c31f7e0103dc677.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_torch_med_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.30000001192092896,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "1797623bb5b870c0",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 6.0,
+          "textureWidth": 512,
+          "textureHeight": 1024,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/03fa8f2916d88b48.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b537b43462453ecd461a4b02.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcqp/vfx_pyro_spark_dot_flicker_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.800000011920929,
+            1.600000023841858
+          ],
+          "sourceMaterialId": "3b10a5a58fe7b1d1",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 6.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/32d648288d5964cf.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            4.5,
+            6.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 14,
+          "sourceMaterialId": "74e3c0a841318952",
+          "sourceDelaySeconds": 6.5,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b537b43462453ecd461a4b02.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_spark_dot_flicker_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.800000011920929,
+            1.600000023841858
+          ],
+          "sourceMaterialId": "107b9e75a7cf9197",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/32d648288d5964cf.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/c349d22c765182c6d5f37fac.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            7.0,
+            8.0
+          ],
+          "material": "elcq/vfx_vol_smoke_thick_anim_1",
+          "sourceEmitter": 0,
+          "sourceMaterialId": "74e3c0a841318952",
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/0a9ffcb1e09663c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2e42a511bf14097b45895d43.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            10.0,
+            13.0
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 6.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/1b1fe3119500ecdd7fc741e5.png",
+          "blend": "smoke",
+          "grid": 16,
+          "columns": 16,
+          "rows": 4,
+          "material": "elcq/vfx_vol_tendril_smoke_13",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            3.5,
+            5.0
+          ],
+          "sourceMaterialId": "03d814ecb8ab31ec",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 5.100000001490116,
+          "textureWidth": 1024,
+          "textureHeight": 1024,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/156c07c3b5a1ac6f.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7fafef810349b80344f57eb1.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            5.0,
+            6.0
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b537b43462453ecd461a4b02.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcqp/vfx_pyro_spark_dot_flicker_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            3.0
+          ],
+          "sourceMaterialId": "3b10a5a58fe7b1d1",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/32d648288d5964cf.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/4b22694010a65daa075c7805.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_sheet_mblur_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.0,
+            1.5
+          ],
+          "sourceMaterialId": "1eae6780a6b30a92",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0faf4057834dd04e.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/fb443673189ac8d0117b9981.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_mid_01",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.200000047683716
+          ],
+          "sourceMaterialId": "02d56b69989eaca8",
+          "sourceEmitter": 6,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/3dfd8dc10571df93.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/52834cffe4e5aa2f22232c07.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/ec670dd77701bdb986597154.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            0.699999988079071,
+            1.2000000476837158
+          ],
+          "material": "elcq/vfx_vol_tendril_thin_fork_anim_1",
+          "sourceEmitter": 9,
+          "sourceMaterialId": "0f1cb612f420cd42",
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/6696cbc043a03f92.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/9f13795685efbc0a896c6a4d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/36c24d694b75540466b94697.png",
+          "blend": "smoke",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "ecv/vfx_vol_trail_smoke_billow_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.0,
+            1.0
+          ],
+          "sourceMaterialId": "123f628281e872c2",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 64,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/43b84e1b975126c8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/43182f66decea30df7a56eac.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/bb2f6927430866e628d7ec31.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "ecv/vfx_vol_trail_fire_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "sourceMaterialId": "260b596813ef95d7",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0d9ec733663bb53a.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/23c3a4758de35cbc512e71b2.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            0.5,
+            0.5
+          ],
+          "material": "elcq/vfx_vol_smoke_roll_anim_1",
+          "sourceEmitter": 11,
+          "sourceMaterialId": "324fe2e40fa94212",
+          "sourceDelaySeconds": 5.200000002980232,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/626b5a532a850391.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/ab341252249b014e7b09f225.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/8110483938d6530f06773391.png",
+          "blend": "glow",
+          "grid": 2,
+          "columns": 2,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_filler_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.0
+          ],
+          "sourceMaterialId": "1118e317cfbae036",
+          "sourceEmitter": 12,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5b3d2103a80e3436.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/91b21e7c6c317d9e2065439e.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "sourceMaterialId": "18b8a87b7b2a8903",
+          "sourceEmitter": 13,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0bc037b8f59022b4.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/2fbe350605e5c406a22f313a.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "material": "elcq/vfx_debris_metal_shrapnel_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.5999999046325684,
+            5.199999809265137
+          ],
+          "sourceMaterialId": "6c642902bd2552d6",
+          "sourceEmitter": 14,
+          "sourceDelaySeconds": 5.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5fd8ae0a173a7fea.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b6c0d2b5b03568902f01edfb.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_4",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.5,
+            2.0
+          ],
+          "sourceMaterialId": "735bd5d57371d028",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 3.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/51d4630aa39aab48.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            5.0,
+            6.0
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 4,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.5,
+            1.5
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/19d060d91192ceeecd3d5e03.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ball_lrg_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.5,
+            1.5
+          ],
+          "sourceMaterialId": "583c935c6c75e4f1",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/605d81d30e4f2c9b.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/c84261721ba59b7de8deee15.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_7",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.7000000476837158,
+            3.0
+          ],
+          "sourceMaterialId": "735bd8d57371d541",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 1.1500000059604645,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/22742f8082884300.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.200000047683716
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.5,
+            1.5
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 2,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 1.1500000059604645,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/e9e21ca8700dd75a5ed407b6.png",
+          "blend": "smoke",
+          "grid": 2,
+          "columns": 2,
+          "rows": 4,
+          "material": "elcq/vfx_debris_embers_sheet_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.699999988079071,
+            1.5
+          ],
+          "sourceMaterialId": "2b2fc582e2da9db6",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 256,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0ea4b610d55b521f.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/f23c002ee4c546f1ce6d62f9.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_8",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.5,
+            2.0
+          ],
+          "sourceMaterialId": "735bd1d57371c95c",
+          "sourceEmitter": 10,
+          "sourceDelaySeconds": 3.0,
+          "textureWidth": 512,
+          "textureHeight": 1024,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/52f5be487dd27194.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b6c0d2b5b03568902f01edfb.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_4",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.30000001192092896,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "735bd5d57371d028",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/51d4630aa39aab48.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/f2f01976432505dac8457353.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            2.0,
+            4.0
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "sourceEmitter": 1,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "sourceMaterialId": "71c1d09958f6bfd8",
+          "sourceDelaySeconds": 5.25,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3a8308bacbe7e949.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/c73cb56f9fe072e195357b0c.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            2.0,
+            3.0
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 2,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 5.25,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "crash_68f6c2ceba8cba08": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_body_damage_3",
+      "sourceRootId": "68f6c2ceba8cba08",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/19d060d91192ceeecd3d5e03.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ball_lrg_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.30000001192092896,
+            0.5
+          ],
+          "sourceMaterialId": "583c935c6c75e4f1",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/605d81d30e4f2c9b.png"
+        }
+      ]
+    },
+    "crash_68f6c3ceba8cbbbb": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_body_damage_2",
+      "sourceRootId": "68f6c3ceba8cbbbb",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c4781d63c9bd20c36ad6f3b.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.0,
+            2.0
+          ],
+          "sourceMaterialId": "120233e6c242a3df",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0.6499999761581421,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/07dc8471393c94dc.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7d9d92e15f4bea5f9882b50e.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.0,
+            1.0
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 2,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 0.10000000149011612,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c4781d63c9bd20c36ad6f3b.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.4899999797344208,
+            0.4899999797344208
+          ],
+          "sourceMaterialId": "120233e6c242a3df",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/07dc8471393c94dc.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7d9d92e15f4bea5f9882b50e.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "crash_68f6c4ceba8cbd6e": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_body_damage_1",
+      "sourceRootId": "68f6c4ceba8cbd6e",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/a41d34ee3c24606a52c46c54.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_shapes_sheet_4",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "43ed2fb91d177d45",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/3020b7d120283140.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/275cb0b007a29a5f717862e2.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 1,
+          "material": "elcq/vfx_pyro_spark_streak_fat_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.4000000059604645
+          ],
+          "sourceMaterialId": "4c5989f117d0f742",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/731110b3a4a7170f.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b7c1b5abf8d0b7e7aa66d8f3.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_dot_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.20000000298023224,
+            1.5
+          ],
+          "sourceMaterialId": "61ce201808d5543b",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 128,
+          "textureHeight": 64,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/4d9e620c3b45b99b.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/44acb9a0810067a89134e85d.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_burst_core_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.15000000596046448
+          ],
+          "sourceMaterialId": "6d16b0576d40c810",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/2566f524cc277103.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/07e8f3d8c4152c00d2272f72.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_vol_smoke_soft_billow_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            1.0
+          ],
+          "sourceMaterialId": "5901d40383a39b40",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5729b9c2a8787920.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/aed1bf90111892d9c9f03d6d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    },
+    "crash_6bdb07079ccc97da": {
+      "sourceEffect": "vfx/iw9/killstreaks/chopper/vfx_chopper_outro_glass_crash",
+      "sourceRootId": "6bdb07079ccc97da",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/2bd2ae6d7ec679400b89c88e.png",
+          "blend": "smoke",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_debris_glass_shard_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            2.0,
+            2.0
+          ],
+          "sourceMaterialId": "07f7c007f0f351ca",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0.15000000596046448,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/4ce316cbe3581d97.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/07e8f3d8c4152c00d2272f72.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 4,
+          "material": "elcq/vfx_vol_smoke_soft_billow_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.0,
+            1.0
+          ],
+          "sourceMaterialId": "5901d40383a39b40",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/5729b9c2a8787920.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/aed1bf90111892d9c9f03d6d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/91b21e7c6c317d9e2065439e.png",
+          "blend": "glow",
+          "grid": 1,
+          "columns": 1,
+          "rows": 1,
+          "material": "elcq/vfx_postfx_glow_abstract_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.1264999955892563,
+            0.1264999955892563
+          ],
+          "sourceMaterialId": "18b8a87b7b2a8903",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0bc037b8f59022b4.png"
+        }
+      ]
+    },
+    "crash_72e5221b177e02f4": {
+      "sourceEffect": "vfx/iw9/killstreaks/escort/vfx_escort_heli_body_damage_2",
+      "sourceRootId": "72e5221b177e02f4",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/38257b206ef642d9d5b1303e.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_top_sml_loop_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.5,
+            1.5
+          ],
+          "sourceMaterialId": "60b0df63b592a3c9",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/6965a8acdb024326.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b6c0d2b5b03568902f01edfb.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_4",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.75,
+            1.2999999523162842
+          ],
+          "sourceMaterialId": "735bd5d57371d028",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/51d4630aa39aab48.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/44acb9a0810067a89134e85d.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_burst_core_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.07500000298023224,
+            0.10000000149011612
+          ],
+          "sourceMaterialId": "6d16b0576d40c810",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/2566f524cc277103.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/e9e21ca8700dd75a5ed407b6.png",
+          "blend": "smoke",
+          "grid": 2,
+          "columns": 2,
+          "rows": 4,
+          "material": "elcq/vfx_debris_embers_sheet_2",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.15000000596046448
+          ],
+          "sourceMaterialId": "2b2fc582e2da9db6",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/0ea4b610d55b521f.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/275cb0b007a29a5f717862e2.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 1,
+          "material": "elcq/vfx_pyro_spark_streak_fat_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.25,
+            0.5799999833106995
+          ],
+          "sourceMaterialId": "4c5989f117d0f742",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 256,
+          "textureHeight": 128,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/731110b3a4a7170f.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/ec670dd77701bdb986597154.png",
+          "blend": "glow",
+          "grid": 8,
+          "lifeSeconds": [
+            0.30000001192092896,
+            0.5
+          ],
+          "material": "elcq/vfx_vol_tendril_thin_fork_anim_1",
+          "sourceEmitter": 3,
+          "sourceMaterialId": "0f1cb612f420cd42",
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/6696cbc043a03f92.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/9f13795685efbc0a896c6a4d.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/f2f01976432505dac8457353.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "sourceEmitter": 4,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "sourceMaterialId": "71c1d09958f6bfd8",
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3a8308bacbe7e949.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/c73cb56f9fe072e195357b0c.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/a41d34ee3c24606a52c46c54.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_shapes_sheet_4",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.10000000149011612,
+            0.20000000298023224
+          ],
+          "sourceMaterialId": "43ed2fb91d177d45",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 256,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/3020b7d120283140.png"
+        }
+      ]
+    },
+    "crash_72e5231b177e04a7": {
+      "sourceEffect": "vfx/iw9/killstreaks/escort/vfx_escort_heli_body_damage_3",
+      "sourceRootId": "72e5231b177e04a7",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c4781d63c9bd20c36ad6f3b.png",
+          "blend": "smoke",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_vol_dust_turbulent_corner_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.6000000238418579,
+            0.699999988079071
+          ],
+          "sourceMaterialId": "120233e6c242a3df",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/07dc8471393c94dc.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/7d9d92e15f4bea5f9882b50e.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/f2f01976432505dac8457353.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            1.0,
+            1.0
+          ],
+          "material": "elcq/vfx_vol_smoke_wispy_swirl_loop_1",
+          "sourceEmitter": 1,
+          "columns": 8,
+          "rows": 8,
+          "atlasAdapter": "Visually inspected source frame layout; row-major one-frame playback, filtered UV inset. IW module timing remains adapted.",
+          "sourceMaterialId": "71c1d09958f6bfd8",
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/3a8308bacbe7e949.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/c73cb56f9fe072e195357b0c.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b6c0d2b5b03568902f01edfb.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ground_med_loop_4",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.75,
+            1.2999999523162842
+          ],
+          "sourceMaterialId": "735bd5d57371d028",
+          "sourceEmitter": 2,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/51d4630aa39aab48.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/06061e2185d8127d8c5e1978.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ball_lrg_anim_3_noec",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            0.75
+          ],
+          "sourceMaterialId": "34bab6cacf86845b",
+          "sourceEmitter": 8,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/097a0bc55c1b7024.png"
+        }
+      ]
+    },
+    "crash_72e5251b177e080d": {
+      "sourceEffect": "vfx/iw9/killstreaks/escort/vfx_escort_heli_body_damage_1",
+      "sourceRootId": "72e5251b177e080d",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx/19d060d91192ceeecd3d5e03.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ball_lrg_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.07999999821186066,
+            0.11999999731779099
+          ],
+          "sourceMaterialId": "583c935c6c75e4f1",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/605d81d30e4f2c9b.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/94f04e7fda21d92d829ee920.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 4,
+          "material": "elcq/vfx_pyro_fireball_expl_fxelem_anim_3",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.25,
+            0.3199999928474426
+          ],
+          "sourceMaterialId": "5826e8bf5eb2219b",
+          "sourceEmitter": 1,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/1171da994dbfe485.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/19d060d91192ceeecd3d5e03.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_fire_ball_lrg_anim_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.11999999731779099,
+            0.20000000298023224
+          ],
+          "sourceMaterialId": "583c935c6c75e4f1",
+          "sourceEmitter": 3,
+          "sourceDelaySeconds": 0.5,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/605d81d30e4f2c9b.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/44acb9a0810067a89134e85d.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_burst_core_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.05000000074505806,
+            0.05999999865889549
+          ],
+          "sourceMaterialId": "6d16b0576d40c810",
+          "sourceEmitter": 4,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/2566f524cc277103.png"
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx/b7c1b5abf8d0b7e7aa66d8f3.png",
+          "blend": "glow",
+          "grid": 4,
+          "columns": 4,
+          "rows": 2,
+          "material": "elcq/vfx_pyro_spark_dot_sheet_1",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            0.5,
+            2.0
+          ],
+          "sourceMaterialId": "61ce201808d5543b",
+          "sourceEmitter": 5,
+          "sourceDelaySeconds": 0,
+          "textureWidth": 128,
+          "textureHeight": 64,
+          "opacity416": "RGB coverage adapter for opaque black-background sprite; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/4d9e620c3b45b99b.png"
+        }
+      ]
+    },
+    "crash_7a01210b9dc8b2bf": {
+      "sourceEffect": "vfx/iw8_mp/killstreak/vfx_ac130_body_damage_3",
+      "sourceRootId": "7a01210b9dc8b2bf",
+      "layers": [
+        {
+          "texture": "killstreakcod:textures/combatfx417/6c75ec3e13cbd39da0d9eae0.png",
+          "blend": "glow",
+          "grid": 8,
+          "columns": 8,
+          "rows": 8,
+          "material": "elcq/vfx_pyro_fireball_lrg_04a",
+          "atlasAdapter": "Frame layout inferred from constant 47 column/row and reciprocal-size pair, checked against available sheets; otherwise previous verified/inspected layout. Per-frame inset UVs.",
+          "lifeSeconds": [
+            1.5,
+            1.5
+          ],
+          "sourceMaterialId": "1e91a1ae1cb570db",
+          "sourceEmitter": 0,
+          "sourceDelaySeconds": 0.5,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "native opacity mask in RGBA alpha; additive colour unpremultiplied",
+          "sourceTexture416": "killstreakcod:textures/aircraftcrashfx/66e895a299acafac.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/2a468b3bc3e938689949411b.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border."
+        },
+        {
+          "texture": "killstreakcod:textures/combatfx417/70f0c478b689052c7796354d.png",
+          "blend": "smoke",
+          "grid": 8,
+          "lifeSeconds": [
+            6.0,
+            8.0
+          ],
+          "material": "elcq/vfx_vol_smoke_white_anim_1",
+          "sourceEmitter": 1,
+          "sourceMaterialId": "128a856b642f861a",
+          "sourceDelaySeconds": 1.0,
+          "textureWidth": 512,
+          "textureHeight": 512,
+          "opacity416": "original alpha retained",
+          "sourceTexture416": "killstreakcod:textures/nativefx/5ddb072b8c81dfb8.png",
+          "sourceTexture417": "killstreakcod:textures/combatfx/122726cff91b18251e20196f.png",
+          "opacity417": "Semantic 34 is transmittance: alpha=255-transmittance. Semantic 8 supplies recovered fire radiance. Premultiplied black-background colour becomes straight RGBA. Every frame has a transparent two-pixel border.",
+          "tint": 11184035
+        }
+      ]
+    }
+  },
+  "debris": {
+    "crash_0900d8d4ae6924ad": [],
+    "crash_13ffee139ea96474": [
+      "crash_debris_veh8_halfa_exhaust_nozzle_f_l_lod3",
+      "crash_debris_vfx_debris_metal_shrapnel_a_01_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_02",
+      "crash_debris_vfx_debris_metal_shrapnel_a_03_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_04"
+    ],
+    "crash_19e82a440e9fe95d": [
+      "crash_debris_veh8_mil_air_ahotel64_blade_1_lod2",
+      "crash_debris_veh8_mil_air_ahotel64_dst_landing_gear_lod3",
+      "crash_debris_veh8_mil_air_ahotel64_dst_sensor_lod3",
+      "crash_debris_vfx_debris_metal_shrapnel_a_01_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_02",
+      "crash_debris_vfx_debris_metal_shrapnel_a_03_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_04"
+    ],
+    "crash_1ca4755f343f089c": [
+      "crash_debris_veh9_mil_air_halfa_canopy_lod4"
+    ],
+    "crash_1ffaacab51081351": [
+      "crash_debris_veh8_mil_air_ahotel64_blade_1_lod2",
+      "crash_debris_veh8_mil_air_ahotel64_dst_landing_gear_lod3",
+      "crash_debris_veh8_mil_air_ahotel64_dst_sensor_lod3",
+      "crash_debris_vfx_debris_metal_shrapnel_a_01_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_02",
+      "crash_debris_vfx_debris_metal_shrapnel_a_03_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_04"
+    ],
+    "crash_276e6fc4d011c5d8": [],
+    "crash_276e70c4d011c78b": [],
+    "crash_276e71c4d011c93e": [],
+    "crash_288763a94107b6c0": [],
+    "crash_3ccb9814ee9a58c2": [],
+    "crash_478e1c7edb43ed90": [
+      "crash_debris_metal_scrap_debris_07",
+      "crash_debris_metal_scrap_debris_08_lod1",
+      "crash_debris_metal_scrap_debris_09_lod1",
+      "crash_debris_metal_scrap_debris_10",
+      "crash_debris_metal_scrap_debris_11",
+      "crash_debris_vfx_debris_metal_a_01_lod5",
+      "crash_debris_vfx_debris_metal_a_02",
+      "crash_debris_vfx_debris_metal_a_03_lod2",
+      "crash_debris_vfx_debris_metal_a_04_lod3",
+      "crash_debris_vfx_debris_metal_a_05_lod4",
+      "crash_debris_vfx_debris_metal_a_06_lod5",
+      "crash_debris_vfx_debris_metal_a_07_lod4",
+      "crash_debris_vfx_debris_metal_a_08_lod5",
+      "crash_debris_vfx_debris_metal_a_09_lod5",
+      "crash_debris_vfx_debris_metal_a_10_lod5"
+    ],
+    "crash_4d1d9a61467ff1f5": [
+      "crash_debris_me_corrugated_metal4x8_holes_lod2",
+      "crash_debris_me_corrugated_metal4x8_lod1",
+      "crash_debris_metal_scrap_debris_07",
+      "crash_debris_metal_scrap_debris_08_lod1",
+      "crash_debris_metal_scrap_debris_09_lod1",
+      "crash_debris_metal_scrap_debris_10",
+      "crash_debris_metal_scrap_debris_11"
+    ],
+    "crash_5dccca5f51ffb014": [],
+    "crash_66417eeab994f07a": [
+      "crash_debris_com_barrel_shard1_lod2",
+      "crash_debris_com_barrel_shard2",
+      "crash_debris_com_barrel_shard3_lod1",
+      "crash_debris_com_barrel_shard4_lod2",
+      "crash_debris_com_barrel_shard5_lod2",
+      "crash_debris_ks_gunship_mp_back_dis_body_vfx_lod4",
+      "crash_debris_ks_gunship_mp_front_r_wing_vfx_lod2",
+      "crash_debris_me_corrugated_metal4x8_holes_lod2",
+      "crash_debris_me_corrugated_metal4x8_lod1",
+      "crash_debris_metal_scrap_debris_07",
+      "crash_debris_metal_scrap_debris_08_lod1",
+      "crash_debris_metal_scrap_debris_09_lod1",
+      "crash_debris_metal_scrap_debris_10",
+      "crash_debris_metal_scrap_debris_11",
+      "crash_debris_vfx_debris_metal_a_01_lod5",
+      "crash_debris_vfx_debris_metal_a_03_lod2",
+      "crash_debris_vfx_debris_metal_a_04_lod3",
+      "crash_debris_vfx_debris_metal_a_05_lod4",
+      "crash_debris_vfx_debris_metal_a_06_lod5",
+      "crash_debris_vfx_debris_metal_shrapnel_a_01_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_02",
+      "crash_debris_vfx_debris_metal_shrapnel_a_03_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_04",
+      "crash_debris_vfx_debris_metal_shrapnel_a_05_lod2",
+      "crash_debris_vfx_debris_metal_shrapnel_a_06_lod4",
+      "crash_debris_vfx_debris_metal_shrapnel_a_07_lod3",
+      "crash_debris_vfx_debris_metal_shrapnel_a_08_lod3",
+      "crash_debris_vfx_debris_metal_shrapnel_a_09_lod3",
+      "crash_debris_vfx_debris_metal_shrapnel_a_10_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_11_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_12_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_13_lod3",
+      "crash_debris_vfx_debris_metal_shrapnel_a_14_lod1",
+      "crash_debris_vfx_debris_metal_shrapnel_a_15_lod3",
+      "crash_debris_vfx_debris_metal_shrapnel_a_16_lod4"
+    ],
+    "crash_68f6c2ceba8cba08": [],
+    "crash_68f6c3ceba8cbbbb": [],
+    "crash_68f6c4ceba8cbd6e": [],
+    "crash_6bdb07079ccc97da": [],
+    "crash_72e5221b177e02f4": [],
+    "crash_72e5231b177e04a7": [],
+    "crash_72e5251b177e080d": [],
+    "crash_7a01210b9dc8b2bf": []
+  },
+  "limits": "Minecraft sprite/lifetime/debris adaptation; IW module instructions, nested event operations and native shader code are not executed."
+}

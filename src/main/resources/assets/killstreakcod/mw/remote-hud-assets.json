@@ -1,0 +1,2664 @@
+{
+  "format": 2,
+  "profiles": {
+    "bomb_drone": [
+      "ui_bomber_drone_overlay",
+      "overlay_bomb_drone_targeting_squares",
+      "overlay_bomb_drone_red_outline",
+      "overlay_bomb_drone_warning_icon"
+    ],
+    "wheelson": [
+      "mp_wheelson_reticle_new",
+      "overlay_cruise_vignette_segment",
+      "overlay_gunship_selectionbox",
+      "overlay_gunship_zoomnotches",
+      "overlay_wheelson_diagram_body",
+      "overlay_wheelson_diagram_turret",
+      "mp_wheelson_speed_bar_arrow",
+      "ui_keybind_hold_mask_side",
+      "ui_keybind_hold_mask_center",
+      "ui_keybind_hold_radial",
+      "keybind_hold_border",
+      "ui_keybind_backing",
+      "keybind_backing_white",
+      "ui_keybind_backing_unbound",
+      "center_gradient_clear",
+      "center_gradient_opaque",
+      "backer_arrow_tile",
+      "veh_shock_icon",
+      "icon_submerged",
+      "veh_diagram_suv_fill_wheel",
+      "veh_diagram_suv_glow_wheel",
+      "hud_reticle_radial_glow",
+      "dpad_circle_segment",
+      "veh_diagram_2014_pickup_glow_body",
+      "veh_diagram_sedan_hatchback_out",
+      "veh_diagram_2014_pickup_mask",
+      "icon_empty_x",
+      "mp_wheelson_icon_battery",
+      "overlay_bradley_damage_side",
+      "overlay_bradley_damage_front",
+      "hud_arrow",
+      "mp_wheelson_icon_infinite"
+    ],
+    "cruise": [
+      "overlay_cruise_cross",
+      "overlay_cruise_flash",
+      "overlay_cruise_reticle",
+      "overlay_cruise_squares",
+      "ui_keybind_hold_mask_side",
+      "ui_keybind_hold_mask_center",
+      "ui_keybind_hold_radial",
+      "keybind_hold_border",
+      "ui_keybind_backing",
+      "keybind_backing_white",
+      "ui_keybind_backing_unbound",
+      "hud_reticle_radial_glow",
+      "dpad_circle_segment",
+      "icon_empty_x",
+      "ui_tanto_logo"
+    ],
+    "chopper": [
+      "overlay_cruise_flash",
+      "overlay_gunship_25mm_reticle",
+      "overlay_gunship_damagecrack_1",
+      "overlay_gunship_damagecrack_2",
+      "overlay_gunship_damagecrack_3",
+      "overlay_gunship_damagecrack_4",
+      "overlay_gunship_damageglitch",
+      "overlay_gunship_fuelbar_frame",
+      "overlay_gunship_satellite_icon",
+      "overlay_gunship_selectionbox",
+      "overlay_gunship_zoomguide",
+      "overlay_gunship_zoomnotches",
+      "apache_icon_infinite",
+      "ui_keybind_hold_mask_side",
+      "ui_keybind_hold_mask_center",
+      "ui_keybind_hold_radial",
+      "keybind_hold_border",
+      "ui_keybind_backing",
+      "keybind_backing_white",
+      "ui_keybind_backing_unbound",
+      "center_gradient_clear",
+      "center_gradient_opaque",
+      "backer_arrow_tile",
+      "veh_shock_icon",
+      "veh_diagram_suv_fill_wheel",
+      "veh_diagram_suv_glow_wheel",
+      "hud_reticle_radial_glow",
+      "dpad_circle_segment",
+      "ui_tanto_logo",
+      "veh_diagram_choppergunner_glow",
+      "veh_diagram_choppergunner_out",
+      "veh_diagram_choppergunner_mask"
+    ],
+    "gunship": [
+      "overlay_cruise_flash",
+      "overlay_gunship_105mm_reticle",
+      "overlay_gunship_25mm_reticle",
+      "overlay_gunship_40mm_reticle",
+      "overlay_gunship_damagecrack_1",
+      "overlay_gunship_damagecrack_2",
+      "overlay_gunship_damagecrack_3",
+      "overlay_gunship_damagecrack_4",
+      "overlay_gunship_damageglitch",
+      "overlay_gunship_fuelbar_frame",
+      "overlay_gunship_inactive_reticle",
+      "overlay_gunship_minicompass_needle",
+      "overlay_gunship_minicompass_ring",
+      "overlay_gunship_satellite_icon",
+      "overlay_gunship_selectionbox",
+      "overlay_gunship_vignette_left",
+      "overlay_gunship_zoomguide",
+      "overlay_gunship_zoomnotches",
+      "veh_diagram_gunship_glow",
+      "veh_diagram_gunship_out",
+      "veh_diagram_gunship_mask",
+      "apache_icon_infinite",
+      "ui_keybind_hold_mask_side",
+      "ui_keybind_hold_mask_center",
+      "ui_keybind_hold_radial",
+      "keybind_hold_border",
+      "ui_keybind_backing",
+      "keybind_backing_white",
+      "ui_keybind_backing_unbound",
+      "veh_diagram_suv_fill_wheel",
+      "veh_diagram_suv_glow_wheel",
+      "hud_reticle_radial_glow",
+      "dpad_circle_segment",
+      "minimap_circle_full"
+    ],
+    "chopper_screens": [
+      "tablet_chopper_gunner_center_background",
+      "tablet_chopper_gunner_center_reticle",
+      "tablet_chopper_gunner_center_arrow",
+      "tablet_chopper_gunner_left_background",
+      "tablet_chopper_gunner_right_background",
+      "tablet_chopper_gunner_right_square"
+    ]
+  },
+  "layers": {
+    "ui_bomber_drone_overlay": {
+      "name": "ui_bomber_drone_overlay",
+      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\ui_bomber_drone_overlay.png",
+      "sourceSha256": "141f5210090a603d85d9afce10a27a897371a2587d645cf06e16ef5de482ac57",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/ui_bomber_drone_overlay.png",
+      "outputSha256": "141f5210090a603d85d9afce10a27a897371a2587d645cf06e16ef5de482ac57",
+      "width": 1024,
+      "height": 576,
+      "bounds": [
+        0,
+        0,
+        1024,
+        576
+      ],
+      "alphaExtrema": [
+        11,
+        255
+      ],
+      "centerRgba": [
+        214,
+        214,
+        214,
+        13
+      ]
+    },
+    "overlay_bomb_drone_targeting_squares": {
+      "name": "overlay_bomb_drone_targeting_squares",
+      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\overlay_bomb_drone_targeting_squares.png",
+      "sourceSha256": "1a19716a5e0210895bd637ecc84512c127a38c8791318c92cbfdac63fcb3fd0d",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/overlay_bomb_drone_targeting_squares.png",
+      "outputSha256": "1a19716a5e0210895bd637ecc84512c127a38c8791318c92cbfdac63fcb3fd0d",
+      "width": 1024,
+      "height": 512,
+      "bounds": [
+        186,
+        68,
+        838,
+        444
+      ],
+      "alphaExtrema": [
+        0,
+        235
+      ],
+      "centerRgba": [
+        202,
+        202,
+        202,
+        91
+      ]
+    },
+    "overlay_bomb_drone_red_outline": {
+      "name": "overlay_bomb_drone_red_outline",
+      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\overlay_bomb_drone_red_outline.png",
+      "sourceSha256": "8a7ffea4e4d23906c1fcb7a6d7508a206d6edefeff9bbe25a6c51711d7d06783",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/overlay_bomb_drone_red_outline.png",
+      "outputSha256": "8a7ffea4e4d23906c1fcb7a6d7508a206d6edefeff9bbe25a6c51711d7d06783",
+      "width": 2048,
+      "height": 1024,
+      "bounds": [
+        352,
+        201,
+        1695,
+        823
+      ],
+      "alphaExtrema": [
+        0,
+        243
+      ],
+      "centerRgba": [
+        206,
+        66,
+        57,
+        0
+      ]
+    },
+    "overlay_bomb_drone_warning_icon": {
+      "name": "overlay_bomb_drone_warning_icon",
+      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\overlay_bomb_drone_warning_icon.png",
+      "sourceSha256": "fce543734ee3819f76c4da6827414cf34f362505ec156c0c022460f6b76135e6",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/overlay_bomb_drone_warning_icon.png",
+      "outputSha256": "fce543734ee3819f76c4da6827414cf34f362505ec156c0c022460f6b76135e6",
+      "width": 128,
+      "height": 128,
+      "bounds": [
+        16,
+        21,
+        111,
+        107
+      ],
+      "alphaExtrema": [
+        0,
+        205
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ]
+    },
+    "mp_wheelson_reticle_new": {
+      "name": "mp_wheelson_reticle_new",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\mp_wheelson_reticle_new.png",
+      "sourceSha256": "31d590389cbf857e10596028466aa995b449df696886b813625347e54073c86b",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\mp_wheelson_reticle_new.dds",
+      "sourceDdsSha256": "1d0be82bf511e88746b4196ce4f5c42e3b2eb9be93c001464bcd70603223b1fc",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/mp_wheelson_reticle_new.png",
+      "outputSha256": "31d590389cbf857e10596028466aa995b449df696886b813625347e54073c86b",
+      "texture": "killstreakcod:textures/gui/mwii/remote/mp_wheelson_reticle_new.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        15,
+        68,
+        241,
+        188
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/mp_wheelson_reticle_new.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_cruise_cross": {
+      "name": "overlay_cruise_cross",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_cross.png",
+      "sourceSha256": "c0350fd227938e702ce0fde23422ba8cabfca07cf27e573ef1a8afc670659137",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_cross.dds",
+      "sourceDdsSha256": "684454d782f7587ad9857de7713dc7f7b9cad9bfdc3f8d4baae21c4f0bee5d59",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_cross.png",
+      "outputSha256": "c0350fd227938e702ce0fde23422ba8cabfca07cf27e573ef1a8afc670659137",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_cruise_cross.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alphaExtrema": [
+        0,
+        191
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        191
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "cruise"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_cross.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_cruise_flash": {
+      "name": "overlay_cruise_flash",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_flash.png",
+      "sourceSha256": "ca5793f31412455b26624efd5cd067bd3876c28130e86270556db533c7723004",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_flash.dds",
+      "sourceDdsSha256": "59a58a343af3728c0b200066aac650154b422b97deda08bd18dc3e274af4dc40",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_flash.png",
+      "outputSha256": "ca5793f31412455b26624efd5cd067bd3876c28130e86270556db533c7723004",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_cruise_flash.png",
+      "width": 1024,
+      "height": 512,
+      "bounds": [
+        0,
+        13,
+        1024,
+        512
+      ],
+      "alphaExtrema": [
+        0,
+        231
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        184
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship"
+      ],
+      "literalMaterialCalls": 3,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_flash.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_cruise_reticle": {
+      "name": "overlay_cruise_reticle",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_reticle.png",
+      "sourceSha256": "31c0051dcf0fe5b29d5d8a2a769d242b4d8eae0f503c2e89173f20b1e348b5ae",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_reticle.dds",
+      "sourceDdsSha256": "936c9f68b8d190ca9986e4e6f4e0335b3e1d24acc71f6bf52b0eb57e05cf602f",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_reticle.png",
+      "outputSha256": "31c0051dcf0fe5b29d5d8a2a769d242b4d8eae0f503c2e89173f20b1e348b5ae",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_cruise_reticle.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        64
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "cruise"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_reticle.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_cruise_squares": {
+      "name": "overlay_cruise_squares",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_squares.png",
+      "sourceSha256": "b2b8ef1159ecfa2a5be411a42ad44b5e04e24ccbc202ed72b866b425dec6a43c",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_squares.dds",
+      "sourceDdsSha256": "97ab2061506fd6e61b615e32c0456332b7d1f7beab22d753e361464318282353",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_squares.png",
+      "outputSha256": "b2b8ef1159ecfa2a5be411a42ad44b5e04e24ccbc202ed72b866b425dec6a43c",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_cruise_squares.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alphaExtrema": [
+        0,
+        128
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "cruise"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_squares.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_cruise_vignette_segment": {
+      "name": "overlay_cruise_vignette_segment",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_vignette_segment.png",
+      "sourceSha256": "07ce861f4a79a48fbff40c612957978f25ead153238e244c2c3c7e2ed25a506f",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_cruise_vignette_segment.dds",
+      "sourceDdsSha256": "a07aee6b1bf0a3fab5170e8f84f42a861aa194ae6a9c50c9f6cd107231de917b",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_vignette_segment.png",
+      "outputSha256": "07ce861f4a79a48fbff40c612957978f25ead153238e244c2c3c7e2ed25a506f",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_cruise_vignette_segment.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        180,
+        178,
+        162,
+        5
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_cruise_vignette_segment.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_105mm_reticle": {
+      "name": "overlay_gunship_105mm_reticle",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_105mm_reticle.png",
+      "sourceSha256": "c5c283ae49716e1643b03be69c68bb930fc8fda765092e2c698d73f0b07677f6",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_105mm_reticle.dds",
+      "sourceDdsSha256": "8e6719dc1c6ff72d7d73cbd0d945315760cdd2ee66dba4dc570b4d466d0da42b",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_105mm_reticle.png",
+      "outputSha256": "c5c283ae49716e1643b03be69c68bb930fc8fda765092e2c698d73f0b07677f6",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_105mm_reticle.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        55,
+        55,
+        457,
+        457
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        1
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_105mm_reticle.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_25mm_reticle": {
+      "name": "overlay_gunship_25mm_reticle",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_25mm_reticle.png",
+      "sourceSha256": "55aab21bf7dbbb50ae7959d2e6365c27081a4b76cbbb1be5ee8a243a99b3392d",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_25mm_reticle.dds",
+      "sourceDdsSha256": "5fbafaace1f16e376f5e2b5b32bdfc2a8965b9263f2cbd27cb376d94fbdf2c60",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_25mm_reticle.png",
+      "outputSha256": "55aab21bf7dbbb50ae7959d2e6365c27081a4b76cbbb1be5ee8a243a99b3392d",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_25mm_reticle.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        77,
+        77,
+        436,
+        435
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_25mm_reticle.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_40mm_reticle": {
+      "name": "overlay_gunship_40mm_reticle",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_40mm_reticle.png",
+      "sourceSha256": "0999e8a134eb5ea73f4098391f1e97a21f703e308cd9541ae67b2096fdce4b6a",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_40mm_reticle.dds",
+      "sourceDdsSha256": "92262d76ddbfcc186b821d892c64644016e236c68a9ff95f99df63a8503a171d",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_40mm_reticle.png",
+      "outputSha256": "0999e8a134eb5ea73f4098391f1e97a21f703e308cd9541ae67b2096fdce4b6a",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_40mm_reticle.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        110,
+        120,
+        402,
+        391
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_40mm_reticle.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_damagecrack_1": {
+      "name": "overlay_gunship_damagecrack_1",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damagecrack_1.png",
+      "sourceSha256": "e4a1a75deb7b2fd095a5a521c6e7e01e8faea3ac86e06fd0de29b9a15ad66dba",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damagecrack_1.dds",
+      "sourceDdsSha256": "807feaf4b2ad17441094e3e86cebc82050e6ca26504c727e9944c38486512fa0",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damagecrack_1.png",
+      "outputSha256": "e4a1a75deb7b2fd095a5a521c6e7e01e8faea3ac86e06fd0de29b9a15ad66dba",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_damagecrack_1.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        18,
+        14,
+        460,
+        501
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        244,
+        244,
+        244,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damagecrack_1.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_damagecrack_2": {
+      "name": "overlay_gunship_damagecrack_2",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damagecrack_2.png",
+      "sourceSha256": "22425eb9bcd642a2510d3ba0aac8d813e7b0d705c6951900f86dea7a46529947",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damagecrack_2.dds",
+      "sourceDdsSha256": "05b22453901a96afc933c4ac513e99adb95700058caaafe6da2923db94c4d9bc",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damagecrack_2.png",
+      "outputSha256": "22425eb9bcd642a2510d3ba0aac8d813e7b0d705c6951900f86dea7a46529947",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_damagecrack_2.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        14,
+        503,
+        504
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        39,
+        39,
+        39,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damagecrack_2.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_damagecrack_3": {
+      "name": "overlay_gunship_damagecrack_3",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damagecrack_3.png",
+      "sourceSha256": "b28342eec751a144f49c7737fc49faf6e382c4da761a533a5ca0c1dd966b53cb",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damagecrack_3.dds",
+      "sourceDdsSha256": "21cf89a49e837cab1a7336b98ae84742375914089bd0d202cf8e0e97214ebc43",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damagecrack_3.png",
+      "outputSha256": "b28342eec751a144f49c7737fc49faf6e382c4da761a533a5ca0c1dd966b53cb",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_damagecrack_3.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        3,
+        5,
+        497,
+        500
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        244,
+        244,
+        244,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damagecrack_3.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_damagecrack_4": {
+      "name": "overlay_gunship_damagecrack_4",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damagecrack_4.png",
+      "sourceSha256": "b21eced3cf59b175162e96142384e42e73695554cf3aa058e7f89b3907348a6f",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damagecrack_4.dds",
+      "sourceDdsSha256": "286969c1ba904a8bbbcb7339d1a3c3cad81b25cccc13d333d1f0a0e97664b9ea",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damagecrack_4.png",
+      "outputSha256": "b21eced3cf59b175162e96142384e42e73695554cf3aa058e7f89b3907348a6f",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_damagecrack_4.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        79,
+        111,
+        456,
+        428
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        119,
+        119,
+        119,
+        153
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damagecrack_4.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_damageglitch": {
+      "name": "overlay_gunship_damageglitch",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damageglitch.png",
+      "sourceSha256": "7184c5b6b57867b66a6266f0385750e6ea0b2b813da98308a652c400a9943e29",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_damageglitch.dds",
+      "sourceDdsSha256": "62b7c509c20c7cee0beafab4c38578a90e00eccfbb95e70c8a91cfb693f66e3f",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damageglitch.png",
+      "outputSha256": "7184c5b6b57867b66a6266f0385750e6ea0b2b813da98308a652c400a9943e29",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_damageglitch.png",
+      "width": 2048,
+      "height": 1024,
+      "bounds": [
+        0,
+        0,
+        2048,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        235
+      ],
+      "centerRgba": [
+        138,
+        140,
+        142,
+        9
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_damageglitch.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_fuelbar_frame": {
+      "name": "overlay_gunship_fuelbar_frame",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_fuelbar_frame.png",
+      "sourceSha256": "67815babb9d39d280b341dab17661f6536685e36c995465ef5514155ca09d430",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_fuelbar_frame.dds",
+      "sourceDdsSha256": "69ea6472394da559c049f43d28cdd5cc1f446cf97a025cb9fdc93066003a9581",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_fuelbar_frame.png",
+      "outputSha256": "67815babb9d39d280b341dab17661f6536685e36c995465ef5514155ca09d430",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_fuelbar_frame.png",
+      "width": 16,
+      "height": 256,
+      "bounds": [
+        0,
+        0,
+        16,
+        256
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_fuelbar_frame.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_inactive_reticle": {
+      "name": "overlay_gunship_inactive_reticle",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_inactive_reticle.png",
+      "sourceSha256": "5594a1d721afe45a4cfa3c6858291f988c955f22696a2effd0d6a0b31a25478b",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_inactive_reticle.dds",
+      "sourceDdsSha256": "8584288ff54c43b4c1a44753d0a7cace43771b5a69755162175e6a00e1272464",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_inactive_reticle.png",
+      "outputSha256": "5594a1d721afe45a4cfa3c6858291f988c955f22696a2effd0d6a0b31a25478b",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_inactive_reticle.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        88,
+        512,
+        423
+      ],
+      "alphaExtrema": [
+        0,
+        223
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_inactive_reticle.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_minicompass_needle": {
+      "name": "overlay_gunship_minicompass_needle",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_minicompass_needle.png",
+      "sourceSha256": "0b1f360500318235c4ff8ea373faa3e0c269913b82c4e41e289ab0cdcd99f7ae",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_minicompass_needle.dds",
+      "sourceDdsSha256": "b15456bef78c8cce974581e273ef14044ec9460f758b4e4ee051599862c42ff6",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_minicompass_needle.png",
+      "outputSha256": "0b1f360500318235c4ff8ea373faa3e0c269913b82c4e41e289ab0cdcd99f7ae",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_minicompass_needle.png",
+      "width": 128,
+      "height": 128,
+      "bounds": [
+        56,
+        19,
+        71,
+        109
+      ],
+      "alphaExtrema": [
+        0,
+        208
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_minicompass_needle.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_minicompass_ring": {
+      "name": "overlay_gunship_minicompass_ring",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_minicompass_ring.png",
+      "sourceSha256": "4cdb22d38d43ead55f94cd689c7af059f919c8da7be48134d5b4cf776692dec4",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_minicompass_ring.dds",
+      "sourceDdsSha256": "5c02e5293fe9c342c970e9bff4729cbfe03ff74f9da27b47721e64a83fcc51d7",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_minicompass_ring.png",
+      "outputSha256": "4cdb22d38d43ead55f94cd689c7af059f919c8da7be48134d5b4cf776692dec4",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_minicompass_ring.png",
+      "width": 128,
+      "height": 128,
+      "bounds": [
+        11,
+        11,
+        117,
+        117
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_minicompass_ring.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_satellite_icon": {
+      "name": "overlay_gunship_satellite_icon",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_satellite_icon.png",
+      "sourceSha256": "caf7008d2bc8bbdfe9430b06503d36f5d39bdad795fe9cdf1babc5b24cbe6166",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_satellite_icon.dds",
+      "sourceDdsSha256": "7542c45c7295ace8aacc96536884a5f4bf1707435616fe225fbf0b02460823f3",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_satellite_icon.png",
+      "outputSha256": "caf7008d2bc8bbdfe9430b06503d36f5d39bdad795fe9cdf1babc5b24cbe6166",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_satellite_icon.png",
+      "width": 64,
+      "height": 32,
+      "bounds": [
+        6,
+        2,
+        58,
+        30
+      ],
+      "alphaExtrema": [
+        0,
+        219
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_satellite_icon.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_selectionbox": {
+      "name": "overlay_gunship_selectionbox",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_selectionbox.png",
+      "sourceSha256": "4dc9c17b861fd201f33cfa394e43af844f1e96b667555b7d862c377e268aa3d5",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_selectionbox.dds",
+      "sourceDdsSha256": "f2298274aea63924b67b1a5d63d00b5195e3a81abeb5ef1981eb5bd0d5b2e1c7",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_selectionbox.png",
+      "outputSha256": "4dc9c17b861fd201f33cfa394e43af844f1e96b667555b7d862c377e268aa3d5",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_selectionbox.png",
+      "width": 256,
+      "height": 32,
+      "bounds": [
+        0,
+        0,
+        256,
+        32
+      ],
+      "alphaExtrema": [
+        0,
+        199
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 5,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_selectionbox.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_vignette_left": {
+      "name": "overlay_gunship_vignette_left",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_vignette_left.png",
+      "sourceSha256": "17e718fc61449bfb7be145d5cfe0346c8ad230c2dfee05f8e9d29b3e31423ffa",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_vignette_left.dds",
+      "sourceDdsSha256": "5b4f6d30d05d24c3a1c736a3341ad0a57d4420bd4b23f06aed3dc655d282ed79",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_vignette_left.png",
+      "outputSha256": "17e718fc61449bfb7be145d5cfe0346c8ad230c2dfee05f8e9d29b3e31423ffa",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_vignette_left.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alphaExtrema": [
+        0,
+        193
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_vignette_left.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_zoomguide": {
+      "name": "overlay_gunship_zoomguide",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_zoomguide.png",
+      "sourceSha256": "21bf98114671e93ff7fab9eafe35032fb5426ab0d454d4cf51a43a6fa5f6acc7",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_zoomguide.dds",
+      "sourceDdsSha256": "8bf43f80e887d96299a02990e007fb185d6519de240924dd25d64dc9f8b3c0ad",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_zoomguide.png",
+      "outputSha256": "21bf98114671e93ff7fab9eafe35032fb5426ab0d454d4cf51a43a6fa5f6acc7",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_zoomguide.png",
+      "width": 32,
+      "height": 64,
+      "bounds": [
+        3,
+        12,
+        29,
+        52
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        254,
+        254,
+        254,
+        3
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_zoomguide.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_gunship_zoomnotches": {
+      "name": "overlay_gunship_zoomnotches",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_zoomnotches.png",
+      "sourceSha256": "86da3c366a65e37ba6048050fdcef9dab854dea5aad65256dcc59c2cefbbe0c5",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_gunship_zoomnotches.dds",
+      "sourceDdsSha256": "d3c6c62951e543a54b9bccd0c39f28fe17b7fb7d36f271eaa50733dc0998a4d9",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_zoomnotches.png",
+      "outputSha256": "86da3c366a65e37ba6048050fdcef9dab854dea5aad65256dcc59c2cefbbe0c5",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_gunship_zoomnotches.png",
+      "width": 32,
+      "height": 512,
+      "bounds": [
+        1,
+        0,
+        31,
+        512
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        175
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 5,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_gunship_zoomnotches.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_wheelson_diagram_body": {
+      "name": "overlay_wheelson_diagram_body",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_wheelson_diagram_body.png",
+      "sourceSha256": "5195d658922f34bb554b59d1c1f68683ab575d1f48bd6c498414afff617a8de9",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_wheelson_diagram_body.dds",
+      "sourceDdsSha256": "16bbaa1b8eb38d91d2738a6c8b86a53a0e0e12e8991ba4360f2e56ab18612688",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_wheelson_diagram_body.png",
+      "outputSha256": "5195d658922f34bb554b59d1c1f68683ab575d1f48bd6c498414afff617a8de9",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_wheelson_diagram_body.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        37,
+        7,
+        220,
+        252
+      ],
+      "alphaExtrema": [
+        0,
+        240
+      ],
+      "centerRgba": [
+        93,
+        94,
+        92,
+        237
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_wheelson_diagram_body.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_wheelson_diagram_turret": {
+      "name": "overlay_wheelson_diagram_turret",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_wheelson_diagram_turret.png",
+      "sourceSha256": "69ca60a26e2acf79f736b755bc1874cf56b9db5d5b72abc4a6b0de870cf8c11d",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\overlay_wheelson_diagram_turret.dds",
+      "sourceDdsSha256": "b0cfefb986f6d448fdf5f4ae6073d61414f9a413a782895c60eb11270aa7ccba",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_wheelson_diagram_turret.png",
+      "outputSha256": "69ca60a26e2acf79f736b755bc1874cf56b9db5d5b72abc4a6b0de870cf8c11d",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_wheelson_diagram_turret.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        97,
+        2,
+        158,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        239
+      ],
+      "centerRgba": [
+        93,
+        94,
+        92,
+        237
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_wheelson_diagram_turret.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "mp_wheelson_speed_bar_arrow": {
+      "name": "mp_wheelson_speed_bar_arrow",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\mp_wheelson_speed_bar_arrow.png",
+      "sourceSha256": "ba72f5c8379d2a6a0196633ba05daa9f4b973000d3698186342b69c203a5852c",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\mp_wheelson_speed_bar_arrow.dds",
+      "sourceDdsSha256": "34ec3720875b2a6d5cc4b229bd8ce21e2d1a5e4a72d7041a2f79fb1b3201a021",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/mp_wheelson_speed_bar_arrow.png",
+      "outputSha256": "ba72f5c8379d2a6a0196633ba05daa9f4b973000d3698186342b69c203a5852c",
+      "texture": "killstreakcod:textures/gui/mwii/remote/mp_wheelson_speed_bar_arrow.png",
+      "width": 24,
+      "height": 24,
+      "bounds": [
+        4,
+        2,
+        17,
+        24
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        199,
+        202,
+        198,
+        255
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/mp_wheelson_speed_bar_arrow.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_gunship_glow": {
+      "name": "veh_diagram_gunship_glow",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_gunship_glow.png",
+      "sourceSha256": "e8d1e11d4d86c42a8ae63473fdfd142a3d8aae91634e23957541152c1d462dd9",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_gunship_glow.dds",
+      "sourceDdsSha256": "4822f139e06b71f362d4d6f93d21b00ac53d508f0d8aeb02bd8c9aad25458c59",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_gunship_glow.png",
+      "outputSha256": "e8d1e11d4d86c42a8ae63473fdfd142a3d8aae91634e23957541152c1d462dd9",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_gunship_glow.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        8,
+        33,
+        248,
+        224
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_gunship_glow.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_gunship_out": {
+      "name": "veh_diagram_gunship_out",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_gunship_out.png",
+      "sourceSha256": "1b7a5a6b39226926101897238408afad9947520df9588ae7bf2f9372cd16acfa",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_gunship_out.dds",
+      "sourceDdsSha256": "29e01ef11cc5dba387b720bb90c56755e7282fa8e20a597c7be7ec1ede0cb833",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_gunship_out.png",
+      "outputSha256": "1b7a5a6b39226926101897238408afad9947520df9588ae7bf2f9372cd16acfa",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_gunship_out.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        25,
+        49,
+        231,
+        207
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_gunship_out.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_gunship_mask": {
+      "name": "veh_diagram_gunship_mask",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_gunship_mask.png",
+      "sourceSha256": "00c1beb3c66e5e27a931e05eea834cdd3b9b0745b73918aa19da21c142eaa147",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_gunship_mask.dds",
+      "sourceDdsSha256": "71c5896751ea25a784a28eb002b02a92366c9c9a23d7cfc631a98cedf7bda03c",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_gunship_mask.png",
+      "outputSha256": "00c1beb3c66e5e27a931e05eea834cdd3b9b0745b73918aa19da21c142eaa147",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_gunship_mask.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_gunship_mask.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "apache_icon_infinite": {
+      "name": "apache_icon_infinite",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\apache_icon_infinite.png",
+      "sourceSha256": "87b784132dfb1d4f9c0cb06b73ec33d351afb1ea5c14a86ccdc9570e33073ada",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\apache_icon_infinite.dds",
+      "sourceDdsSha256": "9998c57ff822dfcd365e65c3ffb825eae89a3fd208a279290d3f84b5a7eef08e",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/apache_icon_infinite.png",
+      "outputSha256": "87b784132dfb1d4f9c0cb06b73ec33d351afb1ea5c14a86ccdc9570e33073ada",
+      "texture": "killstreakcod:textures/gui/mwii/remote/apache_icon_infinite.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        8,
+        20,
+        56,
+        46
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner",
+        "gunship"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/apache_icon_infinite.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "ui_keybind_hold_mask_side": {
+      "name": "ui_keybind_hold_mask_side",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_hold_mask_side.png",
+      "sourceSha256": "4c525fdef34eedfd17308936b5f424ccf991273199c70febdc18696b1b164001",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_hold_mask_side.dds",
+      "sourceDdsSha256": "1da7dff0369363e51bc8950ab007e5db76a6d990e9458b62d609d2b7a04f75a1",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_hold_mask_side.png",
+      "outputSha256": "4c525fdef34eedfd17308936b5f424ccf991273199c70febdc18696b1b164001",
+      "texture": "killstreakcod:textures/gui/mwii/remote/ui_keybind_hold_mask_side.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 16,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_hold_mask_side.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "ui_keybind_hold_mask_center": {
+      "name": "ui_keybind_hold_mask_center",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_hold_mask_center.png",
+      "sourceSha256": "03f8393cae8059b5c58a2817af3f72343adb2e8c0064ea76a06569e797133dfa",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_hold_mask_center.dds",
+      "sourceDdsSha256": "8a09adf22d88e3f83c45575a0e38abc585956629ef94e270a8cbce96408f3866",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_hold_mask_center.png",
+      "outputSha256": "03f8393cae8059b5c58a2817af3f72343adb2e8c0064ea76a06569e797133dfa",
+      "texture": "killstreakcod:textures/gui/mwii/remote/ui_keybind_hold_mask_center.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 8,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_hold_mask_center.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "ui_keybind_hold_radial": {
+      "name": "ui_keybind_hold_radial",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_hold_radial.png",
+      "sourceSha256": "1883be0bb0d426a17fc77c125487e97a428be7b661f9d8a13772898760b58058",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_hold_radial.dds",
+      "sourceDdsSha256": "8ab1a9209c1e9659e471efda7860309de74270e4a5dd988569ee8ea98c8aafbe",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_hold_radial.png",
+      "outputSha256": "1883be0bb0d426a17fc77c125487e97a428be7b661f9d8a13772898760b58058",
+      "texture": "killstreakcod:textures/gui/mwii/remote/ui_keybind_hold_radial.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        32,
+        1,
+        63,
+        63
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        241
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 12,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_hold_radial.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "keybind_hold_border": {
+      "name": "keybind_hold_border",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\keybind_hold_border.png",
+      "sourceSha256": "7d1c7bb8cad1a9ebc609e166b0fdd44879c747fe9476679288eba79ea4068312",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\keybind_hold_border.dds",
+      "sourceDdsSha256": "1404cb1bcd8c706133b67fc1f96a4afaba95ce933b3f37bf122cfb4aa9eb74e4",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/keybind_hold_border.png",
+      "outputSha256": "7d1c7bb8cad1a9ebc609e166b0fdd44879c747fe9476679288eba79ea4068312",
+      "texture": "killstreakcod:textures/gui/mwii/remote/keybind_hold_border.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/keybind_hold_border.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "ui_keybind_backing": {
+      "name": "ui_keybind_backing",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_backing.png",
+      "sourceSha256": "6f61bdb0b4310c31934f4c87dffb8f8ace09477573ef20773c177d6f6de1232f",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_backing.dds",
+      "sourceDdsSha256": "e880143165de9ec9de94ce548dd9e9a12516e7885a80ffa6744030f08388acaa",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_backing.png",
+      "outputSha256": "6f61bdb0b4310c31934f4c87dffb8f8ace09477573ef20773c177d6f6de1232f",
+      "texture": "killstreakcod:textures/gui/mwii/remote/ui_keybind_backing.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        1,
+        0,
+        63,
+        64
+      ],
+      "alphaExtrema": [
+        1,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 8,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_backing.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "keybind_backing_white": {
+      "name": "keybind_backing_white",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\keybind_backing_white.png",
+      "sourceSha256": "d3c54af4ff8a27dab27fc75f70558126f6b748d05908de5ff752bd18c93faa72",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\keybind_backing_white.dds",
+      "sourceDdsSha256": "3f89cfa43e4dcf7756000c3b20b8cddf195305a0a079b64462106b3a347fbf6f",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/keybind_backing_white.png",
+      "outputSha256": "d3c54af4ff8a27dab27fc75f70558126f6b748d05908de5ff752bd18c93faa72",
+      "texture": "killstreakcod:textures/gui/mwii/remote/keybind_backing_white.png",
+      "width": 48,
+      "height": 48,
+      "bounds": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        231,
+        231,
+        231,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 16,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/keybind_backing_white.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "ui_keybind_backing_unbound": {
+      "name": "ui_keybind_backing_unbound",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_backing_unbound.png",
+      "sourceSha256": "4b210591f53e3c1b2e900df6e93663de6b2347244dbf6bb10839c8ece1e3be68",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_keybind_backing_unbound.dds",
+      "sourceDdsSha256": "80dec6b96536350f9cda565edbbb421d585a469f38e478b218276a7251edd2c4",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_backing_unbound.png",
+      "outputSha256": "4b210591f53e3c1b2e900df6e93663de6b2347244dbf6bb10839c8ece1e3be68",
+      "texture": "killstreakcod:textures/gui/mwii/remote/ui_keybind_backing_unbound.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        46,
+        46,
+        46,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 12,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_keybind_backing_unbound.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "center_gradient_clear": {
+      "name": "center_gradient_clear",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\center_gradient_clear.png",
+      "sourceSha256": "c2c76f8731eaa4f9bba1f90622b1617e920e179283983a433bfeda2e271ec737",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\center_gradient_clear.dds",
+      "sourceDdsSha256": "b97c1c6a1108eceb50da755444dd93332ac8dc0c546fbd0f901fffe589dce1f5",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/center_gradient_clear.png",
+      "outputSha256": "c2c76f8731eaa4f9bba1f90622b1617e920e179283983a433bfeda2e271ec737",
+      "texture": "killstreakcod:textures/gui/mwii/remote/center_gradient_clear.png",
+      "width": 640,
+      "height": 64,
+      "bounds": [
+        4,
+        0,
+        637,
+        64
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/center_gradient_clear.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "center_gradient_opaque": {
+      "name": "center_gradient_opaque",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\center_gradient_opaque.png",
+      "sourceSha256": "c3a782e31df28d3a4ec929213d78729404acfde9e04da81b8547a516f0c032f7",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\center_gradient_opaque.dds",
+      "sourceDdsSha256": "4e43d529218816f13b72955fc571c39ca12724c9e13c6ad9bf24e92c4c29a257",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/center_gradient_opaque.png",
+      "outputSha256": "c3a782e31df28d3a4ec929213d78729404acfde9e04da81b8547a516f0c032f7",
+      "texture": "killstreakcod:textures/gui/mwii/remote/center_gradient_opaque.png",
+      "width": 640,
+      "height": 64,
+      "bounds": [
+        0,
+        0,
+        640,
+        64
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/center_gradient_opaque.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "backer_arrow_tile": {
+      "name": "backer_arrow_tile",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\backer_arrow_tile.png",
+      "sourceSha256": "1c5e7b27df24c363253bc220d075ec7536a221c4e743eae3f8c74884652cfc7e",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\backer_arrow_tile.dds",
+      "sourceDdsSha256": "89512a415d594ac8b5054cb07d4c7b253334015cf1553038c6e6b1ca9f132254",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/backer_arrow_tile.png",
+      "outputSha256": "1c5e7b27df24c363253bc220d075ec7536a221c4e743eae3f8c74884652cfc7e",
+      "texture": "killstreakcod:textures/gui/mwii/remote/backer_arrow_tile.png",
+      "width": 120,
+      "height": 64,
+      "bounds": [
+        1,
+        0,
+        119,
+        64
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/backer_arrow_tile.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_shock_icon": {
+      "name": "veh_shock_icon",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_shock_icon.png",
+      "sourceSha256": "95d85a41bf7ab00b880bb5970eeb97b02cc091b368c75376c6c8a02422403e41",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_shock_icon.dds",
+      "sourceDdsSha256": "46b24104a9c2c345ace9ab09576336f53a8b4977abcab7b1cfe3600288cc3162",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_shock_icon.png",
+      "outputSha256": "95d85a41bf7ab00b880bb5970eeb97b02cc091b368c75376c6c8a02422403e41",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_shock_icon.png",
+      "width": 65,
+      "height": 65,
+      "bounds": [
+        7,
+        10,
+        58,
+        54
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_shock_icon.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "icon_submerged": {
+      "name": "icon_submerged",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\icon_submerged.png",
+      "sourceSha256": "2a87c4f2a548c19b0e6480d0de55689a28528ca1d6988231fe34c9f7e53f232e",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\icon_submerged.dds",
+      "sourceDdsSha256": "f7a78e3db716aea6a44b6146c61d90cb1783753638da89cb82ee4437b712febb",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/icon_submerged.png",
+      "outputSha256": "2a87c4f2a548c19b0e6480d0de55689a28528ca1d6988231fe34c9f7e53f232e",
+      "texture": "killstreakcod:textures/gui/mwii/remote/icon_submerged.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        10,
+        13,
+        54,
+        50
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        199
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/icon_submerged.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_suv_fill_wheel": {
+      "name": "veh_diagram_suv_fill_wheel",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_suv_fill_wheel.png",
+      "sourceSha256": "8724f3c9302d037848431cff693b6e5e7394b60cd55734b0a89fcc2126152ad0",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_suv_fill_wheel.dds",
+      "sourceDdsSha256": "a213e3a792ef970953b63ae56c6bbd2e40511060df10996568c5c7e7394131b6",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_suv_fill_wheel.png",
+      "outputSha256": "8724f3c9302d037848431cff693b6e5e7394b60cd55734b0a89fcc2126152ad0",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_suv_fill_wheel.png",
+      "width": 24,
+      "height": 44,
+      "bounds": [
+        2,
+        1,
+        24,
+        43
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 3,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_suv_fill_wheel.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_suv_glow_wheel": {
+      "name": "veh_diagram_suv_glow_wheel",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_suv_glow_wheel.png",
+      "sourceSha256": "ab84f22dea02918ec07ca76d1eb1d118f383e7d11e3d3c1a2b19a3e27bd2e726",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_suv_glow_wheel.dds",
+      "sourceDdsSha256": "154dd1061f768ddd6c295d35609d560475e6888d7526ad85b8dc99632779baa5",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_suv_glow_wheel.png",
+      "outputSha256": "ab84f22dea02918ec07ca76d1eb1d118f383e7d11e3d3c1a2b19a3e27bd2e726",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_suv_glow_wheel.png",
+      "width": 104,
+      "height": 124,
+      "bounds": [
+        27,
+        27,
+        77,
+        97
+      ],
+      "alphaExtrema": [
+        0,
+        205
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 3,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_suv_glow_wheel.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "hud_reticle_radial_glow": {
+      "name": "hud_reticle_radial_glow",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\hud_reticle_radial_glow.png",
+      "sourceSha256": "2ded966f449af7a2ed4443495a1c0bfc64942f1c2e05d20bf60245b8403cfddd",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\hud_reticle_radial_glow.dds",
+      "sourceDdsSha256": "c286a912e25be45454a41fdbe73e1e9a4a7f94d00a4038647ac4f8c9e019a807",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/hud_reticle_radial_glow.png",
+      "outputSha256": "2ded966f449af7a2ed4443495a1c0bfc64942f1c2e05d20bf60245b8403cfddd",
+      "texture": "killstreakcod:textures/gui/mwii/remote/hud_reticle_radial_glow.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        3,
+        3,
+        63,
+        63
+      ],
+      "alphaExtrema": [
+        0,
+        239
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        239
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 8,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/hud_reticle_radial_glow.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "dpad_circle_segment": {
+      "name": "dpad_circle_segment",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\dpad_circle_segment.png",
+      "sourceSha256": "9cfbc2e496dd63ce990f1320a4db2082632756a9285fce87a1d14223226f369c",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\dpad_circle_segment.dds",
+      "sourceDdsSha256": "2a958d831b7960fb663eda6fe2cc88f96270a269612bf9dabeafced6384b63ec",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/dpad_circle_segment.png",
+      "outputSha256": "9cfbc2e496dd63ce990f1320a4db2082632756a9285fce87a1d14223226f369c",
+      "texture": "killstreakcod:textures/gui/mwii/remote/dpad_circle_segment.png",
+      "width": 128,
+      "height": 128,
+      "bounds": [
+        64,
+        1,
+        127,
+        127
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise",
+        "gunship",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/dpad_circle_segment.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_2014_pickup_glow_body": {
+      "name": "veh_diagram_2014_pickup_glow_body",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_2014_pickup_glow_body.png",
+      "sourceSha256": "2677b87caa9e5f9fa7ae2ae67bfb94648408fa9775055568c63938ced05af39f",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_2014_pickup_glow_body.dds",
+      "sourceDdsSha256": "a3fae31ca72ae6f370f65dcdad105b8eadb29dd2dd8b1c8631899e06cff2258b",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_2014_pickup_glow_body.png",
+      "outputSha256": "2677b87caa9e5f9fa7ae2ae67bfb94648408fa9775055568c63938ced05af39f",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_2014_pickup_glow_body.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        67,
+        9,
+        190,
+        247
+      ],
+      "alphaExtrema": [
+        0,
+        237
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 7,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_2014_pickup_glow_body.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_sedan_hatchback_out": {
+      "name": "veh_diagram_sedan_hatchback_out",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_sedan_hatchback_out.png",
+      "sourceSha256": "e2f5481b28e0be4f140e25d17906417492eefa4de830d53046988dd905e2679b",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_sedan_hatchback_out.dds",
+      "sourceDdsSha256": "0c4826d03066288d7df81ce7b6ce8eab93dbe4b04f05b0db7ac57b6c1c86a5e4",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_sedan_hatchback_out.png",
+      "outputSha256": "e2f5481b28e0be4f140e25d17906417492eefa4de830d53046988dd905e2679b",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_sedan_hatchback_out.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        75,
+        1,
+        182,
+        233
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 7,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_sedan_hatchback_out.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_2014_pickup_mask": {
+      "name": "veh_diagram_2014_pickup_mask",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_2014_pickup_mask.png",
+      "sourceSha256": "af758a2e56bbad7de2a52122db154b35c65a2638dc2406a29f6f51f2195a7f37",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\veh_diagram_2014_pickup_mask.dds",
+      "sourceDdsSha256": "fedfba45894b940848a63f07c8e4edfb8c8c2c7fba957308193c56d632befd61",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_2014_pickup_mask.png",
+      "outputSha256": "af758a2e56bbad7de2a52122db154b35c65a2638dc2406a29f6f51f2195a7f37",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_2014_pickup_mask.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 7,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_2014_pickup_mask.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "icon_empty_x": {
+      "name": "icon_empty_x",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\icon_empty_x.png",
+      "sourceSha256": "c81187298e5983044ee10fd9098bfba205c7d4ecf989b632caca6567dfaba588",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\icon_empty_x.dds",
+      "sourceDdsSha256": "2ae9655433e40d069c3e5fec4c6e043e9d1ff508cd28a399de5de8ceb9f0a5c6",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/icon_empty_x.png",
+      "outputSha256": "c81187298e5983044ee10fd9098bfba205c7d4ecf989b632caca6567dfaba588",
+      "texture": "killstreakcod:textures/gui/mwii/remote/icon_empty_x.png",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "cruise",
+        "wheelson"
+      ],
+      "literalMaterialCalls": 10,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/icon_empty_x.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "mp_wheelson_icon_battery": {
+      "name": "mp_wheelson_icon_battery",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\mp_wheelson_icon_battery.png",
+      "sourceSha256": "601944502744a04ce276b418a607924dfcd18da976049625bfd220c83cf1fd83",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\mp_wheelson_icon_battery.dds",
+      "sourceDdsSha256": "485685ca3cb2a8bb6aea455a337718d6508bac16bd5f88b036d4576cfa1855b3",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/mp_wheelson_icon_battery.png",
+      "outputSha256": "601944502744a04ce276b418a607924dfcd18da976049625bfd220c83cf1fd83",
+      "texture": "killstreakcod:textures/gui/mwii/remote/mp_wheelson_icon_battery.png",
+      "width": 32,
+      "height": 32,
+      "bounds": [
+        7,
+        1,
+        26,
+        32
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/mp_wheelson_icon_battery.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "tablet_chopper_gunner_center_background": {
+      "name": "tablet_chopper_gunner_center_background",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_center_background.png",
+      "sourceSha256": "9bbbb4948c4685baf9287317031deba626cbea107a79b7506166b09d8ed01621",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_center_background.dds",
+      "sourceDdsSha256": "e6f3b644aa13ef9b1cea4349013636a9d229ddb6646c16f5be3b45c73530c0df",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_center_background.png",
+      "outputSha256": "9bbbb4948c4685baf9287317031deba626cbea107a79b7506166b09d8ed01621",
+      "texture": "killstreakcod:textures/gui/mwii/remote/tablet_chopper_gunner_center_background.png",
+      "width": 384,
+      "height": 396,
+      "bounds": [
+        0,
+        0,
+        384,
+        396
+      ],
+      "alphaExtrema": [
+        227,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_screens"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_center_background.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "tablet_chopper_gunner_center_reticle": {
+      "name": "tablet_chopper_gunner_center_reticle",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_center_reticle.png",
+      "sourceSha256": "fd528ffefee9cb5c7d90b03de86790935561951837e39320d6ef217445ba34e8",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_center_reticle.dds",
+      "sourceDdsSha256": "a0b99c8ed2c9e84bdaa183c6cd83c861366cce28898a69502978982ab6edca73",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_center_reticle.png",
+      "outputSha256": "fd528ffefee9cb5c7d90b03de86790935561951837e39320d6ef217445ba34e8",
+      "texture": "killstreakcod:textures/gui/mwii/remote/tablet_chopper_gunner_center_reticle.png",
+      "width": 384,
+      "height": 396,
+      "bounds": [
+        91,
+        99,
+        295,
+        284
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        104,
+        253,
+        223,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_screens"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_center_reticle.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "tablet_chopper_gunner_center_arrow": {
+      "name": "tablet_chopper_gunner_center_arrow",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_center_arrow.png",
+      "sourceSha256": "290da42e7be28a976c20432b9b54285724a5460bee16df7b683780c31590597c",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_center_arrow.dds",
+      "sourceDdsSha256": "adda36ed648234e22ecbefa050de61d39e9cfc00c3ba2698ccf2e9b46115cc50",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_center_arrow.png",
+      "outputSha256": "290da42e7be28a976c20432b9b54285724a5460bee16df7b683780c31590597c",
+      "texture": "killstreakcod:textures/gui/mwii/remote/tablet_chopper_gunner_center_arrow.png",
+      "width": 28,
+      "height": 28,
+      "bounds": [
+        9,
+        8,
+        19,
+        20
+      ],
+      "alphaExtrema": [
+        0,
+        252
+      ],
+      "centerRgba": [
+        126,
+        254,
+        238,
+        16
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_screens"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_center_arrow.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "tablet_chopper_gunner_left_background": {
+      "name": "tablet_chopper_gunner_left_background",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_left_background.png",
+      "sourceSha256": "7b2d987646cba879adaac2a87b2dafbcc66d6a0f6a2159148097b3afea60000b",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_left_background.dds",
+      "sourceDdsSha256": "d2e5076caf59ccacea9d63f8e70af142dc1479f6fbf2237e7d810e22bc52fd00",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_left_background.png",
+      "outputSha256": "7b2d987646cba879adaac2a87b2dafbcc66d6a0f6a2159148097b3afea60000b",
+      "texture": "killstreakcod:textures/gui/mwii/remote/tablet_chopper_gunner_left_background.png",
+      "width": 412,
+      "height": 412,
+      "bounds": [
+        0,
+        0,
+        412,
+        412
+      ],
+      "alphaExtrema": [
+        254,
+        255
+      ],
+      "centerRgba": [
+        1,
+        1,
+        1,
+        255
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_screens"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_left_background.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "minimap_circle_full": {
+      "name": "minimap_circle_full",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\minimap_circle_full.png",
+      "sourceSha256": "4128b37ed2ea08fee84030f0acf096f1ef53583c81a0d8bb58b355d2fdc65f2d",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\minimap_circle_full.dds",
+      "sourceDdsSha256": "eed1b3394050b54c0d99f191d1dc762580cbadc77db0f6153ff7d66e9c89f679",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/minimap_circle_full.png",
+      "outputSha256": "4128b37ed2ea08fee84030f0acf096f1ef53583c81a0d8bb58b355d2fdc65f2d",
+      "texture": "killstreakcod:textures/gui/mwii/remote/minimap_circle_full.png",
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        5,
+        5,
+        1019,
+        1019
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "gunship"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/minimap_circle_full.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "ui_tanto_logo": {
+      "name": "ui_tanto_logo",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_tanto_logo.png",
+      "sourceSha256": "3fac37b9f35bc549107dc0d0c86e6b8eed6d48ef57fd18bdcf03bdd94fcb1590",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\ui_tanto_logo.dds",
+      "sourceDdsSha256": "cd25b64b508ec403bca50e92c77d0a2e5802e7ef14c1444ddbcb2827b9529fdd",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_tanto_logo.png",
+      "outputSha256": "3fac37b9f35bc549107dc0d0c86e6b8eed6d48ef57fd18bdcf03bdd94fcb1590",
+      "texture": "killstreakcod:textures/gui/mwii/remote/ui_tanto_logo.png",
+      "width": 128,
+      "height": 28,
+      "bounds": [
+        0,
+        0,
+        128,
+        28
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "chopper_gunner",
+        "cruise"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/ui_tanto_logo.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "tablet_chopper_gunner_right_background": {
+      "name": "tablet_chopper_gunner_right_background",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_right_background.png",
+      "sourceSha256": "2857930c7303417bc900947ff727e656248ca2c1f4a35297049b0a3179e08252",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_right_background.dds",
+      "sourceDdsSha256": "30685104df359aa275fe3a3fa3bad5b65bceab67b646c87e808c816c0aba7c3c",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_right_background.png",
+      "outputSha256": "2857930c7303417bc900947ff727e656248ca2c1f4a35297049b0a3179e08252",
+      "texture": "killstreakcod:textures/gui/mwii/remote/tablet_chopper_gunner_right_background.png",
+      "width": 412,
+      "height": 412,
+      "bounds": [
+        0,
+        0,
+        412,
+        412
+      ],
+      "alphaExtrema": [
+        244,
+        255
+      ],
+      "centerRgba": [
+        3,
+        14,
+        8,
+        254
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_screens"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_right_background.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "tablet_chopper_gunner_right_square": {
+      "name": "tablet_chopper_gunner_right_square",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_right_square.png",
+      "sourceSha256": "d76d64ffce3c5ff1237b821a7b0f5f86b6f4ec31a749381210c9e22a6e92d913",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\tablet_chopper_gunner_right_square.dds",
+      "sourceDdsSha256": "ed995133a9d6a5556b61746ba77123bdd5ec4c446b35e97e5dbb30516158f597",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_right_square.png",
+      "outputSha256": "d76d64ffce3c5ff1237b821a7b0f5f86b6f4ec31a749381210c9e22a6e92d913",
+      "texture": "killstreakcod:textures/gui/mwii/remote/tablet_chopper_gunner_right_square.png",
+      "width": 44,
+      "height": 44,
+      "bounds": [
+        5,
+        5,
+        40,
+        40
+      ],
+      "alphaExtrema": [
+        0,
+        246
+      ],
+      "centerRgba": [
+        124,
+        254,
+        203,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_screens"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/tablet_chopper_gunner_right_square.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_bradley_damage_side": {
+      "name": "overlay_bradley_damage_side",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\overlay_bradley_damage_side.png",
+      "sourceSha256": "eb30960c7e65e3c559cf24da0d9852d6cb1b84c6cc7b9b5773e833b7f8fe084b",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\overlay_bradley_damage_side.dds",
+      "sourceDdsSha256": "c658f028c0b2a9cc370b259ac6cc27276a164a71668b05cfffc8dd571edc8f82",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_bradley_damage_side.png",
+      "outputSha256": "eb30960c7e65e3c559cf24da0d9852d6cb1b84c6cc7b9b5773e833b7f8fe084b",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_bradley_damage_side.png",
+      "width": 64,
+      "height": 256,
+      "bounds": [
+        27,
+        33,
+        38,
+        223
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 2,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_bradley_damage_side.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "overlay_bradley_damage_front": {
+      "name": "overlay_bradley_damage_front",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\overlay_bradley_damage_front.png",
+      "sourceSha256": "a53b9d444fb542cca18daa4ce1d78905f6d5cf7803fa524faabf30b2ded609e0",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\overlay_bradley_damage_front.dds",
+      "sourceDdsSha256": "4d16d35e628f7118757d2209a162e9e6832b1fcdc3d50f30147945058a3b6390",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_bradley_damage_front.png",
+      "outputSha256": "a53b9d444fb542cca18daa4ce1d78905f6d5cf7803fa524faabf30b2ded609e0",
+      "texture": "killstreakcod:textures/gui/mwii/remote/overlay_bradley_damage_front.png",
+      "width": 256,
+      "height": 128,
+      "bounds": [
+        77,
+        71,
+        179,
+        84
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/overlay_bradley_damage_front.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "hud_arrow": {
+      "name": "hud_arrow",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\hud_arrow.png",
+      "sourceSha256": "7f64e483f9d9ff86e7798bf2d96c43b90a00d90df4b0bc8dfaa7b94d3640a7ad",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\shared\\hud_arrow.dds",
+      "sourceDdsSha256": "d87262286b335c38daa401700bfa31bbac58435efdb36a2b45ebe3f3a087e40d",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/hud_arrow.png",
+      "outputSha256": "7f64e483f9d9ff86e7798bf2d96c43b90a00d90df4b0bc8dfaa7b94d3640a7ad",
+      "texture": "killstreakcod:textures/gui/mwii/remote/hud_arrow.png",
+      "width": 16,
+      "height": 16,
+      "bounds": [
+        1,
+        3,
+        15,
+        12
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        251
+      ],
+      "status": "verified_shared_component",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/hud_arrow.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "mp_wheelson_icon_infinite": {
+      "name": "mp_wheelson_icon_infinite",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\mp_wheelson_icon_infinite.png",
+      "sourceSha256": "0a80f3df6bac24d2a9c1b7009895a297ffa14f2bb4d79b0386325c82bf60d7c5",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\mp_wheelson_icon_infinite.dds",
+      "sourceDdsSha256": "85a2c2d3e259de06506a98562c0725958f850e7692c59fc2e2e309a04d952ea0",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/mp_wheelson_icon_infinite.png",
+      "outputSha256": "0a80f3df6bac24d2a9c1b7009895a297ffa14f2bb4d79b0386325c82bf60d7c5",
+      "texture": "killstreakcod:textures/gui/mwii/remote/mp_wheelson_icon_infinite.png",
+      "width": 64,
+      "height": 64,
+      "bounds": [
+        10,
+        22,
+        54,
+        43
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "wheelson"
+      ],
+      "literalMaterialCalls": 1,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/mp_wheelson_icon_infinite.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_choppergunner_glow": {
+      "name": "veh_diagram_choppergunner_glow",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_choppergunner_glow.png",
+      "sourceSha256": "acf32754df015e948112b163ee051e2e682ce27486f2cf5e8f36ce40b118c7ab",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_choppergunner_glow.dds",
+      "sourceDdsSha256": "24c9e1404a20e9c467f98d173a64acd504342a67d010e548f3333dccd5895b16",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_choppergunner_glow.png",
+      "outputSha256": "acf32754df015e948112b163ee051e2e682ce27486f2cf5e8f36ce40b118c7ab",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_choppergunner_glow.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        45,
+        17,
+        211,
+        237
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_choppergunner_glow.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_choppergunner_out": {
+      "name": "veh_diagram_choppergunner_out",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_choppergunner_out.png",
+      "sourceSha256": "1d9a51f4e587ffa528170988f187e25d3affaf86d6c8fc035d8cfd2588e252f9",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_choppergunner_out.dds",
+      "sourceDdsSha256": "659cf50274222e645562b513f926d0a1e053904683364195d57c0507fda67093",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_choppergunner_out.png",
+      "outputSha256": "1d9a51f4e587ffa528170988f187e25d3affaf86d6c8fc035d8cfd2588e252f9",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_choppergunner_out.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        64,
+        35,
+        192,
+        221
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "centerRgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_choppergunner_out.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    },
+    "veh_diagram_choppergunner_mask": {
+      "name": "veh_diagram_choppergunner_mask",
+      "source": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_choppergunner_mask.png",
+      "sourceSha256": "acfeee6b488786b11b55cd42fcbac173bfd5507747da51dedc8bc28eb733603c",
+      "sourceDds": "D:\\MW2022\\work\\KILLSTREAK_EXTRACTED\\new_extractions\\remote_hud_layers\\verified\\veh_diagram_choppergunner_mask.dds",
+      "sourceDdsSha256": "3d622025f7333ba27d3ace88b453aa1ee49438a70ef8e206432e8bdc99fc2cb1",
+      "output": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_choppergunner_mask.png",
+      "outputSha256": "acfeee6b488786b11b55cd42fcbac173bfd5507747da51dedc8bc28eb733603c",
+      "texture": "killstreakcod:textures/gui/mwii/remote/veh_diagram_choppergunner_mask.png",
+      "width": 256,
+      "height": 256,
+      "bounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "centerRgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "status": "verified_target_layer",
+      "rewards": [
+        "chopper_gunner"
+      ],
+      "literalMaterialCalls": 4,
+      "samplerMetadata": "src/main/resources/assets/killstreakcod/textures/gui/mwii/remote/veh_diagram_choppergunner_mask.png.mcmeta",
+      "samplerMetadataSha256": "cf08334856115bc1269e9972dfed9b85be4fa5f261b63bbd669c16a484d76098"
+    }
+  },
+  "aimCenterSourcePixels": [
+    512,
+    246
+  ],
+  "contactSourceRegion": [
+    499,
+    233,
+    25,
+    25
+  ],
+  "fallbackModes": [],
+  "policy": "Only verified source layers and matching strong_reference_rewards; candidate and other-vehicle branch images excluded from active overlays.",
+  "opticalOverlayOpacity": 0.35,
+  "motionAndFont": "Original raster layers, Minecraft telemetry, layout/conditional adapters and current player key bindings; original LUI runtime/fonts not recovered.",
+  "required": {
+    "bomb_drone": [
+      "ui_bomber_drone_overlay",
+      "overlay_bomb_drone_targeting_squares",
+      "overlay_bomb_drone_red_outline",
+      "overlay_bomb_drone_warning_icon"
+    ],
+    "cruise": [
+      "overlay_cruise_reticle",
+      "overlay_cruise_cross",
+      "overlay_cruise_squares"
+    ],
+    "wheelson": [
+      "mp_wheelson_reticle_new",
+      "overlay_wheelson_diagram_body",
+      "overlay_wheelson_diagram_turret"
+    ],
+    "chopper": [
+      "overlay_gunship_25mm_reticle",
+      "veh_diagram_choppergunner_out"
+    ],
+    "gunship": [
+      "overlay_gunship_25mm_reticle",
+      "overlay_gunship_40mm_reticle",
+      "overlay_gunship_105mm_reticle",
+      "veh_diagram_gunship_out"
+    ]
+  },
+  "cockpitMaterials": {
+    "m/veh9_mil_air_heli_ahotel64_hud_1": "left",
+    "m/veh9_mil_air_heli_ahotel64_hud_2": "center",
+    "m/veh9_mil_air_heli_ahotel64_hud_3": "right"
+  },
+  "nativeContactRegions": {
+    "cruise": {
+      "layer": "overlay_cruise_squares",
+      "sourceRegion": [
+        27,
+        27,
+        10,
+        10
+      ],
+      "basis": "The centre of nine separate 10x10 alpha components in the original 64x64 PNG."
+    }
+  }
+}

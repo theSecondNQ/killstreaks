@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "net.killstreakcod.mixin",
+  "plugin": "net.killstreakcod.mixin.SuperbWarfareMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "SuperbWarfareGunGuardMixin"
+  ],
+  "client": [
+    "client.SuperbWarfareClientGunGuardMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "killstreakcod.refmap.json"
+}

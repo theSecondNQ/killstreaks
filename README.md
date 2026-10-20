@@ -1,6 +1,6 @@
 # Killstreak
 
-Minecraft Java Edition **1.20.1** · Forge **47.4.10+** · **Java 17** · 当前版本 **1.1.0.4352**
+Minecraft Java Edition **1.20.1** · Forge **47.4.10+** · **Java 17** · 当前版本 **1.1.0.4355**
 
 提供 19 种可配置连杀奖励与隐藏核弹，包括按键呼叫、遥控载具、平板标定、侦察雷达、空投、低多边形模型／像素材质、原骨骼动画／音效及字幕。客户端与服务器均须安装同一版本模组。
 
@@ -14,9 +14,11 @@ Forge 模组列表显示 **Killstreak**；中文环境下，创造模式物品�
 
 Forge 适配、构建及测试说明见 [Forge 1.20.1](docs/FORGE-1.20.1.md)。
 
+1.1.0.4355 修复特效切换着色器后透明边缘变实色、烟雾与火光重叠时黑边跳变的问题，并保留前版的方向、矩阵和巡航导弹修复。兼容测试使用 Embeddium 0.3.31、Oculus 1.8.0 与 Photon v1.4；复现方法见 [渲染兼容](docs/RENDER-COMPAT.md)。
+
 ## 使用
 
-- 将 `build/libs/killstreakcod-forge-1.20.1-1.1.0.4352.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
+- 将 `build/libs/killstreakcod-forge-1.20.1-1.1.0.4355.jar` 放进实例的 `mods` 文件夹，并移出旧版本。
 - 按 **K** 或使用连杀终端配置奖励、阵营、队友白名单和操作员皮肤。
 - 可放置的“总部通讯终端”已接入侦察、支援、火力、现代化四棵科技树，含20项基础研究（包括核弹）、59项升级和四级终端。生存模式先研究并在总部支付材料预购储备，击杀／得分达标时扣一次储备并获得可呼叫奖励，呼叫时只扣奖励库存。升级可免费装卸，在两种模式中生效；科技树按终端等级及所需经验排列。玩法说明见[研究系统](docs/RESEARCH.md)，新增费用及武器操作见[火力与现代化研究](docs/RESEARCH-EXPANSION.md)，配方及模型说明见[总部通讯终端](docs/HEADQUARTERS-TERMINAL.md)。
 - 规则配置位于存档的 `serverconfig/killstreakcod-server.toml`；新存档默认配置可放入实例的 `defaultconfigs` 文件夹。
@@ -74,4 +76,4 @@ python tools/release.py verify
 
 历史发布、备份、参考视频、第三方 JAR 以及旧导入工具已归档到工程外的 `D:\Projects\killstreakcod-archive\20261015-4.29.0`。完整移动清单见归档中的 `cleanup-plan.json`，原始内容可恢复。
 
-本次同步新增空中炮艇与攻击直升机原资源 HUD，使用实际弹药、武器和按键状态，座舱采用原三屏画布。说明见 [飞机 HUD](docs/AIRCRAFT-HUD.md)。当前分支为 `1.20.1`；本次仅同步源码，`resources` 由用户另行提供。
+本次同步新增空中炮艇与攻击直升机原资源 HUD，使用实际弹药、武器和按键状态，座舱采用原三屏画布。说明见 [飞机 HUD](docs/AIRCRAFT-HUD.md)。当前分支为 `1.20.1`；源码同步时跳过 `resources`，本次本机构建已恢复基础运行资源并合入新版 HUD 资源，发行 JAR 包含完整资源。

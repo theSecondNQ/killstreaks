@@ -1,0 +1,6315 @@
+{
+  "format": 1,
+  "widgets": {
+    "StreakActivationPhone": {
+      "width": 300,
+      "height": 525,
+      "nodes": {
+        "Background": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            300,
+            0,
+            525
+          ],
+          "image": "overlay_tablet_smartphone_background",
+          "instruction": 57
+        },
+        "Fluff": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            300,
+            0,
+            525
+          ],
+          "image": "overlay_tablet_smartphone_background_uielements",
+          "instruction": 90
+        },
+        "Blocks": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            300,
+            0,
+            525
+          ],
+          "image": "overlay_tablet_smartphone_background_squares",
+          "instruction": 123
+        },
+        "Reticle": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            80,
+            216,
+            166.5,
+            282.5
+          ],
+          "image": "overlay_tablet_smartphone_reticle",
+          "instruction": 163
+        },
+        "StreakImage": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            73,
+            223,
+            197.5,
+            347.5
+          ],
+          "image": null,
+          "instruction": 196,
+          "alpha": 0.0
+        },
+        "Title": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            20,
+            280,
+            426,
+            462
+          ],
+          "image": null,
+          "instruction": 282,
+          "alpha": 0.0
+        },
+        "ButtonSlide": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1024,
+            462,
+            525
+          ],
+          "image": null,
+          "instruction": 326,
+          "alpha": 0.0
+        },
+        "Triangles": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            56,
+            240,
+            158.5,
+            310.5
+          ],
+          "image": "overlay_tablet_smartphone_triangles",
+          "instruction": 373,
+          "scale": -0.3
+        },
+        "Text": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            300,
+            470,
+            506
+          ],
+          "image": null,
+          "instruction": 447
+        },
+        "FXMask": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            -1477,
+            1543,
+            0,
+            525
+          ],
+          "image": null,
+          "instruction": 476
+        },
+        "EMPBlackout": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            300,
+            0,
+            525
+          ],
+          "image": null,
+          "instruction": 512,
+          "alpha": 0.0
+        }
+      },
+      "sequences": {
+        "DefaultSequence": {
+          "Triangles": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 240)"
+                },
+                "numericValue": 240
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 310.5)"
+                },
+                "numericValue": 310.5
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 56)"
+                },
+                "numericValue": 56
+              },
+              "4": {
+                "value": -0.3,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": -0.3
+              },
+              "5": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 158.5)"
+                },
+                "numericValue": 158.5
+              }
+            }
+          ]
+        },
+        "Idle": {
+          "StreakImage": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "2": {
+                "value": 0.4,
+                "duration": 200,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0.4
+              },
+              "3": {
+                "value": 1,
+                "duration": 200,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 1
+              },
+              "4": {
+                "value": 0.4,
+                "duration": 200,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0.4
+              },
+              "5": {
+                "value": 1,
+                "duration": 200,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 1
+              }
+            }
+          ]
+        },
+        "EMPStart": {
+          "EMPBlackout": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ]
+        },
+        "EMPEnd": {
+          "EMPBlackout": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ]
+        },
+        "Activate": {
+          "Background": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.RGB"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 16777215,
+                "duration": 140,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.RGB"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 16777215
+              }
+            }
+          ],
+          "Fluff": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 220,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "Blocks": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 220,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "Reticle": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Material"
+                },
+                "value": {
+                  "expression": "material(overlay_tablet_smartphone_reticle)"
+                }
+              },
+              "3": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 1
+              },
+              "4": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 150)"
+                },
+                "numericValue": 150
+              },
+              "6": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 150)"
+                },
+                "numericValue": 150
+              },
+              "7": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 166.5)"
+                },
+                "numericValue": 166.5
+              },
+              "8": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 282.5)"
+                },
+                "numericValue": 282.5
+              },
+              "9": {
+                "duration": 490,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Material"
+                },
+                "value": {
+                  "expression": "material(overlay_tablet_smartphone_reticle_locked)"
+                }
+              },
+              "10": {
+                "duration": 290,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 150)"
+                },
+                "numericValue": 150
+              },
+              "11": {
+                "value": 0,
+                "duration": 290,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "12": {
+                "duration": 290,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 150)"
+                },
+                "numericValue": 150
+              },
+              "13": {
+                "value": 0,
+                "duration": 220,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0
+              },
+              "14": {
+                "value": 1,
+                "duration": 290,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 1
+              },
+              "15": {
+                "value": 0,
+                "duration": 70,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "16": {
+                "value": 1,
+                "duration": 60,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "17": {
+                "value": 1,
+                "duration": 60,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 1
+              },
+              "18": {
+                "value": 0,
+                "duration": 60,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "19": {
+                "duration": 60,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 80)"
+                },
+                "numericValue": 80
+              },
+              "20": {
+                "duration": 60,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 216)"
+                },
+                "numericValue": 216
+              },
+              "21": {
+                "value": 0,
+                "duration": 140,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0
+              },
+              "22": {
+                "value": 0,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "23": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "24": {
+                "value": 0,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "25": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "26": {
+                "value": 0,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "27": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "StreakImage": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.3,
+                "duration": 300,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0.3
+              }
+            }
+          ],
+          "Title": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 300,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "ButtonSlide": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0,
+                "duration": 220,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "5": {
+                "value": 0,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "Triangles": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "duration": 850,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 59)"
+                },
+                "numericValue": 59
+              },
+              "3": {
+                "duration": 850,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 241)"
+                },
+                "numericValue": 241
+              },
+              "4": {
+                "duration": 850,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 196.5)"
+                },
+                "numericValue": 196.5
+              },
+              "5": {
+                "duration": 850,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 348.5)"
+                },
+                "numericValue": 348.5
+              },
+              "6": {
+                "value": 0,
+                "duration": 220,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0
+              },
+              "7": {
+                "value": 0,
+                "duration": 400,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "9": {
+                "value": 0,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "10": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "11": {
+                "value": 0,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "12": {
+                "value": 1,
+                "duration": 60,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "Text": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 470)"
+                },
+                "numericValue": 470
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 506)"
+                },
+                "numericValue": 506
+              },
+              "3": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Text"
+                },
+                "value": {
+                  "expression": "call@11:551:ToUpperCase"
+                }
+              },
+              "5": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 1
+              },
+              "6": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "7": {
+                "value": 1,
+                "duration": 300,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 1
+              },
+              "8": {
+                "duration": 560,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 80)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 80
+              },
+              "9": {
+                "duration": 560,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 116)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 116
+              },
+              "10": {
+                "duration": 560,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Text"
+                },
+                "value": {
+                  "expression": "call@11:607:ToUpperCase"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                }
+              },
+              "11": {
+                "value": 1,
+                "duration": 560,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 1
+              },
+              "12": {
+                "value": 0,
+                "duration": 560,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "13": {
+                "value": 0,
+                "duration": 160,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0
+              },
+              "14": {
+                "value": 1,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 1
+              }
+            }
+          ]
+        }
+      },
+      "fixedPixelFieldsCentered": false
+    },
+    "TrinityOverlay": {
+      "width": 1920,
+      "height": 1080,
+      "nodes": {
+        "Black": {
+          "anchors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "image": null,
+          "alpha": 0,
+          "basis": "Default full-parent UI image; readable original Lua creates Black without an explicit layout call."
+        },
+        "BGTop": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -3314,
+            3314,
+            -680,
+            -370
+          ],
+          "image": null,
+          "instruction": 89,
+          "alpha": 0.25
+        },
+        "BGBottom": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -3314,
+            3314,
+            370,
+            680
+          ],
+          "image": null,
+          "instruction": 129,
+          "alpha": 0.25
+        },
+        "BGRight": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            679,
+            3314,
+            -370,
+            370
+          ],
+          "image": null,
+          "instruction": 169,
+          "alpha": 0.25
+        },
+        "BGLeft": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -3314,
+            -679,
+            -370,
+            370
+          ],
+          "image": null,
+          "instruction": 209,
+          "alpha": 0.25
+        },
+        "LineVertical": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -1,
+            0,
+            -680,
+            680
+          ],
+          "image": null,
+          "instruction": 236
+        },
+        "LineHorizontal": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -3314,
+            3314,
+            -1,
+            0
+          ],
+          "image": null,
+          "instruction": 263
+        },
+        "CrossTopRight": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            800,
+            864,
+            -486,
+            -422
+          ],
+          "image": "overlay_cruise_cross",
+          "instruction": 298
+        },
+        "CrossTopLeft": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -864,
+            -800,
+            -486,
+            -422
+          ],
+          "image": "overlay_cruise_cross",
+          "instruction": 333
+        },
+        "CrossBottomLeft": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -864,
+            -800,
+            422,
+            486
+          ],
+          "image": "overlay_cruise_cross",
+          "instruction": 368
+        },
+        "CrossBottomRight": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            800,
+            864,
+            422,
+            486
+          ],
+          "image": "overlay_cruise_cross",
+          "instruction": 403
+        },
+        "SquareRight": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            699,
+            763,
+            -32,
+            32
+          ],
+          "image": "overlay_cruise_squares",
+          "instruction": 438
+        },
+        "SquareLeft": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -762,
+            -698,
+            -32,
+            32
+          ],
+          "image": "overlay_cruise_squares",
+          "instruction": 473
+        },
+        "FluffLocked": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -625,
+            -338,
+            -324,
+            -281
+          ],
+          "image": null,
+          "instruction": 553
+        },
+        "FluffArm": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -625,
+            -397,
+            230,
+            274
+          ],
+          "image": null,
+          "instruction": 635
+        },
+        "FluffAuto": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -625,
+            -397,
+            274,
+            316
+          ],
+          "image": null,
+          "instruction": 717
+        },
+        "FluffRDY": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -92,
+            92,
+            292,
+            316
+          ],
+          "image": null,
+          "instruction": 812,
+          "alpha": 0.0
+        },
+        "TantoLogo": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            428,
+            621,
+            274,
+            316
+          ],
+          "image": "ui_tanto_logo",
+          "instruction": 857,
+          "alpha": 0.1
+        },
+        "TimeLeft": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            275,
+            621,
+            -324,
+            -281
+          ],
+          "image": null,
+          "instruction": 926
+        },
+        "Reticle": {
+          "anchors": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            -192,
+            192,
+            -192,
+            192
+          ],
+          "image": "overlay_cruise_reticle",
+          "instruction": 993
+        },
+        "Line1": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            281,
+            282,
+            170,
+            910
+          ],
+          "image": null,
+          "instruction": 1030
+        },
+        "Line2": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            1638,
+            1639,
+            170,
+            910
+          ],
+          "image": null,
+          "instruction": 1067
+        },
+        "Line3": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            281,
+            1638,
+            170,
+            171
+          ],
+          "image": null,
+          "instruction": 1104
+        },
+        "Line4": {
+          "anchors": [
+            0,
+            1,
+            0,
+            1,
+            281,
+            1638,
+            910,
+            911
+          ],
+          "image": null,
+          "instruction": 1141
+        },
+        "InstructionSteer": {
+          "anchors": [
+            0.5,
+            0.5,
+            1,
+            0,
+            -338,
+            -164,
+            -110,
+            -86
+          ],
+          "image": null,
+          "instruction": 1232
+        },
+        "InstructionBoost": {
+          "anchors": [
+            0.5,
+            0.5,
+            1,
+            0,
+            101,
+            275,
+            -110,
+            -86
+          ],
+          "image": null,
+          "instruction": 1323
+        },
+        "InstructionBoostKBM": {
+          "anchors": [
+            0.5,
+            0.5,
+            1,
+            0,
+            -87,
+            87,
+            -110,
+            -86
+          ],
+          "image": null,
+          "instruction": 1417,
+          "alpha": 0.0
+        },
+        "LegacyInstructionSteer": {
+          "anchors": [
+            0.5,
+            0.5,
+            1,
+            0,
+            -301,
+            -101,
+            -110,
+            -86
+          ],
+          "image": null,
+          "instruction": 1483,
+          "alpha": 0.0
+        },
+        "White": {
+          "anchors": [
+            0,
+            0,
+            0,
+            0,
+            145,
+            145,
+            -314,
+            240
+          ],
+          "image": null,
+          "instruction": 1541,
+          "alpha": 0.0
+        }
+      },
+      "sequences": {
+        "DefaultSequence": {
+          "BGTop": [
+            {
+              "1": {
+                "value": 0.25,
+                "duration": 550,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.25
+              }
+            }
+          ],
+          "BGBottom": [
+            {
+              "1": {
+                "value": 0.25,
+                "duration": 550,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.25
+              }
+            }
+          ],
+          "BGRight": [
+            {
+              "1": {
+                "value": 0.25,
+                "duration": 550,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.25
+              }
+            }
+          ],
+          "BGLeft": [
+            {
+              "1": {
+                "value": 0.25,
+                "duration": 550,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.25
+              }
+            }
+          ]
+        },
+        "BootupSpectator": {
+          "Black": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": -1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": -1
+              }
+            }
+          ],
+          "BGTop": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "BGBottom": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "BGRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "BGLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "LineVertical": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "LineHorizontal": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "CrossTopRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "CrossTopLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "CrossBottomLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "CrossBottomRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "SquareRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "SquareLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "FluffLocked": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffArm": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffAuto": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffRDY": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "TantoLogo": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "TimeLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0,
+                "duration": 4730,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "Reticle": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "InstructionSteer": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 630)"
+                },
+                "numericValue": 630
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 654)"
+                },
+                "numericValue": 654
+              }
+            }
+          ],
+          "InstructionBoost": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 630)"
+                },
+                "numericValue": 630
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 654)"
+                },
+                "numericValue": 654
+              }
+            }
+          ],
+          "InstructionBoostKBM": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 630)"
+                },
+                "numericValue": 630
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 654)"
+                },
+                "numericValue": 654
+              }
+            }
+          ],
+          "LegacyInstructionSteer": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 630)"
+                },
+                "numericValue": 630
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 654)"
+                },
+                "numericValue": 654
+              }
+            }
+          ],
+          "White": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -256)"
+                },
+                "numericValue": -256
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 298)"
+                },
+                "numericValue": 298
+              },
+              "3": {
+                "value": -1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": -1
+              }
+            }
+          ]
+        },
+        "MarkingTargets": {
+          "Black": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": -1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": -1
+              }
+            }
+          ],
+          "BGTop": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "BGBottom": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "BGRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "BGLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "LineVertical": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "LineHorizontal": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "CrossTopRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "CrossTopLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "CrossBottomLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "CrossBottomRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "SquareRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "SquareLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "FluffLocked": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "FluffArm": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "FluffAuto": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "FluffRDY": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "TantoLogo": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "TimeLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "Reticle": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "InstructionSteer": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "InstructionBoost": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "InstructionBoostKBM": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "LegacyInstructionSteer": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "Flash": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": -1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": -1
+              }
+            }
+          ],
+          "White": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": -1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": -1
+              }
+            }
+          ]
+        },
+        "Bootup": {
+          "Black": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "2": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 1,
+                "duration": 120,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "4": {
+                "value": 0.3,
+                "duration": 60,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.3
+              },
+              "5": {
+                "value": 0,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "BGTop": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.35,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.35
+              }
+            }
+          ],
+          "BGBottom": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.35,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.35
+              }
+            }
+          ],
+          "BGRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.35,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.35
+              }
+            }
+          ],
+          "BGLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.35,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.35
+              }
+            }
+          ],
+          "LineVertical": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "LineHorizontal": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "CrossTopRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "CrossTopLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "CrossBottomLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "CrossBottomRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "SquareRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "SquareLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffLocked": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffArm": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffAuto": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffRDY": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "TantoLogo": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "TimeLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 0.5,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.5
+              }
+            }
+          ],
+          "Reticle": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "InstructionSteer": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "InstructionBoost": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "InstructionBoostKBM": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "LegacyInstructionSteer": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.5,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.5
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "Flash": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 957)"
+                },
+                "numericValue": 957
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * -957)"
+                },
+                "numericValue": -957
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 531)"
+                },
+                "numericValue": 531
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -531)"
+                },
+                "numericValue": -531
+              },
+              "5": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "6": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "7": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "9": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 0
+              },
+              "10": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": 0
+              },
+              "11": {
+                "value": 1,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "12": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "13": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "14": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "15": {
+                "value": -1,
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": -1
+              },
+              "16": {
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -524)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": -524
+              },
+              "17": {
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 524)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 524
+              },
+              "18": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "19": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "20": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "21": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 0
+              },
+              "22": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "23": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 0
+              },
+              "24": {
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -498)"
+                },
+                "numericValue": -498
+              },
+              "25": {
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 498)"
+                },
+                "numericValue": 498
+              },
+              "26": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "numericValue": 0
+              },
+              "27": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "28": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "numericValue": 0
+              },
+              "29": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "30": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "31": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "32": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "33": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "34": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "35": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "36": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "37": {
+                "duration": 120,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -790)"
+                },
+                "numericValue": -790
+              },
+              "38": {
+                "duration": 120,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 686)"
+                },
+                "numericValue": 686
+              },
+              "39": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "40": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "41": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "42": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "43": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "44": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "45": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "46": {
+                "duration": 70,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -914)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": -914
+              },
+              "47": {
+                "duration": 70,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 794)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 794
+              }
+            }
+          ],
+          "White": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 436)"
+                },
+                "numericValue": 436
+              },
+              "6": {
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -436)"
+                },
+                "numericValue": -436
+              },
+              "7": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 0
+              },
+              "9": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "10": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 0
+              },
+              "11": {
+                "value": -1,
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": -1
+              },
+              "12": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "numericValue": 0
+              },
+              "13": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "numericValue": 0
+              },
+              "14": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "numericValue": 0
+              },
+              "15": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "16": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 0
+              },
+              "17": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "18": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 0
+              },
+              "19": {
+                "value": 1,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "20": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "numericValue": 0
+              },
+              "21": {
+                "value": 0,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ]
+        },
+        "Glitch": {
+          "FluffArm": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.4,
+                "duration": 600,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0.4
+              },
+              "3": {
+                "value": 0,
+                "duration": 900,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "FluffAuto": [
+            {
+              "1": {
+                "value": 0.2,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0.2
+              },
+              "2": {
+                "value": 0,
+                "duration": 900,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "FluffRDY": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.1,
+                "duration": 740,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0.1
+              },
+              "3": {
+                "value": 0.2,
+                "duration": 510,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0.2
+              }
+            }
+          ],
+          "TantoLogo": [
+            {
+              "1": {
+                "value": 0.2,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0.2
+              },
+              "2": {
+                "value": 0.2,
+                "duration": 1500,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0.2
+              },
+              "3": {
+                "value": 0,
+                "duration": 680,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "TimeLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.4,
+                "duration": 1350,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0.4
+              },
+              "3": {
+                "value": 0,
+                "duration": 1560,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              }
+            }
+          ]
+        },
+        "ReticleFocus": {
+          "Reticle": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 0.1,
+                "duration": 1000,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0.1
+              },
+              "4": {
+                "value": -0.4,
+                "duration": 13000,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outCubic"
+                },
+                "numericValue": -0.4
+              },
+              "5": {
+                "value": 0,
+                "duration": 150,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              },
+              "6": {
+                "value": 0.2,
+                "duration": 1440,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0.2
+              },
+              "7": {
+                "value": 0,
+                "duration": 1190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 0.1,
+                "duration": 2980,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": 0.1
+              },
+              "9": {
+                "value": 0,
+                "duration": 2230,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Glitch_Amount"
+                },
+                "numericValue": 0
+              }
+            }
+          ]
+        },
+        "LockedPulse": {
+          "FluffLocked": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "2": {
+                "value": 0,
+                "duration": 500,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 1,
+                "duration": 500,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ]
+        },
+        "SPStrikeMissile": {
+          "Black": [
+            {
+              "1": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "2": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 1,
+                "duration": 120,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "4": {
+                "value": 0.1,
+                "duration": 60,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.1
+              }
+            }
+          ],
+          "BGTop": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -730)"
+                },
+                "numericValue": -730
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -420)"
+                },
+                "numericValue": -420
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "4": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "value": 0.4,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.4
+              }
+            }
+          ],
+          "BGBottom": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 430)"
+                },
+                "numericValue": 430
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 740)"
+                },
+                "numericValue": 740
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "4": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "value": 0.4,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.4
+              }
+            }
+          ],
+          "BGRight": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 430)"
+                },
+                "numericValue": 430
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -420)"
+                },
+                "numericValue": -420
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 805)"
+                },
+                "numericValue": 805
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 3356)"
+                },
+                "numericValue": 3356
+              },
+              "5": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "6": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "7": {
+                "value": 0.4,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.4
+              }
+            }
+          ],
+          "BGLeft": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 430)"
+                },
+                "numericValue": 430
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -420)"
+                },
+                "numericValue": -420
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * -3352)"
+                },
+                "numericValue": -3352
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * -800)"
+                },
+                "numericValue": -800
+              },
+              "5": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "6": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "7": {
+                "value": 0.4,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.4
+              }
+            }
+          ],
+          "LineVertical": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.6,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.6
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 0.3,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.3
+              }
+            }
+          ],
+          "LineHorizontal": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.6,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.6
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 0.3,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.3
+              }
+            }
+          ],
+          "CrossTopRight": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -518)"
+                },
+                "numericValue": -518
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -454)"
+                },
+                "numericValue": -454
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 841)"
+                },
+                "numericValue": 841
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 905)"
+                },
+                "numericValue": 905
+              },
+              "5": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "6": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 856)"
+                },
+                "numericValue": 856
+              },
+              "7": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 920)"
+                },
+                "numericValue": 920
+              },
+              "8": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -507)"
+                },
+                "numericValue": -507
+              },
+              "9": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -443)"
+                },
+                "numericValue": -443
+              },
+              "10": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "11": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "12": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "CrossTopLeft": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -518)"
+                },
+                "numericValue": -518
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -454)"
+                },
+                "numericValue": -454
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * -912)"
+                },
+                "numericValue": -912
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * -848)"
+                },
+                "numericValue": -848
+              },
+              "5": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "6": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -507)"
+                },
+                "numericValue": -507
+              },
+              "7": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -443)"
+                },
+                "numericValue": -443
+              },
+              "8": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "9": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "10": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "CrossBottomLeft": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 452)"
+                },
+                "numericValue": 452
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 516)"
+                },
+                "numericValue": 516
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * -912)"
+                },
+                "numericValue": -912
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * -848)"
+                },
+                "numericValue": -848
+              },
+              "5": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "6": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "7": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "CrossBottomRight": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 452)"
+                },
+                "numericValue": 452
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 516)"
+                },
+                "numericValue": 516
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 856)"
+                },
+                "numericValue": 856
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 920)"
+                },
+                "numericValue": 920
+              },
+              "5": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "6": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "7": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "SquareRight": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "SquareLeft": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffLocked": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Text_Size"
+                },
+                "value": {
+                  "expression": "(36 * _PT)"
+                }
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -309)"
+                },
+                "numericValue": -309
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -345)"
+                },
+                "numericValue": -345
+              },
+              "4": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "6": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "7": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffArm": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Text_Size"
+                },
+                "value": {
+                  "expression": "(36 * _PT)"
+                }
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 266)"
+                },
+                "numericValue": 266
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 302)"
+                },
+                "numericValue": 302
+              },
+              "4": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "6": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "7": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffAuto": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Text_Size"
+                },
+                "value": {
+                  "expression": "(36 * _PT)"
+                }
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 346)"
+                },
+                "numericValue": 346
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Text"
+                },
+                "value": {
+                  "expression": "call@12:2869:ToUpperCase"
+                }
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 310)"
+                },
+                "numericValue": 310
+              },
+              "5": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "6": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "7": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "FluffRDY": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ],
+          "TantoLogo": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "2": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 0.7,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.7
+              },
+              "4": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "value": 0.7,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.7
+              }
+            }
+          ],
+          "TimeLeft": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "2": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "4": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "value": 0.5,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.5
+              }
+            }
+          ],
+          "Reticle": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 149)"
+                },
+                "numericValue": 149
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 149)"
+                },
+                "numericValue": 149
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * -151)"
+                },
+                "numericValue": -151
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -151)"
+                },
+                "numericValue": -151
+              },
+              "5": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "6": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 129)"
+                },
+                "numericValue": 129
+              },
+              "7": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 129)"
+                },
+                "numericValue": 129
+              },
+              "8": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * -131)"
+                },
+                "numericValue": -131
+              },
+              "9": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -131)"
+                },
+                "numericValue": -131
+              },
+              "10": {
+                "value": 0.8,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.8
+              },
+              "11": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "12": {
+                "value": 0.6,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.6
+              }
+            }
+          ],
+          "Line1": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 120)"
+                },
+                "numericValue": 120
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 161)"
+                },
+                "numericValue": 161
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 162)"
+                },
+                "numericValue": 162
+              },
+              "5": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 970)"
+                },
+                "numericValue": 970
+              },
+              "6": {
+                "value": 0.6,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.6
+              },
+              "7": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Visible"
+                }
+              }
+            }
+          ],
+          "Line2": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 1767)"
+                },
+                "numericValue": 1767
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 970)"
+                },
+                "numericValue": 970
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 120)"
+                },
+                "numericValue": 120
+              },
+              "5": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 1766)"
+                },
+                "numericValue": 1766
+              },
+              "6": {
+                "value": 0.6,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.6
+              },
+              "7": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Visible"
+                }
+              }
+            }
+          ],
+          "Line3": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 161.5)"
+                },
+                "numericValue": 161.5
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 1765.5)"
+                },
+                "numericValue": 1765.5
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 120)"
+                },
+                "numericValue": 120
+              },
+              "5": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 121)"
+                },
+                "numericValue": 121
+              },
+              "6": {
+                "value": 0.6,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.6
+              },
+              "7": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Visible"
+                }
+              }
+            }
+          ],
+          "Line4": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Hidden"
+                }
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * 1765)"
+                },
+                "numericValue": 1765
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 969)"
+                },
+                "numericValue": 969
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 970)"
+                },
+                "numericValue": 970
+              },
+              "5": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 161)"
+                },
+                "numericValue": 161
+              },
+              "6": {
+                "value": 0.6,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.6
+              },
+              "7": {
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Visibility"
+                },
+                "value": {
+                  "expression": "LUI.Visibility.Visible"
+                }
+              }
+            }
+          ],
+          "InstructionSteer": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "InstructionBoost": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "InstructionBoostKBM": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 1,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "LegacyInstructionSteer": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 180,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0.5,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0.5
+              },
+              "3": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 1,
+                "duration": 40,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              }
+            }
+          ],
+          "Flash": [
+            {
+              "1": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "value": {
+                  "expression": "(_1080p * 957)"
+                },
+                "numericValue": 957
+              },
+              "2": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "value": {
+                  "expression": "(_1080p * -957)"
+                },
+                "numericValue": -957
+              },
+              "3": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 531)"
+                },
+                "numericValue": 531
+              },
+              "4": {
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -531)"
+                },
+                "numericValue": -531
+              },
+              "5": {
+                "value": 1,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "6": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "7": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "9": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 0
+              },
+              "10": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": 0
+              },
+              "11": {
+                "value": 1,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "12": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "13": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "14": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "15": {
+                "value": -1,
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": -1
+              },
+              "16": {
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -524)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": -524
+              },
+              "17": {
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 524)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 524
+              },
+              "18": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "19": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "20": {
+                "value": 0,
+                "duration": 50,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "21": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 0
+              },
+              "22": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "23": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 0
+              },
+              "24": {
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -498)"
+                },
+                "numericValue": -498
+              },
+              "25": {
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 498)"
+                },
+                "numericValue": 498
+              },
+              "26": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "numericValue": 0
+              },
+              "27": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "28": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "numericValue": 0
+              },
+              "29": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "30": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "31": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "32": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "33": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "34": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "35": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "36": {
+                "value": 0,
+                "duration": 20,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.inQuadratic"
+                },
+                "numericValue": 0
+              },
+              "37": {
+                "duration": 120,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -790)"
+                },
+                "numericValue": -790
+              },
+              "38": {
+                "duration": 120,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 686)"
+                },
+                "numericValue": 686
+              },
+              "39": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "40": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "41": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "42": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "43": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "44": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "45": {
+                "value": 0,
+                "duration": 190,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 0
+              },
+              "46": {
+                "duration": 70,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * -914)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": -914
+              },
+              "47": {
+                "duration": 70,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * 794)"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.outQuadratic"
+                },
+                "numericValue": 794
+              }
+            }
+          ],
+          "White": [
+            {
+              "1": {
+                "value": 0,
+                "duration": 0,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "numericValue": 0
+              },
+              "2": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              },
+              "3": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "numericValue": 0
+              },
+              "4": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "numericValue": 0
+              },
+              "5": {
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "value": {
+                  "expression": "(_1080p * 436)"
+                },
+                "numericValue": 436
+              },
+              "6": {
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "value": {
+                  "expression": "(_1080p * -436)"
+                },
+                "numericValue": -436
+              },
+              "7": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "8": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 0
+              },
+              "9": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "10": {
+                "value": 0,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 0
+              },
+              "11": {
+                "value": -1,
+                "duration": 280,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Scale"
+                },
+                "easing": {
+                  "expression": "LUI.EASING.snap"
+                },
+                "numericValue": -1
+              },
+              "12": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right"
+                },
+                "numericValue": 0
+              },
+              "13": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top"
+                },
+                "numericValue": 0
+              },
+              "14": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom"
+                },
+                "numericValue": 0
+              },
+              "15": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left_Anchor"
+                },
+                "numericValue": 0
+              },
+              "16": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Right_Anchor"
+                },
+                "numericValue": 0
+              },
+              "17": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Top_Anchor"
+                },
+                "numericValue": 0
+              },
+              "18": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Bottom_Anchor"
+                },
+                "numericValue": 0
+              },
+              "19": {
+                "value": 1,
+                "duration": 90,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 1
+              },
+              "20": {
+                "value": 0,
+                "duration": 30,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Left"
+                },
+                "numericValue": 0
+              },
+              "21": {
+                "value": 0,
+                "duration": 100,
+                "property": {
+                  "expression": "TWEEN_PROPERTY.Alpha"
+                },
+                "numericValue": 0
+              }
+            }
+          ]
+        }
+      },
+      "fixedPixelFieldsCentered": true
+    }
+  },
+  "images": {
+    "overlay_tablet_smartphone_background_squares": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_tablet_smartphone_background_squares.png",
+      "width": 412,
+      "height": 728
+    },
+    "overlay_tablet_smartphone_background": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_tablet_smartphone_background.png",
+      "width": 412,
+      "height": 728
+    },
+    "block_dissolve_lg_mask": {
+      "texture": "killstreakcod:textures/cruisephone/block_dissolve_lg_mask.png",
+      "width": 1024,
+      "height": 512
+    },
+    "overlay_tablet_smartphone_reticle": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_tablet_smartphone_reticle.png",
+      "width": 136,
+      "height": 116
+    },
+    "shred_mask": {
+      "texture": "killstreakcod:textures/cruisephone/shred_mask.png",
+      "width": 1024,
+      "height": 512
+    },
+    "overlay_tablet_smartphone_reticle_locked": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_tablet_smartphone_reticle_locked.png",
+      "width": 364,
+      "height": 364
+    },
+    "overlay_tablet_smartphone_triangles": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_tablet_smartphone_triangles.png",
+      "width": 92,
+      "height": 76
+    },
+    "overlay_tablet_smartphone_background_uielements": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_tablet_smartphone_background_uielements.png",
+      "width": 412,
+      "height": 728
+    },
+    "overlay_cruise_flash": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_cruise_flash.png",
+      "width": 1024,
+      "height": 512
+    },
+    "keybind_hold_border": {
+      "texture": "killstreakcod:textures/cruisephone/keybind_hold_border.png",
+      "width": 64,
+      "height": 64
+    },
+    "ui_keybind_hold_mask_center": {
+      "texture": "killstreakcod:textures/cruisephone/ui_keybind_hold_mask_center.png",
+      "width": 64,
+      "height": 64
+    },
+    "ui_keybind_hold_mask_side": {
+      "texture": "killstreakcod:textures/cruisephone/ui_keybind_hold_mask_side.png",
+      "width": 64,
+      "height": 64
+    },
+    "ui_keybind_backing_unbound": {
+      "texture": "killstreakcod:textures/cruisephone/ui_keybind_backing_unbound.png",
+      "width": 64,
+      "height": 64
+    },
+    "hud_reticle_radial_glow": {
+      "texture": "killstreakcod:textures/cruisephone/hud_reticle_radial_glow.png",
+      "width": 64,
+      "height": 64
+    },
+    "hud_icon_killstreak_uav": {
+      "texture": "killstreakcod:textures/cruisephone/hud_icon_killstreak_uav.png",
+      "width": 256,
+      "height": 256
+    },
+    "keybind_backing_white": {
+      "texture": "killstreakcod:textures/cruisephone/keybind_backing_white.png",
+      "width": 48,
+      "height": 48
+    },
+    "dpad_circle_segment": {
+      "texture": "killstreakcod:textures/cruisephone/dpad_circle_segment.png",
+      "width": 128,
+      "height": 128
+    },
+    "overlay_cruise_squares": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_cruise_squares.png",
+      "width": 64,
+      "height": 64
+    },
+    "hud_icon_killstreak_auav": {
+      "texture": "killstreakcod:textures/cruisephone/hud_icon_killstreak_auav.png",
+      "width": 256,
+      "height": 256
+    },
+    "ui_keybind_hold_radial": {
+      "texture": "killstreakcod:textures/cruisephone/ui_keybind_hold_radial.png",
+      "width": 64,
+      "height": 64
+    },
+    "overlay_cruise_reticle": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_cruise_reticle.png",
+      "width": 256,
+      "height": 256
+    },
+    "hud_icon_killstreak_cuav": {
+      "texture": "killstreakcod:textures/cruisephone/hud_icon_killstreak_cuav.png",
+      "width": 256,
+      "height": 256
+    },
+    "hud_icon_killstreak_chopper_support": {
+      "texture": "killstreakcod:textures/gui/mwii/hud_icon_killstreak_chopper_support.png",
+      "width": 256,
+      "height": 256
+    },
+    "icon_empty_x": {
+      "texture": "killstreakcod:textures/cruisephone/icon_empty_x.png",
+      "width": 512,
+      "height": 512
+    },
+    "ui_keybind_backing": {
+      "texture": "killstreakcod:textures/cruisephone/ui_keybind_backing.png",
+      "width": 64,
+      "height": 64
+    },
+    "overlay_cruise_cross": {
+      "texture": "killstreakcod:textures/cruisephone/overlay_cruise_cross.png",
+      "width": 64,
+      "height": 64
+    },
+    "ui_tanto_logo": {
+      "texture": "killstreakcod:textures/cruisephone/ui_tanto_logo.png",
+      "width": 128,
+      "height": 28
+    }
+  },
+  "sourceStencilUnsupported": true
+}

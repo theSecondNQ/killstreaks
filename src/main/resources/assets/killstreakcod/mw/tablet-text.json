@@ -1,0 +1,50 @@
+{
+  "Title": {
+    "fontSize": 36.0,
+    "alignment": "Center",
+    "sourceFont": "PrimaryRegular",
+    "sourceVariable": "Title"
+  },
+  "ButtonLabel": {
+    "fontSize": 36.0,
+    "alignment": "Center",
+    "sourceFont": "PrimaryRegular",
+    "sourceVariable": "ButtonLabel"
+  },
+  "KillstreakDescription": {
+    "fontSize": 20.0,
+    "alignment": "Left",
+    "sourceFont": "SecondaryRegular",
+    "sourceVariable": "f1_local7"
+  },
+  "NumpadText1": {
+    "fontSize": 70.0,
+    "alignment": "Left",
+    "sourceFont": "SecondaryLight",
+    "sourceVariable": "f1_local27"
+  },
+  "NumpadText2": {
+    "fontSize": 70.0,
+    "alignment": "Left",
+    "sourceFont": "SecondaryLight",
+    "sourceVariable": "f1_local28"
+  },
+  "NumpadText3": {
+    "fontSize": 70.0,
+    "alignment": "Left",
+    "sourceFont": "SecondaryLight",
+    "sourceVariable": "f1_local29"
+  },
+  "NumpadText4": {
+    "fontSize": 70.0,
+    "alignment": "Left",
+    "sourceFont": "SecondaryLight",
+    "sourceVariable": "f1_local30"
+  },
+  "NumpadText5": {
+    "fontSize": 70.0,
+    "alignment": "Left",
+    "sourceFont": "SecondaryLight",
+    "sourceVariable": "f1_local31"
+  }
+}

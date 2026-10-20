@@ -1,0 +1,1415 @@
+{
+  "name": "cruise_intro_entity_root",
+  "animation": "mp_cruise_missile_move_intro",
+  "model": "wmd_vm_missile_cruise_mp",
+  "tag": "tag_origin",
+  "duration_seconds": 3.0,
+  "framerate": 30.0,
+  "source_animation_json": "mp_cruise_missile_move_intro_complete.json",
+  "source_rig_sha256": "005c38a19eb97a5945daeb702dc325a51230ec4f45cf214ebe44d02bb910c5f5",
+  "hierarchy_chain": [
+    {
+      "index": 0,
+      "hash": "a74295ee",
+      "name": "tag_origin",
+      "parent": -1,
+      "world_rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "world_position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "local_position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "native_chain_curves": [],
+  "samples": [
+    {
+      "frame": 0,
+      "seconds": 0.0,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 1,
+      "seconds": 0.03333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 2,
+      "seconds": 0.06666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 3,
+      "seconds": 0.1,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 4,
+      "seconds": 0.13333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 5,
+      "seconds": 0.16666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 6,
+      "seconds": 0.2,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 7,
+      "seconds": 0.23333333333333334,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 8,
+      "seconds": 0.26666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 9,
+      "seconds": 0.3,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 10,
+      "seconds": 0.3333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 11,
+      "seconds": 0.36666666666666664,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 12,
+      "seconds": 0.4,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 13,
+      "seconds": 0.43333333333333335,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 14,
+      "seconds": 0.4666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 15,
+      "seconds": 0.5,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 16,
+      "seconds": 0.5333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 17,
+      "seconds": 0.5666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 18,
+      "seconds": 0.6,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 19,
+      "seconds": 0.6333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 20,
+      "seconds": 0.6666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 21,
+      "seconds": 0.7,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 22,
+      "seconds": 0.7333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 23,
+      "seconds": 0.7666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 24,
+      "seconds": 0.8,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 25,
+      "seconds": 0.8333333333333334,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 26,
+      "seconds": 0.8666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 27,
+      "seconds": 0.9,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 28,
+      "seconds": 0.9333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 29,
+      "seconds": 0.9666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 30,
+      "seconds": 1.0,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 31,
+      "seconds": 1.0333333333333334,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 32,
+      "seconds": 1.0666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 33,
+      "seconds": 1.1,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 34,
+      "seconds": 1.1333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 35,
+      "seconds": 1.1666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 36,
+      "seconds": 1.2,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 37,
+      "seconds": 1.2333333333333334,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 38,
+      "seconds": 1.2666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 39,
+      "seconds": 1.3,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 40,
+      "seconds": 1.3333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 41,
+      "seconds": 1.3666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 42,
+      "seconds": 1.4,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 43,
+      "seconds": 1.4333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 44,
+      "seconds": 1.4666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 45,
+      "seconds": 1.5,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 46,
+      "seconds": 1.5333333333333334,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 47,
+      "seconds": 1.5666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 48,
+      "seconds": 1.6,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 49,
+      "seconds": 1.6333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 50,
+      "seconds": 1.6666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 51,
+      "seconds": 1.7,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 52,
+      "seconds": 1.7333333333333334,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 53,
+      "seconds": 1.7666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 54,
+      "seconds": 1.8,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 55,
+      "seconds": 1.8333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 56,
+      "seconds": 1.8666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 57,
+      "seconds": 1.9,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 58,
+      "seconds": 1.9333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 59,
+      "seconds": 1.9666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 60,
+      "seconds": 2.0,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 61,
+      "seconds": 2.033333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 62,
+      "seconds": 2.066666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 63,
+      "seconds": 2.1,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 64,
+      "seconds": 2.1333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 65,
+      "seconds": 2.1666666666666665,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 66,
+      "seconds": 2.2,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 67,
+      "seconds": 2.2333333333333334,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 68,
+      "seconds": 2.2666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 69,
+      "seconds": 2.3,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 70,
+      "seconds": 2.3333333333333335,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 71,
+      "seconds": 2.3666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 72,
+      "seconds": 2.4,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 73,
+      "seconds": 2.433333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 74,
+      "seconds": 2.466666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 75,
+      "seconds": 2.5,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 76,
+      "seconds": 2.533333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 77,
+      "seconds": 2.566666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 78,
+      "seconds": 2.6,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 79,
+      "seconds": 2.6333333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 80,
+      "seconds": 2.6666666666666665,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 81,
+      "seconds": 2.7,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 82,
+      "seconds": 2.7333333333333334,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 83,
+      "seconds": 2.7666666666666666,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 84,
+      "seconds": 2.8,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 85,
+      "seconds": 2.8333333333333335,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 86,
+      "seconds": 2.8666666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 87,
+      "seconds": 2.9,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 88,
+      "seconds": 2.933333333333333,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 89,
+      "seconds": 2.966666666666667,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frame": 90,
+      "seconds": 3.0,
+      "position_game_units": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "sample_basis": "derived hierarchy composition under CAST absolute quaternion/rest-relative translation and native delta; nlerp/slerp between source keys",
+  "coordinate_space": "source model/entity asset space, Z up, unscaled game units; not map/world or final engine camera pose",
+  "excluded_runtime_layers": [
+    "script placement and attachment pivot policy",
+    "camera motion overrides, FOV, shake and depth of field",
+    "runtime actor blending/IK"
+  ]
+}

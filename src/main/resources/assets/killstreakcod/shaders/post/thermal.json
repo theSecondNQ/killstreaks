@@ -1,0 +1,7 @@
+{
+  "targets": ["thermal_swap"],
+  "passes": [
+    {"name":"killstreakcod:thermal","intarget":"minecraft:main","outtarget":"thermal_swap"},
+    {"name":"blit","intarget":"thermal_swap","outtarget":"minecraft:main"}
+  ]
+}

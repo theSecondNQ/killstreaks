@@ -1,6 +1,9 @@
 package net.killstreakcod.render;
 
+import net.killstreakcod.mixin.client.BlendModeAccess;
+
 import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.shaders.BlendMode;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferUploader;
 import com.mojang.blaze3d.vertex.VertexSorting;
@@ -46,6 +49,7 @@ public final class ThermalRenderState implements AutoCloseable {
     private final Matrix4f textureMatrix = new Matrix4f(RenderSystem.getTextureMatrix());
     private final VertexSorting sorting = RenderSystem.getVertexSorting();
     private final ShaderInstance shader = RenderSystem.getShader();
+    private final BlendMode blendMode = BlendModeAccess.killstreak$getLastApplied();
 
     ThermalRenderState() {
         GL11.glGetIntegerv(GL11.GL_VIEWPORT, viewport);
@@ -100,6 +104,8 @@ public final class ThermalRenderState implements AutoCloseable {
         RenderSystem.depthMask(depthWrite);
         RenderSystem.blendFuncSeparate(srcRgb, dstRgb, srcAlpha, dstAlpha);
         GL20.glBlendEquationSeparate(equationRgb, equationAlpha);
+        // Otherwise a later core shader can overwrite the GUI vignette's custom blend factors.
+        BlendModeAccess.killstreak$setLastApplied(blendMode);
         RenderSystem.colorMask(colorMask[0] != 0, colorMask[1] != 0, colorMask[2] != 0, colorMask[3] != 0);
         RenderSystem.clearColor(clearColor[0], clearColor[1], clearColor[2], clearColor[3]);
         GlStateManager._clearDepth(clearDepth);

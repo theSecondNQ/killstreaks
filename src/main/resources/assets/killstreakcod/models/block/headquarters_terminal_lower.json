@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "killstreakcod:terminal_obj",
+  "model": "killstreakcod:models/block/headquarters_terminal/terminal.obj",
+  "part": "lower",
+  "textures": {
+    "particle": "killstreakcod:block/headquarters_terminal/laptop_body"
+  },
+  "render_type": "minecraft:solid"
+}

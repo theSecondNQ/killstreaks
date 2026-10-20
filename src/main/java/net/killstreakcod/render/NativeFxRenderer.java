@@ -11,7 +11,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -60,9 +59,6 @@ public final class NativeFxRenderer {
             String material, int delay, int textureWidth, int textureHeight, int tint, boolean variants) {
     }
 
-    private record Batch(ResourceLocation texture, boolean glow) {
-    }
-
     private record Sprite(Vec3 origin, Vec3 velocity, Layer layer, long born, int life, float size, float rotation,
             int tint, float opacity, boolean groundDust) {
     }
@@ -91,7 +87,7 @@ public final class NativeFxRenderer {
     private static final ArrayList<Debris> DEBRIS = new ArrayList<>();
     private static ClientLevel world;
     private static Player pawn;
-    private static ShaderInstance shader;
+    private static ShaderInstance shader, glowShader;
     private static BufferBuilder storage, debrisStorage;
     private static boolean loaded;
 
@@ -289,7 +285,7 @@ public final class NativeFxRenderer {
 
     @SubscribeEvent
     public static void render(RenderLevelStageEvent event) {
-        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL || shader == null
+        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL || shader == null || glowShader == null
                 || OptionalShaderCompat.shadowPass() || world == null
                 || EntryScenes.active() && !AircraftCrashClient.active() || (SPRITES.isEmpty() && DEBRIS.isEmpty()))
             return;
@@ -301,21 +297,25 @@ public final class NativeFxRenderer {
         float partial = event.getPartialTick();
         double now = world.getGameTime() + partial;
         Vec3 eye = event.getCamera().getPosition();
+        var view = WorldRenderMatrices.view(event);
         List<Sprite> ordered = new ArrayList<>(SPRITES);
-        ordered.sort(Comparator.comparingDouble((Sprite p) -> p.origin.distanceToSqr(eye)).reversed());
-        Map<Batch, List<Sprite>> batches = new LinkedHashMap<>();
-        for (Sprite p : ordered)
-            batches.computeIfAbsent(new Batch(p.layer.texture, p.layer.glow), k -> new ArrayList<>()).add(p);
+        // Billboards are parallel in view space. Sort their current planes, including interpolated movement.
+        ordered.sort(Comparator.comparingDouble((Sprite p) -> {
+            double age = now - p.born;
+            double x = p.origin.x + p.velocity.x * age - eye.x;
+            double y = p.origin.y + p.velocity.y * age - eye.y;
+            double z = p.origin.z + p.velocity.z * age - eye.z;
+            return view.m02() * x + view.m12() * y + view.m22() * z;
+        }));
         if (storage == null)
             storage = new BufferBuilder(65536);
         try (ThermalRenderState ignored = new ThermalRenderState()) {
             var matrix = RenderSystem.getModelViewStack();
             matrix.pushPose();
             try {
-                matrix.last().pose().set(event.getPoseStack().last().pose());
+                matrix.last().pose().set(view);
                 RenderSystem.applyModelViewMatrix();
                 RenderSystem.setProjectionMatrix(event.getProjectionMatrix(), VertexSorting.DISTANCE_TO_ORIGIN);
-                RenderSystem.setShader(() -> shader);
                 RenderSystem.enableDepthTest();
                 RenderSystem.depthFunc(GL11.GL_LEQUAL);
                 RenderSystem.depthMask(false);
@@ -326,20 +326,31 @@ public final class NativeFxRenderer {
                 RenderSystem.enableBlend();
                 RenderSystem.blendEquation(GL14.GL_FUNC_ADD);
                 RenderSystem.colorMask(true, true, true, true);
-                for (var group : batches.entrySet()) {
+                for (int start = 0; start < ordered.size();) {
+                    Layer layer = ordered.get(start).layer;
+                    int end = start + 1;
+                    // Only adjacent materials may share a draw; regrouping all equal textures breaks alpha order.
+                    while (end < ordered.size() && ordered.get(end).layer.glow == layer.glow
+                            && ordered.get(end).layer.texture.equals(layer.texture)) {
+                        end++;
+                    }
                     storage.discard();
                     BufferBuilder out = storage;
                     out.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX_COLOR);
-                    for (Sprite p : group.getValue())
-                        quad(out, p, now, eye, event);
+                    while (start < end) {
+                        quad(out, ordered.get(start++), now, eye, event);
+                    }
                     BufferBuilder.RenderedBuffer mesh = out.endOrDiscardIfEmpty();
                     try {
                         if (mesh == null)
                             continue;
-                        shader.setSampler("DiffuseSampler",
-                                mc.getTextureManager().getTexture(group.getKey().texture).getId());
+                        // ShaderInstance.apply() reapplies the JSON blend mode when programs change.
+                        ShaderInstance drawShader = layer.glow ? glowShader : shader;
+                        RenderSystem.setShader(() -> drawShader);
+                        drawShader.setSampler("DiffuseSampler",
+                                mc.getTextureManager().getTexture(layer.texture).getId());
                         RenderSystem.blendFuncSeparate(GL11.GL_SRC_ALPHA,
-                                group.getKey().glow ? GL11.GL_ONE : GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE,
+                                layer.glow ? GL11.GL_ONE : GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE,
                                 GL11.GL_ONE_MINUS_SRC_ALPHA);
                         BufferUploader.drawWithShader(mesh);
                         mesh = null;
@@ -358,6 +369,7 @@ public final class NativeFxRenderer {
         }
         catch (RuntimeException | LinkageError failure) {
             shader = null;
+            glowShader = null;
             com.mojang.logging.LogUtils.getLogger().warn("Recovered FX renderer disabled until resource reload",
                     failure);
         } finally {
@@ -387,8 +399,8 @@ public final class NativeFxRenderer {
         float u = (frame % p.layer.columns) * cellU, v = (frame / p.layer.columns) * cellV,
                 insetU = Math.min(cellU * .1F, .75F / p.layer.textureWidth),
                 insetV = Math.min(cellV * .1F, .75F / p.layer.textureHeight);
-        Vector3f right = event.getCamera().rotation().transform(new Vector3f(1, 0, 0)),
-                up = event.getCamera().rotation().transform(new Vector3f(0, 1, 0));
+        Vector3f right = WorldRenderMatrices.billboardRotation(event).transform(new Vector3f(1, 0, 0)),
+                up = WorldRenderMatrices.billboardRotation(event).transform(new Vector3f(0, 1, 0));
         float angle = p.groundDust ? 0 : p.rotation + progress * .3F, c = (float) Math.cos(angle),
                 s = (float) Math.sin(angle);
         Vector3f a = new Vector3f(right).mul(c).add(new Vector3f(up).mul(s)).mul(width * .5F),
@@ -479,9 +491,13 @@ public final class NativeFxRenderer {
                 event.registerShader(new ShaderInstance(event.getResourceProvider(),
                         ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "native_fx"),
                         DefaultVertexFormat.POSITION_TEX_COLOR), loadedShader -> shader = loadedShader);
+                event.registerShader(new ShaderInstance(event.getResourceProvider(),
+                        ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "native_fx_glow"),
+                        DefaultVertexFormat.POSITION_TEX_COLOR), loadedShader -> glowShader = loadedShader);
             }
             catch (java.io.IOException | RuntimeException | LinkageError failure) {
                 shader = null;
+                glowShader = null;
                 com.mojang.logging.LogUtils.getLogger()
                         .warn("Recovered FX shader unavailable; vanilla effects remain active", failure);
             }

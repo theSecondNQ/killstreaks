@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_repeater": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {"items": [{"items": ["minecraft:repeater"]}]}
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {"recipe": "killstreakcod:headquarters_terminal"}
+    }
+  },
+  "requirements": [["has_repeater", "has_the_recipe"]],
+  "rewards": {"recipes": ["killstreakcod:headquarters_terminal"]}
+}

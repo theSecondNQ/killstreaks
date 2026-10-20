@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "net.killstreakcod.mixin.client",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [],
+  "client": [
+    "BlendModeAccess",
+    "LivingEntityThermalMixin",
+    "CinematicCameraPositionMixin",
+    "AnchoredPlayerTurnMixin",
+    "MinigunHoldPoseMixin",
+    "TabletKeyboardMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "killstreakcod.refmap.json"
+}

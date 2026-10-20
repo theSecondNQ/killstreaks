@@ -119,7 +119,7 @@ public final class ThermalVision {
                     var modelView = RenderSystem.getModelViewStack();
                     modelView.pushPose();
                     try {
-                        modelView.last().pose().set(event.getPoseStack().last().pose());
+                        modelView.last().pose().set(WorldRenderMatrices.view(event));
                         RenderSystem.applyModelViewMatrix();
                         RenderSystem.setProjectionMatrix(event.getProjectionMatrix(), VertexSorting.DISTANCE_TO_ORIGIN);
                         RenderSystem.setShader(() -> maskShader);

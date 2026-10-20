@@ -1,8 +1,8 @@
 # Forge 1.20.1 适配
 
-本目录为 Minecraft **1.20.1** / **Forge 47.4.10+** / **Java 17** 工程，沿用模组版本 **1.1.0.4352**。运行时不需要额外前置模组。客户端和服务器均安装同一份 JAR：
+本目录为 Minecraft **1.20.1** / **Forge 47.4.10+** / **Java 17** 工程，沿用模组版本 **1.1.0.4355**。运行时不需要额外前置模组。客户端和服务器均安装同一份 JAR：
 
-`build/libs/killstreakcod-forge-1.20.1-1.1.0.4352.jar`
+`build/libs/killstreakcod-forge-1.20.1-1.1.0.4355.jar`
 
 现有连杀、研究树、总部通讯终端、遥控载具、平板标定、热成像、音效和本地操作员皮肤均保留。`D:\Projects\killstreakcod` 为原工程；移植前源码备份为 `D:\Projects\killstreaks-backups\20261019-before-forge1201.zip`。
 
@@ -23,7 +23,7 @@ Gradle Wrapper 使用 8.8，ForgeGradle 使用 6.0.54。脚本默认使用用户
 
 已通过 Java 17 编译、Forge 服务端 5 项 GameTest（消息编解码与边界、终端放置／拆除及配方、实体和物品 NBT、研究数据落盘），以及隔离客户端启动检查。客户端确认终端模型烘焙、4 个自定义着色器编译及 418 个导入模型解码正常。具体结果和发行包 SHA-256 记录在 `build/reports/forge-validation.json`；发行清单、源码包核对结果分别见 `package-inventory.json`、`delivery-verification.json`。
 
-尚未完成真实多人联机、完整连杀流程和第三方模组组合的游戏内回归测试。
+1.1.0.4353 增加 Embeddium 0.3.31、Oculus 1.8.0 与 Photon v1.4 的隔离渲染检查，覆盖光影开关、爆炸／曳光及巡航导弹入场。1.1.0.4354 修复视口事件改角后特效的错误朝向。1.1.0.4355 修复透明混合被着色器覆盖及重叠层次错误造成的黑边闪烁，增加透明边缘、移动精灵、六种曳光和最终主画面检查。修复及复现方法见 [渲染兼容](RENDER-COMPAT.md)。真实多人联机、完整连杀流程和其他第三方模组组合尚未完成回归测试。
 
 ## 主要接口变化
 
@@ -44,4 +44,6 @@ Forge 1.20.1 的 SERVER 配置位于存档的 `serverconfig/killstreakcod-server
 
 ## 本次 HUD 同步
 
-此分支已合入飞机原资源 HUD，使用 Java 17 编译入口。此前的 GameTest 和客户端检查属于上一次移植验证，不覆盖本次 HUD 改动。本次不启动游戏或执行测试；资源按用户要求另外提供。完整资源及基于实际画面的验证仍需后续在对应平台进行。详见 [飞机 HUD](AIRCRAFT-HUD.md)。
+此分支已合入飞机原资源 HUD，使用 Java 17 编译入口。上一次源码同步排除了运行资源；本次 1.1.0.4352 构建已从上一版 Forge JAR 恢复基础资源，并合入新版 41 个资源文件，当前共包含 3,215 个运行资源文件。恢复来源见 `build/reports/resource-restoration.json`。
+
+本次已重新通过构建、5 项服务端 GameTest 和隔离客户端启动检查；检查确认终端模型、4 个着色器和 418 个导入模型正常加载。飞机 HUD 在实际任务中的显示、完整连杀流程及多人联机仍需游戏内验证。详见 [飞机 HUD](AIRCRAFT-HUD.md)。

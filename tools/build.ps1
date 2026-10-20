@@ -16,8 +16,10 @@ $taskArguments = @('--gradle-user-home', [IO.Path]::GetFullPath($GradleUserHome)
 # Java does not automatically inherit the Windows HTTP proxy used by the launcher.
 $taskProxy = Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings' -ErrorAction SilentlyContinue
 if ($taskProxy.ProxyEnable -eq 1 -and $taskProxy.ProxyServer -match '^([^:;=]+):(\d+)$') {
-    $taskArguments += @('-Dhttps.proxyHost='+$Matches[1], '-Dhttps.proxyPort='+$Matches[2],
-        '-Dhttp.proxyHost='+$Matches[1], '-Dhttp.proxyPort='+$Matches[2])
+    $taskProxyHost = $Matches[1]
+    $taskProxyPort = $Matches[2]
+    $taskArguments += @("-Dhttps.proxyHost=$taskProxyHost", "-Dhttps.proxyPort=$taskProxyPort",
+        "-Dhttp.proxyHost=$taskProxyHost", "-Dhttp.proxyPort=$taskProxyPort")
 }
 if ($Offline) { $taskArguments += @('--offline', '-Dnet.minecraftforge.gradle.check.certs=false') }
 $taskArguments += $Tasks

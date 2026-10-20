@@ -1,0 +1,2341 @@
+{
+  "format": 1,
+  "id": "scene_vm_ks_tablet_super_remote_idle_non_loop",
+  "source": "vm_ks_tablet_super_remote_idle_non_loop_complete.json",
+  "fps": 30.0,
+  "last_frame": 1,
+  "loop": false,
+  "translationCoordinateScale": 2.54,
+  "nativeVectorChannelsExpanded": true,
+  "curves": [
+    {
+      "bone": "tag_sync",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c24298e7",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_view",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "608986bd",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_cambone",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1a6aa001",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_torso",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3f12dd8f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_weapon",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a7bf6ee8",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spinelower",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "557ecf66",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_hiptwist_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c24f10bc",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_hiptwist_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "b266fc72",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spineupper",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ed4ffd33",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_spine4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f999fb37",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_sling_attach_body",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0b20dd8c",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_sling_attach_body_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "39d77381",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_chest",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "41a64537",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8a6911e9",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_index_le_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9ea23bbf",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_thumb_le_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2204c2fb",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f74fed77",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_helmet",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0726faab",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_visor",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bef539a5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_visor_inner",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8058295e",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_pen",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a8a13451",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_playerhelmet",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a965f1ec",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_player",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "eb690ff9",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_groinprotector",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "46ebf6bf",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0004882961511611938,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_knee_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "781034f1",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.05957213044166565,
+        0.9982299208641052
+      ]
+    },
+    {
+      "bone": "j_knee_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "6fd87b5f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.05957213044166565,
+        0.9982299208641052
+      ]
+    },
+    {
+      "bone": "j_ankle_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ea6927cd",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.5475935935974121,
+        0.8367564678192139
+      ]
+    },
+    {
+      "bone": "j_kneedq_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a8972648",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.029786065220832825,
+        0.999542236328125
+      ]
+    },
+    {
+      "bone": "j_ball_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "4bd4efbb",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.2561418414115906,
+        0.9666432738304138
+      ]
+    },
+    {
+      "bone": "j_ankle_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ba1f3a8b",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.5475935935974121,
+        0.8367564678192139
+      ]
+    },
+    {
+      "bone": "j_kneedq_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "809cf77e",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.029786065220832825,
+        0.999542236328125
+      ]
+    },
+    {
+      "bone": "j_ball_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "4bbcead5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.2561418414115906,
+        0.9666432738304138
+      ]
+    },
+    {
+      "bone": "j_neck",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a2f03365",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.14651936292648315,
+        0.9891964197158813
+      ]
+    },
+    {
+      "bone": "j_head",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "119cd9b0",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.14651936292648315,
+        0.9891964197158813
+      ]
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e72044a8",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.3734549880027771,
+        0.9276406168937683
+      ]
+    },
+    {
+      "bone": "j_mid_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "783e11a8",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.13779106736183167,
+        0.9904477000236511
+      ]
+    },
+    {
+      "bone": "j_pinky_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e69fc697",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.12225715070962906,
+        0.9924924373626709
+      ]
+    },
+    {
+      "bone": "j_ring_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9900afa0",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.10501419007778168,
+        0.9944761395454407
+      ]
+    },
+    {
+      "bone": "j_thumb_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2704cada",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.13318277895450592,
+        0.9910885691642761
+      ]
+    },
+    {
+      "bone": "j_elbow_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9dabf6bf",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.6782128214836121,
+        0.7348551750183105
+      ]
+    },
+    {
+      "bone": "j_index_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d0ed29c7",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.6625568270683289,
+        0.749015748500824
+      ]
+    },
+    {
+      "bone": "j_index_ri_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ceed26a1",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ab569efa",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.13779106736183167,
+        0.9904477000236511
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0b658ed5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.12225715070962906,
+        0.9924924373626709
+      ]
+    },
+    {
+      "bone": "j_ring_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "68a021d2",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.10501419007778168,
+        0.9944761395454407
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8ebf5248",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.13315226137638092,
+        0.9910885691642761
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_4",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "95bf5d4d",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "bone": "j_nvg",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb7d3457",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.18900112807750702,
+        0.981963574886322
+      ]
+    },
+    {
+      "bone": "tag_camera",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "3ad73723",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.18900112807750702,
+        0.0,
+        0.981963574886322
+      ]
+    },
+    {
+      "bone": "j_mainroot",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0aacd3f3",
+      "property": "rq",
+      "values": [
+        0.5000152587890625,
+        -0.4999847412109375,
+        0.5000152587890625,
+        0.5000152587890625
+      ]
+    },
+    {
+      "bone": "j_hip_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9eab7f6f",
+      "property": "rq",
+      "values": [
+        -0.006500442512333393,
+        0.999969482421875,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bone": "j_hip_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "86a6dc79",
+      "property": "rq",
+      "values": [
+        -0.006500442512333393,
+        0.999969482421875,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bone": "j_crotch",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ce723fe7",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.7071138620376587,
+        0.0,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "tag_accessory",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dfca856e",
+      "property": "rq",
+      "values": [
+        0.01077303383499384,
+        -0.5196081399917603,
+        0.0039674062281847,
+        0.8543351292610168
+      ]
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "867f812b",
+      "property": "rq",
+      "values": [
+        0.00753807183355093,
+        -0.7036957740783691,
+        -0.007599108852446079,
+        0.7104098796844482
+      ]
+    },
+    {
+      "bone": "j_clavicle_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "b6cb016d",
+      "property": "rq",
+      "values": [
+        -0.00753807183355093,
+        0.7036957740783691,
+        -0.007599108852446079,
+        0.7104098796844482
+      ]
+    },
+    {
+      "bone": "j_shoulder_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2d883542",
+      "property": "rq",
+      "values": [
+        0.15643787384033203,
+        -0.3490706980228424,
+        -0.412945955991745,
+        0.826532781124115
+      ]
+    },
+    {
+      "bone": "j_shoulder_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "fdbe03ac",
+      "property": "rq",
+      "values": [
+        -0.143436998128891,
+        0.36030152440071106,
+        -0.40177616477012634,
+        0.8295846581459045
+      ]
+    },
+    {
+      "bone": "j_shouldertwist_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "6cfc9a89",
+      "property": "rq",
+      "values": [
+        0.005127109587192535,
+        -3.0518509447574615e-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_elbow_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a5e21d51",
+      "property": "rq",
+      "values": [
+        3.0518509447574615e-05,
+        -3.0518509447574615e-05,
+        -0.6928617358207703,
+        0.7210608124732971
+      ]
+    },
+    {
+      "bone": "j_wristfronttwist1_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "44247f70",
+      "property": "rq",
+      "values": [
+        -0.2856227159500122,
+        0.0,
+        0.0,
+        0.9583422541618347
+      ]
+    },
+    {
+      "bone": "j_shield_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0411a80f",
+      "property": "rq",
+      "values": [
+        -0.14432203769683838,
+        -3.0518509447574615e-05,
+        0.0,
+        0.9895321726799011
+      ]
+    },
+    {
+      "bone": "j_wrist_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "51e03e0d",
+      "property": "rq",
+      "values": [
+        -0.26520586013793945,
+        -0.14685507118701935,
+        0.13214515149593353,
+        0.9437238574028015
+      ]
+    },
+    {
+      "bone": "tag_weapon_left",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "71b486e0",
+      "property": "rq",
+      "values": [
+        0.6368907690048218,
+        0.09338663518428802,
+        0.24384288489818573,
+        0.7253944277763367
+      ]
+    },
+    {
+      "bone": "j_metamid_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ea6cae3f",
+      "property": "rq",
+      "values": [
+        -0.7394024729728699,
+        -0.019623402506113052,
+        -0.07083345949649811,
+        0.669240415096283
+      ]
+    },
+    {
+      "bone": "j_metapinky_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8da4f744",
+      "property": "rq",
+      "values": [
+        -0.7629322409629822,
+        -0.03430280461907387,
+        0.04257332161068916,
+        0.6441847085952759
+      ]
+    },
+    {
+      "bone": "j_webbing_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "87690d30",
+      "property": "rq",
+      "values": [
+        0.43989378213882446,
+        -0.015442365780472755,
+        -0.2796716094017029,
+        0.8532364964485168
+      ]
+    },
+    {
+      "bone": "j_metaindex_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9c2c607d",
+      "property": "rq",
+      "values": [
+        -0.7358623147010803,
+        0.017242956906557083,
+        -0.11047700047492981,
+        0.6678365468978882
+      ]
+    },
+    {
+      "bone": "j_thumb_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2504c7b4",
+      "property": "rq",
+      "values": [
+        0.23249000310897827,
+        0.07263405621051788,
+        -0.36787012219429016,
+        0.8973967432975769
+      ]
+    },
+    {
+      "bone": "j_metaring_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "c52c73a1",
+      "property": "rq",
+      "values": [
+        -0.7705007791519165,
+        -0.036164432764053345,
+        -0.010071108117699623,
+        0.6363414525985718
+      ]
+    },
+    {
+      "bone": "j_mid_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "7a3e14ce",
+      "property": "rq",
+      "values": [
+        -0.030426952987909317,
+        -0.12115848064422607,
+        0.5060579180717468,
+        0.8533890843391418
+      ]
+    },
+    {
+      "bone": "j_pinky_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e89fc9bd",
+      "property": "rq",
+      "values": [
+        -0.17044587433338165,
+        0.03732413798570633,
+        0.694509744644165,
+        0.6979888081550598
+      ]
+    },
+    {
+      "bone": "j_index_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "99a233e0",
+      "property": "rq",
+      "values": [
+        0.03866695240139961,
+        -0.18729209899902344,
+        0.3717459738254547,
+        0.9084139466285706
+      ]
+    },
+    {
+      "bone": "j_thumb_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2804cc6d",
+      "property": "rq",
+      "values": [
+        -0.24341562390327454,
+        -0.03561510145664215,
+        0.26557207107543945,
+        0.9321878552436829
+      ]
+    },
+    {
+      "bone": "j_ring_le_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9b00b2c6",
+      "property": "rq",
+      "values": [
+        -0.0715048685669899,
+        -0.07327494025230408,
+        0.6134525537490845,
+        0.7830744385719299
+      ]
+    },
+    {
+      "bone": "j_index_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9ca23899",
+      "property": "rq",
+      "values": [
+        3.0518509447574615e-05,
+        0.0,
+        0.6625568270683289,
+        0.749015748500824
+      ]
+    },
+    {
+      "bone": "j_index_le_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9ba23706",
+      "property": "rq",
+      "values": [
+        -0.0020142216235399246,
+        -0.0009460737928748131,
+        -0.0010071108117699623,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "793e133b",
+      "property": "rq",
+      "values": [
+        -0.09454634040594101,
+        -0.08606219291687012,
+        0.6888027787208557,
+        0.713583767414093
+      ]
+    },
+    {
+      "bone": "j_pinky_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e59fc504",
+      "property": "rq",
+      "values": [
+        -0.10617389529943466,
+        -0.1264076679944992,
+        0.395336776971817,
+        0.903592050075531
+      ]
+    },
+    {
+      "bone": "j_ring_le_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "9a00b133",
+      "property": "rq",
+      "values": [
+        -0.08127079159021378,
+        -0.1035798192024231,
+        0.4994048774242401,
+        0.8563188314437866
+      ]
+    },
+    {
+      "bone": "j_shouldertwist_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "54ed6a37",
+      "property": "rq",
+      "values": [
+        -0.0062257759273052216,
+        0.0,
+        0.0,
+        0.999969482421875
+      ]
+    },
+    {
+      "bone": "j_shield_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ec0d0519",
+      "property": "rq",
+      "values": [
+        0.12289803475141525,
+        0.0,
+        0.0,
+        0.9924314022064209
+      ]
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bf2615de",
+      "property": "rq",
+      "values": [
+        3.0518509447574615e-05,
+        0.0,
+        0.3641163408756256,
+        0.9313638806343079
+      ]
+    },
+    {
+      "bone": "j_wrist_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "219650cb",
+      "property": "rq",
+      "values": [
+        0.21570482850074768,
+        0.22904141247272491,
+        0.1353495866060257,
+        0.939512312412262
+      ]
+    },
+    {
+      "bone": "j_wristfronttwist1_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "2c01c766",
+      "property": "rq",
+      "values": [
+        0.24390393495559692,
+        0.0,
+        0.0,
+        0.9698172211647034
+      ]
+    },
+    {
+      "bone": "j_metaindex_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bf6c8b6f",
+      "property": "rq",
+      "values": [
+        0.7358623147010803,
+        -0.017212439328432083,
+        -0.1105075255036354,
+        0.6678365468978882
+      ]
+    },
+    {
+      "bone": "j_metamid_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "4e81afd5",
+      "property": "rq",
+      "values": [
+        0.7394329905509949,
+        0.019684437662363052,
+        -0.07086397707462311,
+        0.669209897518158
+      ]
+    },
+    {
+      "bone": "j_metapinky_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "27d0475e",
+      "property": "rq",
+      "values": [
+        0.7629322409629822,
+        0.034363843500614166,
+        0.04257332161068916,
+        0.6441541910171509
+      ]
+    },
+    {
+      "bone": "j_metaring_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "35ee1103",
+      "property": "rq",
+      "values": [
+        0.7705007791519165,
+        0.036194950342178345,
+        -0.010071108117699623,
+        0.6363414525985718
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "90bf556e",
+      "property": "rq",
+      "values": [
+        -0.19663076102733612,
+        -0.09277626872062683,
+        -0.34766685962677,
+        0.9120456576347351
+      ]
+    },
+    {
+      "bone": "j_webbing_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f84fef0a",
+      "property": "rq",
+      "values": [
+        -0.43992429971694946,
+        0.015442365780472755,
+        -0.2796716094017029,
+        0.8532364964485168
+      ]
+    },
+    {
+      "bone": "tag_weapon_right",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd08c195",
+      "property": "rq",
+      "values": [
+        0.7345194816589355,
+        0.20065920054912567,
+        0.18912319839000702,
+        0.6200445294380188
+      ]
+    },
+    {
+      "bone": "j_index_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "d1ed2b5a",
+      "property": "rq",
+      "values": [
+        -0.03869746997952461,
+        0.18726158142089844,
+        0.3717764914035797,
+        0.9084139466285706
+      ]
+    },
+    {
+      "bone": "j_mid_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a9569bd4",
+      "property": "rq",
+      "values": [
+        0.030396435409784317,
+        0.12115848064422607,
+        0.5060884356498718,
+        0.8533890843391418
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "09658baf",
+      "property": "rq",
+      "values": [
+        0.17044587433338165,
+        -0.03735465556383133,
+        0.694509744644165,
+        0.6980193257331848
+      ]
+    },
+    {
+      "bone": "j_ring_ri_1",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "66a01eac",
+      "property": "rq",
+      "values": [
+        0.0715048685669899,
+        0.07330545783042908,
+        0.6134525537490845,
+        0.7830744385719299
+      ]
+    },
+    {
+      "bone": "j_thumb_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8fbf53db",
+      "property": "rq",
+      "values": [
+        0.2059999406337738,
+        0.035248879343271255,
+        0.2612079083919525,
+        0.9423810243606567
+      ]
+    },
+    {
+      "bone": "j_index_ri_3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "cfed2834",
+      "property": "rq",
+      "values": [
+        -0.0020447401329874992,
+        -0.0009155552834272385,
+        -0.001037629321217537,
+        1.0
+      ]
+    },
+    {
+      "bone": "j_mid_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "ac56a08d",
+      "property": "rq",
+      "values": [
+        -0.09454634040594101,
+        -0.08603167533874512,
+        0.6888638138771057,
+        0.713522732257843
+      ]
+    },
+    {
+      "bone": "j_pinky_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0a658d42",
+      "property": "rq",
+      "values": [
+        -0.10620441287755966,
+        -0.1263466328382492,
+        0.395367294549942,
+        0.903561532497406
+      ]
+    },
+    {
+      "bone": "j_ring_ri_2",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "69a02365",
+      "property": "rq",
+      "values": [
+        -0.08127079159021378,
+        -0.1036103367805481,
+        0.4993743598461151,
+        0.8563188314437866
+      ]
+    },
+    {
+      "bone": "tag_ik_loc_le",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "fcb2ab05",
+      "property": "rq",
+      "values": [
+        -0.6790063381195068,
+        0.29700613021850586,
+        0.12073121964931488,
+        0.6604205369949341
+      ]
+    },
+    {
+      "bone": "tag_ik_loc_ri",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1c904b23",
+      "property": "rq",
+      "values": [
+        -0.7332376837730408,
+        0.1516159474849701,
+        0.21976378560066223,
+        0.6253547668457031
+      ]
+    },
+    {
+      "bone": "tag_view",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "608986bd",
+      "property": "tx",
+      "values": [
+        -0.001015998274087906
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_view",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "608986bd",
+      "property": "ty",
+      "values": [
+        0.0
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_view",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "608986bd",
+      "property": "tz",
+      "values": [
+        -163.37330307006837
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a7bf6ee8",
+      "property": "tx",
+      "values": [
+        -1.1122673797607423
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a7bf6ee8",
+      "property": "ty",
+      "values": [
+        -72.44105308532716
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a7bf6ee8",
+      "property": "tz",
+      "values": [
+        -34.85159362792969
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_sling_attach_body",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0b20dd8c",
+      "property": "tx",
+      "values": [
+        -0.002538604736328125
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_sling_attach_body",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0b20dd8c",
+      "property": "ty",
+      "values": [
+        -0.05435578465461731
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_sling_attach_body",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0b20dd8c",
+      "property": "tz",
+      "values": [
+        0.4297678565979004
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_sling_attach_body_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "39d77381",
+      "property": "tx",
+      "values": [
+        -0.002538604736328125
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_sling_attach_body_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "39d77381",
+      "property": "ty",
+      "values": [
+        -0.05435578465461731
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_sling_attach_body_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "39d77381",
+      "property": "tz",
+      "values": [
+        -0.4297678565979004
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8a6911e9",
+      "property": "tx",
+      "values": [
+        0.0015284919738769531
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8a6911e9",
+      "property": "ty",
+      "values": [
+        0.00047235488891601564
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_webbing_le_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "8a6911e9",
+      "property": "tz",
+      "values": [
+        -0.29264686584472654
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f74fed77",
+      "property": "tx",
+      "values": [
+        0.0019160652160644532
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f74fed77",
+      "property": "ty",
+      "values": [
+        0.00073638916015625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_webbing_ri_2",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "f74fed77",
+      "property": "tz",
+      "values": [
+        0.36210968017578127
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e72044a8",
+      "property": "tx",
+      "values": [
+        0.8369644165039063
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e72044a8",
+      "property": "ty",
+      "values": [
+        -0.48840042114257814
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_elbowdq_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e72044a8",
+      "property": "tz",
+      "values": [
+        0.0019863128662109377
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nvg",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb7d3457",
+      "property": "tx",
+      "values": [
+        -7.147296295166016
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nvg",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb7d3457",
+      "property": "ty",
+      "values": [
+        -4.728209457397461
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_nvg",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bb7d3457",
+      "property": "tz",
+      "values": [
+        0.0
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dfca856e",
+      "property": "tx",
+      "values": [
+        -5.716271724700928
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dfca856e",
+      "property": "ty",
+      "values": [
+        72.18629150390625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_accessory",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dfca856e",
+      "property": "tz",
+      "values": [
+        53.51779922485352
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "867f812b",
+      "property": "tx",
+      "values": [
+        0.001530914306640625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "867f812b",
+      "property": "ty",
+      "values": [
+        18.18944932937622
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_clavicle_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "867f812b",
+      "property": "tz",
+      "values": [
+        -0.03886209011077881
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_clavicle_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "b6cb016d",
+      "property": "tx",
+      "values": [
+        0.001530914306640625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_clavicle_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "b6cb016d",
+      "property": "ty",
+      "values": [
+        18.18944932937622
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_clavicle_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "b6cb016d",
+      "property": "tz",
+      "values": [
+        0.03886209011077881
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "71b486e0",
+      "property": "tx",
+      "values": [
+        33.96809619903564
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "71b486e0",
+      "property": "ty",
+      "values": [
+        111.81766120910645
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_left",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "71b486e0",
+      "property": "tz",
+      "values": [
+        2.5630218505859377
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bf2615de",
+      "property": "tx",
+      "values": [
+        0.7542708206176758
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bf2615de",
+      "property": "ty",
+      "values": [
+        -0.4473370361328125
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "j_elbowdq_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bf2615de",
+      "property": "tz",
+      "values": [
+        -0.0020735168457031252
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd08c195",
+      "property": "tx",
+      "values": [
+        28.266632194519044
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd08c195",
+      "property": "ty",
+      "values": [
+        76.16682857513428
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_weapon_right",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "bd08c195",
+      "property": "tz",
+      "values": [
+        -47.46910835266113
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_loc_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "fcb2ab05",
+      "property": "tx",
+      "values": [
+        -8.138640823364257
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_loc_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "fcb2ab05",
+      "property": "ty",
+      "values": [
+        0.44302891731262206
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_loc_le",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "fcb2ab05",
+      "property": "tz",
+      "values": [
+        2.1297924804687502
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_loc_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1c904b23",
+      "property": "tx",
+      "values": [
+        -6.694416961669922
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_loc_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1c904b23",
+      "property": "ty",
+      "values": [
+        -0.5713314056396485
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_ik_loc_ri",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "1c904b23",
+      "property": "tz",
+      "values": [
+        2.6379155349731445
+      ],
+      "sourceProperty": "t"
+    }
+  ],
+  "notifications": [
+    {
+      "name": "end",
+      "frames": [
+        1
+      ],
+      "normalized_time": 1.0
+    }
+  ]
+}

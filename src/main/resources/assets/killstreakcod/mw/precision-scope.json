@@ -1,0 +1,502 @@
+{
+  "format": 1,
+  "widget": "SpotterScope",
+  "widgetId": "208553cc6d221d64",
+  "childWidgetId": "7dbb6b1be3c5c77e",
+  "images": {
+    "overlay_spotter_scope_meter_text_box": {
+      "texture": "killstreakcod:textures/gui/precision_scope/overlay_spotter_scope_meter_text_box.png",
+      "width": 100,
+      "height": 48,
+      "assetId": "0dc8226499d242c9"
+    },
+    "hud_icon_killstreak_danger_close": {
+      "texture": "killstreakcod:textures/gui/precision_scope/hud_icon_killstreak_danger_close.png",
+      "width": 128,
+      "height": 128,
+      "assetId": "1faf046e343701dd"
+    },
+    "overlay_spotter_scope_reticle": {
+      "texture": "killstreakcod:textures/gui/precision_scope/overlay_spotter_scope_reticle.png",
+      "width": 128,
+      "height": 128,
+      "assetId": "6d38d5dee435291a"
+    },
+    "hud_icon_equipment_spotter_scope": {
+      "texture": "killstreakcod:textures/gui/precision_scope/hud_icon_equipment_spotter_scope.png",
+      "width": 256,
+      "height": 256,
+      "assetId": "548240b502ba624d"
+    }
+  },
+  "nodes": {
+    "TextBox": {
+      "rect": [
+        -50.0,
+        50.0,
+        -303.0,
+        -255.0
+      ],
+      "sourceByteOffset": 7584,
+      "constructorVisible": false
+    },
+    "MetersLabel": {
+      "rect": [
+        12.0,
+        80.0,
+        -293.0,
+        -263.0
+      ],
+      "sourceByteOffset": 7892,
+      "constructorVisible": false,
+      "alpha": 0.6,
+      "fontSize": 28,
+      "alignment": "left"
+    },
+    "DistanceLabel": {
+      "rect": [
+        -52.0,
+        22.0,
+        -293.0,
+        -263.0
+      ],
+      "sourceByteOffset": 8200,
+      "constructorVisible": false,
+      "alpha": 0.6,
+      "fontSize": 28,
+      "alignment": "center"
+    },
+    "CoordBoxX": {
+      "rect": [
+        -250.0,
+        -150.0,
+        295.0,
+        343.0
+      ],
+      "sourceByteOffset": 8340
+    },
+    "CoordBoxY": {
+      "rect": [
+        -50.0,
+        50.0,
+        295.0,
+        343.0
+      ],
+      "sourceByteOffset": 8480
+    },
+    "CoordBoxZ": {
+      "rect": [
+        150.0,
+        250.0,
+        295.0,
+        343.0
+      ],
+      "sourceByteOffset": 8620
+    },
+    "DangerCloseText": {
+      "rect": [
+        -150.0,
+        150.0,
+        -227.0,
+        -203.0
+      ],
+      "sourceByteOffset": 8976,
+      "colorReference": "SWATCHES.HUD.enemyTeamName",
+      "alpha": 0,
+      "fontSize": 30,
+      "alignment": "center"
+    },
+    "DangerCloseImage": {
+      "rect": [
+        -40.0,
+        40.0,
+        -255.0,
+        -175.0
+      ],
+      "sourceByteOffset": 9136,
+      "alpha": 0
+    },
+    "MarkingDescription": {
+      "rect": [
+        -134.0,
+        138.0,
+        209.0,
+        245.0
+      ],
+      "sourceByteOffset": 9508,
+      "alpha": 0.6,
+      "fontSize": 36,
+      "alignment": "center"
+    },
+    "NoTargetText": {
+      "rect": [
+        -148.0,
+        152.0,
+        253.0,
+        277.0
+      ],
+      "sourceByteOffset": 9844,
+      "colorReference": "SWATCHES.HUD.enemyTeamName",
+      "fontSize": 30,
+      "alignment": "center"
+    },
+    "Reticle": {
+      "rect": [
+        -64.0,
+        64.0,
+        -64.0,
+        64.0
+      ],
+      "sourceByteOffset": 9984
+    }
+  },
+  "childNodes": {
+    "TextBox": {
+      "rect": [
+        -50.0,
+        50.0,
+        -24.0,
+        24.0
+      ],
+      "sourceByteOffset": 267,
+      "alpha": 0.7
+    },
+    "Text": {
+      "rect": [
+        -38.0,
+        26.0,
+        -11.0,
+        13.0
+      ],
+      "sourceByteOffset": 595,
+      "alpha": 0.6,
+      "fontSize": 28,
+      "alignment": "center"
+    },
+    "TextDegreesSymbol": {
+      "rect": [
+        -28.0,
+        36.0,
+        -11.0,
+        13.0
+      ],
+      "sourceByteOffset": 923,
+      "alpha": 0.6,
+      "fontSize": 28,
+      "alignment": "right"
+    }
+  },
+  "sequences": {
+    "DangerCloseOff": {
+      "milliseconds": 20,
+      "loop": false,
+      "elements": {
+        "DangerCloseText": [
+          {
+            "value": 0,
+            "milliseconds": 20,
+            "snap": false
+          }
+        ]
+      }
+    },
+    "HideNoTarget": {
+      "milliseconds": 0,
+      "loop": false,
+      "elements": {
+        "CoordBoxX": [
+          {
+            "value": 1,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "CoordBoxY": [
+          {
+            "value": 1,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "CoordBoxZ": [
+          {
+            "value": 1,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "NoTargetText": [
+          {
+            "value": 0,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ]
+      }
+    },
+    "ShowDistanceInMetersDisplay": {
+      "milliseconds": 0,
+      "loop": false,
+      "elements": {
+        "TextBox": [
+          {
+            "value": 0.7,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "MetersLabel": [
+          {
+            "value": 0.6,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "DistanceLabel": [
+          {
+            "value": 0.6,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ]
+      }
+    },
+    "Onfire": {
+      "milliseconds": 550,
+      "loop": false,
+      "elements": {
+        "Reticle": [
+          {
+            "value": 0,
+            "milliseconds": 0,
+            "snap": false
+          },
+          {
+            "value": 1,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 0,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 1,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 0,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 1,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 0,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 1,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 0,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 1,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 0,
+            "milliseconds": 50,
+            "snap": true
+          },
+          {
+            "value": 1,
+            "milliseconds": 50,
+            "snap": true
+          }
+        ]
+      }
+    },
+    "ShowNoTarget": {
+      "milliseconds": 390,
+      "loop": true,
+      "elements": {
+        "CoordBoxX": [
+          {
+            "value": 0,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "CoordBoxY": [
+          {
+            "value": 0,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "CoordBoxZ": [
+          {
+            "value": 0,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "NoTargetText": [
+          {
+            "value": 1,
+            "milliseconds": 0,
+            "snap": false
+          },
+          {
+            "value": 0,
+            "milliseconds": 90,
+            "snap": false
+          },
+          {
+            "value": 1,
+            "milliseconds": 10,
+            "snap": false
+          },
+          {
+            "value": 0,
+            "milliseconds": 90,
+            "snap": false
+          },
+          {
+            "value": 1,
+            "milliseconds": 10,
+            "snap": false
+          },
+          {
+            "value": 0,
+            "milliseconds": 90,
+            "snap": false
+          },
+          {
+            "value": 1,
+            "milliseconds": 10,
+            "snap": false
+          },
+          {
+            "value": 0,
+            "milliseconds": 90,
+            "snap": false
+          }
+        ]
+      }
+    },
+    "DangerCloseOn": {
+      "milliseconds": 600,
+      "loop": true,
+      "elements": {
+        "DangerCloseText": [
+          {
+            "value": 1,
+            "milliseconds": 0,
+            "snap": false
+          },
+          {
+            "value": 1,
+            "milliseconds": 300,
+            "snap": false
+          },
+          {
+            "value": 0,
+            "milliseconds": 300,
+            "snap": false
+          }
+        ]
+      }
+    },
+    "DefaultSequence": {
+      "milliseconds": 0,
+      "loop": false,
+      "elements": {}
+    },
+    "HideDistanceInMetersDisplay": {
+      "milliseconds": 0,
+      "loop": false,
+      "elements": {
+        "TextBox": [
+          {
+            "value": 0,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "MetersLabel": [
+          {
+            "value": 0,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ],
+        "DistanceLabel": [
+          {
+            "value": 0,
+            "milliseconds": 0,
+            "snap": false
+          }
+        ]
+      }
+    }
+  },
+  "textKeys": {
+    "DangerCloseText": "hud.killstreakcod.precision_scope_danger",
+    "MarkingDescription": "hud.killstreakcod.precision_scope_mark",
+    "NoTargetText": "hud.killstreakcod.precision_scope_no_target"
+  },
+  "adapter": {
+    "referenceHeight": 1080,
+    "nativeUnitsToMeters": 0.0254,
+    "blockMeters": 1,
+    "dangerNativeUnits": 1280,
+    "distanceRefreshMs": 200,
+    "rayRangeBlocks": 160,
+    "parentPlacement": "Screen centre with uniform height-based scaling; final native parent placement is not recovered.",
+    "coordinates": "Minecraft X/Y/Z integer positions; original degree symbol retained, no latitude/longitude conversion.",
+    "distanceVisibility": "Minecraft outer adapter shows native distance sequence when its raycast has a valid block/fluid hit. Original SetVisible(false) constructor values retained as evidence.",
+    "invalidDanger": "Retain previous danger state on an invalid ray until an actual valid-distance change or scope session reset.",
+    "fonts": "Minecraft font fitted to source text rectangles; original font binaries/_PT renderer are not recovered.",
+    "colors": "White native default; enemyTeamName swatch uses existing Minecraft HUD warning red because original palette value is not provided.",
+    "visibility": "Precision reward first-person optics/mark gesture, alive player and normal camera. Original MP rules apply to Minecraft single-player rewards too.",
+    "optic": "Keep existing 28-degree FOV and imported device actions. No recovered precision mask or optical postprocessing supplied.",
+    "EMP": "No native EMP effect exists in this mod; counter-UAV radar interference is not treated as EMP.",
+    "worldMarker": "Existing server designation/ground dust remains; no unverified world marker mesh/PNG is created.",
+    "dangerImageVisible": false,
+    "nativeScriptsExecuted": false
+  },
+  "scriptRules": {
+    "marker_start": "playerads == 1 and EMP not active",
+    "marker_stop": "playerads <1, EMP, deploy fired/cancelled, death/disconnect",
+    "coordinates": "valid target: each native axis int(target.origin); invalid target: -1,-1,-1; writes once per waitframe",
+    "danger_close": "distance2dsquared(owner.origin, target)<=1638400; threshold1280 game units; off when >1638400",
+    "invalid_target_danger": "No explicit danger reset inside invalid-target branch; keep original logic distinction.",
+    "marker_visual": "ks_airstrike_marker_mp script_model + marker_scope on/off + objective; separate world-space layer, not a HUD PNG"
+  },
+  "nativeBindingNotes": {
+    "distance": "Math.GetDistance3D -> Math.UnitsToMeters -> LUI.Round(...,0); Wait(200) callback. Game player-position function retained as full native hash787bfbec77c5c787.",
+    "no_target": "Coordinate values use --- and ShowNoTarget; valid coordinates invoke HideNoTarget. Source compares invalid sentinel; original three captured upvalues retained.",
+    "constructor_visibility": "TextBox calls SetVisible(false); distance sequences only change Alpha. DangerCloseImage Alpha0 and no animation registration. External visibility overrides not verified.",
+    "fonts": "PrimaryBold/PrimaryRegular with _PT scaling; original font binaries and _PT policy not restored.",
+    "postprocessing": "ReceivePostFXLite preserved; original renderer/shaders not reproduced."
+  },
+  "unrecovered": [
+    "Complete engine attachment of weapon HUD widget and final parent dimensions/position. Fixed header+6280 child CString inspection had no exact widget-name matches.",
+    "No independently verified Precision Airstrike binocular vignette/mask PNG in inspected references; inventory material is not scope mask.",
+    "Weapon/optic 3D view, zoom/FOV, font renderer, post FX and full LUI scheduling. Decompiled Lua is not original executable source."
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "format": 1,
+  "id": "scene_vm_ks_gunship_paper1_intro",
+  "source": "vm_ks_gunship_paper1_intro_complete.json",
+  "fps": 30.0,
+  "last_frame": 102,
+  "loop": false,
+  "translationCoordinateScale": 2.54,
+  "nativeVectorChannelsExpanded": true,
+  "curves": [
+    {
+      "bone": "bone_e150b0c5",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e150b0c5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_a70691af",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a70691af",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_a606901c",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a606901c",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_a90694d5",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a90694d5",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_de50ac0c",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "de50ac0c",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_df50ad9f",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "df50ad9f",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_dc50a8e6",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dc50a8e6",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_dd50aa79",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "dd50aa79",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_da50a5c0",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "da50a5c0",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_db50a753",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "db50a753",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_e850bbca",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e850bbca",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_e950bd5d",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "e950bd5d",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "tx",
+      "values": [
+        20.215098457336428
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "ty",
+      "values": [
+        26.359355201721193
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "tz",
+      "values": [
+        77.8322017288208
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "a74295ee",
+      "property": "rq",
+      "values": [
+        0,
+        0,
+        0.998504638671875,
+        0.054107666015625
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "tx",
+      "values": [
+        20.215098457336428
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "ty",
+      "values": [
+        26.359355201721193
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "tz",
+      "values": [
+        77.8322017288208
+      ]
+    },
+    {
+      "bone": "tag_origin",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "source": "native root motion",
+      "property": "rq",
+      "values": [
+        0,
+        0,
+        0.998504638671875,
+        0.054107666015625
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "name": "end",
+      "frames": [
+        102
+      ],
+      "normalized_time": 1.0
+    }
+  ]
+}

@@ -160,8 +160,8 @@ public final class TracerEffects {
                     Vec3 flash = shot.from.add(direction.scale(Math.min(.7, shot.from.distanceTo(shot.to) * .6)));
                     if (shot.source == mc.player.getId() && mc.getCameraEntity() == mc.player
                             && mc.options.getCameraType().isFirstPerson()) {
-                        Vector3f right = event.getCamera().rotation().transform(new Vector3f(1, 0, 0));
-                        Vector3f up = event.getCamera().rotation().transform(new Vector3f(0, 1, 0));
+                        Vector3f right = WorldRenderMatrices.billboardRotation(event).transform(new Vector3f(1, 0, 0));
+                        Vector3f up = WorldRenderMatrices.billboardRotation(event).transform(new Vector3f(0, 1, 0));
                         if (mc.player.getMainHandItem().is(KillstreakcodMod.M134_MINIGUN.get())) {
                             double side = mc.options.mainHand().get() == net.minecraft.world.entity.HumanoidArm.LEFT
                                     ? -.255
@@ -194,7 +194,7 @@ public final class TracerEffects {
                 var modelView = RenderSystem.getModelViewStack();
                 modelView.pushPose();
                 try {
-                    modelView.last().pose().set(event.getPoseStack().last().pose());
+                    modelView.last().pose().set(WorldRenderMatrices.view(event));
                     RenderSystem.applyModelViewMatrix();
                     RenderSystem.setProjectionMatrix(event.getProjectionMatrix(), VertexSorting.DISTANCE_TO_ORIGIN);
                     RenderSystem.setShader(() -> shader);
@@ -302,8 +302,8 @@ public final class TracerEffects {
             float alpha, RenderLevelStageEvent event) {
         if (alpha <= 0)
             return 0;
-        Vector3f right = event.getCamera().rotation().transform(new Vector3f(1, 0, 0)),
-                up = event.getCamera().rotation().transform(new Vector3f(0, 1, 0));
+        Vector3f right = WorldRenderMatrices.billboardRotation(event).transform(new Vector3f(1, 0, 0)),
+                up = WorldRenderMatrices.billboardRotation(event).transform(new Vector3f(0, 1, 0));
         Vec3 x = new Vec3(right.x, right.y, right.z).scale(width * .5),
                 y = new Vec3(up.x, up.y, up.z).scale(height * .5);
         quad(out, eye, center.subtract(x).subtract(y), center.add(x).subtract(y), center.add(x).add(y),

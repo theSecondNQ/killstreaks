@@ -1,0 +1,7013 @@
+{
+  "rotor": {
+    "subtitle": "subtitles.killstreakcod.rotor",
+    "sounds": [
+      {
+        "name": "killstreakcod:rotor",
+        "attenuation_distance": 96
+      }
+    ]
+  },
+  "jet": {
+    "subtitle": "subtitles.killstreakcod.jet",
+    "sounds": [
+      {
+        "name": "killstreakcod:jet",
+        "attenuation_distance": 96
+      }
+    ]
+  },
+  "shot": {
+    "subtitle": "subtitles.killstreakcod.shot",
+    "sounds": [
+      {
+        "name": "killstreakcod:shot",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "blast": {
+    "subtitle": "subtitles.killstreakcod.blast",
+    "sounds": [
+      {
+        "name": "killstreakcod:blast",
+        "attenuation_distance": 96
+      }
+    ]
+  },
+  "radio": {
+    "subtitle": "subtitles.killstreakcod.radio",
+    "sounds": [
+      {
+        "name": "killstreakcod:radio",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "alarm": {
+    "subtitle": "subtitles.killstreakcod.alarm",
+    "sounds": [
+      {
+        "name": "killstreakcod:alarm",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "spin": {
+    "subtitle": "subtitles.killstreakcod.spin",
+    "sounds": [
+      {
+        "name": "killstreakcod:spin",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "motor": {
+    "subtitle": "subtitles.killstreakcod.motor",
+    "sounds": [
+      {
+        "name": "killstreakcod:motor",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "mwii_tablet_on": {
+    "subtitle": "subtitles.killstreakcod.mwii_tablet_on",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/tablet_on",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_tablet_select": {
+    "subtitle": "subtitles.killstreakcod.mwii_tablet_select",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/tablet_select",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_tablet_confirm": {
+    "subtitle": "subtitles.killstreakcod.mwii_tablet_confirm",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/tablet_confirm",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_phone": {
+    "subtitle": "subtitles.killstreakcod.mwii_phone",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/phone",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_tablet_gear": {
+    "subtitle": "subtitles.killstreakcod.mwii_tablet_gear",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/tablet_gear",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_earned": {
+    "subtitle": "subtitles.killstreakcod.mwii_earned",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/earned",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_earned_air": {
+    "subtitle": "subtitles.killstreakcod.mwii_earned_air",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/earned_air",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_earned_gunship": {
+    "subtitle": "subtitles.killstreakcod.mwii_earned_gunship",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/earned_gunship",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_wheelson_start": {
+    "subtitle": "subtitles.killstreakcod.mwii_wheelson_start",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/wheelson_start",
+        "attenuation_distance": 40,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_wheelson_stop": {
+    "subtitle": "subtitles.killstreakcod.mwii_wheelson_stop",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/wheelson_stop",
+        "attenuation_distance": 40,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_wheelson_engine": {
+    "subtitle": "subtitles.killstreakcod.mwii_wheelson_engine",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/wheelson_engine",
+        "attenuation_distance": 40,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_sentry_plant": {
+    "subtitle": "subtitles.killstreakcod.mwii_sentry_plant",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/sentry_plant",
+        "attenuation_distance": 32,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_sentry_lock": {
+    "subtitle": "subtitles.killstreakcod.mwii_sentry_lock",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/sentry_lock",
+        "attenuation_distance": 24,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_sentry_servo": {
+    "subtitle": "subtitles.killstreakcod.mwii_sentry_servo",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/sentry_servo",
+        "attenuation_distance": 24,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_sentry_pickup": {
+    "subtitle": "subtitles.killstreakcod.mwii_sentry_pickup",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/sentry_pickup",
+        "attenuation_distance": 32,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_bomb_drone_engine": {
+    "subtitle": "subtitles.killstreakcod.mwii_bomb_drone_engine",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/bomb_drone_engine",
+        "attenuation_distance": 48,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_bomb_drone_activate": {
+    "subtitle": "subtitles.killstreakcod.mwii_bomb_drone_activate",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/bomb_drone_activate",
+        "attenuation_distance": 32,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_bomb_drone_blast": {
+    "subtitle": "subtitles.killstreakcod.mwii_bomb_drone_blast",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/bomb_drone_blast",
+        "attenuation_distance": 96,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_chopper_engine": {
+    "subtitle": "subtitles.killstreakcod.mwii_chopper_engine",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/chopper_engine",
+        "attenuation_distance": 128,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_chopper_approach": {
+    "subtitle": "subtitles.killstreakcod.mwii_chopper_approach",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/chopper_approach",
+        "attenuation_distance": 128,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_delivery_engine": {
+    "subtitle": "subtitles.killstreakcod.mwii_delivery_engine",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/delivery_engine",
+        "attenuation_distance": 128,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_gunship_engine": {
+    "subtitle": "subtitles.killstreakcod.mwii_gunship_engine",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/gunship_engine",
+        "attenuation_distance": 160,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_cruise_engine": {
+    "subtitle": "subtitles.killstreakcod.mwii_cruise_engine",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/cruise_engine",
+        "attenuation_distance": 96,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_cruise_boost": {
+    "subtitle": "subtitles.killstreakcod.mwii_cruise_boost",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/cruise_boost",
+        "attenuation_distance": 96,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_cruise_blast": {
+    "subtitle": "subtitles.killstreakcod.mwii_cruise_blast",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/cruise_blast",
+        "attenuation_distance": 160,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_airstrike_approach": {
+    "subtitle": "subtitles.killstreakcod.mwii_airstrike_approach",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/airstrike_approach",
+        "attenuation_distance": 128,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_airstrike_fire": {
+    "subtitle": "subtitles.killstreakcod.mwii_airstrike_fire",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/airstrike_fire",
+        "attenuation_distance": 256,
+        "stream": false,
+        "weight": 1
+      },
+      {
+        "name": "killstreakcod:mwii/airstrike_fire_02",
+        "attenuation_distance": 256,
+        "stream": false,
+        "weight": 1
+      },
+      {
+        "name": "killstreakcod:mwii/airstrike_fire_03",
+        "attenuation_distance": 256,
+        "stream": false,
+        "weight": 1
+      }
+    ]
+  },
+  "mwii_sae_approach": {
+    "subtitle": "subtitles.killstreakcod.mwii_sae_approach",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/sae_approach",
+        "attenuation_distance": 128,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_sae_release": {
+    "subtitle": "subtitles.killstreakcod.mwii_sae_release",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/sae_release",
+        "attenuation_distance": 96,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_sae_blast": {
+    "subtitle": "subtitles.killstreakcod.mwii_sae_blast",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/sae_blast",
+        "attenuation_distance": 128,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_40mm_impact": {
+    "subtitle": "subtitles.killstreakcod.mwii_40mm_impact",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/40mm_impact",
+        "attenuation_distance": 96,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_105mm_impact": {
+    "subtitle": "subtitles.killstreakcod.mwii_105mm_impact",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/105mm_impact",
+        "attenuation_distance": 128,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_carepackage_retrieve": {
+    "subtitle": "subtitles.killstreakcod.mwii_carepackage_retrieve",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/carepackage_retrieve",
+        "attenuation_distance": 32,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_carepackage_release": {
+    "subtitle": "subtitles.killstreakcod.mwii_carepackage_release",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/carepackage_release",
+        "attenuation_distance": 64,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_mgb_tablet": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_tablet",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_tablet",
+        "attenuation_distance": 16,
+        "stream": false
+      }
+    ]
+  },
+  "mwii_mgb_siren": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_siren",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_siren",
+        "attenuation_distance": 16,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_mgb_impact": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_impact",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_impact",
+        "attenuation_distance": 16,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_earned_vip": {
+    "subtitle": "subtitles.killstreakcod.mwii_earned_vip",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/earned_vip",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "mwii_mgb_countdown": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_countdown",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_countdown",
+        "volume": 1.0,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_mgb_drone": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_drone",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_drone",
+        "volume": 0.52,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_mgb_incoming": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_incoming",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_incoming",
+        "volume": 0.7,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_mgb_bombs_incoming": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_bombs_incoming",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_bombs_incoming",
+        "volume": 0.6,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_mgb_impact_bass": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_impact_bass",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_impact_bass",
+        "volume": 0.68,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_mgb_impact_surround": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_impact_surround",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_impact_surround",
+        "volume": 0.55,
+        "stream": true
+      }
+    ]
+  },
+  "mwii_mgb_fire": {
+    "subtitle": "subtitles.killstreakcod.mwii_mgb_fire",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii/mgb_fire",
+        "volume": 0.44,
+        "stream": true
+      }
+    ]
+  },
+  "native.voice.uav.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7d77ab553df0fa33",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4ef20996176f5d0f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/70657431c6fbf8e7",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.uav.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2dfbcfd3bf83162d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/199f0cf08593ab6e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.uav.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5c87777d6b6b145a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5023343263489ae4",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.uav.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/667835e7f3e0bcb9",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/75b4c7d5c34ca324",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1bdd8e7c411ff3fb",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.counter_uav.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6b6b964405ae17cf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/62f9700129976615",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/50f48c48c4b78a47",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.counter_uav.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/03987759cc892b8c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6ba23df4476a09c7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5652e8f111d763be",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.counter_uav.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4daa340849881ba4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0d61abb07bc4ff53",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1c9a45c95144e9cf",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.counter_uav.timeout": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/51d0ea367740e980",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/21495cf8ed919d49",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/17fb1033edadc6a7",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.advanced_uav.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/79068e5fa30c96e8",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/157b3e132131d568",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/01be90892abdb7cb",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.advanced_uav.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/589b073bae097308",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/627e5037c8d2b81d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5018989ffb9eeae1",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.advanced_uav.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3e49b3cc634b41d1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/391258399d073042",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5d5018a50adbc18c",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.bomb_drone.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/527789550949c260",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/450768ccc95b2e7a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2097bb8f40b9432e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.bomb_drone.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/585f4367ce1e235f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6b6c015cfadd70f6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1bdb603d9331ae36",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.bomb_drone.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1aafd2eeabd55454",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/63d495451d158632",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/31534a2ac763ad0a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.bomb_drone.timeout": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5d8d1ba799bac95f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7de8a47e94cc35eb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6bf3cde92d3bed52",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.bomb_drone.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2b471df48a2174a3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1d8ffa990dbea9e3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/489cfa45e61bc2ba",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.bomb_drone.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1c5e8b1ed1a9445d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5dc4fd273c12e036",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0fb367c5a2a3da60",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.care_package.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/74c2f3e787c54c62",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/14175e82c87d2ca4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/30f6a45a207989c3",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.care_package.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1dd5cd82c417e16d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0d239ccde9eb9afa",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/75479286c861ae15",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.emergency_airdrop.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/505519116575c9cb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4da3698d26b71ede",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1d79cded42540e9a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.emergency_airdrop.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/40ba595fa559fb49",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4b694cec1ff9d31c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3200928993316b40",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.sentry_gun.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/11389c57db901667",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3ce42dc61b29dc41",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/521a68c227e5875b",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.wheelson_hs.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/49c240d554adcd73",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3924e9d19967b6c4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6f171fff1b46090a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.wheelson_hs.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/32dca277f41e4e63",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7f9788341eed94c3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3353d8bd08b85b14",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.wheelson_hs.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/57567b2381f86253",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0d324b001ce19026",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2fba8f72884a2c9a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.wheelson_hs.timeout": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/01472e57f6f4318f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/657a3d6a5bfc0698",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/64938f992e3ab928",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.wheelson_hs.sentry_mode": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/79e19a9e42c0942d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7a00be96449d7c2f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/11573b99f43f1ee0",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.chopper_gunner.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/36f23c0d2872213b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/330c183e7ce2559b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0c70950e1da16b3d",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.chopper_gunner.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/47097c574d5a5681",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1595820b2f4fdec6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/75745840faf86a5a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.chopper_gunner.engage": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4cfb5add498b6689",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/65ed69d0476d71fb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/571fe2ad5724baf5",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.chopper_gunner.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/652672884cbefdf1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6125df357ac9ebfc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/69a3f57cdd64d0aa",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.chopper_gunner.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/678b106cb1b42ad1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0c779bd082f0ac1d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3b5808fe3ff5d6a4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0098852f9cb2dc57",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.chopper_gunner.damage": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3535d656ffcc583e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1087ab90bb557209",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6f374498607c6d63",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.chopper_gunner.flares": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0f72a20ae403f814",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/50e46ee3fcff8ef7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1ae525fe01db930f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/15246c6677904d0f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/484462e76082cc30",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0c503ccb8d8e0eb4",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/48fd3043958994f1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/237064a448783463",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/29008e1532cc34d6",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.engage": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0f4b1d398bf4d2cf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/35cb1b1783ba9eba",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/082de6c1fbc79aae",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/50fb7abd5cf3c9a3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2ccaea48b02ae210",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4adbf6d7d6565207",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6c21f1a0af616230",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/15d0fdf724ae7fe2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/402c59856b2186d6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/050f3dc65a0dac8e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5e3b6c86d039a647",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1e93df4a38f0f48c",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.damage": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0a0472b25cd6d906",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5514855440dd2171",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1742479138efdbd1",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.flares": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/107fccdc5842b34f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/386cc3dc16f0af12",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/37ce296c8b3ef504",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.reload25": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4431e811d280b5a2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/66256275040d7a35",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/25d36f6f18fc9c33",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.reload40": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/120c708ac71b8205",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7f6f5813c4a863b0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1b6cbcdad54d2d17",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.reload105": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3ad5f1bd77ed479a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3e352bc14ff4862a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/059653e7ec37b1d1",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.cruise_missile.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/040a0381164773b4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/175fc675367b2eef",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3a8b12a8f16461a2",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.cruise_missile.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/46339082a87fc7dc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/35df35e75533762c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0b10bf44aaeddf4e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.cruise_missile.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1f11d3a05d523588",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7b4e919f9af7e750",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7c7d0e8e73524c30",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.cruise_missile.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7cac9b4ead441c2a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4dc55a81a905a00d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/05238f57d0755d2f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.precision_airstrike.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4b5589563b451432",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7dca109542dfa3d0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4e445ebebf17609e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.precision_airstrike.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/64df6c2ec63b174e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/363096c85f86eac5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/50daa56346f3490f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.precision_airstrike.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7e72785ada700843",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/25f60d0f201253cd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/670478f45cecaafb",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.precision_airstrike.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/09a47c7402fb9bc2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/681955a00c6d9ff2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5e69f7d7e71d192a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.mortar_strike.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/584d9e785b8b792d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/10e21fc383605969",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/120f05d4bd331640",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.mortar_strike.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/11062f5572825ace",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/312442150dffa533",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/187a3f51e874523b",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.mortar_strike.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0ab1ae914bed2ed0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6d46ec1348c034f0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5a3009b6ac6e69a2",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.mortar_strike.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7d4425ca7900a4b4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/452e5c721273d471",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5abbcd7aa513419a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.sae.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0e3cf9a8b3296f2c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2d0f531adb54f19c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/78bcd477f8c786de",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.sae.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2a3225af2040df34",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/25b8b4d42aeb6b35",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6d3bd1805d236c7f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.sae.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4d4126e8b8b54d5e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3ac68af1ed84db22",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/36bfad6a79c0c1ce",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.sae.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/08be9ebdb5019a21",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/01dde59291c96007",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.vtol_jet.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1ce4b269de11adcc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/03957374b1f7b406",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1bc1c573b0400bee",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.vtol_jet.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5e46bb50202fc662",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0fee9908aee48fb0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/609b2659878d70a5",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.vtol_jet.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1529b282f0f82245",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1201fb12f3ec8dc4",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.vtol_jet.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/626c36eae4ff9a89",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/14a36224286854ea",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/43bb7dabd8d63d30",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.juggernaut.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2c20c5638999b9d1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7b66d7deccb7076b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/481178db47bc1839",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.juggernaut.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2817b52e24ee1eea",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/11d42ed127572a93",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1a9be18dabe81532",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.cluster_mine.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/783ce29df1753faa",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0683e1acddb3327c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7daa6bc78e672dca",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.mgb.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0bcd20fdba5e3257",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/216d813fba1c65ae",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/18eb43e0e5beee57",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.mgb.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/237f32a0e7654603",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7994ad3c513611ae",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3eca94b20b66c415",
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.m134_spinup": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/62d559b4b76c7ab5",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.m134_spindown": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/6835ea56185d563e",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.m134_spinloop": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/255dc34e3a20dd0c",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.m134_shot": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/61eaf7918bd7bbc8",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/2ffa53340606b8f1",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/548d0ae65021bde6",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/74f36d00db8955c7",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.gunship25_shot": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/435c3cbd7cfdd69a",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/53dfb059a2bcd73f",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/3e0118c4cacfd6cc",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/1f30c4cb5d1358c9",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.gunship40_shot": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/feb1df52108e7ce",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/51676b5ec8537fd3",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/1faf3cb32084ce50",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/5cbfdbb0601d1085",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.gunship25_reload": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/5c6e0e27c2755f5f",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/2f0c1caa6acef71a",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/3f1f63963a9b1895",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.gunship40_reload": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/48f55805461b7aa3",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/73a34f4d128b11de",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.mortar_incoming": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/465246d6899ff69e",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/553fca478fc199e5",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/5efe04803e6e90e8",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/738046dc454085ef",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.vtol_approach": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/68048f0f1273fada",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/cef20b738b57223",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.vtol_engine": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/36476976da5e9d98",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/36a5c259854c0829",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.vtol_leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/64d066df4e5147c1",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.cruise_engine": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/1737f15235bbdecd",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.helicopter_blast": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/182b10dd1f0447d7",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/11699a3aae674016",
+        "attenuation_distance": 256,
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/sfx/5a6c2863fcbcab01",
+        "attenuation_distance": 256,
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.uav.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0cf3c97d9bf4f25c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3d97aea1055a6fd7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/448734b11dd5fefa",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.counter_uav.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/383b5db3098077b2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/62cb4a203e187fa8",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/53cbd657173456fe",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.advanced_uav.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7034e794455e1399",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5242d08484b32803",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4cf7f6ad7ad3be80",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.bomb_drone.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/29e2f5487894aadb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/60efc58ba848cce6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/69b3f4c98f62ce48",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.care_package.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/72ef63b505e77702",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/214eb8099b428396",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/727018d45e058fa2",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.emergency_airdrop.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/221ffb2ac93e0313",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7b2f67754c121ed7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/68f7fea66b1bb2b3",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.sentry_gun.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6696ded9c4001321",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/59b608a53a09d2d3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/416a5816040c71cc",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.wheelson_hs.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/787738586e0d6fa7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/59b6164b97bdf2bf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/31ee020cfbe03366",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.chopper_gunner.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/032f9eab5c345bcd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7647ec8fc3fdee39",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/63e0e5e09eca54c0",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.gunship.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/40930f61a1250d8f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1f16a9a67254152d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7d55a5ddedb917d9",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.cruise_missile.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/036af1baef686d38",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/33f34ab745efb7cf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5f9fa3ed576d662a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.precision_airstrike.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/21d9d742c66786f6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1538c6b3e6414cdc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7201c2ac7f6e3e69",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.mortar_strike.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0d7d9a527c28a7bd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4579700763de5360",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/23ff542fa39b9ea9",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.sae.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0d92250047901087",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/75d15750b69a1467",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/49facc95548aedb8",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.vtol_jet.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/664ff7a8fb415463",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/24f024e960c03d97",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2ab9a066cecb445a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.juggernaut.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4deb209eadfbbea0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0f42d3ddc8aef94d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/54253f1c912cc2d4",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.cluster_mine.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4d71fbf97376efae",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/33cbe528fab25779",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/343519828617ee78",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.mgb.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/57bfe568f7bb7e62",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4c2823382d9f4ba2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1ca0927f01822fa7",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.overwatch_helo.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/29aae68b1b661f57",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/57384806d279faec",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/388c043851f939da",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.overwatch_helo.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5c91774091add108",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3a35ec6c07763e7a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0ffde45ef27e0687",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.overwatch_helo.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0821fa3486f591d6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/65abfcba71218fa1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/589ae9b5419d7357",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.overwatch_helo.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6b8670c3a16e351c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/23546e3981b4c747",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.stealth_bomber.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3218b1da24421e2d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/45464095eebeb2d9",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/50aac192f65a9585",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.stealth_bomber.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5bef8663a37d15c0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6541b775288519a0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/73718470b4b67612",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.stealth_bomber.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/00e33412b1cb139b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/12e0d69c3c199ffb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7b6f24c1ee9c223a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.stealth_bomber.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/77d96c63d5598c02",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/50fdb98884f5dbd5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2474a0d7f11946a4",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.stealth_bomber.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/14ce4dfb76c5e5ca",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/236bbeab1b22ce81",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2821b43000f16f64",
+        "stream": false
+      }
+    ]
+  },
+  "native.sfx.bomb_drone_gear2": {
+    "subtitle": "subtitles.killstreakcod.mwii_bomb_drone_activate",
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/bomb_drone_gear2",
+        "attenuation_distance": 32,
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw8_ks_ac130_dist_rkt_explo": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/684c55b43a9f3337",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:scene/03f926c6895e36f6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:scene/43e3ac234a444ce1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:scene/0046419a1cff2ff8",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw8_ks_ac130_explo_low_02": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/74d123d72d910f6c",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw8_ks_ac130_explo_main": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/4a878dba896a8484",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw8_ks_ac130_lp": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/2799869ed50a3449",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw8_ks_ac130_shake_explo": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/46658d82afb39417",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw8_ks_ac130_weaponswitch": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/7d3b4ac6ac3c037e",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw8_ks_ac130_whine": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/2eaeec143330aee4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:scene/07201276d12009a1",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw9_gunship_plr_intro": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/611a5515a80a9d00",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw9_gunship_plr_outro": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/112114295bd54d58",
+        "stream": false
+      }
+    ]
+  },
+  "scene_iw9_ks_ac130_intro": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/49d0d79619a8e34c",
+        "stream": false
+      }
+    ]
+  },
+  "scene_ks_ac130_damage_warning": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/1dc413bec60e2eca",
+        "stream": false
+      }
+    ]
+  },
+  "scene_ks_ac130_flares": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/7c4050fb7f732c47",
+        "stream": false
+      }
+    ]
+  },
+  "scene_maaws_reticle_locked": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/51fd611180977f03",
+        "stream": false
+      }
+    ]
+  },
+  "scene_maaws_reticle_tracking": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/4549d8b914afbca0",
+        "stream": false
+      }
+    ]
+  },
+  "scene_mp_killstreak_apache_death_plr": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/0a2d57d67cc45bce",
+        "stream": false
+      }
+    ]
+  },
+  "scene_mp_killstreak_apache_transition_lr": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/420506dd5ddb4887",
+        "stream": false
+      }
+    ]
+  },
+  "scene_mp_killstreak_transition_whoosh": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/12a3a71e739fb810",
+        "stream": false
+      }
+    ]
+  },
+  "scene_veh_apache_killstreak_amb_lr": {
+    "sounds": [
+      {
+        "name": "killstreakcod:scene/756e503df5109554",
+        "stream": false
+      }
+    ]
+  },
+  "mwii_stealth_approach": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/stealth_approach",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "mwii_stealth_flyby": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/stealth_flyby",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "mwii_stealth_leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/sfx/stealth_leave",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "iw9_cruise_missile_exp_static": {
+    "sounds": [
+      {
+        "name": "killstreakcod:cruisephone/iw9_cruise_missile_exp_static",
+        "stream": false
+      }
+    ]
+  },
+  "iw9_cruise_missile_plr": {
+    "sounds": [
+      {
+        "name": "killstreakcod:cruisephone/iw9_cruise_missile_plr",
+        "stream": false
+      }
+    ]
+  },
+  "iw9_cruise_missile_plr_intro": {
+    "sounds": [
+      {
+        "name": "killstreakcod:cruisephone/iw9_cruise_missile_plr_intro",
+        "stream": false
+      }
+    ]
+  },
+  "crash_wav_74d123d72d910f6c": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/74d123d72d910f6c",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_4a878dba896a8484": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/4a878dba896a8484",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_46658d82afb39417": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/46658d82afb39417",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_2eaeec143330aee4": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/2eaeec143330aee4",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_07201276d12009a1": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/07201276d12009a1",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_112114295bd54d58": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/112114295bd54d58",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_16a740dccdc0803d": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/16a740dccdc0803d",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_5783dbb04fb8b400": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/5783dbb04fb8b400",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_182b10dd1f0447d7": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/182b10dd1f0447d7",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_11699a3aae674016": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/11699a3aae674016",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_5a6c2863fcbcab01": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/5a6c2863fcbcab01",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_0e92a45081f09419": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/0e92a45081f09419",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_639b1bc1159086c4": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/639b1bc1159086c4",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_0a2d57d67cc45bce": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/0a2d57d67cc45bce",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_0f1c8d84b4c9bea1": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/0f1c8d84b4c9bea1",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_3d9195e0174596ce": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/3d9195e0174596ce",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_2a2a636dc2853c75": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/2a2a636dc2853c75",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "crash_wav_630ff9d8b46a1021": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraftcrash/630ff9d8b46a1021",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "mwii_mortar_blast": {
+    "subtitle": "subtitles.killstreakcod.mortar_blast",
+    "sounds": [
+      {
+        "name": "killstreakcod:mwii_40mm_impact",
+        "type": "event"
+      }
+    ]
+  },
+  "native.csj21.cluster_plant": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/001b6a8d8b3ec7e2",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0f798efbaacefa2c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/109532f2b31f2b24",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1919e9899d656a69",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/27634ebaac7bd86c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2a131b6617ea25bf",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2bf7dbad4c7815de",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2c3bb208bc969afd",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/323aeebe9733d89e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/350e6d9d0f7fec21",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3abf665dd7b17212",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4bdee548b31d6a36",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5aefe9e4ae9cd4d3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5e9a1cb4ec97dac0",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/655e4a05b17cdc70",
+        "stream": false,
+        "attenuation_distance": 256
+      }
+    ]
+  },
+  "native.csj21.cluster_release": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/250474ffe59c1b5b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/506388504ab6d624",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/52d8ffe1a62f9136",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6b4f292937cadb81",
+        "stream": false,
+        "attenuation_distance": 256
+      }
+    ]
+  },
+  "native.csj21.cluster_trigger": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/33ca4f5ea6d1a9e2",
+        "stream": false,
+        "attenuation_distance": 256
+      }
+    ]
+  },
+  "native.csj21.cluster_blast": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/06f53fa7be538774",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/24934e28ab195267",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4949d9a58b00ac47",
+        "stream": false,
+        "attenuation_distance": 256
+      }
+    ]
+  },
+  "native.csj21.sae21_approach": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/243b2922101fef8a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6f2a6a6a8ee0036d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7bf65b455a026a3c",
+        "stream": false,
+        "attenuation_distance": 256
+      }
+    ]
+  },
+  "native.csj21.sae21_flyby": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/444f5351cc52c30c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4d0f774a816238da",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/64816402da4845d5",
+        "stream": false,
+        "attenuation_distance": 256
+      }
+    ]
+  },
+  "native.csj21.sae21_leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/4e97a7f528a9b768",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7c59aa27473c04ab",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7f30322ddb106a11",
+        "stream": false,
+        "attenuation_distance": 256
+      }
+    ]
+  },
+  "native.csj21.sae21_impact": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/0007ad282093e3e6",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/006249d6eac7719c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/00e818c50e5b323e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/01a013c81352a153",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/02167114b607b078",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/033cbfec435b4946",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0350e084ace6fdb0",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/035886533033408f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/03de24129941ccf6",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0450fff862d6d047",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/04808d20e6710324",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0492c27298247d60",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/04cd41b2b46d31b1",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/04ece015a7708c4d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/050b8ef5b0242f04",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0575ba593af835b9",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/06a84fa48166aebf",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/06aed41932e73df6",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/06cfc2ffcf1385c3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0756a1358873e46b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0802fe9dbe49cd2d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/08df9b4635aefe6f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/090022d028b1df71",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/09c2d9d152247fd3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/09f7d8a2ef70f998",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0a8f6bacf5e80045",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0acfc8b4c94a48f1",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0b7b4c5c6f051f0f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0bddef150289074e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0c9b3fb9e80cd6ed",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0cbc26f5e25cae58",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0d601bb38f8d7145",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0e63a968310ef016",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0f87b9622d692566",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0f9123513b617f04",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/0f98f0e8f014471b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1009dd5bdb9f0401",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/115aa4120a8d6da3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/118423177939319b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/11ad9b343eea3e58",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1245b878c91e1e49",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1269a0ef89b9b81b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1327a81194804d5a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1345d64093b25823",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/13cf40a513423595",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/13ea11e7bb7ad60f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/143139f255048770",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/146ae55f3c564d7a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/151fad96a34d0f50",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1525200aa1abf7d7",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/15911cd8eb280a08",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1620d7f48ef906b7",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/165856bf10d252ba",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/16e5446b1b9a9081",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/173b9565d5fbbe7a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/175ab14cfd80b1e1",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/17ca8037eb9eb1d4",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/18191c4ff10ddd5a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/18d93c2abca8b286",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/18e93dc3bc4c4016",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1922b204eaa163d5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1970d56ca9c0cfb9",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1985b604ea4c792e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/19d51df417b9860e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1ac3a223e41c5248",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1ad891ed209fed5b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1b2b94e3f8609565",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1baf2ac6a3345efe",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1bec9e097cf29a51",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1bf4768414ab6f3c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1c03c89d0014c72e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1c9fff7da17a3e70",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1d0dcf8d5d3aa743",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1e3a815dd4731940",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1f4f6ec4fdc721e4",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1faab4662ce947d7",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/1fba709e232265e8",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2016b13476655a08",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2035e5307d981b18",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2059cfb20782df52",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/20f8f547a6441443",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/21939b75e892ae39",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/22019b8a0dc9aaa6",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2212e3edd33318a5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/22234e952420e190",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2225d2089d1ebbd9",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/22d048ad3ebd1e42",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/23d65e3ebac41c99",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2416f2f3aee7f34f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/24f4bd34de40d9a2",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/25fd5f6b555d248a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2694577ab2e8aabd",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/26cbb831b18f0cea",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/279363e8e877f743",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/28c2b47f7274cae8",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/28f9c7cb42d1c421",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/29126a12c8b0f8bd",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2a0ace091dc53c87",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2a2df0b91b6018e0",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2ab517b14c02bb82",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2ac1e5030cd18eb5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2aeeec5bca909d1c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2b2a2c8eeb1a109a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2b30e5daf230608c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2b845ed380109817",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2c6bac17ee7f12cd",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2cec6b8ac9ac853e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2d4ffde5e3649f44",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2d8f11d095c835d5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2ee3ef98bed002e3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2f359e8be6c40977",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/2f6a7e22df74d33e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3082f3c6e09a748a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3171b021d2aa815d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3186cb3a341fe1bb",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/319d4c124ccd1b35",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/32e792b181ac89ab",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/341ff491546ce0cb",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/350f77bf9ee635b3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/355b1f8c2230f973",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/37fc50accea82985",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/381511cfa7da31af",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/38453f2f233e20d3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3862199b1b87cc28",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/39816d59f06aa100",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/39add6d0f8d1eccc",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/39fdb1ba401ec00f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3a57886c0a19d4cb",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3a5b999b3cad297b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3a8073cef8d4606b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3ba83c54d4a1c150",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3bc35addeddb9837",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3c0c5f95bf5d31bb",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3c6b8e21c8810334",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3d283872a3bf45cb",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3d5e44ffded4b979",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3daf34c00c5ed804",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3e3b340669196cb4",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3e496d66fadb530b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3e4a0b3e846f7149",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3e94a71d9e564227",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3f4a29064f03ab23",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/3fbbcf36731a0662",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/400672e54c02954a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/405dacb2490e380e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/40c81dd69a37bf49",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4101f767a871348d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/41282b03f13d3981",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4168391c7941321a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4174e2a14d33566d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/41c83b9e64cbf923",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/41cdd1fd3302a1f2",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/41fc65fa9629ab74",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4252be13f4b6f312",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/427de7a17fd189fc",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/42b39f50261e2870",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4332835993430842",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/43c8a96f5a27e2e1",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/43eb7956e4273b41",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/443cd8316d80c115",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/448a9bcf4c5a6484",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/44d87ceb9694d8fa",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/45535ed6c24a9f1a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/458d58f747bd7d46",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4596753674dd0520",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/463278efbd0fa43c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4676ea7369973610",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/467b871143157585",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/46995975f3cd53e1",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/46e14fff8ff51828",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/46edda38f2b73b74",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/476edd7c47c39f93",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/48dced9540b4cb41",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4933103bf53fda03",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4a5eecfcec18ce99",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4b50bbdb2d141371",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4b840c4d3d40095b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4bedcd78047e821a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4c36da6411cb3c3d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4ca35c94d1515fdd",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4cbe50d6c07df5f5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4cc8a3cb6f489f0b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4cde5139eba9faf9",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4d3ef3b9423d5f64",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4d74752dcd9ea492",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4d97ee3ba3e40139",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4dc8c5d4fde6a0d7",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4de2b641cd452596",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4de81f7f9450d9df",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/4e679998f5d6fa11",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/501600d3b9ac4f39",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/509ba0243ae81b2a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/50f90ffa99922ca2",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5143c03c4813db5c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5154300995f755bc",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/516382228160adae",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/51afc5151d0b85f5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/52c49df350ab7603",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/534083cde6c5d608",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/53bd46c3d03b94f8",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/53fda9f10b2782b2",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/54a42ce43de22d57",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/54be28a62b193c1d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/56653a2a647d28fb",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/56ba565446fc42e9",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/576637917f645b01",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/57702bf03c9a9bf6",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5854a0dbeb51ec2d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5a5ccfe50e18e548",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5b56ae68c10ab8fb",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5b6e3404c39de4ac",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5b7030ead89940ba",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5b98067dd03ae7b3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5bd481c4030426a0",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5be032ab226fc435",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5cd9eb8e693f7ff3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5d7c2deefcc2c965",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5db3c77ddd611009",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5e52f8c155e5d2ef",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5f1ad688af55672a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5f93ddd1eee8b82f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5fb4f20a19ce5098",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/5fbfa77e4c0d93a0",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/616f90413c673e92",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/61ebcbed0aa1ab01",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6283419acba255d3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/632af8c6936d161b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/63525b899c3a0740",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/643bb425e882f50f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6503bb855612b0ec",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/654f4b1d04bfefbc",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/655e9d35f02947ae",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/665a161f8e4176a0",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6770f24e34e0de80",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/67fced3cdfaf1c7a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6801c24a88001965",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/68303c2ec9eb8dcc",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/683153004a82c937",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/685660bb645753f2",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6992564a7b391d12",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/69984877f60eee5e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/69cc156cf70914e3",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/69ef04e64aa92c80",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6a8bc12f818f0707",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6a93156a2bcbc0ca",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6b802ccaa25c5fd2",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6c0ec33a144b832c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6c1631812c0ee29f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6c66dc3777198791",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6cf1a1bbce825d70",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6d05974125d749dd",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6d7211264391ce3c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6d81633f2efb262e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6da4f8b4a48a0753",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6ecd826821fd0d84",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6ece3e82787b7583",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6f3d500c49c173cf",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/6f5d6b3fc16aa68f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/705cbcbed1727245",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7070100cc76a1b38",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/70b28666ba8caed8",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7105d813d056173b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/72011bd5c7aed412",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/721e3f38b096e5b5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/722027498887e209",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/72e176a2a11ff0e4",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/73c787fae5efe9d1",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/75e0d6b19007853c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7607c06f30b9103f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/760964f2f9a052b5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7669d1cb5003e2a9",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/769b92e3f874be22",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/77578a88e4f8097c",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/77717309330237ad",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/77864168f369ed25",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/781358d5a76a0ef0",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/78259cdaa2e7ce96",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/78c28c3e8f2261dc",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/79ec72454fa22cdf",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7a0bdee6d57bdb1a",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7a54033f62108439",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7a9004b4f79757bd",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7aa48292dd125b10",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7aa7060656103559",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7ae9eb2d95d38356",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7c488063acea1f13",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7c6a84dd656a7adf",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7ca3d3943bd435b5",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7cd10cd9fd36946b",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7e2f93c7b002c31e",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7ebc272ccce33734",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7ee7137d1384d657",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7f94391271d4162d",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7f9c47efc32c297f",
+        "stream": false,
+        "attenuation_distance": 256
+      },
+      {
+        "name": "killstreakcod:csj21/7fdb5f6bf2611356",
+        "stream": false,
+        "attenuation_distance": 256
+      }
+    ]
+  },
+  "native.csj21.m134_spinup": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/567fcf97bce83bb3",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/673174011536caae",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/776411b7af2e7430",
+        "stream": false,
+        "attenuation_distance": 64
+      }
+    ]
+  },
+  "native.csj21.m134_spinloop": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/1f8e2273913a19c5",
+        "stream": false,
+        "attenuation_distance": 64
+      }
+    ]
+  },
+  "native.csj21.m134_spindown": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/0d83ab60c15dad05",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/2f00392344ca012f",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/40aeeda58249844e",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/50730c6381c56ad0",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/539efde296491839",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/74c6ba11c7a419bc",
+        "stream": false,
+        "attenuation_distance": 64
+      }
+    ]
+  },
+  "native.csj21.m13421_atmo": {
+    "sounds": [
+      {
+        "name": "killstreakcod:csj21/04dc7861236c49ed",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/315da2b782b36844",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/4d9169431ef42438",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/664c6a1ea0ad07fb",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/712ca5ca7d09a8d2",
+        "stream": false,
+        "attenuation_distance": 64
+      },
+      {
+        "name": "killstreakcod:csj21/76e91b1e6b79bba1",
+        "stream": false,
+        "attenuation_distance": 64
+      }
+    ]
+  },
+  "native.voice.kortac.uav.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/78fd14987cf8ffb4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7666625d4fbddf42",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6b6705a75f6c0fa8",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.uav.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/528a97e98a86890f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/58dda969038fa1f4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/509cce92e7539475",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.uav.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7fba7fd8f7671b51",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0c1f1aff86163195",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.uav.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/655e37bb043e1593",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6e9e0803aafdb7ad",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.uav.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/135ba2d09931f545",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/278b03c8c508b10d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/23d6ef43cb7f06b6",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.counter_uav.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5bd018f05a80a33c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7a078a14376363cc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0f20f36a475617ec",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.counter_uav.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/64831add8f042b91",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3b0d2005fc6f9b17",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1fd17ea9fb75196e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.counter_uav.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/21c594b9550f1971",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2d00275f986ba70e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/74880ca5aaee70dc",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.counter_uav.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/691e679095280791",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/666fce877bd1a798",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/744d9d1a34f02744",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.counter_uav.timeout": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/794d7e482c06d87a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/42d8c02f8626d54c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2114086977ca17c6",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.advanced_uav.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6e5d82d81d250dbf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0bfa544dd752d18f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1ad573765091aae8",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.advanced_uav.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/68bc6d496c5441df",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/74f2bd74e3842ff7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/21a31cd70496bcfd",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.advanced_uav.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/461688655f513bad",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/05bddd37cb4e6040",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/05e32b02613d61b0",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.advanced_uav.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/51897d638d2559ad",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6e1889f426d59e2f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/16507efd3d4bbc45",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.bomb_drone.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/30b4e9cc0ce13c9b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0b69411fb751f9f5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/24cd628ed5f906af",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.bomb_drone.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1c00f8c5f82d832d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2d9b9fd3a7e844eb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4da9101bfd19d6af",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.bomb_drone.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/156b666db276b68f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6e46a29377b47ea8",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/713b12c932281c17",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.bomb_drone.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3b078d08b36e2bad",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0f963714f60b7d66",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5c6e3345a352c8be",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.bomb_drone.timeout": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/560e3d77753e1dba",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4af202a5efd511ee",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/79e6046b124b41c9",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.bomb_drone.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6b023496a96e0f01",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/378e455971ca90c3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1c04012e0df63673",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.bomb_drone.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1a1edc9b95aa9f69",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1c5ce0ebb667bcef",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/42de5586197bac3c",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.care_package.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/03f5daa057112299",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7f9786a528201a0b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3485e88ddaf72728",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.care_package.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1e4b88ef4519bc05",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7442029d3bc218bf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6482dee0cbb3abab",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.care_package.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4d5108cb897265c0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5bc8edbab903d86f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/213f5678eef58890",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.emergency_airdrop.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/20ce2656d05830f7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/25aa71f415458871",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/66eabeefacccd6c1",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.emergency_airdrop.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5b1708690f8154ed",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/46c2f80e2e794499",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/22388a7c86ec1121",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.emergency_airdrop.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1e6caf9a8d1ddff4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/23f6c36a486d79af",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/127010f7a61bd5fc",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sentry_gun.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/659f42fd4e0b5a52",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/22c8429f949f9a3c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/40e0899e21b5bd72",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sentry_gun.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/38975729f14b2c30",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6be52251c2c46951",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5c34c6fe929a1e78",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.wheelson_hs.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1075e66be150e518",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1e7bf7d839dbb6e3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3f04ad7563cdb7d9",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.wheelson_hs.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/13de0b425fa08a75",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/255592d520a6dd78",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/226c2aaf43542868",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.wheelson_hs.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/27084ad3fb06baae",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5ec6449b8434db92",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/54743c67d3d23911",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.wheelson_hs.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/42460a0ed7bd04e2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3a4140e91d50d3ed",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/077e99463f087369",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.wheelson_hs.timeout": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/721c93e1401da71a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4da35e9d246c82fd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1259d427a39d1159",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.wheelson_hs.sentry_mode": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0def57bd9093c0a8",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1003519d51e5f106",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/09227af44117a009",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/689d66cb57c030c8",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1bbe473f516a9e8c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/10be8774e3ccf956",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/16351afbb3dd1605",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1a5d76ea133ad0e3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/13294d0909059de7",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/25f78649454e970d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6cac39426d2cc70c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/508d9abdffc2a4fd",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.engage": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7258dd18390fb739",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/42c0942e49e98be5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/13da081784c4f9aa",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/558bd3c4f5b63c43",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/78de7047954cb1e1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/04d40ce4fb938165",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5395f2b6821707c0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3155cb2b590d2df2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/53eff8c048a2753f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4db5630d100886ec",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.damage": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2440bd5b115b2123",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/60465546ca1619b5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/25cddc162a216c33",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.flares": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7dd9951e604cb399",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0a2ccb6285961360",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6415e9b9ebc5a720",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6689e8cf865277c4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5933703b196f69f3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/34c43747de4b450b",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/002124ed8eb7c02d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/062a690b4b257a87",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5bd714b71854cf69",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2007e4765d4b734b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6ea0d90914487234",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5a5fbd461343229c",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.engage": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/74dfc73fc22baa36",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/442ae2b45a81bc13",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/063e49fb2b4cdcec",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5a6ed5c300ab26ad",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/00fcb51ff6585c26",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/00a55d0e9b5935ee",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/701752d79340e9a1",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/49aa5bd5ea3d95b1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/74ed72c65c135f00",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7225adacdd515461",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/670fac9692f34c4f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/59f69d7135f9dbaa",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.damage": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1602d05306d31bd7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/676a6efc8dc66975",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5a5bda7df2851d37",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.flares": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5daadcf07bb56076",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5199c18a0f389104",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/00be11612de4bcf0",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.reload25": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4929b62999edae75",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2ee60d0e53a6c7da",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3e843daa8f3b96a8",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.reload40": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3af42d91843c26aa",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/57f48df8a1bf0f6f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0b3996da8b38aa48",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.reload105": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/30ac19ae0654f607",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3117898aae839835",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/59c482fcf45ffca0",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cruise_missile.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7e207e9e7853912f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/27922b34c7aadf64",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/79c2b49b27cf54c1",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cruise_missile.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1b018764400030d2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/11dbc5dd1197b4fe",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0774613ef4e44aa2",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cruise_missile.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/70e7c6e7d099f199",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/162165287b871809",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1e2d689d8658fd45",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cruise_missile.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/781b12e64434fc7f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/610fc49d0a41f8ff",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6618e83440bf733d",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cruise_missile.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/60b84ddb6a0da1d3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0211e9bf49b497e9",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/672e317db41204e0",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.precision_airstrike.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6d429fb733a46b7d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/34371872a0dc5317",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7cbc96777b5f2675",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.precision_airstrike.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/68dd5b3d51387da9",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4c9616de9a5c6dd7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2dc9b0efd2fcf2d2",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.precision_airstrike.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/053bafc5b0a82181",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2397c5593d0b477a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6ce9b9a47d0cc95f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.precision_airstrike.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/007c6077a4a6283c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/040c4624dfabdf94",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5ff2255e567dc552",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.precision_airstrike.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2d05234881ab6002",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/714f199137ee723c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7884ab88bf923219",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mortar_strike.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5ae18bc6b3eca4bc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2544a03de621a15e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4f7265418724db9d",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mortar_strike.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6cef4e8875f8251b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0262e9c8459023ef",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/26448b813c1a0802",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mortar_strike.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0d0cf30241faa3e1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/07266785d82f71ba",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7e8e7835c71bc4a3",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mortar_strike.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5e48fb67075379cd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6e38ebaadea5076d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5991ce1ccfdaaf1f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mortar_strike.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4086327801e5d299",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/558d693ca27f9ac0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/75eb35147cd9118f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sae.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/74c55953a88b1bcf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/72476db73b4d3a4d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/735f2c538d827cd5",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sae.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7f4f86533862cefe",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4e7c461c9bc96ade",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/18888c5d1daf43c6",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sae.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/48ce8cb4aab924b2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/459db07840066968",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3fc6e531b29749c8",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sae.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/057441b33889b81f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5b3451c4cea118c7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/36d7cdd2708be6ea",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sae.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1fc27810c939e533",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/40abd738c915b171",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.vtol_jet.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/58179d43c33a87e3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/33a964d4b3c14c5f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/77f325f854522a9b",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.vtol_jet.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2318ae6c059f9150",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0ea700ffe4daa260",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/113b8101c2fa30e8",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.vtol_jet.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/20edf1ea3f99ea01",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0ae1e882c2e00020",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/54516ae89003d742",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.vtol_jet.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2453e5ce90c6bdea",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/43021a5d732d894f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.vtol_jet.destroyed": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/127f2af51bd102a8",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0cf0f6cce8771631",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/486311e9404f01b1",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.juggernaut.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/714f2983ec962f64",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4b1486e16f017e94",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7f50bea27bd4e166",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.juggernaut.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4e627d3743a59a19",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/32b892abfeaee1bf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2a5d8d1d4b58b0e5",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.juggernaut.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/633a1ff2eec6217f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5a5510b7ff74bf7f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4ca1eed72ba6a97b",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cluster_mine.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/6c1f9fd520ccf2c5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4f9c505271e2b74b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7de97f1ddc122651",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cluster_mine.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2c639676d9c3c0ec",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3bdeece472ed8503",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/30e2b010027dc12b",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mgb.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/536883bbed8963e6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/768c3fec9349ffd1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0dc1e23ae7ad52d6",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mgb.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3c1cc31e0270fc08",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/119cf61f46ec12ea",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4bbedb815908fe97",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mgb.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/022c5ec780739568",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/478feb1497c29041",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6e130063b895fc2e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.overwatch_helo.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2a52eca1b4d19df0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3bae29d521499d2b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1aa9fbf846ed7fcd",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.overwatch_helo.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4238b926412aa4aa",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/180e64af205e9844",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/424507011cef5fbd",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.overwatch_helo.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/77d7d240425d46df",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/47fc644862c332ed",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0d8a923c03e9de56",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.overwatch_helo.leave": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4cb417774aa514b6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/26a4d8e992656d04",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.stealth_bomber.ready": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/76b6bc4a2f8228de",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6dbbe5cc768a9e0e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/35a0add4c3c25998",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.stealth_bomber.enemy_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2733666b1b88bc62",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/33530142b965247c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5b14912c163a0a75",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.stealth_bomber.response": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1177b44ed23015c6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0b7ca9dcd633d8c9",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1b70cb79592a9011",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.stealth_bomber.hit": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3a2b83faca07fe8b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/494b4ccb1083c280",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/20f7393c092217fc",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.stealth_bomber.miss": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/73f6ca6e70d47587",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/725e6c4600aa22d1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7e9ac16e878b196e",
+        "stream": false
+      }
+    ]
+  },
+  "native.aircraft25.chopper_shot": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/04e56a205dcdd1ad",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/0e51dfadec7bdf61",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/0e752dd787f4f2f8",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/41f7808f9659dd96",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/45d0c23b6603a177",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/7242674bebb5ea04",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.chopper_shot_npc": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/18794284ffea93c1",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/254e8e56c2dbb29b",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/41be9be2ae49d357",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/4465fefe30699c64",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/46db768f8be25776",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/559472ecb1656972",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/61084fa1f79e9a80",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/7ccbbe4a20c7dd0d",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship25_shot": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/1b159a87518ec923",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/1f30c4cb5d1358c9",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/229f41c710b18660",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/362db2e10d3ecede",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/39a31482d77a7ced",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/3e0118c4cacfd6cc",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/435c3cbd7cfdd69a",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/53dfb059a2bcd73f",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship25_shot_npc": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/0c5c183f78e8236f",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/2a9de88cff80f010",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/4784ccc69e649e8e",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/4cb2b7aca9132e45",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship40_shot": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/0feb1df52108e7ce",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/1faf3cb32084ce50",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/51676b5ec8537fd3",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/5cbfdbb0601d1085",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/72ceda43971d30ca",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/7e3c6972e38964af",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship40_shot_npc": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/2a12ab1028adf896",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/2debecbbf857bc77",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/476b91e2f4e37b92",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/6d0094a0f021ecad",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/769058581a490df8",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/77ec8663556308bb",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship105_shot": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/0cd35996a41115b3",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/1d84fdfffc5fa4ae",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/2db79bb696574e30",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/3f11aa865256eb65",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/4cc1aa1c1ff4ffaa",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/77be2e6a73ab6d0f",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship105_shot_npc": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/36493819a689493e",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/4513fb794cc08f9f",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/6758b75ee45e607a",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/6d631de7fb5e6a83",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/6e916dcdcb30b22c",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/7d47fee872339aa9",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship25_reload": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/2f0c1caa6acef71a",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/3f1f63963a9b1895",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/5c6e0e27c2755f5f",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship40_reload": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/48f55805461b7aa3",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/73a34f4d128b11de",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.gunship105_reload": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/455e1df0fc8a1d58",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.aircraft40_impact": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/1ec926c68380a7dc",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.aircraft105_impact": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/0ef834ce7cfae71a",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/3fae3aeab4509ab5",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/62b51bbca565acd7",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/6dc5e0e28151d018",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.aircraft25.chopper_rocket_impact": {
+    "sounds": [
+      {
+        "name": "killstreakcod:aircraft25/0ef834ce7cfae71a",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/3fae3aeab4509ab5",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/62b51bbca565acd7",
+        "stream": false,
+        "attenuation_distance": 512
+      },
+      {
+        "name": "killstreakcod:aircraft25/6dc5e0e28151d018",
+        "stream": false,
+        "attenuation_distance": 512
+      }
+    ]
+  },
+  "native.voice.specgru.uav.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3ec0c27c3b0235fc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2adf3e3df5bd1f9a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7d20d30d499b577a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.counter_uav.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2141097f98874641",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/15bcb86be70167eb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/505098bbcf8c6b0c",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.advanced_uav.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/32d7a73b766df0f4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/61ceaaf47b9329a6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4125f2c3ba3bd48a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.bomb_drone.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/44c0b3ec4b34dccb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2266d6b91e5a1c1a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/136933f4a65178b7",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.care_package.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/76390bdf8bf890b1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/29da61351313753d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0dd0281df5383e0f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.emergency_airdrop.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2d27813469002dc7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0ff6ef3479358c0c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1db6edbb593c753e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.sentry_gun.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1f979b8ce8d8daa8",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/612e9b8172c92efc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/307b2695d1996de5",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.wheelson_hs.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0acd1ea771db2c61",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1f4f38b9e2d3440c",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0a3e1861a1949615",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.chopper_gunner.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0864f4ad8c15a216",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/65ae62d4577c97e0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/35292565dd97ba6e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.gunship.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/79506d0a73dcbfc7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/34525a4dc5328ba0",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/357aae832933de56",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.cruise_missile.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3dfee484039afdc6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4ab4326837f64050",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/585b20515f300049",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.precision_airstrike.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2e373995d4fc2578",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/589c7edfe68557a7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/05e3ae8dd8f21559",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.mortar_strike.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3619c125da8a3821",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/25b3ce730a2127bd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6794536edb53c4ed",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.sae.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4e4e72c052ecec71",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4956c25608048cbb",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2fad0c5816f99206",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.vtol_jet.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2da2b5ea796359dd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3da8fd2827be8654",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/00348f946805f8c3",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.juggernaut.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5241b5b81ec96e22",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4c4e8832400331b9",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2d00ff2bffb6e252",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.cluster_mine.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/55eac2383c39cd2a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/253336a8c9f80fb7",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5c87b39a29545c76",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.mgb.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/155f91dc8cafa95d",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3d9b49511535afa2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/065ab7123b7d446d",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.overwatch_helo.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/3c4b21e2246d63cc",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/206a64d49f440d7e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7e17596598011e4b",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.specgru.stealth_bomber.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5b2a4b1c2e1ebe47",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7150bd9f809ac74b",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/13a3c90e87ddb67e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.uav.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/61447d2f68bbdea5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3303ce0118fb7f55",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4c8dde9d27e23d55",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.counter_uav.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/35717b1b454937fa",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/16acb4aa44dfb910",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/22847a34acf5030f",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.advanced_uav.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/254659031d3fc9b9",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4bb0ea7eb83244a5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/0228cc688f3dbc4d",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.bomb_drone.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/706ca601d89dbb04",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4fb3ad04129e4bd5",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3941a37546ec386b",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.care_package.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5cfab5221e36a7b2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/67bb7a7b9c063b29",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4597f6b06b5ec228",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.emergency_airdrop.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4ad0d8305d6f7c4a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6881a88f3daad9d3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/53ecb4e8e0ce93ad",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sentry_gun.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/5ed3845871b3ea97",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/74dfba6237405967",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2c0c3a5d948465de",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.wheelson_hs.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7f01457fb7a0465a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/55e052a515cf20e3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5d82103a2638a40a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.chopper_gunner.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/580b15f32622c171",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6c41f77bdecb1cfd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/40e10e689248a611",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.gunship.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/53c2cf23cfb48204",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/2a0369eb7ee44a17",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3f3d21968d001bed",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cruise_missile.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/0fbae6fa35304131",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/70fd3feb9fe55abd",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/46c69d99a3549344",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.precision_airstrike.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/64f0776acbcef0c3",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/6783b4192a8b39c4",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/60ae3a6c47a4a43e",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mortar_strike.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/518f457b79144fd6",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3b4680e189fbdf1a",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/1b4d1b4d2d946da0",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.sae.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/4659d781f90bf72e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/18cf62cd0629d5e2",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5b16dfc22685f5c6",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.vtol_jet.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/1b9e77925aa4116e",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/4b446741481a2477",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/08a98c1060fa637a",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.juggernaut.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/2a5cdcfc27669b85",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3909683926f9acce",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5ec943cc282f40dd",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.cluster_mine.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/7905e4243acda7e1",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7bdf36dcf019d6a8",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/534d8e148474dfd5",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.mgb.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/11c12954f75b52ee",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/7d28eb34d301c7cf",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5ec7c14b2c60c7e8",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.overwatch_helo.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/046e085bf9a7f65f",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/55b3bbb5309f2283",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/5d59e4c8f36cc9f6",
+        "stream": false
+      }
+    ]
+  },
+  "native.voice.kortac.stealth_bomber.friendly_call": {
+    "sounds": [
+      {
+        "name": "killstreakcod:native/voice/750efcca7bc76500",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/3c0935aaf3251232",
+        "stream": false
+      },
+      {
+        "name": "killstreakcod:native/voice/593110970894e37f",
+        "stream": false
+      }
+    ]
+  }
+}

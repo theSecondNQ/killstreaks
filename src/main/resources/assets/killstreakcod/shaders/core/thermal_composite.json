@@ -1,0 +1,7 @@
+{
+  "vertex":"killstreakcod:thermal_composite",
+  "fragment":"killstreakcod:thermal_composite",
+  "attributes":["Position","UV0"],
+  "samplers":[{"name":"DiffuseSampler"},{"name":"HeatSampler"}],
+  "uniforms":[]
+}

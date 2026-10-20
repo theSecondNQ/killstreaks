@@ -1,0 +1,447 @@
+{
+  "format": 1,
+  "id": "scene_vm_ks_gunship_desk_intro",
+  "source": "vm_ks_gunship_desk_intro_complete.json",
+  "fps": 30.0,
+  "last_frame": 102,
+  "loop": false,
+  "translationCoordinateScale": 2.54,
+  "nativeVectorChannelsExpanded": true,
+  "curves": [
+    {
+      "bone": "bone_fb2bbc60",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "fb2bbc60",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_027532a7",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "027532a7",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.7071138620376587,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "bone_42c2c704",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "42c2c704",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        -0.18118838965892792,
+        0.9834589958190918
+      ]
+    },
+    {
+      "bone": "bone_45c2cbbd",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "45c2cbbd",
+      "property": "rq",
+      "values": [
+        0.0,
+        0.0,
+        0.2464980036020279,
+        0.9691457748413086
+      ]
+    },
+    {
+      "bone": "bone_fe2bc119",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "fe2bc119",
+      "property": "rq",
+      "values": [
+        0.0022583696991205215,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bone": "bone_0375343a",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0375343a",
+      "property": "rq",
+      "values": [
+        0.00158696249127388,
+        0.00158696249127388,
+        0.7071138620376587,
+        0.7071138620376587
+      ]
+    },
+    {
+      "bone": "bone_72b3c23b",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "72b3c23b",
+      "property": "rq",
+      "values": [
+        0.0039674062281847,
+        -0.0016479995101690292,
+        -0.08474989980459213,
+        0.9963988065719604
+      ]
+    },
+    {
+      "bone": "bone_73b3c3ce",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "73b3c3ce",
+      "property": "rq",
+      "values": [
+        0.0042420728132128716,
+        -0.0007629627361893654,
+        0.13287758827209473,
+        0.9911190867424011
+      ]
+    },
+    {
+      "bone": "bone_04ae88c3",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "04ae88c3",
+      "property": "rq",
+      "values": [
+        0.00039674062281847,
+        -0.00033570360392332077,
+        0.011597033590078354,
+        0.99993896484375
+      ]
+    },
+    {
+      "bone": "bone_05ae8a56",
+      "mode": "absolute",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "05ae8a56",
+      "property": "rq",
+      "values": [
+        0.002288888208568096,
+        -3.0518509447574615e-05,
+        -0.014038514345884323,
+        0.999908447265625
+      ]
+    },
+    {
+      "bone": "bone_42c2c704",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "42c2c704",
+      "property": "tx",
+      "values": [
+        2.967706451416016
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_42c2c704",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "42c2c704",
+      "property": "ty",
+      "values": [
+        -1.162564697265625
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_42c2c704",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "42c2c704",
+      "property": "tz",
+      "values": [
+        0.13208011627197266
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_45c2cbbd",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "45c2cbbd",
+      "property": "tx",
+      "values": [
+        125.1137973022461
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_45c2cbbd",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "45c2cbbd",
+      "property": "ty",
+      "values": [
+        1.4351013565063477
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_45c2cbbd",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "45c2cbbd",
+      "property": "tz",
+      "values": [
+        0.4069179916381836
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_0375343a",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0375343a",
+      "property": "tx",
+      "values": [
+        1.1915309524536133
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_0375343a",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0375343a",
+      "property": "ty",
+      "values": [
+        0.0
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_0375343a",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "0375343a",
+      "property": "tz",
+      "values": [
+        4.84466552734375e-06
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_72b3c23b",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "72b3c23b",
+      "property": "tx",
+      "values": [
+        -7.8653871536254885
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_72b3c23b",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "72b3c23b",
+      "property": "ty",
+      "values": [
+        -11.477250022888184
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_72b3c23b",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "72b3c23b",
+      "property": "tz",
+      "values": [
+        -0.04038997650146484
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_04ae88c3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "04ae88c3",
+      "property": "tx",
+      "values": [
+        -2.0899111938476564
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_04ae88c3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "04ae88c3",
+      "property": "ty",
+      "values": [
+        -3.547622604370117
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_04ae88c3",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "04ae88c3",
+      "property": "tz",
+      "values": [
+        -4.695183372497558
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_05ae8a56",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "05ae8a56",
+      "property": "tx",
+      "values": [
+        0.0002228546142578125
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_05ae8a56",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "05ae8a56",
+      "property": "ty",
+      "values": [
+        -4.84466552734375e-06
+      ],
+      "sourceProperty": "t"
+    },
+    {
+      "bone": "bone_05ae8a56",
+      "mode": "relative",
+      "weight": 1,
+      "frames": [
+        0
+      ],
+      "sourceBoneId": "05ae8a56",
+      "property": "tz",
+      "values": [
+        -2.323583946228027
+      ],
+      "sourceProperty": "t"
+    }
+  ],
+  "notifications": [
+    {
+      "name": "fx_playfxontag, vfx/iw9/killstreaks/gunship/vfx_gunship_intro_screens.vfx, tag_notebook_big1",
+      "frames": [
+        1
+      ],
+      "normalized_time": 0.009803921915590763
+    },
+    {
+      "name": "fx_killfxontag, vfx/iw9/killstreaks/gunship/vfx_gunship_intro_screens.vfx, tag_notebook_big1",
+      "frames": [
+        101
+      ],
+      "normalized_time": 0.9901960492134094
+    },
+    {
+      "name": "end",
+      "frames": [
+        102
+      ],
+      "normalized_time": 1.0
+    }
+  ]
+}

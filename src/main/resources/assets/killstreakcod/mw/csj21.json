@@ -1,0 +1,165 @@
+{
+  "format": 1,
+  "lods": {
+    "cluster21_vm": [
+      {
+        "id": "cluster21_vm",
+        "lod": 0
+      }
+    ],
+    "cluster21_item": [
+      {
+        "id": "cluster21_item",
+        "lod": 0
+      },
+      {
+        "id": "cluster21_item_lod1",
+        "lod": 1
+      },
+      {
+        "id": "cluster21_item_lod2",
+        "lod": 2
+      },
+      {
+        "id": "cluster21_item_lod3",
+        "lod": 3
+      }
+    ],
+    "cluster21_body": [
+      {
+        "id": "cluster21_body",
+        "lod": 0
+      },
+      {
+        "id": "cluster21_body_lod1",
+        "lod": 1
+      },
+      {
+        "id": "cluster21_body_lod2",
+        "lod": 2
+      },
+      {
+        "id": "cluster21_body_lod3",
+        "lod": 3
+      },
+      {
+        "id": "cluster21_body_lod4",
+        "lod": 4
+      },
+      {
+        "id": "cluster21_body_lod5",
+        "lod": 5
+      }
+    ],
+    "cluster21_disc": [
+      {
+        "id": "cluster21_disc",
+        "lod": 0
+      },
+      {
+        "id": "cluster21_disc_lod1",
+        "lod": 1
+      },
+      {
+        "id": "cluster21_disc_lod2",
+        "lod": 2
+      },
+      {
+        "id": "cluster21_disc_lod3",
+        "lod": 3
+      }
+    ],
+    "m13421_vm": [
+      {
+        "id": "m13421_vm",
+        "lod": 0
+      }
+    ],
+    "m13421_wm": [
+      {
+        "id": "m13421_wm",
+        "lod": 0
+      },
+      {
+        "id": "m13421_wm_lod1",
+        "lod": 1
+      },
+      {
+        "id": "m13421_wm_lod2",
+        "lod": 2
+      },
+      {
+        "id": "m13421_wm_lod3",
+        "lod": 3
+      }
+    ],
+    "sae21": [
+      {
+        "id": "sae21",
+        "lod": 0
+      },
+      {
+        "id": "sae21_lod1",
+        "lod": 1
+      },
+      {
+        "id": "sae21_lod2",
+        "lod": 2
+      },
+      {
+        "id": "sae21_lod3",
+        "lod": 3
+      },
+      {
+        "id": "sae21_lod4",
+        "lod": 4
+      },
+      {
+        "id": "sae21_lod5",
+        "lod": 5
+      }
+    ]
+  },
+  "cluster": {
+    "discs": [
+      [
+        6.382999897003174,
+        6.381999969482422,
+        2.865999937057495
+      ],
+      [
+        6.381999969482422,
+        -6.382999897003174,
+        2.865999937057495
+      ],
+      [
+        -6.381999969482422,
+        6.382999897003174,
+        2.865999937057495
+      ],
+      [
+        -6.382999897003174,
+        -6.381999969482422,
+        2.865999937057495
+      ]
+    ],
+    "releaseWaitTicks": 15,
+    "releaseSpacingTicks": 1,
+    "throwReleaseTicks": 9,
+    "throwDurationTicks": 28,
+    "sourceVelocityUnitsPerSecond": [
+      200,
+      300
+    ]
+  },
+  "m134": {
+    "chargeTicks": 20,
+    "infiniteAmmunition": true,
+    "unmatchedSpinCandidateUsed": false,
+    "rootRecoilDeltaApplied": false
+  },
+  "sae": {
+    "independentBombModelVerified": false,
+    "keepExistingThreePointClusterGameplay": true
+  }
+}

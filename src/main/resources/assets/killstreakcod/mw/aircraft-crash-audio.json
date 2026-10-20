@@ -1,0 +1,220 @@
+{
+  "groups": {
+    "aeec0124ce1070b4_0cc9338004e86452": {
+      "alias": "iw8_ks_ac130_explo_low_02",
+      "hash": "aeec0124ce1070b4",
+      "bank": "0cc9338004e86452",
+      "events": [
+        "crash_wav_74d123d72d910f6c"
+      ]
+    },
+    "435d74546e26f578_0cc9338004e86452": {
+      "alias": "iw8_ks_ac130_explo_main",
+      "hash": "435d74546e26f578",
+      "bank": "0cc9338004e86452",
+      "events": [
+        "crash_wav_4a878dba896a8484"
+      ]
+    },
+    "86c90f5066033199_0cc9338004e86452": {
+      "alias": "iw8_ks_ac130_shake_explo",
+      "hash": "86c90f5066033199",
+      "bank": "0cc9338004e86452",
+      "events": [
+        "crash_wav_46658d82afb39417"
+      ]
+    },
+    "f3bed53094c9441d_0cc9338004e86452": {
+      "alias": "iw8_ks_ac130_whine",
+      "hash": "f3bed53094c9441d",
+      "bank": "0cc9338004e86452",
+      "events": [
+        "crash_wav_2eaeec143330aee4",
+        "crash_wav_07201276d12009a1"
+      ]
+    },
+    "635cdea150345592_0cc9338004e86452": {
+      "alias": "iw9_gunship_plr_outro",
+      "hash": "635cdea150345592",
+      "bank": "0cc9338004e86452",
+      "events": [
+        "crash_wav_112114295bd54d58"
+      ]
+    },
+    "400001861bfa0fc1_0cc9338004e86452": {
+      "alias": "ks_hoverjet_crash",
+      "hash": "400001861bfa0fc1",
+      "bank": "0cc9338004e86452",
+      "events": [
+        "crash_wav_16a740dccdc0803d",
+        "crash_wav_5783dbb04fb8b400"
+      ]
+    },
+    "5b0a66f49a7dfb90_0cc9338004e86452": {
+      "alias": "",
+      "hash": "5b0a66f49a7dfb90",
+      "bank": "0cc9338004e86452",
+      "events": [
+        "crash_wav_182b10dd1f0447d7",
+        "crash_wav_11699a3aae674016",
+        "crash_wav_5a6c2863fcbcab01"
+      ]
+    },
+    "2b172a31beddea5f_1f789e664d14167a": {
+      "alias": "assault_drone_expl",
+      "hash": "2b172a31beddea5f",
+      "bank": "1f789e664d14167a",
+      "events": [
+        "crash_wav_0e92a45081f09419"
+      ]
+    },
+    "d2d78adfd0c0affc_1f789e664d14167a": {
+      "alias": "exp_escort_helo",
+      "hash": "d2d78adfd0c0affc",
+      "bank": "1f789e664d14167a",
+      "events": [
+        "crash_wav_639b1bc1159086c4"
+      ]
+    },
+    "39744d5d6414b46e_1f789e664d14167a": {
+      "alias": "mp_killstreak_apache_death_plr",
+      "hash": "39744d5d6414b46e",
+      "bank": "1f789e664d14167a",
+      "events": [
+        "crash_wav_0a2d57d67cc45bce"
+      ]
+    },
+    "670d069efbd7dd9f_1f789e664d14167a": {
+      "alias": "veh_apache_dmg_heavy_loop",
+      "hash": "670d069efbd7dd9f",
+      "bank": "1f789e664d14167a",
+      "events": [
+        "crash_wav_0f1c8d84b4c9bea1"
+      ]
+    },
+    "34396ef9b975e5d3_1f789e664d14167a": {
+      "alias": "veh_apache_explode_mp",
+      "hash": "34396ef9b975e5d3",
+      "bank": "1f789e664d14167a",
+      "events": [
+        "crash_wav_3d9195e0174596ce"
+      ]
+    },
+    "4dc4bbba9df261d7_1f789e664d14167a": {
+      "alias": "veh_apache_explode_mp_ground",
+      "hash": "4dc4bbba9df261d7",
+      "bank": "1f789e664d14167a",
+      "events": [
+        "crash_wav_2a2a636dc2853c75"
+      ]
+    },
+    "5db8dd2ac147570c_1f789e664d14167a": {
+      "alias": "",
+      "hash": "5db8dd2ac147570c",
+      "bank": "1f789e664d14167a",
+      "events": [
+        "crash_wav_630ff9d8b46a1021"
+      ]
+    },
+    "1957b91b13d7ead4_1f789e664d14167a": {
+      "alias": "",
+      "hash": "1957b91b13d7ead4",
+      "bank": "1f789e664d14167a",
+      "events": [
+        "crash_wav_0f1c8d84b4c9bea1"
+      ]
+    },
+    "aeec0124ce1070b4_6f4ca6f1a8f66c62": {
+      "alias": "iw8_ks_ac130_explo_low_02",
+      "hash": "aeec0124ce1070b4",
+      "bank": "6f4ca6f1a8f66c62",
+      "events": [
+        "crash_wav_74d123d72d910f6c"
+      ]
+    },
+    "435d74546e26f578_6f4ca6f1a8f66c62": {
+      "alias": "iw8_ks_ac130_explo_main",
+      "hash": "435d74546e26f578",
+      "bank": "6f4ca6f1a8f66c62",
+      "events": [
+        "crash_wav_4a878dba896a8484"
+      ]
+    },
+    "86c90f5066033199_6f4ca6f1a8f66c62": {
+      "alias": "iw8_ks_ac130_shake_explo",
+      "hash": "86c90f5066033199",
+      "bank": "6f4ca6f1a8f66c62",
+      "events": [
+        "crash_wav_46658d82afb39417"
+      ]
+    },
+    "f3bed53094c9441d_6f4ca6f1a8f66c62": {
+      "alias": "iw8_ks_ac130_whine",
+      "hash": "f3bed53094c9441d",
+      "bank": "6f4ca6f1a8f66c62",
+      "events": [
+        "crash_wav_2eaeec143330aee4",
+        "crash_wav_07201276d12009a1"
+      ]
+    },
+    "635cdea150345592_6f4ca6f1a8f66c62": {
+      "alias": "iw9_gunship_plr_outro",
+      "hash": "635cdea150345592",
+      "bank": "6f4ca6f1a8f66c62",
+      "events": [
+        "crash_wav_112114295bd54d58"
+      ]
+    },
+    "400001861bfa0fc1_6f4ca6f1a8f66c62": {
+      "alias": "ks_hoverjet_crash",
+      "hash": "400001861bfa0fc1",
+      "bank": "6f4ca6f1a8f66c62",
+      "events": [
+        "crash_wav_182b10dd1f0447d7",
+        "crash_wav_11699a3aae674016",
+        "crash_wav_5a6c2863fcbcab01"
+      ]
+    }
+  },
+  "roles": {
+    "gunship_air": [
+      "crash_wav_4a878dba896a8484"
+    ],
+    "gunship_low": [
+      "crash_wav_74d123d72d910f6c"
+    ],
+    "gunship_shake": [
+      "crash_wav_46658d82afb39417"
+    ],
+    "gunship_whine": [
+      "crash_wav_2eaeec143330aee4",
+      "crash_wav_07201276d12009a1"
+    ],
+    "gunship_outro": [
+      "crash_wav_112114295bd54d58"
+    ],
+    "vtol_crash": [
+      "crash_wav_16a740dccdc0803d",
+      "crash_wav_5783dbb04fb8b400"
+    ],
+    "escort_explode": [
+      "crash_wav_639b1bc1159086c4"
+    ],
+    "apache_player": [
+      "crash_wav_0a2d57d67cc45bce"
+    ],
+    "apache_heavy": [
+      "crash_wav_0f1c8d84b4c9bea1"
+    ],
+    "apache_air": [
+      "crash_wav_3d9195e0174596ce"
+    ],
+    "apache_ground": [
+      "crash_wav_2a2a636dc2853c75"
+    ],
+    "drone_explode": [
+      "crash_wav_0e92a45081f09419"
+    ]
+  },
+  "bankContextPolicy": "Keep bank-specific variants separate; select the first complete named alias group for the runtime role. Unnamed/bank duplicate groups remain catalogued."
+}
