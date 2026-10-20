@@ -34,7 +34,7 @@ public final class StreakPresentation {
     private static TabletHandModel hands;
     private static float renderedTime;
     private static float initialVisibility, lastVisibility, initialStow, lastStow;
-    private static boolean remoteExit;
+    private static boolean remoteExit, remoteTabletCall;
     private static int soundMask;
     private static ItemStack deployment = ItemStack.EMPTY;
     private static net.minecraft.client.CameraType exitCameraType;
@@ -48,6 +48,9 @@ public final class StreakPresentation {
             reset();
             return;
         }
+        boolean tabletCall = phase.equals("remote_call");
+        if (tabletCall)
+            phase = "call";
         if (!phase.startsWith("crash_"))
             AircraftCrashClient.reset();
         restoreExitCamera();
@@ -75,6 +78,9 @@ public final class StreakPresentation {
         initialStow = previousStow;
         reward = id;
         stage = phase;
+        remoteTabletCall = tabletCall;
+        if (tabletCall)
+            TargetingDeviceAnimations.reset();
         duration = Mth.clamp(ticks, 2, 240);
         age = 0;
         renderedTime = 0;
@@ -132,7 +138,7 @@ public final class StreakPresentation {
         stage = "";
         duration = age = soundMask = 0;
         renderedTime = initialVisibility = lastVisibility = initialStow = lastStow = 0;
-        handsRendered = remoteExit = false;
+        handsRendered = remoteExit = remoteTabletCall = false;
         deployment = ItemStack.EMPTY;
         EntryScenes.reset();
     }
@@ -162,7 +168,8 @@ public final class StreakPresentation {
     }
 
     private static boolean designatorAction() {
-        return stage.equals("call") && (reward.equals("precision_airstrike") || reward.equals("mortar_strike"));
+        return stage.equals("call") && !remoteTabletCall
+                && (reward.equals("precision_airstrike") || reward.equals("mortar_strike"));
     }
 
     private static boolean markerAction() {
@@ -177,7 +184,11 @@ public final class StreakPresentation {
     }
 
     private static boolean remoteCall() {
-        return stage.equals("call") && StreakTimings.remoteReward(reward);
+        return stage.equals("call") && (remoteTabletCall || StreakTimings.remoteReward(reward));
+    }
+
+    private static String animationStage() {
+        return stage.equals("call") && remoteTabletCall ? "remote_call" : stage;
     }
 
     private static boolean active() {
@@ -255,10 +266,11 @@ public final class StreakPresentation {
         if (reward.equals("cluster_mine") && stage.equals("confirmed") && NativeArsenalView.clusterThrow(time,
                 event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight()))
             return true;
-        boolean original = (!stage.equals("exit") || remoteExit) && OriginalStreakAnimations.available(reward, stage);
+        boolean original = (!stage.equals("exit") || remoteExit)
+                && OriginalStreakAnimations.available(reward, animationStage());
         if (original) {
-            if (OriginalStreakAnimations.render(reward, stage, time, event.getPoseStack(), event.getMultiBufferSource(),
-                    event.getPackedLight(), hands, mc.player.getSkin().texture())) {
+            if (OriginalStreakAnimations.render(reward, animationStage(), time, event.getPoseStack(),
+                    event.getMultiBufferSource(), event.getPackedLight(), hands, mc.player.getSkin().texture())) {
                 lastVisibility = stage.equals("call")
                         ? ease(p / .27F) * (mapReward() || remoteCall() ? 1 : 1 - ease((p - .72F) / .28F))
                         : 0;
@@ -388,7 +400,7 @@ public final class StreakPresentation {
         String label = !deployment.isEmpty() ? (stage.equals("call") ? "equipment" : "deploy")
                 : stage.equals("confirmed") ? "confirm" : p < .27F ? "raise" : p < .53F ? "tap" : "transmit";
         if (stage.equals("call")) {
-            String originalAction = OriginalStreakAnimations.actionId(reward, stage,
+            String originalAction = OriginalStreakAnimations.actionId(reward, animationStage(),
                     animationTime(mc.getTimer().getGameTimeDeltaPartialTick(true)));
             if (!equipmentAction()) {
                 if (originalAction.contains("raise"))
@@ -447,9 +459,8 @@ public final class StreakPresentation {
                 if (time < SceneEntryLibrary.GUNSHIP_EXTERIOR + SceneEntryLibrary.GUNSHIP_INTERIOR)
                     status(graphics, text("gunship"), cx, 16, 0xffb6d3bf, remain);
                 else
-                    sensorReticle(graphics, cx, cy, 24, alpha(0xb8c7c2, (int) (180
-                            * ease((time - SceneEntryLibrary.GUNSHIP_EXTERIOR - SceneEntryLibrary.GUNSHIP_INTERIOR)
-                                    / 2))));
+                    sensorReticle(graphics, cx, cy, 24, alpha(0xb8c7c2, (int) (180 * ease(
+                            (time - SceneEntryLibrary.GUNSHIP_EXTERIOR - SceneEntryLibrary.GUNSHIP_INTERIOR) / 2))));
             }
             case "chopper" -> {
 
@@ -569,7 +580,7 @@ public final class StreakPresentation {
             play(StreakSounds.TABLET_GEAR.get(), .34F);
             soundMask |= 1;
         }
-        String action = OriginalStreakAnimations.actionId(reward, stage, age);
+        String action = OriginalStreakAnimations.actionId(reward, animationStage(), age);
         if (stage.equals("call") && (soundMask & 2) == 0 && age >= StreakTimings.remoteTabletOffset(reward) + 3) {
             play(compactTerminal() ? StreakSounds.PHONE_UI.get() : StreakSounds.TABLET_ON.get(), .42F);
             soundMask |= 2;
@@ -647,7 +658,8 @@ public final class StreakPresentation {
 
     private static boolean controlledReward(String id) {
         return switch (id) {
-            case "gunship", "chopper_gunner", "cruise_missile", "bomb_drone", "wheelson_hs" -> true;
+            case "gunship", "chopper_gunner", "cruise_missile", "bomb_drone", "wheelson_hs", "precision_airstrike" ->
+                true;
             default -> false;
         };
     }

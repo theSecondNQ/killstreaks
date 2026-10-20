@@ -17,10 +17,12 @@ public final class MortarStrikeFlight {
 
     private MortarStrikeFlight() {}
 
-    public static Vec3 target(ServerPlayer player, Vec3 center, float heading, int volley, int shell) {
-        double angle = Math.toRadians(heading + volley * 20) + shell * Math.PI * 2 / SHELLS_PER_VOLLEY;
-        return TacticalRuntime.ground(player.serverLevel(),
-                center.add(Math.cos(angle) * SPREAD_RADIUS, 0, Math.sin(angle) * SPREAD_RADIUS)).add(0, .12, 0);
+    public static Vec3 target(ServerPlayer player, Vec3 center, float heading, int volley, int shell, int shells,
+            double spread) {
+        double angle = Math.toRadians(heading + volley * 20) + shell * Math.PI * 2 / shells;
+        return TacticalRuntime
+                .ground(player.serverLevel(), center.add(Math.cos(angle) * spread, 0, Math.sin(angle) * spread))
+                .add(0, .12, 0);
     }
 
     public static Vec3 start(ServerPlayer player, Vec3 target, float heading) {

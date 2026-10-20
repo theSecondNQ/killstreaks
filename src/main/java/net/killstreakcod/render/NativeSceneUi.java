@@ -37,6 +37,7 @@ public final class NativeSceneUi {
     }
 
     private static JsonObject data, textData;
+    private static int batchDepth;
     private static final Map<String, Optional<NativeImage>> pixels = new HashMap<>();
     private static final Map<String, Optional<ImageAsset>> IMAGES = new HashMap<>();
     // 按源通道对象身份查找，避免递归计算 JSON 内容哈希；数据只在资源重载时替换。
@@ -104,23 +105,37 @@ public final class NativeSceneUi {
                 data = new JsonObject();
                 com.mojang.logging.LogUtils.getLogger().warn("Native scene UI data unavailable", failure);
             }
-        if (!data.has("cruisePhoneLoaded")) {
-            data.addProperty("cruisePhoneLoaded", true);
-            try (var reader = Minecraft.getInstance().getResourceManager().openAsReader(
-                    ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "mw/cruise-phone-ui.json"))) {
+        merge("cruisePhoneLoaded", "mw/cruise-phone-ui.json");
+        merge("aircraftHudLoaded", "mw/aircraft-hud-ui.json");
+        return data;
+    }
+
+    private static void merge(String flag, String resource) {
+        if (!data.has(flag)) {
+            data.addProperty(flag, true);
+            try (var reader = Minecraft.getInstance().getResourceManager()
+                    .openAsReader(ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, resource))) {
                 var extra = JsonParser.parseReader(reader).getAsJsonObject();
+                for (var entry : extra.getAsJsonObject("images").entrySet()) {
+                    var texture = ResourceLocation
+                            .parse(entry.getValue().getAsJsonObject().get("texture").getAsString());
+                    if (Minecraft.getInstance().getResourceManager().getResource(texture).isEmpty())
+                        throw new IllegalStateException("Missing native UI image: " + texture);
+                }
                 for (String field : List.of("widgets", "images")) {
                     if (!data.has(field))
                         data.add(field, new JsonObject());
                     for (var entry : extra.getAsJsonObject(field).entrySet())
                         data.getAsJsonObject(field).add(entry.getKey(), entry.getValue());
                 }
+                for (String field : List.of("sequenceLengths", "screenTargets"))
+                    if (extra.has(field))
+                        data.add(field, extra.get(field));
             }
             catch (Exception failure) {
-                com.mojang.logging.LogUtils.getLogger().warn("Cruise and phone UI unavailable", failure);
+                com.mojang.logging.LogUtils.getLogger().warn("Additional native UI unavailable: {}", resource, failure);
             }
         }
-        return data;
     }
 
     static JsonObject widget(String name) {
@@ -139,6 +154,31 @@ public final class NativeSceneUi {
         JsonObject w = widget(widget);
         return w == null || !w.getAsJsonObject("nodes").has(name) ? null
                 : layer(w, name, sequence, time, width, height);
+    }
+
+    /**
+     * Child offsets use the global HUD scale even when a parent is resized or intentionally very short.
+     * 子控件偏移沿用全局 HUD 比例；原父容器可能很矮，不能把其子控件强行压缩进容器高度。
+     */
+    static Layer childState(String widget, String name, String sequence, float time, Rect parent, float scale) {
+        JsonObject w = widget(widget);
+        if (w == null || !w.getAsJsonObject("nodes").has(name))
+            return null;
+        Layer local = layer(w, name, sequence, time, parent.w, parent.h, scale);
+        Rect r = local.rect;
+        return new Layer(local.image, new Rect(parent.x + r.x, parent.y + r.y, r.w, r.h), local.alpha, local.rotation,
+                local.scale, local.sprite);
+    }
+
+    static float sequenceLength(String widget, String sequence, float fallback) {
+        JsonObject lengths = data().getAsJsonObject("sequenceLengths");
+        if (lengths != null && lengths.has(widget))
+            for (var row : lengths.getAsJsonArray(widget)) {
+                var durations = row.getAsJsonObject().getAsJsonObject("durations_ms");
+                if (durations != null && durations.has(sequence))
+                    return durations.get(sequence).getAsFloat();
+            }
+        return fallback;
     }
 
     public static List<Layer> layers(String name, String sequence, float milliseconds, float width, float height,
@@ -166,12 +206,18 @@ public final class NativeSceneUi {
 
     private static Layer layer(JsonObject widget, String field, String sequence, float time, float width,
             float height) {
+        return layer(widget, field, sequence, time, width, height, Float.NaN);
+    }
+
+    private static Layer layer(JsonObject widget, String field, String sequence, float time, float width, float height,
+            float uniformScale) {
         JsonObject node = widget.getAsJsonObject("nodes").getAsJsonObject(field);
         JsonArray anchors = node.getAsJsonArray("anchors");
         float[] a = new float[8];
         for (int i = 0; i < 8; i++)
             a[i] = anchors.get(i).getAsFloat();
-        float alpha = node.has("alpha") ? node.get("alpha").getAsFloat() : 1, rotation = 0,
+        float alpha = node.has("alpha") ? node.get("alpha").getAsFloat() : 1,
+                rotation = node.has("rotation") ? node.get("rotation").getAsFloat() : 0,
                 scale = node.has("scale") ? node.get("scale").getAsFloat() : 0;
         String image = node.has("image") && !node.get("image").isJsonNull() ? node.get("image").getAsString() : null;
         JsonObject selected = widget.getAsJsonObject("sequences").getAsJsonObject(sequence);
@@ -211,10 +257,12 @@ public final class NativeSceneUi {
         float sx = width / widget.get("width").getAsFloat(), sy = height / widget.get("height").getAsFloat();
         if (widget.get("height").getAsInt() == 1080)
             sx = sy;
+        if (Float.isFinite(uniformScale))
+            sx = sy = uniformScale;
         float left = width * a[0] + a[4] * sx, right = width * (1 - a[1]) + a[5] * sx, top = height * a[2] + a[6] * sy,
                 bottom = height * (1 - a[3]) + a[7] * sy;
-        if (widget.has("fixedPixelFieldsCentered") && widget.get("fixedPixelFieldsCentered").getAsBoolean()
-                && Math.abs(a[0] + a[1] - 1) < .0001F) {
+        if (!Float.isFinite(uniformScale) && widget.has("fixedPixelFieldsCentered")
+                && widget.get("fixedPixelFieldsCentered").getAsBoolean() && Math.abs(a[0] + a[1] - 1) < .0001F) {
             float pad = (width - widget.get("width").getAsFloat() * sx) / 2, offset = pad * (1 - 2 * a[0]);
             left += offset;
             right += offset;
@@ -353,10 +401,40 @@ public final class NativeSceneUi {
         ImageAsset asset = image(image).orElse(null);
         if (asset == null || box == null || box.w <= 0 || box.h <= 0 || alpha <= 0)
             return;
+        if (batchDepth > 0) {
+            graphics.setColor(1, 1, 1, Mth.clamp(alpha, 0, 1));
+            // Text and fill batches clear their blend state; reapply alpha blending before an immediate blit.
+            // 文字、色块批次结束时会关闭混合；每次即时绘图前恢复透明混合，避免轮廓变成实心白块。
+            RenderSystem.enableBlend();
+            RenderSystem.defaultBlendFunc();
+            graphics.blit(asset.texture, Math.round(box.x), Math.round(box.y), Math.round(box.w), Math.round(box.h), 0,
+                    0, asset.width, asset.height, asset.width, asset.height);
+            graphics.setColor(1, 1, 1, 1);
+            return;
+        }
         try (BlendGuard guard = new BlendGuard(graphics, alpha)) {
             graphics.blit(asset.texture, Math.round(box.x), Math.round(box.y), Math.round(box.w), Math.round(box.h), 0,
-                    0,
-                    asset.width, asset.height, asset.width, asset.height);
+                    0, asset.width, asset.height, asset.width, asset.height);
+        }
+    }
+
+    /** Save GL blend state once for the whole HUD. 整套 HUD 仅保存一次 GL 混合状态，避免逐图层查询。 */
+    static Batch batch(GuiGraphics graphics) {
+        return new Batch(graphics);
+    }
+
+    static final class Batch implements AutoCloseable {
+        private final BlendGuard guard;
+
+        private Batch(GuiGraphics graphics) {
+            guard = batchDepth == 0 ? new BlendGuard(graphics, 1) : null;
+            batchDepth++;
+        }
+
+        public void close() {
+            batchDepth--;
+            if (guard != null)
+                guard.close();
         }
     }
 
@@ -401,7 +479,9 @@ public final class NativeSceneUi {
             gui.flush();
             gui.setColor(color[0], color[1], color[2], color[3]);
             RenderSystem.blendFuncSeparate(sr, dr, sa, da);
-            if (!enabled)
+            if (enabled)
+                RenderSystem.enableBlend();
+            else
                 RenderSystem.disableBlend();
         }
     }

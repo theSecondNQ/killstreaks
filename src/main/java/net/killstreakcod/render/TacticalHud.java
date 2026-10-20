@@ -102,13 +102,15 @@ public final class TacticalHud {
         String[] bonus = TacticalClient.bonus.queue().isEmpty() ? new String[0]
                 : TacticalClient.bonus.queue().split(",");
         int mgb = t != null ? t.mgbCount() : TacticalClient.bonus.mgb() ? 1 : 0;
-        int base = Math.max(8, (h - ((3 + (bonus.length > 0 ? 1 : 0) + (mgb > 0 ? 1 : 0)) * 29 - 2)) / 2);
         int extras = (bonus.length > 0 ? 1 : 0) + (mgb > 0 ? 1 : 0);
+        boolean prepaid = TacticalClient.research != null && !TacticalClient.research.streakMode();
+        int rowHeight = prepaid ? 39 : 29;
+        int base = Math.max(8, (h - (3 * rowHeight + extras * 29 - 2)) / 2);
         if (t != null) {
             String[] ids = { t.slot1(), t.slot2(), t.slot3() };
             for (int i = 0; i < 3; i++) {
-                int x = w - 130, y = base + (extras + i) * 29, n = t.counts()[i];
-                graphics.fill(x, y, w - 6, y + 27, 0xd00e1513);
+                int x = w - 130, y = base + extras * 29 + i * rowHeight, n = t.counts()[i];
+                graphics.fill(x, y, w - 6, y + rowHeight - 2, 0xd00e1513);
                 TacticalClient.icon(graphics, ids[i], x + 3, y + 2, 23);
                 int c = n > 0 ? GREEN : 0xffa9b1a6;
                 String name = Component.translatable("streak.killstreakcod." + ids[i]).getString();
@@ -117,9 +119,17 @@ public final class TacticalHud {
                 int threshold = t.scoreMode() ? reward.score() : reward.kills();
                 String button = key(i == 0 ? KillstreakKeyMappings.USE_SLOT_1
                         : i == 1 ? KillstreakKeyMappings.USE_SLOT_2 : KillstreakKeyMappings.USE_SLOT_3);
-                graphics.drawString(mc.font, "[" + button + "]  x" + n + "  " + t.progress()[i] + "/" + threshold,
-                        x + 30, y + 14, c, false);
-                bar(graphics, x + 30, y + 25, 87, 1, t.progress()[i], threshold, c);
+                String status = "x" + n + "  " + t.progress()[i] + "/" + threshold;
+                graphics.drawString(mc.font, mc.font.plainSubstrByWidth("[" + button + "]  " + status, 90), x + 30,
+                        y + 14, c, false);
+                if (prepaid) {
+                    int remaining = TacticalClient.research.requisitionCount(ids[i]);
+                    String reserve = Component.translatable("hud.killstreakcod.requisition_count", remaining)
+                            .getString();
+                    graphics.drawString(mc.font, mc.font.plainSubstrByWidth(reserve, 90), x + 30, y + 24,
+                            remaining > 0 ? 0xffa9b1a6 : RED, false);
+                }
+                bar(graphics, x + 30, y + rowHeight - 4, 87, 1, t.progress()[i], threshold, c);
             }
         }
         int extra = mgb > 0 ? 1 : 0;
@@ -224,14 +234,16 @@ public final class TacticalHud {
             switch (s.mode()) {
                 case "bomb_drone" -> drone(graphics);
                 case "cruise" -> cruise(graphics);
-                case "wheelson" -> wheelson(graphics);
+                case "wheelson", "precision" -> wheelson(graphics);
                 case "chopper" -> chopper(graphics);
                 case "gunship" -> gunship(graphics);
                 default ->
                     graphics.drawCenteredString(mc.font, I18n.get("hud.killstreakcod.connecting"), w / 2, h / 2, WHITE);
             }
         contacts(graphics);
-        if (!original && TacticalClient.fuel() < 200 && System.currentTimeMillis() % 800 < 400)
+        ResearchWeaponHud.status(graphics);
+        if (!original && TacticalClient.fuel() < (s.mode().equals("precision") ? 20 : 200)
+                && System.currentTimeMillis() % 800 < 400)
             graphics.drawCenteredString(mc.font, I18n.get("hud.killstreakcod.native_remote_low_fuel"), w / 2, h - 70,
                     RED);
     }
@@ -283,20 +295,19 @@ public final class TacticalHud {
                     (int) hit.getLocation().z), 16, h - 67, GREEN);
         }
         bar(graphics, 16, h - 54, w - 32, 3, TacticalClient.fuel(), 300, GREEN);
-        hint(graphics,
-                I18n.get("hud.killstreakcod.cruise_controls",
-                        key(Minecraft.getInstance().options.keyAttack) + "/" + key(KillstreakKeyMappings.BOOST),
-                        key(KillstreakKeyMappings.ZOOM), key(KillstreakKeyMappings.EXIT)),
-                GREEN);
+        hint(graphics, I18n.get("hud.killstreakcod.cruise_controls", key(Minecraft.getInstance().options.keyAttack),
+                key(KillstreakKeyMappings.EXIT)), GREEN);
     }
 
     private static void wheelson(GuiGraphics graphics) {
         int w = graphics.guiWidth(), h = graphics.guiHeight(), x = w / 2, y = h / 2;
+        boolean precision = TacticalClient.state.mode().equals("precision");
         frame(graphics, CYAN, 18, 31);
         compass(graphics, CYAN, 14);
         text(graphics,
-                StreakReward.WHEELSON.displayName().getString() + " / " + I18n.get("hud.killstreakcod.ground_link"), 24,
-                37, CYAN);
+                (precision ? StreakReward.PRECISION_AIRSTRIKE : StreakReward.WHEELSON).displayName().getString() + " / "
+                        + I18n.get(precision ? "hud.killstreakcod.fire_control" : "hud.killstreakcod.ground_link"),
+                24, 37, CYAN);
         graphics.hLine(x - 24, x - 6, y, CYAN);
         graphics.hLine(x + 6, x + 24, y, CYAN);
         graphics.vLine(x, y - 19, y - 6, CYAN);
@@ -304,9 +315,17 @@ public final class TacticalHud {
         text(graphics, String.format(Locale.ROOT, "%.1f M/S", TacticalClient.state.speed()), w - 90, 58, CYAN);
         text(graphics, I18n.get("hud.killstreakcod.turret", Math.floorMod((int) TacticalClient.yaw() + 180, 360)), 24,
                 58, CYAN);
-        TacticalClient.icon(graphics, "wheelson_hs", 24, h - 79, 32);
+        TacticalClient.icon(graphics, precision ? "precision_airstrike" : "wheelson_hs", 24, h - 79, 32);
         text(graphics, I18n.get("hud.killstreakcod.hull", TacticalClient.state.health()), 64, h - 69, CYAN);
         bar(graphics, 64, h - 56, 100, 4, TacticalClient.state.health(), 100, CYAN);
+        if (precision) {
+            hint(graphics,
+                    I18n.get("hud.killstreakcod.precision_controls", key(Minecraft.getInstance().options.keyAttack),
+                            key(KillstreakKeyMappings.THERMAL), key(KillstreakKeyMappings.ZOOM),
+                            key(KillstreakKeyMappings.EXIT)),
+                    CYAN);
+            return;
+        }
         text(graphics, I18n.get("hud.killstreakcod.auto_sentry_key", key(KillstreakKeyMappings.AUTO)), w - 140, h - 65,
                 CYAN);
         hint(graphics,
@@ -356,7 +375,7 @@ public final class TacticalHud {
 
     private static void gunship(GuiGraphics graphics) {
         int w = graphics.guiWidth(), h = graphics.guiHeight(), x = w / 2, y = h / 2,
-                weapon = TacticalClient.state.weapon();
+                selected = TacticalClient.state.weapon(), weapon = Mth.clamp(selected, 0, 2);
         int c = WHITE;
         frame(graphics, c, 10, 25);
         compass(graphics, c, 10);
@@ -385,21 +404,12 @@ public final class TacticalHud {
             graphics.hLine(x - 8, x + 8, y, c);
             graphics.vLine(x, y - 8, y + 8, c);
         }
-        String[] labels = { "25 MM", "40 MM", "105 MM" };
-        KeyMapping[] keys = { KillstreakKeyMappings.WEAPON_1, KillstreakKeyMappings.WEAPON_2,
-                KillstreakKeyMappings.WEAPON_3 };
-        int[] capacities = { 25, 5, 1 }, reloadTime = { 60, 80, 120 };
-        for (int i = 0; i < 3; i++) {
-            int yy = h - 110 + i * 18, cc = i == weapon ? c : 0xff829084,
-                    remaining = Mth.clamp(TacticalClient.state.ammo()[i], 0, capacities[i]),
-                    reload = TacticalClient.reload(i);
-            graphics.fill(15, yy - 2, 157, yy + 14, i == weapon ? 0xa83b4841 : 0x50131c18);
-            text(graphics, "[" + key(keys[i]) + "] " + labels[i], 20, yy, cc);
-            text(graphics,
-                    reload > 0 ? I18n.get("hud.killstreakcod.load") : "%02d/%02d".formatted(remaining, capacities[i]),
-                    113, yy, reload > 0 ? 0xffdfb778 : cc);
-            bar(graphics, 20, yy + 11, 131, 2, reload > 0 ? reloadTime[i] - reload : remaining,
-                    reload > 0 ? reloadTime[i] : capacities[i], reload > 0 ? 0xffdfb778 : cc);
+        int[] slots = ResearchWeaponHud.gunshipSlots();
+        for (int row = 0; row < slots.length; row++) {
+            int i = slots[row], yy = h - 110 - (slots.length - 3) * 18 + row * 18, cc = i == selected ? c : 0xff829084;
+            graphics.fill(15, yy - 2, 168, yy + 14, i == selected ? 0xa83b4841 : 0x50131c18);
+            text(graphics, "[" + key(ResearchWeaponHud.key(i)) + "] " + ResearchWeaponHud.name(i), 20, yy, cc);
+            text(graphics, ResearchWeaponHud.ammo(i), 113, yy, cc);
         }
         var camera = Minecraft.getInstance().getCameraEntity();
         float arc = camera instanceof TacticalUnitEntity unit
@@ -420,11 +430,9 @@ public final class TacticalHud {
                         : TacticalClient.cooldown() > 0 ? I18n.get("hud.killstreakcod.firing_cycle")
                                 : I18n.get("hud.killstreakcod.weapon_ready"),
                 w - 156, h - 77, reload > 0 ? 0xffdfb778 : c);
-        text(graphics,
-                I18n.get("hud.killstreakcod.ammo_count", TacticalClient.state.ammo()[weapon], capacities[weapon]),
-                w - 156, h - 64, c);
+        text(graphics, ResearchWeaponHud.ammo(selected), w - 156, h - 64, c);
         text(graphics, I18n.get("hud.killstreakcod.exit_key", key(KillstreakKeyMappings.EXIT)), w - 156, h - 51, c);
-        hint(graphics, I18n.get("hud.killstreakcod.gunship_controls", key(Minecraft.getInstance().options.keyAttack),
+        hint(graphics, I18n.get("hud.killstreakcod.gunship_controls", key(ResearchWeaponHud.fireKey()),
                 key(KillstreakKeyMappings.CYCLE), key(KillstreakKeyMappings.THERMAL), key(KillstreakKeyMappings.ZOOM)),
                 c);
     }

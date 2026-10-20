@@ -36,6 +36,7 @@ public final class TracerDelivery {
             profile = switch (unit.kind()) {
                 case CHOPPER -> APACHE;
                 case GUNSHIP -> GUNSHIP25;
+                case VTOL -> ResearchEffects.has(unit, "vtol_jet.hercules") ? GUNSHIP25 : SMALL;
                 case WHEELSON, PRECISION -> CANNON;
                 default -> SMALL;
             };
