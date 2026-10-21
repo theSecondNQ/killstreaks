@@ -12,15 +12,22 @@ if ($taskInventory.issues.Count -gt 0 -or $taskInventory.version -notmatch '^\d+
 $taskSource = Join-Path $taskWorkspace ('build\libs\killstreakcod-'+$taskInventory.version+'.jar')
 $taskNewHash = (Get-FileHash -LiteralPath $taskSource -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($taskInventory.jar.sha256 -ne $taskNewHash) { throw 'Production JAR differs from the inventory.' }
-$taskNew = Join-Path $taskMods ([IO.Path]::GetFileName($taskSource))
+$taskModPattern = '^(?<prefix>(?:killstreakcod(?:-forge-\d+\.\d+\.\d+)?|killstreaks-(?:neoforge|forge)-\d+\.\d+\.\d+)-)(?<version>\d+\.\d+\.\d+(?:\.\d+)?)\.jar$'
+$taskInstalled = @(Get-ChildItem -LiteralPath $taskMods -File -Filter '*.jar' | Where-Object { $_.Name -match $taskModPattern })
+if ($taskInstalled.Count -gt 1) { throw 'Multiple killstreak JARs are installed.' }
+$taskNewName = [IO.Path]::GetFileName($taskSource)
+# Preserve an existing platform-qualified filename, including user-renamed killstreaks packages.
+# 中文：保留已有的平台文件名前缀，兼容用户改名后的 killstreaks 包，避免安装成两个相同模组。
+if ($taskInstalled.Count -eq 1 -and $taskInstalled[0].Name -match $taskModPattern) {
+    $taskNewName = $Matches['prefix'] + $taskInventory.version + '.jar'
+}
+$taskNew = Join-Path $taskMods $taskNewName
 $taskBackup = Join-Path $taskInstance ('renderer-mod-backups\'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'-'+$taskInventory.version)
 $taskStage = Join-Path $taskBackup ([IO.Path]::GetFileNameWithoutExtension($taskSource)+'.pending')
 foreach ($taskPath in @($taskMods,$taskNew,$taskBackup,$taskStage)) {
     if (-not [IO.Path]::GetFullPath($taskPath).StartsWith($taskInstance+'\',[StringComparison]::OrdinalIgnoreCase)) { throw 'Unexpected instance path.' }
 }
 if (Get-Process -Name java,javaw -ErrorAction SilentlyContinue) { throw 'Java is running; save and exit Minecraft before installing.' }
-$taskInstalled = @(Get-ChildItem -LiteralPath $taskMods -File -Filter 'killstreakcod-*.jar')
-if ($taskInstalled.Count -gt 1) { throw 'Multiple killstreakcod JARs are installed.' }
 if (Test-Path -LiteralPath $taskNew) {
     if ($taskInstalled.Count -eq 1 -and (Get-FileHash -LiteralPath $taskNew -Algorithm SHA256).Hash.ToLowerInvariant() -eq $taskNewHash) {
         Write-Output ('Matching '+$taskInventory.version+' is already installed.')
@@ -33,7 +40,7 @@ if (Test-Path -LiteralPath $taskNew) {
     }
 }
 if (Test-Path -LiteralPath $taskBackup) { throw 'Backup directory already exists.' }
-$taskOtherMods = @(Get-ChildItem -LiteralPath $taskMods -File -Filter '*.jar' | Where-Object { $_.Name -notlike 'killstreakcod-*.jar' } | ForEach-Object {
+$taskOtherMods = @(Get-ChildItem -LiteralPath $taskMods -File -Filter '*.jar' | Where-Object { $_.Name -notmatch $taskModPattern } | ForEach-Object {
     [ordered]@{name=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()}
 })
 $taskRetained = @()

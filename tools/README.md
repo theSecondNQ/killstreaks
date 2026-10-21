@@ -45,3 +45,5 @@ node tools/pixel_models.mjs
 也可以显式指定 `-GradleUserHome 'C:\Users\NQ_Snvw\.mcreator\gradle'`。`-Offline` 仅在依赖已缓存时使用；升级依赖后需要联网下载时省略此参数。
 
 IntelliJ：在 **Settings → Build, Execution, Deployment → Build Tools → Gradle** 将 **Gradle user home** 指向同一缓存目录，Gradle JVM 使用 JDK 21。外部修改 IDE 项目本地配置后，应重新打开项目使其生效。不要通过清空已有缓存处理这类下载中断。
+
+安装器及核对工具同时识别原 killstreakcod 文件名和带平台的 killstreaks 文件名，并保留现有文件名前缀。GD656 配置编码兼容见 [说明](../docs/GD656-COMPAT.md)。
