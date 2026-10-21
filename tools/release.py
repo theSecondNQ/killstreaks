@@ -20,6 +20,9 @@ RESOURCES = ROOT / 'src/main/resources'
 REPORTS = ROOT / 'build/reports'
 LIBS = ROOT / 'build/libs'
 MOD_ID = 'killstreakcod'
+MOD_JAR_RE = re.compile(
+    r'^(?:killstreakcod(?:-forge-\d+\.\d+\.\d+)?|killstreaks-(?:neoforge|forge)-\d+\.\d+\.\d+)-'
+    r'(?P<version>\d+\.\d+\.\d+(?:\.\d+)?)\.jar$', re.IGNORECASE)
 MAX_JAR_BYTES = 100_000_000
 VERSION = re.search(r"version = '([^']+)'", (ROOT / 'build.gradle').read_text(encoding='utf-8')).group(1)
 JAR = LIBS / f'{MOD_ID}-{VERSION}.jar'
@@ -291,10 +294,12 @@ def verify():
             require(sha(record['backup']['path']) == record['backup']['sha256'], 'Old JAR backup differs.')
         instance = Path(record['instance'])
         expected = {row['name']: row['sha256'] for row in record['retainedMods']}
-        actual = {p.name: sha(p) for p in (instance / 'mods').glob('*.jar') if not p.name.startswith(MOD_ID + '-')}
+        actual = {p.name: sha(p) for p in (instance / 'mods').glob('*.jar') if not MOD_JAR_RE.fullmatch(p.name)}
         require(actual == expected, 'Other active mods changed.')
-        active = list((instance / 'mods').glob(MOD_ID + '-*.jar'))
-        require(len(active) == 1 and active[0].name == JAR.name, 'Duplicate or incorrect active release.')
+        active = [p for p in (instance / 'mods').glob('*.jar') if MOD_JAR_RE.fullmatch(p.name)]
+        require(len(active) == 1 and active[0].name == Path(record['installed']['path']).name
+                and MOD_JAR_RE.fullmatch(active[0].name).group('version') == VERSION,
+                'Duplicate or incorrect active release.')
         retained = {row['relative']: row['sha256'] for row in record['retainedFiles']}
         actual_files = {p.relative_to(instance).as_posix(): sha(p) for folder in ['config', MOD_ID + '-skins']
                         for p in (instance / folder).rglob('*') if p.is_file()}
