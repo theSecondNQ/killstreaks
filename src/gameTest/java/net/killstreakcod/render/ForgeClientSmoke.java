@@ -36,6 +36,10 @@ public final class ForgeClientSmoke {
         }
         if (!(minecraft.screen instanceof TitleScreen) || minecraft.getOverlay() != null || ++ticks < 10)
             return;
+        if (Files.exists(minecraft.gameDirectory.toPath().resolve("resource-smoke.enabled"))
+                && !ForgeResourceReloadSmoke.check(minecraft)) {
+            return;
+        }
         var models = minecraft.getModelManager();
         var terminal = models.getModel(new ModelResourceLocation(
                 ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "headquarters_terminal"), "inventory"));

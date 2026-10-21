@@ -44,3 +44,5 @@ node tools/pixel_models.mjs
 ## 飞机 HUD 资源导入
 
 `python tools/import_aircraft_hud.py "原资源导出目录"` 核对并导入原始 PNG、控件数值、动画和文本；不执行重建 Lua，日常构建不需要导出目录。详见 [飞机 HUD](../docs/AIRCRAFT-HUD.md)。当前源码同步跳过 `resources`，该工具仅在明确更新资源时手动运行。
+
+安装器及核对工具同时识别原 killstreakcod 文件名和带平台的 killstreaks 文件名，并保留现有文件名前缀。GD656 配置编码兼容见 [说明](../docs/GD656-COMPAT.md)。

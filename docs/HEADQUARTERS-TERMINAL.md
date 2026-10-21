@@ -1,6 +1,6 @@
 # 总部通讯终端
 
-新增方块和物品 ID：`killstreakcod:headquarters_terminal`。当前版本为 **1.1.0.4352**。
+新增方块和物品 ID：`killstreakcod:headquarters_terminal`。当前版本为 **1.1.0.4356**。
 
 ## 获取与使用
 
