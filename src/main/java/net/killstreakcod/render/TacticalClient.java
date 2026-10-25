@@ -1,11 +1,9 @@
 package net.killstreakcod.render;
 
 import net.killstreakcod.KillstreakcodMod;
-import net.killstreakcod.audio.NativeRadioSubtitles;
 import net.killstreakcod.audio.SceneEntryAudio;
 import net.killstreakcod.killstreaks.GunshipFlight;
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
-import net.killstreakcod.render.compat.OptionalClientIntegrations;
 import net.killstreakcod.render.tablet.TabletTargeting;
 import net.killstreakcod.universal.BonusStatePayload;
 import net.killstreakcod.universal.RadarPayload;
@@ -74,6 +72,15 @@ public final class TacticalClient {
         return state.entityId() >= 0;
     }
 
+    /** 已收到实际实体并绑定摄像机后，才允许入场动画从黑屏继续。 */
+    public static boolean cameraReady() {
+        Minecraft mc = Minecraft.getInstance();
+        if (!remote() || mc.level == null)
+            return false;
+        Entity camera = mc.level.getEntity(state.entityId());
+        return camera != null && !camera.isRemoved() && mc.getCameraEntity() == camera;
+    }
+
     public static float yaw() {
         return yaw;
     }
@@ -102,7 +109,7 @@ public final class TacticalClient {
         float base = switch (state.mode()) {
             case "gunship" -> 50;
             case "chopper" -> 65;
-            case "wheelson", "precision" -> 75;
+            case "wheelson" -> 75;
             case "cruise" -> 70;
             default -> 80;
         };
@@ -148,7 +155,7 @@ public final class TacticalClient {
         viewAge = 0;
         previousLevel = mc.level;
         if (start) {
-            secondaryHeld = held(mc.options.keyUse);
+            secondaryHeld = held(KillstreakKeyMappings.SECONDARY_FIRE);
             if (!was) {
                 previousType = mc.options.getCameraType();
                 if (mc.player != null) {
@@ -189,6 +196,8 @@ public final class TacticalClient {
     }
 
     public static void restore() {
+        if (remote())
+            RewardRail.reveal();
         Minecraft mc = Minecraft.getInstance();
         if (mc.player != null) {
             if (mc.getCameraEntity() != mc.player)
@@ -348,7 +357,9 @@ public final class TacticalClient {
             if (++missingTicks > 80) {
                 sendExit();
                 resetControl();
-            }
+            } else
+                // 等待远处飞机实体时仍发送空输入心跳，不能在区块送达前先被服务端的 60 刻输入超时退出。
+                PacketDistributor.sendToServer(new TacticalControlPayload(yaw, pitch, 0, 0, 0, ++sequence));
             return;
         }
         missingTicks = 0;
@@ -383,14 +394,14 @@ public final class TacticalClient {
         if (clicked(KillstreakKeyMappings.ZOOM) && !StreakPresentation.busy())
             zoom = !zoom;
         float forward = 0, strafe = 0;
-        boolean useHeld = held(mc.options.keyUse);
+        boolean useHeld = held(KillstreakKeyMappings.SECONDARY_FIRE);
         if (useHeld && !secondaryHeld)
             flags |= SECONDARY;
         secondaryHeld = useHeld;
         if (mc.screen == null && mc.isWindowActive()) {
             forward = (held(mc.options.keyUp) ? 1 : 0) - (held(mc.options.keyDown) ? 1 : 0);
             strafe = (held(mc.options.keyRight) ? 1 : 0) - (held(mc.options.keyLeft) ? 1 : 0);
-            if (held(mc.options.keyAttack))
+            if (held(KillstreakKeyMappings.primary()))
                 flags |= FIRE;
             if (held(mc.options.keyJump))
                 flags |= UP;
@@ -470,11 +481,32 @@ public final class TacticalClient {
         // Capture a short tap even when press and release both fall between client ticks.
         // 即使按下、松开都发生在两次客户端刻之间，也保留一次短按发射意图。
         if (remote() && !StreakPresentation.busy() && mc.screen == null && mc.isWindowActive()
-                && event.getAction() == GLFW.GLFW_PRESS && mc.options.keyUse.isConflictContextAndModifierActive()
-                && mc.options.keyUse.matchesMouse(event.getButton())) {
+                && event.getAction() == GLFW.GLFW_PRESS
+                && KillstreakKeyMappings.SECONDARY_FIRE.isConflictContextAndModifierActive()
+                && KillstreakKeyMappings.SECONDARY_FIRE.matchesMouse(event.getButton())) {
             pendingActions |= SECONDARY;
             event.setCanceled(true);
         }
+        if (remote() && !StreakPresentation.busy() && mc.screen == null && mc.isWindowActive()
+                && event.getAction() == GLFW.GLFW_PRESS
+                && KillstreakKeyMappings.primary().isConflictContextAndModifierActive()
+                && KillstreakKeyMappings.primary().matchesMouse(event.getButton())) {
+            pendingActions |= FIRE;
+            event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void weaponKey(InputEvent.Key event) {
+        if (!remote() || StreakPresentation.busy() || Minecraft.getInstance().screen != null
+                || !Minecraft.getInstance().isWindowActive() || event.getAction() != GLFW.GLFW_PRESS)
+            return;
+        if (KillstreakKeyMappings.SECONDARY_FIRE.isConflictContextAndModifierActive()
+                && KillstreakKeyMappings.SECONDARY_FIRE.matches(event.getKey(), event.getScanCode()))
+            pendingActions |= SECONDARY;
+        if (KillstreakKeyMappings.primary().isConflictContextAndModifierActive()
+                && KillstreakKeyMappings.primary().matches(event.getKey(), event.getScanCode()))
+            pendingActions |= FIRE;
     }
 
     @SubscribeEvent
@@ -587,23 +619,6 @@ public final class TacticalClient {
     }
 
     @SubscribeEvent
-    public static void guiPre(RenderGuiEvent.Pre event) {
-        if (remote() || AircraftCrashClient.active()) {
-            if (!Minecraft.getInstance().options.hideGui) {
-                if (remote() && StreakPresentation.remoteHudVisible())
-                    TacticalHud.remote(event.getGuiGraphics());
-                TacticalHud.banner(event.getGuiGraphics());
-                StreakPresentation.renderGui(event.getGuiGraphics());
-                OptionalClientIntegrations.remoteOverlay(event.getGuiGraphics(),
-                        event.getPartialTick().getGameTimeDeltaPartialTick(false));
-                NativeRadioSubtitles.render(event.getGuiGraphics());
-            } else
-                StreakPresentation.renderBlackout(event.getGuiGraphics());
-            event.setCanceled(true);
-        }
-    }
-
-    @SubscribeEvent
     public static void gui(RenderGuiEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null)
@@ -621,14 +636,15 @@ public final class TacticalClient {
         } else if (TargetingDeviceAnimations.laserMarking()) {
             int x = graphics.guiWidth() / 2, y = graphics.guiHeight() / 2, c = 0xffb7d87a;
             var hit = mc.player.pick(160, 0, false);
-            graphics.hLine(x - 4, x + 4, y, c);
-            graphics.vLine(x, y - 4, y + 4, c);
-            graphics.drawCenteredString(mc.font,
+            UiDraw.hLine(graphics, "TacticalClient.gui.0", x - 4, x + 4, y, c);
+            UiDraw.vLine(graphics, "TacticalClient.gui.1", x, y - 4, y + 4, c);
+            UiDraw.drawCenteredString(graphics, "TacticalClient.gui.2", mc.font,
                     "RANGE " + (int) mc.player.getEyePosition().distanceTo(hit.getLocation()) + " m", x, y + 30, c);
-            graphics.drawCenteredString(mc.font,
+            UiDraw.drawCenteredString(graphics, "TacticalClient.gui.3", mc.font,
                     net.minecraft.network.chat.Component.translatable("hud.killstreakcod.designate"), x, y + 65, c);
         }
-        NativeRadioSubtitles.render(graphics);
+        UiLayout.flush(graphics);
+        StreakPresentation.renderBlackout(graphics);
     }
 
     public static void icon(GuiGraphics graphics, String id, int x, int y, int size) {

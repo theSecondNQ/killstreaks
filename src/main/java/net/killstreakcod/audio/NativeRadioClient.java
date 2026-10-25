@@ -9,14 +9,17 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.sound.PlaySoundEvent;
 
 /**
  * One radio transmission at a time, with bounded queue and per-life cleanup.
@@ -36,6 +39,7 @@ public final class NativeRadioClient {
     private static long started;
     private static long nextVoice;
     private static int selectedTicks;
+    private static ResourceLocation captionedSound;
     private static boolean startedPlaying;
     private static boolean gunshipDeparted;
 
@@ -44,6 +48,14 @@ public final class NativeRadioClient {
     }
 
     private NativeRadioClient() {}
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void soundSelected(PlaySoundEvent event) {
+        // 声音模组可以替换原实例；跟踪替换结果，才能读取实际选中的音频并判断播放是否结束。
+        // 此处只观察事件，不替换、不取消其他模组的声音。
+        if (current != null && event.getOriginalSound() == playing && event.getSound() != null)
+            playing = event.getSound();
+    }
 
     public static void accept(NativeVoicePayload payload) {
         var mc = Minecraft.getInstance();
@@ -136,6 +148,7 @@ public final class NativeRadioClient {
             return;
         long now = world.getGameTime();
         if (playing != null) {
+            syncCaption(now);
             boolean active = mc.getSoundManager().isActive(playing);
             startedPlaying |= active;
             if (now - started > selectedTicks + 60
@@ -164,11 +177,22 @@ public final class NativeRadioClient {
         current = next;
         started = now;
         startedPlaying = false;
+        captionedSound = null;
+        selectedTicks = NativeAudio.voiceTicks(next.reward, next.phase, next.faction);
         mc.getSoundManager().play(playing);
-        selectedTicks = playing.getSound() == null ? NativeAudio.voiceTicks(next.reward, next.phase, next.faction)
-                : NativeAudio.soundTicks(playing.getSound().getLocation().toString(), next.reward, next.phase);
-        NativeRadioSubtitles.start(next.reward, next.phase,
-                playing.getSound() == null ? null : playing.getSound().getLocation(), selectedTicks);
+        syncCaption(now);
+    }
+
+    private static void syncCaption(long now) {
+        var selected = playing.getSound();
+        if (selected == null || selected.getLocation().equals(captionedSound))
+            return;
+        captionedSound = selected.getLocation();
+        selectedTicks = NativeAudio.soundTicks(captionedSound.toString(), current.reward, current.phase);
+        // 延后解析的音频也能补上字幕，但只显示剩余时间，不重新计时或重新抽取随机台词。
+        int remaining = (int) Math.max(0, started + selectedTicks - now);
+        if (remaining > 0)
+            NativeRadioSubtitles.start(current.reward, current.phase, captionedSound, remaining);
     }
 
     private static void ack(java.util.UUID gate) {
@@ -192,6 +216,7 @@ public final class NativeRadioClient {
             Minecraft.getInstance().getSoundManager().stop(playing);
         playing = null;
         current = null;
+        captionedSound = null;
         NativeRadioSubtitles.stop();
         QUEUE.clear();
         world = null;

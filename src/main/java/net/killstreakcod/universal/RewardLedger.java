@@ -114,16 +114,28 @@ final class RewardLedger {
     }
 
     List<Earned> awardKill(boolean support) {
-        addNumber(SCORE, support ? 25 : 125);
+        int points = scoreMode && net.killstreakcod.universal.compat.Gd656Scores.available() ? 0 : support ? 25 : 125;
+        addNumber(SCORE, points);
         List<Earned> earned = new ArrayList<>();
         if (!support) {
             addNumber(KILLS, 1);
             earn("mgb", MGB_THRESHOLD, 1, 4, earned);
         }
-        int amount = scoreMode ? (support ? 25 : 125) : support ? 0 : 1;
+        int amount = scoreMode ? points : support ? 0 : 1;
         if (amount > 0)
             for (int slot = 0; slot < loadout.length; slot++)
                 earn(loadout[slot].id(), threshold(loadout[slot]), amount, slot, earned);
+        save();
+        return List.copyOf(earned);
+    }
+
+    List<Earned> awardScore(int points) {
+        if (!scoreMode || points <= 0)
+            return List.of();
+        addNumber(SCORE, points);
+        List<Earned> earned = new ArrayList<>();
+        for (int slot = 0; slot < loadout.length; slot++)
+            earn(loadout[slot].id(), threshold(loadout[slot]), points, slot, earned);
         save();
         return List.copyOf(earned);
     }

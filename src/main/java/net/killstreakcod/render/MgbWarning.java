@@ -6,7 +6,6 @@ import net.killstreakcod.universal.MgbCountdownPayload;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 import net.minecraft.client.Minecraft;
@@ -14,9 +13,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
@@ -35,8 +32,8 @@ import net.neoforged.neoforge.client.event.ScreenEvent;
 public final class MgbWarning {
     private static ClientLevel world;
     private static UUID strike;
-    private static long sampledAt, lastServerTime;
-    private static int remaining = 0, age;
+    private static long sampledAt;
+    private static final MgbCountdownClock CLOCK = new MgbCountdownClock();
     private static String caller = "";
     private static Vec3 center = Vec3.ZERO;
     private static boolean incoming, bombs, detonated;
@@ -54,7 +51,7 @@ public final class MgbWarning {
     }
 
     public static float remaining(float partial) {
-        return active() ? Math.max(0, remaining - Mth.clamp(world.getGameTime() - sampledAt + partial, 0, 20)) : 0;
+        return active() && !detonated ? CLOCK.remaining(world.getGameTime(), partial) : 0;
     }
 
     public static void accept(MgbCountdownPayload payload) {
@@ -69,13 +66,10 @@ public final class MgbWarning {
                 || !Double.isFinite(payload.y()) || !Double.isFinite(payload.z()))
             return;
         boolean fresh = world != mc.level || !payload.strike().equals(strike);
-        if (!fresh && payload.gameTime() < lastServerTime)
-            return;
         if (fresh) {
             clear();
             world = mc.level;
             strike = payload.strike();
-            age = 0;
             incoming = bombs = false;
             detonated = payload.remaining() <= 0;
             if (!detonated) {
@@ -87,12 +81,14 @@ public final class MgbWarning {
             if (payload.remaining() >= 198)
                 countdown = play(StreakSounds.MGB_COUNTDOWN.get(), .80F);
         }
-        lastServerTime = payload.gameTime();
+        if (!CLOCK.synchronize(payload.gameTime(), payload.remaining(), mc.level.getGameTime()))
+            return;
         sampledAt = mc.level.getGameTime();
-        remaining = payload.remaining();
         center = new Vec3(payload.x(), payload.y(), payload.z());
         caller = payload.caller();
-        if (!detonated)
+        if (payload.remaining() <= 0)
+            detonated();
+        else if (!detonated)
             incomingAudio();
     }
 
@@ -104,11 +100,12 @@ public final class MgbWarning {
     }
 
     private static void incomingAudio() {
-        if (remaining <= 160 && !incoming) {
+        float left = remaining(0);
+        if (left <= 160 && !incoming) {
             incoming = true;
             play(StreakSounds.MGB_INCOMING.get(), .70F);
         }
-        if (remaining <= 120 && !bombs) {
+        if (left <= 120 && !bombs) {
             bombs = true;
             play(StreakSounds.MGB_BOMBS.get(), .70F);
         }
@@ -116,7 +113,6 @@ public final class MgbWarning {
 
     public static void detonated() {
         detonated = true;
-        remaining = 0;
         var manager = Minecraft.getInstance().getSoundManager();
         for (var sound : new SoundInstance[] { siren, countdown, drone })
             if (sound != null) {
@@ -132,7 +128,8 @@ public final class MgbWarning {
         SOUNDS.clear();
         world = null;
         strike = null;
-        remaining = age = 0;
+        CLOCK.reset();
+        incoming = bombs = detonated = false;
         siren = countdown = drone = null;
         caller = "";
         center = Vec3.ZERO;
@@ -155,11 +152,10 @@ public final class MgbWarning {
         }
         if (mc.isPaused())
             return;
-        age++;
         if (!detonated)
             incomingAudio();
 
-        // 致命快照对应的服务端状态会在一秒后移除，爆炸后的提示条随后淡出。
+        // 引爆时立即隐藏倒计时；短暂保留位置供世界特效使用，随后释放状态。
         if ((detonated && world.getGameTime() - sampledAt > 45) || world.getGameTime() - sampledAt > 200)
             clear();
     }
@@ -181,55 +177,11 @@ public final class MgbWarning {
         if (!active() || mc.options.hideGui)
             return;
 
-        // 参考画面在顶部附近有一条窄红色提示带，数字位于下方色带。
-        float slide = Mth.clamp((age + partial) / 8F, 0, 1);
-        slide = 1 - (1 - slide) * (1 - slide) * (1 - slide);
-        int width = Math.min(graphics.guiWidth() - 12, Math.max(150, Math.round(graphics.guiWidth() * .70F))),
-                height = 27;
-        int x = (graphics.guiWidth() - width) / 2, y = 4 - Math.round((1 - slide) * 35);
-        float left = remaining(partial);
-        float effects = mc.options.screenEffectScale().get().floatValue();
-        float pulse = .80F + .20F * (float) Math.sin((age + partial) * (left < 60 ? .85 : .35));
-        float alpha = detonated ? Mth.clamp(1 - (world.getGameTime() - sampledAt - 20) / 20F, 0, 1) : 1;
-        graphics.pose().pushPose();
-        graphics.pose().translate(0, 0, 600);
-        try {
-            graphics.fill(x, y, x + width, y + 16, ((int) (220 * alpha) << 24) | 0x0036161b);
-            graphics.fill(x, y + 16, x + width, y + height, ((int) (210 * alpha) << 24) | 0x00893140);
-            graphics.hLine(x, x + width - 1, y, ((int) (200 * alpha) << 24) | 0x00e26069);
-            graphics.hLine(x, x + width - 1, y + 15, ((int) (220 * alpha) << 24) | 0x00c84b58);
-            int stripes = Math.max(15, width / 2 - 65);
-            graphics.enableScissor(x, y + 1, x + width, y + 16);
-            try {
-                int scroll = effects > 0 ? (age % 24) : 0;
-                OriginalHud.region(graphics, "nuke_stripes_small", x + 3 - scroll, y + 3, stripes + 24, 11, 10, 24, 229,
-                        16, 248, 64, pulse * alpha);
-                OriginalHud.region(graphics, "nuke_stripes_small", x + width - stripes - 22 + scroll, y + 3,
-                        stripes + 24, 11, 10, 24, 229, 16, 248, 64, pulse * alpha);
-            } finally {
-                graphics.disableScissor();
-            }
-            OriginalHud.layer(graphics, "nuke_skull", x + width / 2 - 63, y + 2, 12, 12, alpha);
-            OriginalHud.layer(graphics, "nuke_skull", x + width / 2 + 51, y + 2, 12, 12, alpha);
-            int color = ((int) (255 * alpha) << 24) | 0x00ffe7e8;
-            if (alpha > .05F) {
-                graphics.drawCenteredString(mc.font,
-                        Component.translatable(
-                                detonated ? "hud.killstreakcod.mgb_impact" : "hud.killstreakcod.mgb_inbound"),
-                        x + width / 2, y + 4, color);
-                String timer = String.format(Locale.ROOT, "%04.1f", left / 20F);
-                graphics.drawCenteredString(mc.font, timer, x + width / 2, y + 18, color);
-                String tag = mc.font.plainSubstrByWidth(caller, Math.max(0, width / 4 - 8));
-                graphics.drawString(mc.font, tag, x + width - 5 - mc.font.width(tag), y + 18, color, false);
-            }
-
-            // 使用原资源括号装饰，确保各档 Minecraft GUI 缩放下倒计时都清晰可读。
-            OriginalHud.region(graphics, "nuke_timer_bracket_top", x + width / 2 - 22, y + 16, 44, 2, 0, 8, 264, 13,
-                    264, 32, alpha * .75F);
-            OriginalHud.region(graphics, "nuke_timer_bracket_bottom", x + width / 2 - 22, y + height - 1, 44, 2, 0, 8,
-                    264, 16, 264, 32, alpha * .75F);
-        } finally {
-            graphics.pose().popPose();
-        }
+        if (detonated)
+            return;
+        if (mc.isPaused())
+            partial = 0;
+        NukeUiRenderer.render(graphics, CLOCK.elapsedMilliseconds(world.getGameTime(), partial), remaining(partial),
+                caller);
     }
 }

@@ -227,6 +227,22 @@ public final class ImportedCastModel {
     private void renderInternal(PoseStack pose, MultiBufferSource buffers, int light, int overlay,
             Map<String, Matrix4f> globals, RenderPass pass, Map<String, ResourceLocation> materialTextures,
             GunshipCabinLighting.Profile lamps) {
+        renderInternal(pose, buffers, light, overlay, globals, pass, materialTextures, lamps, -1);
+    }
+
+    /** 复用指定骨骼的原网格和材质，仅提交属于该骨骼的三角面。 */
+    public void renderBone(String name, PoseStack pose, MultiBufferSource buffers, int light, int overlay,
+            Map<String, Matrix4f> globals) {
+        for (int bone = 0; bone < bones.size(); bone++)
+            if (bones.get(bone).name().equals(name)) {
+                renderInternal(pose, buffers, light, overlay, globals, RenderPass.SCENE, Map.of(), null, bone);
+                return;
+            }
+    }
+
+    private void renderInternal(PoseStack pose, MultiBufferSource buffers, int light, int overlay,
+            Map<String, Matrix4f> globals, RenderPass pass, Map<String, ResourceLocation> materialTextures,
+            GunshipCabinLighting.Profile lamps, int partBone) {
         boolean scene = pass != RenderPass.WORLD;
         boolean cockpit = pass == RenderPass.COCKPIT || pass == RenderPass.DAMAGED_COCKPIT;
         boolean damaged = pass == RenderPass.DAMAGED_COCKPIT;
@@ -263,7 +279,7 @@ public final class ImportedCastModel {
             if (cockpit && (mesh.hiddenInCockpit || mesh.damagedGlass && !damaged
                     || damaged && mesh.glass && !mesh.damagedGlass))
                 continue;
-            Geometry geometry = mesh.geometry(pass);
+            Geometry geometry = partBone < 0 ? mesh.geometry(pass) : mesh.boneGeometry(partBone);
             if (geometry.quads.length == 0)
                 continue;
             boolean deform = animated && mesh.hasChangedInfluence(changedBones);
@@ -336,6 +352,7 @@ public final class ImportedCastModel {
         final float[] source, vertices, sceneVertices, posed, weights, panelUvs;
         final int[] joints, colors, glassColors, influencedBones;
         final Geometry full, fingerless, leftFingerless;
+        private Map<Integer, Geometry> boneParts;
         private float[] deformed;
         private long deformedRevision = Long.MIN_VALUE;
         private boolean deformedScene;
@@ -472,6 +489,31 @@ public final class ImportedCastModel {
                 case LEFT_ARM -> leftFingerless;
                 default -> full;
             };
+        }
+
+        Geometry boneGeometry(int bone) {
+            if (boneParts == null)
+                boneParts = new HashMap<>();
+            return boneParts.computeIfAbsent(bone, selected -> {
+                int[] faces = new int[full.faces.length];
+                int size = 0;
+                for (int i = 0; i < full.faces.length; i += 3)
+                    if (belongsToBone(full.faces[i], selected) && belongsToBone(full.faces[i + 1], selected)
+                            && belongsToBone(full.faces[i + 2], selected)) {
+                        faces[size++] = full.faces[i];
+                        faces[size++] = full.faces[i + 1];
+                        faces[size++] = full.faces[i + 2];
+                    }
+                return new Geometry(Arrays.copyOf(faces, size));
+            });
+        }
+
+        private boolean belongsToBone(int vertex, int bone) {
+            float weight = 0;
+            for (int i = vertex * influences; i < (vertex + 1) * influences; i++)
+                if (joints[i] == bone)
+                    weight += weights[i];
+            return weight >= .5F;
         }
 
         boolean hasChangedInfluence(boolean[] changed) {

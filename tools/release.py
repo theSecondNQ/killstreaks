@@ -17,6 +17,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES = ROOT / 'src/main/resources'
+LANGUAGE_OVERLAY = None
 REPORTS = ROOT / 'build/reports'
 LIBS = ROOT / 'build/libs'
 MOD_ID = 'killstreakcod'
@@ -24,13 +25,19 @@ MOD_JAR_RE = re.compile(
     r'^(?:killstreakcod(?:-forge-\d+\.\d+\.\d+)?|killstreaks-(?:neoforge|forge)-\d+\.\d+\.\d+)-'
     r'(?P<version>\d+\.\d+\.\d+(?:\.\d+)?)\.jar$', re.IGNORECASE)
 MAX_JAR_BYTES = 100_000_000
-VERSION = re.search(r"version = '([^']+)'", (ROOT / 'build.gradle').read_text(encoding='utf-8')).group(1)
-JAR = LIBS / f'{MOD_ID}-{VERSION}.jar'
-SOURCE = LIBS / f'{MOD_ID}-{VERSION}-source.zip'
-SOURCE_ROOTS = ['src/main', 'gradle', 'tools', 'docs', 'build.gradle', 'settings.gradle',
+BUILD_SCRIPT = (ROOT / 'build.gradle').read_text(encoding='utf-8-sig')
+VERSION = re.search(r"version = '([^']+)'", BUILD_SCRIPT).group(1)
+ARCHIVE_NAME = re.search(r"base\.archivesName = '([^']+)'", BUILD_SCRIPT).group(1)
+JAR = LIBS / f'{ARCHIVE_NAME}-{VERSION}.jar'
+SOURCE = LIBS / f'{ARCHIVE_NAME}-{VERSION}-source.zip'
+SOURCE_ROOTS = ['src/main', 'src/uiPreview', 'gradle', 'tools', 'docs', 'build.gradle', 'settings.gradle',
                 'gradle.properties', 'gradlew', 'gradlew.bat', 'killstreakcod.mcreator', 'README.md', '.gitignore',
-                '.editorconfig', 'assets/terminal.obj', 'assets/terminal.mtl', '新系统.docx']
+                '.editorconfig', 'assets/terminal.obj', 'assets/terminal.mtl']
 SOURCE_ROOTS += [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / 'assets').glob('laptop_*.png'))]
+
+# 需求文档存在时随源码收录，发行不依赖工程外已移走的参考文档。
+if (ROOT / '新系统.docx').is_file():
+    SOURCE_ROOTS.append('新系统.docx')
 
 
 def require(condition, message):
@@ -66,6 +73,11 @@ def source_files():
                 continue
             require(not path.is_symlink(), 'Source link is not supported: ' + str(path))
             files[path.relative_to(ROOT).as_posix()] = path
+    # 源码归档采用构建时同一份语言增量，不改写镜像工程内的 resources。
+    if LANGUAGE_OVERLAY is not None:
+        require(LANGUAGE_OVERLAY.is_dir(), 'Language overlay directory is missing.')
+        files.update({f'src/main/resources/assets/{MOD_ID}/lang/' + p.name: p
+                      for p in LANGUAGE_OVERLAY.glob('*.json')})
     return files
 
 
@@ -73,10 +85,21 @@ def artifact(path):
     return {'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size}
 
 
+def resource_files():
+    """Merge separately supplied language files. 中文：合并独立语言资源，不改写源码镜像的 resources。"""
+    files = {p.relative_to(RESOURCES).as_posix(): p for p in RESOURCES.rglob('*') if p.is_file()}
+    if LANGUAGE_OVERLAY is not None:
+        require(LANGUAGE_OVERLAY.is_dir(), 'Language overlay directory is missing.')
+        files.update({f'assets/{MOD_ID}/lang/' + p.name: p for p in LANGUAGE_OVERLAY.glob('*.json')})
+    return files
+
+
 def localization_inventory():
     """Check language coverage and arguments. 中文：核对语言覆盖、字幕路由及格式参数。"""
     languages = {}
-    for path in sorted((RESOURCES / f'assets/{MOD_ID}/lang').glob('*.json')):
+    for key, path in sorted(resource_files().items()):
+        if not key.startswith(f'assets/{MOD_ID}/lang/') or path.suffix != '.json':
+            continue
         def unique(pairs):
             result = {}
             for key, value in pairs:
@@ -152,7 +175,7 @@ def localization_inventory():
 def inventory(baseline=None):
     require(JAR.is_file(), 'Build the production JAR first.')
     require(JAR.stat().st_size < MAX_JAR_BYTES, 'Production JAR must be below 100 MB.')
-    resources = {p.relative_to(RESOURCES).as_posix(): p for p in RESOURCES.rglob('*') if p.is_file()}
+    resources = resource_files()
     java = {p.relative_to(ROOT / 'src/main/java').with_suffix('.class').as_posix(): p
             for p in (ROOT / 'src/main/java').rglob('*.java')}
     for key, path in java.items():
@@ -252,7 +275,8 @@ def inventory(baseline=None):
               'jarBudgetBytes': MAX_JAR_BYTES, 'meshFormats': dict(sorted(mesh_formats.items())),
               'productionJavaFiles': len(java), 'compiledClasses': len(classes), 'resourceFiles': len(resources),
               'importedModels': len(list(RESOURCES.rglob('*.mesh.gz'))), 'soundFileReferences': sound_files,
-              'baseline': comparison, 'localization': localization, 'testsRun': False, 'minecraftLaunched': False}
+              'baseline': comparison, 'localization': localization,
+              'languageOverlay': str(LANGUAGE_OVERLAY) if LANGUAGE_OVERLAY is not None else None, 'testsRun': False, 'minecraftLaunched': False}
     save('package-inventory.json', report)
     print(json.dumps(report, ensure_ascii=True, indent=2))
 
@@ -298,7 +322,7 @@ def verify():
         require(actual == expected, 'Other active mods changed.')
         active = [p for p in (instance / 'mods').glob('*.jar') if MOD_JAR_RE.fullmatch(p.name)]
         require(len(active) == 1 and active[0].name == Path(record['installed']['path']).name
-                and MOD_JAR_RE.fullmatch(active[0].name).group('version') == VERSION,
+                and active[0].name == JAR.name,
                 'Duplicate or incorrect active release.')
         retained = {row['relative']: row['sha256'] for row in record['retainedFiles']}
         actual_files = {p.relative_to(instance).as_posix(): sha(p) for folder in ['config', MOD_ID + '-skins']
@@ -313,10 +337,13 @@ def verify():
 
 
 def main():
+    global LANGUAGE_OVERLAY
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=['inventory', 'package', 'verify'])
     parser.add_argument('--baseline', type=Path, help='Optional prior JAR for a byte-identical runtime cleanup.')
+    parser.add_argument('--language-overlay', type=Path, help='Language JSON directory also supplied to Gradle.')
     args = parser.parse_args()
+    LANGUAGE_OVERLAY = args.language_overlay.resolve() if args.language_overlay else None
     if args.command == 'inventory':
         inventory(args.baseline)
     elif args.command == 'package':

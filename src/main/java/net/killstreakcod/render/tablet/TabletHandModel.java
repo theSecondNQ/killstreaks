@@ -11,6 +11,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -24,36 +25,38 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
 
 /**
  * Camera-space tablet, radio and articulated hands using the current player's skin.
  * 在摄像机空间绘制平板、无线电和可活动双手，使用当前玩家的皮肤。
  */
 public final class TabletHandModel {
+    private static final float ARM_SCALE = .45F;
+    private static final float GRIP_CLEARANCE = .006F;
     private static final ResourceLocation MATERIAL = asset("textures/entity/tactical_atlas.png");
     private static final ResourceLocation WHITE = asset("textures/entity/thermal_white.png");
-    private final ModelPart compact, radio, stylus, leftArm, rightArm, rightIndex, indexTip, leftThumb, rightThumb,
-            leftDigit, rightDigit;
+    private final ModelPart compact, radio, stylus;
+    private final ModelPart classic, slim;
+    private ModelPart leftArm, rightArm;
 
     public TabletHandModel() {
         MeshDefinition device = new MeshDefinition();
         PartDefinition deviceRoot = device.getRoot();
         PartDefinition receiver = deviceRoot.addOrReplaceChild("radio",
-                CubeListBuilder.create().texOffs(0, 0).addBox(2.8F, -4, 1.5F, 4.5F, 8, 2)
-                        .texOffs(384, 0).addBox(3.3F, -2, 3.55F, 3.5F, 3, .15F).addBox(3.5F, 1.5F, 3.55F, 1, 1.1F, .2F)
-                        .texOffs(128, 0).addBox(3.4F, -10, 2.2F, .45F, 6, .5F).addBox(6, -5, 2, .8F, 1.2F, 1)
-                        .texOffs(384, 128).addBox(4.2F, -3.4F, 3.55F, 1.5F, .5F, .15F),
+                CubeListBuilder.create().texOffs(0, 0).addBox(2.8F, -4, 1.5F, 4.5F, 8, 2).texOffs(384, 0)
+                        .addBox(3.3F, -2, 3.55F, 3.5F, 3, .15F).addBox(3.5F, 1.5F, 3.55F, 1, 1.1F, .2F).texOffs(128, 0)
+                        .addBox(3.4F, -10, 2.2F, .45F, 6, .5F).addBox(6, -5, 2, .8F, 1.2F, 1).texOffs(384, 128)
+                        .addBox(4.2F, -3.4F, 3.55F, 1.5F, .5F, .15F),
                 PartPose.ZERO);
         receiver.addOrReplaceChild("ptt",
                 CubeListBuilder.create().texOffs(384, 0).addBox(2.45F, -1, 1.8F, .45F, 2.2F, 1.2F), PartPose.ZERO);
-        deviceRoot.addOrReplaceChild("stylus",
-                CubeListBuilder.create().texOffs(384, 0).addBox(0, -.16F, -.16F, 5.4F, .32F, .32F)
-                        .texOffs(128, 0).addBox(-.65F, -.09F, -.09F, .7F, .18F, .18F),
+        deviceRoot.addOrReplaceChild("stylus", CubeListBuilder.create().texOffs(384, 0)
+                .addBox(0, -.16F, -.16F, 5.4F, .32F, .32F).texOffs(128, 0).addBox(-.65F, -.09F, -.09F, .7F, .18F, .18F),
                 PartPose.ZERO);
         deviceRoot.addOrReplaceChild("compact",
-                CubeListBuilder.create().texOffs(384, 0).addBox(-3.15F, -6.35F, -.45F, 6.3F, 12.7F, .9F)
-                        .texOffs(128, 0).addBox(-3.45F, -6.65F, -.35F, .5F, 13.3F, .85F)
-                        .addBox(2.95F, -6.65F, -.35F, .5F, 13.3F, .85F)
+                CubeListBuilder.create().texOffs(384, 0).addBox(-3.15F, -6.35F, -.45F, 6.3F, 12.7F, .9F).texOffs(128, 0)
+                        .addBox(-3.45F, -6.65F, -.35F, .5F, 13.3F, .85F).addBox(2.95F, -6.65F, -.35F, .5F, 13.3F, .85F)
                         .addBox(-3.1F, -6.8F, -.35F, 6.2F, .6F, .85F).addBox(-3.1F, 6.2F, -.35F, 6.2F, .6F, .85F)
                         .texOffs(384, 128).addBox(-1.25F, -6.2F, .5F, 2.5F, .24F, .15F),
                 PartPose.ZERO);
@@ -62,30 +65,45 @@ public final class TabletHandModel {
         radio = baked.getChild("radio");
         stylus = baked.getChild("stylus");
 
-        MeshDefinition hands = new MeshDefinition();
-        PartDefinition handsRoot = hands.getRoot();
-        hand(handsRoot, "left", true);
-        hand(handsRoot, "right", false);
-        ModelPart skin = LayerDefinition.create(hands, 64, 64).bakeRoot();
-        leftArm = skin.getChild("left");
-        rightArm = skin.getChild("right");
-        rightIndex = rightArm.getChild("index");
-        indexTip = rightIndex.getChild("tip");
-        rightThumb = rightArm.getChild("thumb");
-        leftThumb = leftArm.getChild("thumb");
-        MeshDefinition digits = new MeshDefinition();
-        digits.getRoot().addOrReplaceChild("left",
-                CubeListBuilder.create().texOffs(34, 52).addBox(-.45F, 0, -.45F, .9F, 2.2F, .9F), PartPose.ZERO);
-        digits.getRoot().addOrReplaceChild("right",
-                CubeListBuilder.create().texOffs(42, 20).addBox(-.45F, 0, -.45F, .9F, 2.2F, .9F), PartPose.ZERO);
-        ModelPart digitModel = LayerDefinition.create(digits, 64, 64).bakeRoot();
-        leftDigit = digitModel.getChild("left");
-        rightDigit = digitModel.getChild("right");
-        leftDigit.visible = false;
-        rightDigit.visible = false;
-        for (ModelPart arm : new ModelPart[] { leftArm, rightArm })
-            for (String child : new String[] { "finger0", "finger1", "finger2", "thumb", "index" })
-                arm.getChild(child).visible = false;
+        classic = Minecraft.getInstance().getEntityModels().bakeLayer(ModelLayers.PLAYER);
+        slim = Minecraft.getInstance().getEntityModels().bakeLayer(ModelLayers.PLAYER_SLIM);
+        selectPlayerArms();
+    }
+
+    private void selectPlayerArms() {
+        ModelPart model = narrowArms() ? slim : classic;
+        leftArm = model.getChild("left_arm");
+        rightArm = model.getChild("right_arm");
+    }
+
+    private boolean narrowArms() {
+        var player = Minecraft.getInstance().player;
+        return player != null && player.getSkin().model() == net.minecraft.client.resources.PlayerSkin.Model.SLIM;
+    }
+
+    /** 备用动作的原始枢轴同样位于手腕，原版模型的肩部枢轴在此换算。 */
+    private void renderArm(PoseStack pose, MultiBufferSource buffers, ResourceLocation skin, int light, boolean left) {
+        ModelPart arm = left ? leftArm : rightArm;
+        ModelPart sleeve = (narrowArms() ? slim : classic).getChild(left ? "left_sleeve" : "right_sleeve");
+        PartPose previous = arm.storePose();
+        pose.pushPose();
+        try {
+            arm.translateAndRotate(pose);
+            arm.x = arm.y = arm.z = arm.xRot = arm.yRot = arm.zRot = 0;
+            sleeve.copyFrom(arm);
+            pose.mulPose(Axis.ZP.rotationDegrees(180));
+            pose.translate((left ? -1 : 1) * (narrowArms() ? .5F : 1F) / 16F, -10F / 16F, 0);
+            arm.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light, OverlayTexture.NO_OVERLAY);
+            var player = Minecraft.getInstance().player;
+            if (player == null
+                    || player.isModelPartShown(left ? net.minecraft.world.entity.player.PlayerModelPart.LEFT_SLEEVE
+                            : net.minecraft.world.entity.player.PlayerModelPart.RIGHT_SLEEVE))
+                sleeve.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light,
+                        OverlayTexture.NO_OVERLAY);
+        } finally {
+            arm.loadPose(previous);
+            pose.popPose();
+        }
     }
 
     private static ResourceLocation asset(String path) {
@@ -93,45 +111,109 @@ public final class TabletHandModel {
     }
 
     /**
-     * Retarget the source's actual wrist and every finger-joint matrix to Minecraft skin meshes.
-     * 将源资源实际手腕及每个指关节矩阵重定向到 Minecraft 皮肤网格。
+     * Retarget source wrist motion to the vanilla player arms and sleeves.
+     * 保留源手腕动作，使用原版玩家手臂与袖层，不绘制手指网格。
      */
     public void renderTrackedHands(PoseStack pose, MultiBufferSource buffers, ResourceLocation skin, int light,
             Map<String, Matrix4f> cameraBones, boolean leftOnly) {
+        renderTrackedHands(pose, buffers, skin, light, cameraBones, leftOnly, false);
+    }
+
+    /** 触控笔可横跨右手掌末端，大型设备仍与整个方块手掌外表面保持接触。 */
+    public void renderTrackedHands(PoseStack pose, MultiBufferSource buffers, ResourceLocation skin, int light,
+            Map<String, Matrix4f> cameraBones, boolean leftOnly, boolean stylusHand) {
+        selectPlayerArms();
+        boolean narrow = narrowArms();
+        ModelPart model = narrow ? slim : classic;
         for (String side : leftOnly ? new String[] { "le" } : new String[] { "le", "ri" }) {
-            ModelPart arm = side.equals("le") ? leftArm : rightArm, digit = side.equals("le") ? leftDigit : rightDigit;
             Matrix4f wrist = cameraBones.get("j_wrist_" + side);
             if (wrist == null)
                 continue;
-            for (String child : new String[] { "finger0", "finger1", "finger2", "thumb", "index" })
-                arm.getChild(child).visible = false;
+            boolean left = side.equals("le");
+            ModelPart arm = left ? leftArm : rightArm;
+            ModelPart sleeve = model.getChild(left ? "left_sleeve" : "right_sleeve");
+            arm.resetPose();
+            sleeve.resetPose();
             arm.x = arm.y = arm.z = arm.xRot = arm.yRot = arm.zRot = 0;
+            sleeve.copyFrom(arm);
             pose.pushPose();
-            pose.mulPose(cameraMatrix(wrist, true));
-            pose.scale(.45F, .45F, .45F);
             try {
+                pose.mulPose(gripFrame(cameraBones, side, narrow, stylusHand && !left));
+                pose.scale(ARM_SCALE, ARM_SCALE, ARM_SCALE);
+                float wristY = 8;
+                pose.translate((left ? -1 : 1) * (narrow ? .5F : 1F) / 16F, -wristY / 16F, 0);
                 arm.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light,
                         OverlayTexture.NO_OVERLAY);
+                var player = Minecraft.getInstance().player;
+                if (player == null
+                        || player.isModelPartShown(left ? net.minecraft.world.entity.player.PlayerModelPart.LEFT_SLEEVE
+                                : net.minecraft.world.entity.player.PlayerModelPart.RIGHT_SLEEVE))
+                    sleeve.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light,
+                            OverlayTexture.NO_OVERLAY);
             } finally {
                 pose.popPose();
             }
-            for (String finger : new String[] { "index", "mid", "ring", "pinky", "thumb" })
-                for (int joint = 1; joint <= 3; joint++) {
-                    Matrix4f matrix = cameraBones.get("j_" + finger + "_" + side + "_" + joint);
-                    if (matrix == null)
-                        continue;
-                    Matrix4f next = cameraBones.get("j_" + finger + "_" + side + "_" + (joint + 1));
-                    float length = next == null ? .025F
-                            : next.getTranslation(new org.joml.Vector3f())
-                                    .distance(matrix.getTranslation(new org.joml.Vector3f())) * .01F;
-                    pose.pushPose();
-                    pose.mulPose(cameraMatrix(matrix, false));
-                    pose.scale(.45F, Mth.clamp(length, .01F, .12F) / (2.2F / 16), .45F);
-                    digit.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light,
-                            OverlayTexture.NO_OVERLAY);
-                    pose.popPose();
-                }
         }
+    }
+
+    /** 将源手指接触点放在方块手掌的外表面，避免把物品握持点埋入手掌中心。 */
+    private static Matrix4f gripFrame(Map<String, Matrix4f> bones, String side, boolean narrow, boolean stylus) {
+        Matrix4f wrist = bones.get("j_wrist_" + side);
+        Matrix4f fallback = cameraMatrix(wrist, true).rotateZ((float) Math.PI);
+        Vector3f at = sourceCameraMatrix(wrist).getTranslation(new Vector3f());
+        Vector3f palm = new Vector3f();
+        int count = 0;
+        for (String finger : new String[] { "index", "mid", "ring", "pinky" }) {
+            Matrix4f joint = bones.get("j_" + finger + "_" + side + "_1");
+            if (joint != null) {
+                palm.add(sourceCameraMatrix(joint).getTranslation(new Vector3f()));
+                count++;
+            }
+        }
+        Matrix4f index = bones.get("j_index_" + side + "_1"), pinky = bones.get("j_pinky_" + side + "_1");
+        if (count < 2 || index == null || pinky == null)
+            return fallback;
+        palm.div(count);
+        Vector3f y = new Vector3f(palm).sub(at);
+        Vector3f x = sourceCameraMatrix(index).getTranslation(new Vector3f())
+                .sub(sourceCameraMatrix(pinky).getTranslation(new Vector3f()));
+        if (y.lengthSquared() < .00001F || x.lengthSquared() < .00001F)
+            return fallback;
+        y.normalize();
+        x.mul(side.equals("le") ? -1 : 1).normalize();
+        Vector3f z = new Vector3f(x).cross(y);
+        if (z.lengthSquared() < .00001F)
+            return fallback;
+        z.normalize();
+        x.set(y).cross(z).normalize();
+        Vector3f contact = new Vector3f();
+        int contacts = 0;
+        for (String finger : new String[] { "index", "thumb" }) {
+            Matrix4f joint = bones.get("j_" + finger + "_" + side + "_2");
+            if (joint != null) {
+                contact.add(sourceCameraMatrix(joint).getTranslation(new Vector3f()));
+                contacts++;
+            }
+        }
+        if (contacts == 0)
+            return fallback;
+        contact.div(contacts);
+        Vector3f towardGrip = new Vector3f(contact).sub(palm);
+        towardGrip.fma(-towardGrip.dot(y), y);
+        if (towardGrip.lengthSquared() < .00001F)
+            towardGrip.set(z);
+        else
+            towardGrip.normalize();
+
+        // 原版手掌末端位于局部 Y=10，中心位于 Y=8；按握持面法线补偿实际方块厚度。
+        // 补偿随手掌旋转，不能固定沿摄像机深度推移，否则设备转动时仍会穿入手掌。
+        float depth = ARM_SCALE / 16F
+                * (Math.abs(towardGrip.dot(x)) * (narrow ? 1.5F : 2F) + Math.abs(towardGrip.dot(z)) * 2F);
+        float tip = (stylus ? .75F : 2F) * ARM_SCALE / 16F;
+        at.set(contact).fma(-(tip + GRIP_CLEARANCE), y).fma(-(depth * (stylus ? .75F : 1) + GRIP_CLEARANCE),
+                towardGrip);
+        return new Matrix4f().m00(x.x).m01(x.y).m02(x.z).m10(y.x).m11(y.y).m12(y.z).m20(z.x).m21(z.y).m22(z.z)
+                .setTranslation(at);
     }
 
     private static Matrix4f cameraMatrix(Matrix4f source, boolean forearm) {
@@ -174,30 +256,12 @@ public final class TabletHandModel {
         pose.popPose();
     }
 
-    private static void hand(PartDefinition parent, String name, boolean left) {
-        int u = left ? 32 : 40, v = left ? 48 : 16;
-        PartDefinition arm = parent.addOrReplaceChild(name,
-                CubeListBuilder.create().texOffs(u, v).addBox(-2, 0, -2, 4, 10, 4)
-                        .texOffs(u, v + 4).addBox(-1.9F, -3, -1.65F, 3.8F, 3.2F, 3.3F),
-                PartPose.ZERO);
-        for (int n = 0; n < 3; n++)
-            arm.addOrReplaceChild("finger" + n, CubeListBuilder.create().texOffs(u + 3, v + 4)
-                    .addBox(-.45F, -2.2F, -.5F, .9F, 2.4F, 1), PartPose.offset(-.25F + n * .95F, -2.5F, -1.1F));
-        arm.addOrReplaceChild("thumb",
-                CubeListBuilder.create().texOffs(u, v + 3).addBox(-.5F, -2, -.55F, 1, 2.4F, 1.1F),
-                PartPose.offsetAndRotation(left ? 2.15F : -2.15F, -.7F, .1F, 0, 0, left ? -.5F : .5F));
-        PartDefinition index = arm.addOrReplaceChild("index", CubeListBuilder.create().texOffs(u + 2, v + 4)
-                .addBox(-.5F, -2, -.5F, 1, 2.2F, 1), PartPose.offset(-1.35F, -2.5F, -1.05F));
-        index.addOrReplaceChild("tip",
-                CubeListBuilder.create().texOffs(u + 2, v + 5).addBox(-.45F, -1.7F, -.45F, .9F, 1.8F, .9F),
-                PartPose.offset(0, -1.9F, 0));
-    }
-
     public void render(PoseStack pose, MultiBufferSource buffers, ResourceLocation skin, int light, float visibility,
             float tap, float age, float stow, float movement, float transmit, boolean radioCall, boolean confirmed,
             String reward) {
+        selectPlayerArms();
         float appear = Mth.clamp(visibility, 0, 1), ready = ease((appear - .25F) / .75F);
-        leftThumb.resetPose();
+
         pose.pushPose();
         float sway = (float) Math.sin(age * .66F) * movement * .006F * appear * (1 - stow);
         pose.translate((radioCall ? .03 : -.16 * (1 - appear)) + stow * .16,
@@ -257,13 +321,9 @@ public final class TabletHandModel {
         rightArm.xRot = .65F;
         rightArm.zRot = radioCall ? -.08F : -.15F;
         rightArm.yRot = radioCall ? .06F : -.20F;
-        rightIndex.xRot = radioCall ? .85F + tap * .4F : 1.5F;
-        indexTip.xRot = radioCall ? tap * .6F : .8F;
-        rightThumb.xRot = radioCall ? tap * .4F : 0;
-        rightThumb.zRot = .5F + (radioCall ? tap * .2F : 0);
-        VertexConsumer player = buffers.getBuffer(RenderType.entityCutoutNoCull(skin));
-        leftArm.render(pose, player, light, OverlayTexture.NO_OVERLAY);
-        rightArm.render(pose, player, light, OverlayTexture.NO_OVERLAY);
+
+        renderArm(pose, buffers, skin, light, true);
+        renderArm(pose, buffers, skin, light, false);
         pose.popPose();
     }
 
@@ -273,6 +333,7 @@ public final class TabletHandModel {
      */
     public void renderCompact(PoseStack pose, MultiBufferSource buffers, ResourceLocation skin, int light,
             float visibility, float tap, float age, float stow, float movement, float transmit, String reward) {
+        selectPlayerArms();
         float appear = Mth.clamp(visibility, 0, 1), sway = (float) Math.sin(age * .68F) * movement * .005F * appear;
         pose.pushPose();
         pose.translate(-.34 - (1 - appear) * .18 - stow * .12, -1.02 + appear * .83 + sway,
@@ -309,13 +370,8 @@ public final class TabletHandModel {
         leftArm.xRot = .26F;
         leftArm.yRot = .04F;
         leftArm.zRot = -.045F;
-        leftThumb.resetPose();
-        leftThumb.x = 2.8F - tap * .55F;
-        leftThumb.y = -.05F + tap * .3F;
-        leftThumb.z = -.95F - tap * .65F;
-        leftThumb.xRot = .12F + tap * .65F;
-        leftThumb.zRot = -.55F + tap * .52F;
-        leftArm.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light, OverlayTexture.NO_OVERLAY);
+
+        renderArm(pose, buffers, skin, light, true);
         pose.popPose();
     }
 
@@ -325,6 +381,7 @@ public final class TabletHandModel {
      */
     public void renderTakeEquipment(PoseStack pose, MultiBufferSource buffers, ResourceLocation skin, int light,
             ItemStack equipment, float progress) {
+        selectPlayerArms();
         float lift = ease(progress / .45F);
         pose.pushPose();
         pose.translate(0, -.92 + lift * .53, -.90 + lift * .08);
@@ -368,8 +425,7 @@ public final class TabletHandModel {
                 rightArm.xRot = .86F;
                 rightArm.yRot = -.12F;
                 rightArm.zRot = -.16F;
-                rightArm.render(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(skin)), light,
-                        OverlayTexture.NO_OVERLAY);
+                renderArm(pose, buffers, skin, light, false);
             } else
                 equipmentHands(pose, buffers, skin, light, 0);
         } finally {
@@ -410,14 +466,14 @@ public final class TabletHandModel {
         rightArm.xRot = .80F;
         rightArm.yRot = -.1F + release * .3F;
         rightArm.zRot = -.30F - release * .20F;
-        VertexConsumer player = buffers.getBuffer(RenderType.entityCutoutNoCull(skin));
-        leftArm.render(pose, player, light, OverlayTexture.NO_OVERLAY);
-        rightArm.render(pose, player, light, OverlayTexture.NO_OVERLAY);
+        renderArm(pose, buffers, skin, light, true);
+        renderArm(pose, buffers, skin, light, false);
     }
 
     public void renderDeployment(PoseStack pose, MultiBufferSource buffers, ResourceLocation skin, int light,
             ItemStack equipment, float progress) {
-        leftThumb.resetPose();
+        selectPlayerArms();
+
         float reach = ease(progress / .72F), release = ease((progress - .58F) / .42F);
         pose.pushPose();
         pose.translate(0, -.34 - reach * .30, -.66 - reach * .38);
@@ -443,13 +499,9 @@ public final class TabletHandModel {
         rightArm.xRot = .80F;
         rightArm.yRot = -.1F + release * .3F;
         rightArm.zRot = -.30F - release * .20F;
-        rightIndex.xRot = .45F * (1 - release);
-        indexTip.xRot = .35F * (1 - release);
-        rightThumb.xRot = 0;
-        rightThumb.zRot = .5F;
-        VertexConsumer player = buffers.getBuffer(RenderType.entityCutoutNoCull(skin));
-        leftArm.render(pose, player, light, OverlayTexture.NO_OVERLAY);
-        rightArm.render(pose, player, light, OverlayTexture.NO_OVERLAY);
+
+        renderArm(pose, buffers, skin, light, true);
+        renderArm(pose, buffers, skin, light, false);
         pose.popPose();
     }
 

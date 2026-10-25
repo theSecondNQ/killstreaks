@@ -48,7 +48,8 @@ public final class RenderingMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public List<String> getMixins() {
-        return null;
+        // 此入口只依赖运行侧，不接触实体渲染和全局事件总线；专用服务器不加载客户端目标类。
+        return FMLLoader.getDist().isClient() ? List.of("client.RemoteHudMixin") : List.of();
     }
 
     @Override

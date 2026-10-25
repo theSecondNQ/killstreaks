@@ -1,7 +1,6 @@
 package net.killstreakcod.universal;
 
 import net.killstreakcod.KillstreakcodMod;
-import net.killstreakcod.killstreaks.PrecisionFlight;
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
 import net.killstreakcod.killstreaks.TacticalUnitEntity.Kind;
 
@@ -142,9 +141,6 @@ public final class ResearchCombat {
         if (unit.kind() == Kind.BOMB && unit.cargo.equals("stealth")
                 && ResearchEffects.has(unit, "stealth_bomber.homing"))
             guideBomb(unit);
-        if (unit.kind() == Kind.PRECISION && TacticalRuntime.controlled(unit)
-                && unit.age - unit.delay > PrecisionFlight.ATTACK_END)
-            TacticalRuntime.endSession(unit.owner(), false);
         if (unit.kind() == Kind.WHEELSON && unit.autopilot && !TacticalRuntime.controlled(unit)
                 && ResearchEffects.has(unit, "wheelson_hs.patrol")) {
             Vec3 movement = unit.getDeltaMovement();

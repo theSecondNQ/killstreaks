@@ -1,9 +1,10 @@
 package net.killstreakcod.render;
 
 import net.killstreakcod.KillstreakcodMod;
+import net.killstreakcod.render.compat.OptionalShaderCompat;
+import net.killstreakcod.universal.NuclearPattern;
 
 import java.util.Map;
-
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -20,25 +21,18 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 
-/**
- * Camera-distance-independent original JDAM mesh and nuclear 32-frame material adapter.
- * 使用不随摄像机距离缩放的原 JDAM 网格，并适配 32 帧核爆材质。
- */
+/** 程序生成的三组蘑菇状粒子云；只用纯白像素提交径向渐变粒子，不绘制核爆序列帧贴图。 */
 @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT)
 public final class MgbWorldRenderer {
-    private static final ResourceLocation PYRO = texture("pyro"), EMISSION = texture("pyro_emission"),
-            DUST = texture("dust");
+    private static final ResourceLocation WHITE = ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID,
+            "textures/entity/thermal_white.png");
 
     private MgbWorldRenderer() {}
 
-    private static ResourceLocation texture(String name) {
-        return ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "textures/mw/mgb/" + name + ".png");
-    }
-
     @SubscribeEvent
     public static void render(RenderLevelStageEvent event) {
-        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL
-                || (!MgbEffects.active() && !MgbWarning.active()))
+        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL || OptionalShaderCompat.shadowPass()
+                || !MgbEffects.active() && !MgbWarning.active())
             return;
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null)
@@ -49,8 +43,6 @@ public final class MgbWorldRenderer {
         var matrix = RenderSystem.getModelViewStack();
         matrix.pushMatrix().set(event.getModelViewMatrix());
         RenderSystem.applyModelViewMatrix();
-        float[] color = RenderSystem.getShaderColor().clone();
-        RenderSystem.setShaderColor(1, 1, 1, 1);
         PoseStack pose = new PoseStack();
         Vec3 eye = event.getCamera().getPosition();
         try {
@@ -58,24 +50,10 @@ public final class MgbWorldRenderer {
             if (MgbWarning.active() && left > 0 && left <= 50)
                 bombs(pose, buffers, eye, left);
             if (MgbEffects.active()) {
-                float t = MgbEffects.age(partial), fade = Mth.clamp((MgbEffects.DURATION - t) / 65F, 0, 1);
-                int frame = Math.min(31, (int) (t / 5));
-                float u = (frame % 8) / 8F, v = (frame / 8) / 4F;
-                Vec3 center = MgbEffects.center();
-                float height = 18 + Mth.clamp(t / 60F, 0, 1) * 86, width = height * 1.10F;
-                billboard(pose, buffers, eye, center.add(0, height * .5 - 2, 0), width, height, u, v, .125F, .25F, fade,
-                        PYRO, false, 0xffffff);
-                billboard(pose, buffers, eye, center.add(0, height * .5 - 2, 0), width, height, u, v, .125F, .25F,
-                        fade * .90F, EMISSION, true, 0xffffff);
-                if (t >= 8 && t < 140) {
-                    float radius = (t - 8) * 2.6F, alpha = Mth.clamp(1 - (t - 45) / 95F, 0, 1) * .33F;
-                    for (int n = 0; n < 24; n++) {
-                        double a = n * Math.PI * 2 / 24;
-                        Vec3 at = center.add(Math.cos(a) * radius, 4 + Math.sin(n * 2.3) * 2, Math.sin(a) * radius);
-                        billboard(pose, buffers, eye, at, 18 + t * .22F, 12 + t * .12F, 0, 0, 1, 1, alpha, DUST, false,
-                                0xb2a18a);
-                    }
-                }
+                float time = MgbEffects.age(partial);
+                int index = 0;
+                for (Vec3 center : NuclearPattern.centers(MgbEffects.center()))
+                    cloud(pose, buffers, eye, center, time, index++);
             }
         } finally {
             try {
@@ -83,7 +61,6 @@ public final class MgbWorldRenderer {
             } finally {
                 matrix.popMatrix();
                 RenderSystem.applyModelViewMatrix();
-                RenderSystem.setShaderColor(color[0], color[1], color[2], color[3]);
             }
         }
     }
@@ -92,12 +69,9 @@ public final class MgbWorldRenderer {
         ImportedCastModel model = ImportedCastModel.get("mgb_bomb");
         if (model == null)
             return;
-        float progress = 1 - left / 50F;
-        Vec3 center = MgbWarning.center();
-        for (int n = 0; n < 7; n++) {
-            double angle = n * Math.PI * 2 / 7, spread = n == 0 ? 0 : 24;
-            Vec3 point = center.add(Math.cos(angle) * spread + (1 - progress) * 16,
-                    5 + (1 - Math.pow(progress, 1.25)) * 140 + n * 1.4, Math.sin(angle) * spread);
+        float progress = Mth.clamp(1 - left / 50F, 0, 1);
+        for (Vec3 center : NuclearPattern.centers(MgbWarning.center())) {
+            Vec3 point = center.add((1 - progress) * -24, (1 - progress * progress) * 220, 0);
             pose.pushPose();
             pose.translate(point.x - eye.x, point.y - eye.y, point.z - eye.z);
             pose.mulPose(Axis.XP.rotationDegrees(-90));
@@ -106,27 +80,66 @@ public final class MgbWorldRenderer {
         }
     }
 
-    private static void billboard(PoseStack pose, MultiBufferSource buffers, Vec3 eye, Vec3 at, float width,
-            float height, float u, float v, float du, float dv, float alpha, ResourceLocation texture, boolean emissive,
-            int rgb) {
-        if (alpha <= 0)
-            return;
-        pose.pushPose();
-        pose.translate(at.x - eye.x, at.y - eye.y, at.z - eye.z);
-        float yaw = (float) Math.atan2(eye.x - at.x, eye.z - at.z);
-        pose.mulPose(Axis.YP.rotation(yaw));
-        VertexConsumer out = buffers.getBuffer(emissive ? RenderType.entityTranslucentEmissive(texture, false)
-                : RenderType.entityTranslucent(texture));
-        int color = (Math.round(Mth.clamp(alpha, 0, 1) * 255) << 24) | rgb;
-        vertex(out, pose, -width / 2, -height / 2, u, v + dv, color);
-        vertex(out, pose, width / 2, -height / 2, u + du, v + dv, color);
-        vertex(out, pose, width / 2, height / 2, u + du, v, color);
-        vertex(out, pose, -width / 2, height / 2, u, v, color);
-        pose.popPose();
+    private static void cloud(PoseStack pose, MultiBufferSource buffers, Vec3 eye, Vec3 center, float time, int index) {
+        float grow = 1 - (float) Math.exp(-time / 42F), height = 6 + 94 * grow;
+        float radius = 5 + 33 * grow;
+        float fade = Mth.clamp((MgbEffects.DURATION - time) / 80F, 0, 1);
+        // 茎部逐段抬升，顶帽沿径向翻卷，低空尘环独立扩散。
+        for (int i = 0; i < 30; i++) {
+            double t = i / 29D, angle = i * 2.39996 + index * 1.7 + time * .006;
+            double spread = (2 + 3 * Math.sin(t * Math.PI)) * grow;
+            Vec3 at = center.add(Math.cos(angle) * spread, t * height, Math.sin(angle) * spread);
+            puff(pose, buffers, eye, at, (float) (5 + t * 4 + Math.sin(i * 2.1) * 1.2), color(time, i), fade * .75F,
+                    time < 18);
+        }
+        for (int i = 0; i < 70; i++) {
+            double t = Math.sqrt((i + .5) / 70D), a = i * 2.39996 + index + time * .004;
+            double r = radius * t, curl = Math.sin(time * .035 - t * Math.PI) * 3 * grow;
+            Vec3 at = center.add(Math.cos(a) * r, height + (1 - t * t) * radius * .38 + curl, Math.sin(a) * r);
+            puff(pose, buffers, eye, at, 6 + 5 * grow + (float) Math.sin(i * 3.1), color(time + (float) t * 16, i + 31),
+                    fade * .88F, time < 15);
+        }
+        if (time < 150)
+            for (int i = 0; i < 32; i++) {
+                double a = i * Math.PI * 2 / 32, r = 5 + time * .9;
+                puff(pose, buffers, eye, center.add(Math.cos(a) * r, 2 + grow * 3, Math.sin(a) * r), 5 + time * .05F,
+                        0x807969, fade * Math.max(0, 1 - time / 150) * .5F, false);
+            }
     }
 
-    private static void vertex(VertexConsumer out, PoseStack pose, float x, float y, float u, float v, int color) {
-        out.addVertex(pose.last().pose(), x, y, 0).setColor(color).setUv(u, v).setOverlay(OverlayTexture.NO_OVERLAY)
+    private static int color(float time, int seed) {
+        float ash = Mth.clamp(time / 65F, 0, 1), variation = (float) Math.sin(seed * 7.3) * 12;
+        int r = Mth.clamp(Math.round(Mth.lerp(ash, 255, 172) + variation), 0, 255);
+        int g = Mth.clamp(Math.round(Mth.lerp(ash, 175, 166) + variation), 0, 255);
+        int b = Mth.clamp(Math.round(Mth.lerp(ash, 70, 153) + variation), 0, 255);
+        return r << 16 | g << 8 | b;
+    }
+
+    private static void puff(PoseStack pose, MultiBufferSource buffers, Vec3 eye, Vec3 at, float radius, int rgb,
+            float alpha, boolean glow) {
+        if (alpha <= .005F || at.distanceToSqr(eye) > 1024D * 1024)
+            return;
+        pose.pushPose();
+        try {
+            pose.translate(at.x - eye.x, at.y - eye.y, at.z - eye.z);
+            pose.mulPose(Minecraft.getInstance().gameRenderer.getMainCamera().rotation());
+            VertexConsumer out = buffers.getBuffer(
+                    glow ? RenderType.entityTranslucentEmissive(WHITE, false) : RenderType.entityTranslucent(WHITE));
+            int middle = Math.round(alpha * 255) << 24 | rgb, edge = rgb;
+            for (int i = 0; i < 12; i++) {
+                double a = i * Math.PI * 2 / 12, b = (i + 1) * Math.PI * 2 / 12;
+                vertex(out, pose, 0, 0, middle);
+                vertex(out, pose, (float) Math.cos(a) * radius, (float) Math.sin(a) * radius, edge);
+                vertex(out, pose, (float) Math.cos(b) * radius, (float) Math.sin(b) * radius, edge);
+                vertex(out, pose, 0, 0, middle);
+            }
+        } finally {
+            pose.popPose();
+        }
+    }
+
+    private static void vertex(VertexConsumer out, PoseStack pose, float x, float y, int color) {
+        out.addVertex(pose.last().pose(), x, y, 0).setColor(color).setUv(.5F, .5F).setOverlay(OverlayTexture.NO_OVERLAY)
                 .setLight(15728880).setNormal(pose.last(), 0, 0, 1);
     }
 }

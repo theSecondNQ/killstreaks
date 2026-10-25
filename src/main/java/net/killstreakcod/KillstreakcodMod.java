@@ -49,6 +49,11 @@ import net.killstreakcod.universal.TracerPayload;
 import net.killstreakcod.universal.UseKillstreakPayload;
 import net.killstreakcod.universal.WhitelistActionPayload;
 import net.killstreakcod.universal.WhitelistStatePayload;
+import net.killstreakcod.universal.HandheldFirePayload;
+import net.killstreakcod.universal.MinigunControls;
+import net.killstreakcod.universal.TerminalSettingsActionPayload;
+import net.killstreakcod.universal.TerminalSettingsService;
+import net.killstreakcod.universal.TerminalSettingsStatePayload;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerPlayer;
@@ -72,7 +77,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class KillstreakcodMod {
 
     public static final String MODID = "killstreakcod";
-    public static final String NETWORK_VERSION = "1.0.0";
+    public static final String NETWORK_VERSION = "1.1.0";
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE,
             MODID);
@@ -146,6 +151,17 @@ public class KillstreakcodMod {
 
         PayloadRegistrar registrar = event.registrar(NETWORK_VERSION);
 
+        registrar.playToServer(TerminalSettingsActionPayload.TYPE, TerminalSettingsActionPayload.STREAM_CODEC,
+                (p, c) -> c.enqueueWork(() -> {
+                    if (c.player() instanceof ServerPlayer player)
+                        TerminalSettingsService.handle(player, p);
+                }));
+        registrar.playToServer(HandheldFirePayload.TYPE, HandheldFirePayload.STREAM_CODEC,
+                (p, c) -> c.enqueueWork(() -> {
+                    if (c.player() instanceof ServerPlayer player)
+                        MinigunControls.input(player, p);
+                }));
+
         registrar.playToServer(ResearchActionPayload.TYPE, ResearchActionPayload.STREAM_CODEC,
                 (payload, context) -> context.enqueueWork(() -> {
                     if (context.player() instanceof ServerPlayer player)
@@ -201,6 +217,9 @@ public class KillstreakcodMod {
                 }));
 
         if (FMLEnvironment.dist == Dist.DEDICATED_SERVER) {
+            registrar.playToClient(TerminalSettingsStatePayload.TYPE, TerminalSettingsStatePayload.STREAM_CODEC,
+                    (p, c) -> {
+                    });
             registrar.playToClient(ResearchStatePayload.TYPE, ResearchStatePayload.STREAM_CODEC, (p, c) -> {
             });
             registrar.playToClient(WhitelistStatePayload.TYPE, WhitelistStatePayload.STREAM_CODEC, (p, c) -> {

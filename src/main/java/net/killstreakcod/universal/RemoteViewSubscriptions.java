@@ -3,6 +3,7 @@ package net.killstreakcod.universal;
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.audio.SupportAudio;
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
+import net.killstreakcod.killstreaks.GunshipMounts;
 import net.killstreakcod.killstreaks.TacticalUnitEntity.Kind;
 import net.killstreakcod.mixin.RemoteChunkMapAccess;
 
@@ -17,6 +18,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -85,40 +87,32 @@ public final class RemoteViewSubscriptions {
         return valid(LEASES.get(player.getUUID()), player);
     }
 
+    /** 操作者的摄像机实体必须先于远处地形送达，其他实体仍按正常区块和距离规则跟踪。 */
+    public static boolean isCamera(ServerPlayer player, Entity entity) {
+        Lease lease = LEASES.get(player.getUUID());
+        return valid(lease, player) && lease.camera == entity;
+    }
+
     public static Vec3 origin(ServerPlayer player) {
         Lease lease = LEASES.get(player.getUUID());
-        return valid(lease, player) ? lease.camera.getEyePosition() : player.position();
+        return valid(lease, player) ? lease.camera.kind() == Kind.GUNSHIP ? GunshipMounts.camera(lease.camera, 1)
+                : lease.camera.getEyePosition() : player.position();
     }
 
     public static ChunkPos chunkOrigin(ServerPlayer player) {
         Lease lease = LEASES.get(player.getUUID());
         Vec3 center = origin(player);
-        if (valid(lease, player) && lease.camera.kind() == Kind.PRECISION)
-            center = center.lerp(lease.camera.center, .5);
         return new ChunkPos(BlockPos.containing(center));
-    }
-
-    /**
-     * Alternate send priority between both ends so a large watch does not queue the target behind its middle.
-     * 交替优先发送飞机端与目标端，避免目标区块被整个观察范围的中间区块排在队尾。
-     */
-    public static ChunkPos chunkPriority(ServerPlayer player) {
-        Lease lease = LEASES.get(player.getUUID());
-        if (valid(lease, player) && lease.camera.kind() == Kind.PRECISION) {
-            Vec3 point = (lease.level.getGameTime() & 1) == 0 ? lease.camera.getEyePosition() : lease.camera.center;
-            return new ChunkPos(BlockPos.containing(point));
-        }
-        return chunkOrigin(player);
     }
 
     public static int viewDistance(ServerPlayer player, int normal) {
         Lease lease = LEASES.get(player.getUUID());
         if (!valid(lease, player))
             return normal;
-        if (lease.camera.kind() == Kind.PRECISION)
-            return lease.precisionRadius;
+        if (lease.camera.kind() == Kind.GUNSHIP)
+            return StreakServerConfig.gunshipViewDistance(player.serverLevel().getServer());
         int limit = switch (lease.camera.kind()) {
-            case GUNSHIP, CRUISE, PRECISION -> 16;
+            case GUNSHIP, CRUISE -> 16;
             default -> 8;
         };
         return Math.min(limit, ((RemoteChunkMapAccess) (Object) player.serverLevel().getChunkSource().chunkMap)
@@ -204,7 +198,6 @@ public final class RemoteViewSubscriptions {
         final ServerPlayer player;
         final TacticalUnitEntity camera;
         final ServerLevel level;
-        final int precisionRadius;
         ChunkPos center;
         int radius;
 
@@ -212,11 +205,6 @@ public final class RemoteViewSubscriptions {
             this.player = player;
             this.camera = camera;
             this.level = level;
-            Vec3 span = camera.center.subtract(camera.position());
-            // A fixed bounded watch covers both the approaching aircraft and its designated ground point.
-            // 固定且有上限的观察范围同时覆盖入场飞机和目标点，避免飞行中反复缩放缓存。
-            precisionRadius = (int) Math.clamp(Math.ceil(Math.max(Math.abs(span.x), Math.abs(span.z)) / 32) + 4, 16,
-                    32);
         }
     }
 }

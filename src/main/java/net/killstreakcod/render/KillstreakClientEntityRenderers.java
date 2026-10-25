@@ -86,9 +86,12 @@ public final class KillstreakClientEntityRenderers {
     @SubscribeEvent
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void thermalLayers(EntityRenderersEvent.AddLayers event) {
+        // 多个实体类型可能共用同一个渲染器，每个实例仅添加一次遮罩及护甲层。
+        var registered = java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<Object, Boolean>());
         for (var type : event.getEntityTypes()) {
             var renderer = event.getRenderer(type);
-            if (renderer instanceof net.minecraft.client.renderer.entity.LivingEntityRenderer living) {
+            if (renderer instanceof net.minecraft.client.renderer.entity.LivingEntityRenderer living
+                    && registered.add(living)) {
                 living.addLayer(new ThermalLayer(living));
                 if (living.getModel() instanceof net.minecraft.client.model.HumanoidModel)
                     living.addLayer(new OriginalJuggernautLayer(living));
@@ -96,7 +99,8 @@ public final class KillstreakClientEntityRenderers {
         }
         for (var skin : event.getSkins()) {
             var renderer = event.getSkin(skin);
-            if (renderer instanceof net.minecraft.client.renderer.entity.LivingEntityRenderer living) {
+            if (renderer instanceof net.minecraft.client.renderer.entity.LivingEntityRenderer living
+                    && registered.add(living)) {
                 living.addLayer(new ThermalLayer(living));
                 if (living.getModel() instanceof net.minecraft.client.model.HumanoidModel)
                     living.addLayer(new OriginalJuggernautLayer(living));

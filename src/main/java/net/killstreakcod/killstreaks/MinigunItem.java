@@ -1,7 +1,5 @@
 package net.killstreakcod.killstreaks;
 
-import net.killstreakcod.audio.NativeAudio;
-import net.killstreakcod.audio.StreakSounds;
 import net.killstreakcod.universal.NativeArsenalLibrary;
 import net.killstreakcod.universal.NativeFxDelivery;
 import net.killstreakcod.universal.TacticalRuntime;
@@ -26,7 +24,6 @@ public final class MinigunItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        player.startUsingItem(hand);
         return InteractionResultHolder.consume(player.getItemInHand(hand));
     }
 
@@ -42,14 +39,8 @@ public final class MinigunItem extends Item {
         return UseAnim.NONE;
     }
 
-    @Override
-    public void onUseTick(Level level, LivingEntity livingEntity, ItemStack stack, int remainingUseDuration) {
-        if (!(livingEntity instanceof ServerPlayer player) || !(level instanceof ServerLevel serverLevel))
-            return;
-        int ticksUsing = getUseDuration(stack, player) - remainingUseDuration;
-        if (ticksUsing == 1)
-            TacticalRuntime.sound(serverLevel, player.getEyePosition(),
-                    NativeAudio.sfx("m134_spinup", StreakSounds.SPIN.get()), .8F, 1);
+    public static void fire(ServerPlayer player, int ticksUsing) {
+        ServerLevel serverLevel = player.serverLevel();
         if (ticksUsing < NativeArsenalLibrary.CHARGE_TICKS
                 || (ticksUsing - NativeArsenalLibrary.CHARGE_TICKS) % FIRE_INTERVAL_TICKS != 0)
             return;
@@ -65,10 +56,4 @@ public final class MinigunItem extends Item {
                 .directionFromRotation(player.getXRot() + pitchSpread, player.getYRot() + yawSpread), 128, 8, false);
     }
 
-    @Override
-    public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int remaining) {
-        if (level instanceof ServerLevel server && entity instanceof ServerPlayer player)
-            TacticalRuntime.sound(server, player.getEyePosition(),
-                    NativeAudio.sfx("m134_spindown", StreakSounds.SPIN.get()), .5F, 1);
-    }
 }

@@ -19,6 +19,7 @@ public final class KillstreakClientEvents {
 
     @SubscribeEvent
     public static void onClientTick(ClientTickEvent.Post event) {
+        HandheldWeaponInput.tick();
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player == null || minecraft.screen != null)
             return;
@@ -32,21 +33,31 @@ public final class KillstreakClientEvents {
                 }
             return;
         }
-        if (KillstreakKeyMappings.BONUS.consumeClick())
+        if (KillstreakKeyMappings.BONUS.consumeClick()) {
+            RewardRail.reveal();
             PacketDistributor.sendToServer(new UseKillstreakPayload(3));
-        if (KillstreakKeyMappings.MGB.consumeClick())
+        }
+        if (KillstreakKeyMappings.MGB.consumeClick()) {
+            RewardRail.reveal();
             PacketDistributor.sendToServer(new UseKillstreakPayload(4));
+        }
         if (KillstreakKeyMappings.BOOST.consumeClick())
             PacketDistributor.sendToServer(new TacticalControlPayload(0, 0, 0, 0, TacticalControlPayload.BOOST));
 
         if (KillstreakKeyMappings.OPEN_TERMINAL.consumeClick())
             PacketDistributor.sendToServer(new RequestTerminalStatePayload(true));
 
-        if (KillstreakKeyMappings.USE_SLOT_1.consumeClick())
+        if (KillstreakKeyMappings.USE_SLOT_1.consumeClick()) {
+            RewardRail.reveal();
             PacketDistributor.sendToServer(new UseKillstreakPayload(0));
-        if (KillstreakKeyMappings.USE_SLOT_2.consumeClick())
+        }
+        if (KillstreakKeyMappings.USE_SLOT_2.consumeClick()) {
+            RewardRail.reveal();
             PacketDistributor.sendToServer(new UseKillstreakPayload(1));
-        if (KillstreakKeyMappings.USE_SLOT_3.consumeClick())
+        }
+        if (KillstreakKeyMappings.USE_SLOT_3.consumeClick()) {
+            RewardRail.reveal();
             PacketDistributor.sendToServer(new UseKillstreakPayload(2));
+        }
     }
 }

@@ -19,6 +19,7 @@ import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexSorting;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
@@ -67,9 +68,13 @@ public final class ThermalVision {
     }
 
     /**
-     * Tee already-skinned model positions, with no second entity traversal or model render.
-     * 从已完成蒙皮的模型位置分出一份数据，不二次遍历实体或重画模型。
+     * Collect posed vertices only during the independent sensor mask pass.
+     * 只在传感器独立遮罩采集期间接收已完成姿态计算的顶点。
      */
+    static boolean isCapturing() {
+        return capturing;
+    }
+
     static void capture(float x, float y, float z) {
         if (!capturing || count >= MAX_VERTICES)
             return;
@@ -153,16 +158,21 @@ public final class ThermalVision {
     }
 
     /**
-     * Runs before the remote HUD cancels Gui.render, including F1/hidden HUD rendering.
-     * 在遥控 HUD 取消 Gui.render 之前执行，也覆盖 F1 隐藏 HUD 的绘制情况。
+     * Fallback for the ordinary GUI entry; the replacement remote HUD calls compose directly.
+     * 普通 GUI 入口的备用回调；遥控 HUD 接管时直接调用合成方法。
      */
     @SubscribeEvent(priority = EventPriority.HIGHEST, receiveCanceled = true)
     public static void compose(RenderGuiEvent.Pre event) {
+        compose(event.getGuiGraphics());
+    }
+
+    /** 合成世界颜色与可见实体遮罩；ready 在提交前清除，同一帧只能处理一次。 */
+    public static void compose(GuiGraphics graphics) {
         if (!ready || scene == null || compositeShader == null || !active() || OptionalShaderCompat.shadowPass())
             return;
         ready = false;
         try (ThermalRenderState ignored = new ThermalRenderState()) {
-            event.getGuiGraphics().flush();
+            graphics.flush();
             RenderSystem.disableScissor();
             RenderSystem.disableBlend();
             RenderSystem.disableDepthTest();
@@ -231,8 +241,7 @@ public final class ThermalVision {
 
     private static void failed(Throwable failure) {
         LogUtils.getLogger().warn(
-                "Killstreaks: independent thermal compositor unavailable; leaving the normal scene intact",
-                failure);
+                "Killstreaks: independent thermal compositor unavailable; leaving the normal scene intact", failure);
         try (ThermalRenderState ignored = new ThermalRenderState()) {
             release();
         }
