@@ -10,8 +10,8 @@ import net.killstreakcod.audio.VoiceFaction;
 import net.killstreakcod.killstreaks.ArmorKit;
 import net.killstreakcod.killstreaks.ChopperIngress;
 import net.killstreakcod.killstreaks.GunshipFlight;
+import net.killstreakcod.killstreaks.GunshipMounts;
 import net.killstreakcod.killstreaks.NativeCruiseFlight;
-import net.killstreakcod.killstreaks.PrecisionFlight;
 import net.killstreakcod.killstreaks.SaeEffects;
 import net.killstreakcod.killstreaks.StreakReward;
 import net.killstreakcod.killstreaks.SupportHelicopterEntity;
@@ -153,15 +153,7 @@ public final class TacticalRuntime {
     private static void refundUnavailableCall(CallIn call) {
         if (call.unit != null || call.reward == null)
             return;
-        if (call.action != null && instantEquipment(call.reward))
-            KillstreakService
-                    .giveItem(call.player,
-                            TacticalEquipmentItem.stack(
-                                    call.reward == StreakReward.PRECISION_AIRSTRIKE
-                                            || call.reward == StreakReward.MORTAR_STRIKE ? "designator" : "drop_marker",
-                                    call.reward.id()));
-        else
-            KillstreakService.refund(call.player, call.reward, call.bonus);
+        KillstreakService.refund(call.player, call.reward, call.bonus);
         KillstreakService.sendTerminalState(call.player, false);
     }
 
@@ -176,6 +168,10 @@ public final class TacticalRuntime {
     }
 
     private static void deployNow(ServerPlayer player, StreakReward reward, boolean bonus) {
+        AirspaceRefund.call(player, reward, bonus, () -> deployMission(player, reward, bonus));
+    }
+
+    private static void deployMission(ServerPlayer player, StreakReward reward, boolean bonus) {
         if (reward != StreakReward.SAE && reward != StreakReward.VTOL_JET && reward != StreakReward.STEALTH_BOMBER
                 && reward != StreakReward.PRECISION_AIRSTRIKE && reward != StreakReward.MORTAR_STRIKE
                 && reward != StreakReward.CARE_PACKAGE && reward != StreakReward.EMERGENCY_AIRDROP
@@ -260,8 +256,8 @@ public final class TacticalRuntime {
 
     public static TacticalUnitEntity spawnChild(TacticalUnitEntity parent, Kind kind, Vec3 pos, Vec3 center, int life,
             float heading, int delay, String cargo, Vec3 velocity) {
-        TacticalUnitEntity child = spawnConfigured(parent.owner(), kind, pos, center, life, heading, delay, cargo,
-                velocity);
+        TacticalUnitEntity child = AirspaceRefund.inherit(parent.airspaceRefund,
+                () -> spawnConfigured(parent.owner(), kind, pos, center, life, heading, delay, cargo, velocity));
         ResearchEffects.inherit(parent, child);
         return StrikeRadioReports.track(child, parent.radioStrike);
     }
@@ -271,8 +267,8 @@ public final class TacticalRuntime {
         var inventory = player.getInventory();
         for (int slot = 0; slot < 36; slot++) {
             ItemStack stack = inventory.getItem(slot);
-            if (!stack.is(KillstreakcodMod.DESIGNATOR.get()) || !stack
-                    .getOrCreateTag().getString("Reward").equals("mortar_strike"))
+            if (!stack.is(KillstreakcodMod.DESIGNATOR.get())
+                    || !stack.getOrCreateTag().getString("Reward").equals("mortar_strike"))
                 continue;
             if (slot < 9)
                 inventory.selected = slot;
@@ -313,12 +309,13 @@ public final class TacticalRuntime {
         unit.heading = heading;
         unit.delay = delay;
         unit.cargo = cargo;
-        ResearchEffects.configure(unit, player);
-        if (!StreakAirspace.permitted(level, kind)) {
-            unit.discard();
+        AirspaceRefund.attach(unit);
+        if (unit.isRemoved())
             return unit;
-        }
-        if (lift < 0) {
+        ResearchEffects.configure(unit, player);
+        if (!StreakAirspace.permitted(level, kind) || lift < 0) {
+            if (unit.airspaceRefund != null)
+                unit.airspaceRefund.cancel();
             unit.discard();
             return unit;
         }
@@ -421,34 +418,16 @@ public final class TacticalRuntime {
         StreakNetwork.send(player, new StreakPresentationPayload("wheelson_hs", "call", StreakTimings.REMOTE_CALL));
     }
 
-    public static void startPrecisionControl(ServerPlayer player, TacticalUnitEntity unit) {
-        if (busy(player) || !player.isAlive() || unit.isRemoved())
-            return;
-        player.stopUsingItem();
-        // The designated plane waits off-screen while the normal remote tablet call plays.
-        // 已标记的飞机在场外等待，先播放标准遥控平板动作，再进入机炮视角。
-        CALLS.put(player.getUUID(), new CallIn(player, player.serverLevel(), StreakReward.PRECISION_AIRSTRIKE, false,
-                false, player.serverLevel().getGameTime() + StreakTimings.REMOTE_CALL, unit));
-        RemoteViewSubscriptions.begin(player, unit);
-        StreakNetwork.send(player,
-                new StreakPresentationPayload("precision_airstrike", "remote_call", StreakTimings.REMOTE_CALL));
-    }
-
     public static void startSession(ServerPlayer player, TacticalUnitEntity unit) {
         if (!player.isAlive() || player.isSpectator() || mgbDetonating(player.serverLevel()) || busy(player)
-                || unit == null || unit.isRemoved())
+                || unit == null || unit.isRemoved() || unit.kind() == Kind.PRECISION)
             return;
-        if (unit.kind() == Kind.PRECISION && !ResearchEffects.has(unit, "precision_airstrike.smart")) {
-            unit.remotePrecision(false);
-            RemoteViewSubscriptions.end(player);
-            StreakNetwork.send(player, new StreakPresentationPayload("", "reset", 0));
-            return;
-        }
         Session session = new Session(player, unit, player.position());
         session.yaw = player.getYRot();
         session.pitch = unit.kind() == Kind.CRUISE ? 60 : unit.kind() == Kind.WHEELSON ? 15 : 0;
-        if (unit.kind() == Kind.GUNSHIP || unit.kind() == Kind.CHOPPER || unit.kind() == Kind.PRECISION) {
-            Vec3 aim = unit.center.subtract(unit.getEyePosition());
+        if (unit.kind() == Kind.GUNSHIP || unit.kind() == Kind.CHOPPER) {
+            Vec3 origin = unit.kind() == Kind.GUNSHIP ? GunshipMounts.camera(unit, 1) : unit.getEyePosition();
+            Vec3 aim = unit.center.subtract(origin);
             session.yaw = (float) (Math.atan2(-aim.x, aim.z) * 180 / Math.PI);
             session.pitch = (float) (-Math.atan2(aim.y, aim.horizontalDistance()) * 180 / Math.PI);
         }
@@ -458,7 +437,7 @@ public final class TacticalRuntime {
         }
         if (unit.kind() == Kind.WHEELSON)
             unit.center = player.position();
-        int intro = unit.kind() == Kind.PRECISION ? 0 : StreakTimings.entry(rewardId(unit.kind()));
+        int intro = StreakTimings.entry(rewardId(unit.kind()));
         if (unit.kind() == Kind.CRUISE) {
             double room = unit.getY() - ground(player.serverLevel(), unit.position()).y - 18;
             session.cruiseIntroPitch = NativeCruiseFlight.pitch(room);
@@ -473,6 +452,7 @@ public final class TacticalRuntime {
         unit.getNavigation().stop();
         if (unit.radioStrike == null)
             StrikeRadioReports.track(unit, StrikeRadioReports.begin(player, NativeAudio.reward(unit)));
+        unit.aim(session.yaw, session.pitch);
         RemoteViewSubscriptions.begin(player, unit);
         NativeAudio.voice(player, rewardId(unit.kind()), "response_parallel");
         StreakNetwork.send(player, new StreakPresentationPayload(rewardId(unit.kind()), "entry", intro));
@@ -575,8 +555,8 @@ public final class TacticalRuntime {
         // 放下设备的过场属于已恢复玩家的第一人称视角，不属于载具摄像机。
         if (animate && session != null) {
             String presentation = rewardId(session.unit.kind());
-            StreakNetwork.send(player, new StreakPresentationPayload(presentation, "exit",
-                    StreakTimings.exit(session.unit.kind() == Kind.PRECISION ? "wheelson_hs" : presentation)));
+            StreakNetwork.send(player,
+                    new StreakPresentationPayload(presentation, "exit", StreakTimings.exit(presentation)));
         } else if (animate && call != null)
             StreakNetwork.send(player,
                     new StreakPresentationPayload(call.nuclear ? "mgb" : call.reward.id(), "exit", 6));
@@ -589,8 +569,6 @@ public final class TacticalRuntime {
                 else if (session.unit.kind() == Kind.WHEELSON) {
                     session.unit.autopilot = auto && body.isAlive();
                     session.unit.setDeltaMovement(Vec3.ZERO);
-                } else if (session.unit.kind() == Kind.PRECISION) {
-                    session.unit.autopilot = true;
                 } else if (animate && (session.unit.kind() == Kind.CHOPPER || session.unit.kind() == Kind.GUNSHIP))
                     session.unit.beginDeparture();
                 else {
@@ -640,9 +618,7 @@ public final class TacticalRuntime {
                 ? Math.max(session.weapon < 3 ? reloads[session.weapon] : 0,
                         (int) Math.max(0, session.gunshipNextShot[session.weapon] - now))
                 : (int) Math.max(0, session.nextShot - now);
-        int remaining = session.unit.kind() == Kind.PRECISION
-                ? Math.max(0, PrecisionFlight.ATTACK_END - (session.unit.age - session.unit.delay))
-                : Math.max(0, session.unit.lifetime - session.unit.age);
+        int remaining = Math.max(0, session.unit.lifetime - session.unit.age);
         StreakNetwork.send(session.player,
                 new TacticalViewPayload(session.unit.getId(), session.unit.kind().name().toLowerCase(Locale.ROOT),
                         remaining, session.weapon, (int) (session.unit.getHealth() * 100 / session.unit.getMaxHealth()),
@@ -682,7 +658,7 @@ public final class TacticalRuntime {
                     continue;
                 }
                 if (call.action != null)
-                    call.action.run();
+                    AirspaceRefund.call(player, call.reward, call.bonus, call.action);
                 else if (call.nuclear)
                     beginMgb(player);
                 else if (call.unit != null)
@@ -718,6 +694,7 @@ public final class TacticalRuntime {
                     sendView(session);
                 continue;
             }
+
             if (time - session.lastInput > 60) {
                 endSession(p, false);
                 continue;
@@ -783,21 +760,41 @@ public final class TacticalRuntime {
                     session.weapon = 4;
             }
             if ((edge & FLARES) != 0 && session.flares > 0 && time >= session.nextFlare
-                    && unit.kind() == Kind.CHOPPER) {
+                    && (unit.kind() == Kind.CHOPPER || unit.kind() == Kind.GUNSHIP)) {
                 session.flares--;
                 session.nextFlare = time + 100;
-                NativeAudio.voice(p, "chopper_gunner", "flares");
-                NativeFxDelivery.emit(l, "flares", unit.position(), 8);
-                l.sendParticles(ParticleTypes.END_ROD, unit.getX(), unit.getY(), unit.getZ(), 20, 8, 3, 8, .12);
-                l.sendParticles(ParticleTypes.FLAME, unit.getX(), unit.getY(), unit.getZ(), 15, 5, 3, 5, .15);
+                NativeAudio.voice(p, unit.kind() == Kind.GUNSHIP ? "gunship" : "chopper_gunner", "flares");
+                Vec3 decoy;
+                if (unit.kind() == Kind.GUNSHIP) {
+                    session.flareUntil = time + 100;
+                    decoy = AircraftBounds.flareSocket(unit, 1)
+                            .add(Vec3.directionFromRotation(0, unit.flightYaw() + 90).scale(70)).add(0, -8, 0);
+                } else {
+                    NativeFxDelivery.emit(l, "flares", unit.position(), 8);
+                    l.sendParticles(ParticleTypes.END_ROD, unit.getX(), unit.getY(), unit.getZ(), 20, 8, 3, 8, .12);
+                    l.sendParticles(ParticleTypes.FLAME, unit.getX(), unit.getY(), unit.getZ(), 15, 5, 3, 5, .15);
+                    decoy = unit.position().add(30, -20, 30);
+                }
                 for (Entity ent : l.getAllEntities())
                     if (ent instanceof TacticalUnitEntity rocket && rocket.kind() == Kind.ROCKET
                             && !p.getUUID().equals(rocket.ownerId) && rocket.distanceToSqr(unit) < 48 * 48)
-                        rocket.center = unit.position().add(30, -20, 30);
+                        rocket.center = decoy;
+            }
+            if (unit.kind() == Kind.GUNSHIP && time < session.flareUntil && time % 4 == 0) {
+                int yaw = Math.round(Mth.wrapDegrees(unit.flightYaw()));
+                for (int side : new int[] { -1, 1 })
+                    NativeFxDelivery.emit(l, "gunship_flares/" + yaw + "/" + side,
+                            AircraftBounds.flareSocket(unit, side), 1);
+                for (Entity entity : l.getAllEntities())
+                    if (entity instanceof TacticalUnitEntity rocket && rocket.kind() == Kind.ROCKET
+                            && !p.getUUID().equals(rocket.ownerId) && rocket.distanceToSqr(unit) < 80 * 80)
+                        rocket.center = AircraftBounds.flareSocket(unit, time % 8 == 0 ? -1 : 1).add(
+                                Vec3.directionFromRotation(0, unit.flightYaw() + 90).scale(time % 8 == 0 ? -70 : 70))
+                                .add(0, -12, 0);
             }
             if (unit.kind() == Kind.GUNSHIP) {
                 if (time < session.introUntil) {
-                    Vec3 aim = p.position().subtract(unit.getEyePosition());
+                    Vec3 aim = p.position().subtract(GunshipMounts.camera(unit, 1));
                     session.yaw = GunshipFlight.mountYaw(unit.flightYaw());
                     session.pitch = (float) -Math.toDegrees(Math.atan2(aim.y, aim.horizontalDistance()));
                 }
@@ -879,8 +876,28 @@ public final class TacticalRuntime {
                 session.speed = (float) step.length() * 20;
                 BlockHitResult hit = l.clip(new ClipContext(unit.position(), unit.position().add(step),
                         ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, unit));
-                if (hit.getType() != HitResult.Type.MISS || unit.getY() < l.getMinBuildHeight() + 2) {
-                    blast(unit, impactPosition(hit), 22, 180);
+                Vec3 impact = hit.getType() == HitResult.Type.MISS ? null : impactPosition(hit);
+                double nearest = impact == null ? step.lengthSqr() : unit.position().distanceToSqr(hit.getLocation());
+                // 扫过整刻路径并比较方块距离，避免加速后的导弹穿过飞行实体或隔墙命中。
+                for (Entity target : StreakCombat.targets(l, p, unit,
+                        new AABB(unit.position(), unit.position().add(step)).inflate(.6), false)) {
+                    // 空中连杀另以旋转机体检查，避免世界轴对齐盒在翼外产生误爆。
+                    if (target instanceof TacticalUnitEntity aircraft
+                            && (AircraftFlight.visible(aircraft.kind()) || aircraft.kind() == Kind.BOMB_DRONE))
+                        continue;
+                    var contact = target.getBoundingBox().inflate(.35).contains(unit.position())
+                            ? Optional.of(unit.position())
+                            : StreakCombat.intercept(target, unit.position(), unit.position().add(step), .35);
+                    if (contact.isPresent() && unit.position().distanceToSqr(contact.get()) <= nearest) {
+                        nearest = unit.position().distanceToSqr(contact.get());
+                        impact = contact.get();
+                    }
+                }
+                var aircraftHit = StreakCombat.aircraftContact(l, unit, unit.position(), unit.position().add(step));
+                if (aircraftHit.isPresent() && unit.position().distanceToSqr(aircraftHit.get()) <= nearest)
+                    impact = aircraftHit.get();
+                if (impact != null || unit.getY() < l.getMinBuildHeight() + 2) {
+                    blast(unit, impact != null ? impact : unit.position(), 22, 180);
                     unit.discard();
                     endSession(p, false);
                     continue;
@@ -924,37 +941,37 @@ public final class TacticalRuntime {
                     explosiveFire(unit, muzzle, direction, 180, rover ? 6 : StreakWeaponProfiles.CHOPPER_DIRECT_DAMAGE,
                             rover ? 2.2F : 2.5F, rover ? 8 : StreakWeaponProfiles.CHOPPER_BLAST_DAMAGE);
                 }
-                if (unit.kind() == Kind.PRECISION) {
-                    session.nextShot = time + 3;
-                    Vec3 muzzle = net.killstreakcod.killstreaks.PrecisionCannonMount.muzzle(unit);
-                    explosiveFire(unit, muzzle, convergedDirection(session, unit.getEyePosition(), muzzle, 1024), 1024,
-                            0, 4, 24);
-                }
+
                 if (unit.kind() == Kind.GUNSHIP && session.weapon == 3) {
-                    Vec3 target = trace(l, unit.getEyePosition(), direction, 768, unit);
-                    boolean valid = target.distanceToSqr(unit.getEyePosition()) < 768 * 768 - .01;
+                    Vec3 origin = GunshipMounts.camera(unit, 1);
+                    Vec3 target = trace(l, origin, direction, 768, unit);
+                    boolean valid = target.distanceToSqr(origin) < 768 * 768 - .01;
                     session.gunshipNextShot[3] = time
                             + (valid && ResearchOrdnance.coordinate(unit, target, session.yaw) ? 200 : 20);
                 }
                 if (unit.kind() == Kind.GUNSHIP && session.weapon < 3 && session.gunshipReload[session.weapon] == 0
                         && session.gunshipAmmo[session.weapon] > 0) {
                     int weapon = session.weapon;
+                    var cannon = GunshipMounts.aim(unit, session.yaw, session.pitch, 1).cannon(weapon);
+                    Vec3 muzzle = cannon.muzzle(), shotDirection = cannon.direction();
                     session.gunshipNextShot[weapon] = time + StreakWeaponProfiles.FIRE_INTERVAL[weapon];
                     if (weapon == 0)
-                        explosiveFire(unit, unit.getEyePosition(), direction, 256, 8, 3, 12);
+                        explosiveFire(unit, muzzle, shotDirection, 256, 8, 3, 12);
                     else if (weapon == 1) {
                         unit.noteShot();
-                        Vec3 impact = hitscan(p, unit, unit.getEyePosition(), direction, 256, 0, false);
-                        if (unit.getEyePosition().distanceToSqr(impact) < 256 * 256 - .01)
+                        Vec3 impact = hitscan(p, unit, muzzle, shotDirection, 256, 0, false);
+                        if (muzzle.distanceToSqr(impact) < 256 * 256 - .01)
                             blast(unit, impact, 5, 45);
                     } else {
-                        Vec3 impact = trace(l, unit.getEyePosition(), direction, 320, unit);
-                        TacticalUnitEntity shell = spawnChild(unit, Kind.ROCKET,
-                                unit.getEyePosition().add(direction.scale(4)), impact, 120, session.yaw, 0, "105mm",
-                                direction.scale(5));
+                        Vec3 impact = trace(l, muzzle, shotDirection, 320, unit);
+                        TacticalUnitEntity shell = spawnChild(unit, Kind.ROCKET, muzzle.add(shotDirection.scale(.04)),
+                                impact, 120, session.yaw, 0, "105mm", shotDirection.scale(5));
+                        shell.flightOrientation((float) Math.toDegrees(Math.atan2(-shotDirection.x, shotDirection.z)),
+                                (float) -Math
+                                        .toDegrees(Math.atan2(shotDirection.y, shotDirection.horizontalDistance())));
                         shell.setNoGravity(true);
                         unit.noteShot();
-                        AircraftFireEffects.shot(unit, unit.getEyePosition(), 2);
+                        AircraftFireEffects.shot(unit, muzzle, 2);
                         AircraftFireEffects.rocketLaunch(shell);
                     }
                     if (--session.gunshipAmmo[weapon] == 0) {
@@ -1054,7 +1071,8 @@ public final class TacticalRuntime {
         interruptLevelControls(level);
         for (LivingEntity victim : victims)
             if (victim.level() == level && !victim.isRemoved() && victim.isAlive())
-                victim.hurt(level.damageSources().genericKill(), 100000);
+                victim.hurt(level.damageSources().genericKill(),
+                        (float) StreakServerConfig.number(level.getServer(), StreakDamage.Channel.MGB.key()));
     }
 
     /**
@@ -1178,7 +1196,8 @@ public final class TacticalRuntime {
     }
 
     public static boolean designate(ServerPlayer player, StreakReward reward, Vec3 point) {
-        if (!ResearchEffects.allowActivation(player))
+        if (busy(player) || !player.isAlive() || player.isSpectator() || mgbDetonating(player.serverLevel())
+                || !ResearchEffects.allowActivation(player))
             return false;
         if (!StreakAirspace.target(player, reward, point, player.getYRot()))
             return false;
@@ -1186,19 +1205,23 @@ public final class TacticalRuntime {
         Vec3 c = ground(level, point);
         float heading = player.getYRot();
         ResearchMask upgrades = ResearchSystem.activeUpgrades(player);
-        queueCall(new CallIn(player, level, reward, false, false, level.getGameTime() + 1, null, () -> {
+        CallIn call = new CallIn(player, level, reward, false, false, level.getGameTime() + 1, null, () -> {
             if (!StreakAirspace.target(player, reward, point, heading)) {
-                KillstreakService.giveItem(player, TacticalEquipmentItem.stack("designator", reward.id()));
+                AirspaceRefund.cancelCurrent();
                 return;
             }
-            NativeAudio.call(player, reward.id());
             UUID report = StrikeRadioReports.begin(player, reward.id());
             Vec3 actualCenter = ground(level, point);
-            if (reward == StreakReward.PRECISION_AIRSTRIKE)
-                ResearchOrdnance.precision(player, actualCenter, heading, report, upgrades, true);
-            else if (reward == StreakReward.MORTAR_STRIKE)
+            if (reward == StreakReward.PRECISION_AIRSTRIKE) {
+                if (!ResearchOrdnance.precision(player, actualCenter, heading, report, upgrades)) {
+                    AirspaceRefund.cancelCurrent();
+                    return;
+                }
+            } else if (reward == StreakReward.MORTAR_STRIKE)
                 ResearchOrdnance.mortar(player, actualCenter, heading, report, upgrades);
-        }));
+            NativeAudio.call(player, reward.id());
+        });
+        queueCall(call);
         level.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, c.x, c.y, c.z, 15, .5, .3, .5, .03);
         return true;
     }
@@ -1218,14 +1241,14 @@ public final class TacticalRuntime {
         if (!StreakServerConfig.requireReward(player, reward.id()))
             return;
         if (!StreakAirspace.target(player, reward, at, player.getYRot())) {
-            KillstreakService.giveItem(player, TacticalEquipmentItem.stack("drop_marker", reward.id()));
+            KillstreakService.refund(player, reward, false);
             return;
         }
         float heading = player.getYRot();
         queueCall(new CallIn(player, player.serverLevel(), reward, false, false, player.serverLevel().getGameTime() + 1,
                 null, () -> {
                     if (!StreakAirspace.target(player, reward, at, heading)) {
-                        KillstreakService.giveItem(player, TacticalEquipmentItem.stack("drop_marker", reward.id()));
+                        AirspaceRefund.cancelCurrent();
                         return;
                     }
                     NativeAudio.call(player, reward.id());
@@ -1404,19 +1427,27 @@ public final class TacticalRuntime {
             }
         }
         boolean confirmed = false;
+        boolean minigun = emitter == player && (player.getMainHandItem().is(KillstreakcodMod.M134_MINIGUN.get())
+                || player.getOffhandItem().is(KillstreakcodMod.M134_MINIGUN.get()));
         if (hit != null && damage > 0) {
             boolean hostile = StreakCombat.hostile(player, hit);
-            confirmed = StreakCombat.hurt(player, emitter, hit, damage, false, from) && hostile;
-            if (incendiary)
+            float amount = StreakDamage.direct(player, emitter, damage);
+            confirmed = StreakCombat.hurt(player, emitter, hit, amount, false, from) && hostile;
+            if (incendiary && amount > 0)
                 hit.setSecondsOnFire(2);
         }
         if (emitter instanceof TacticalUnitEntity unit && damage == 0 && unit.kind() == Kind.GUNSHIP)
             TracerDelivery.shot(level, emitter, from, end, TracerDelivery.HEAVY); // 40 mm uses splash-only hitscan.
         // 中文：40 毫米武器使用仅结算溅射伤害的即时射线命中。
+        else if (minigun)
+            TracerDelivery.shot(level, emitter,
+                    NativeArsenalLibrary.minigunSocket(player, "tag_flash", player.getTicksUsingItem()), end);
         else
             TracerDelivery.shot(level, emitter, from, end);
         if (!AircraftFireEffects.shot(emitter, from, damage)) {
-            level.sendParticles(ParticleTypes.FLAME, from.x, from.y, from.z, 3, .05, .05, .05, .02);
+            // M134 已有原炮口效果；通用火焰若从射线的眼睛原点生成，会遮住本人整个画面。
+            if (!minigun)
+                level.sendParticles(ParticleTypes.FLAME, from.x, from.y, from.z, 3, .05, .05, .05, .02);
             sound(level, from, NativeAudio.shot(emitter, damage), .55F, 1);
         }
         level.sendParticles(ParticleTypes.SMOKE, end.x, end.y, end.z, 3, .05, .05, .05, .03);
@@ -1458,6 +1489,7 @@ public final class TacticalRuntime {
     }
 
     public static void blast(TacticalUnitEntity emitter, Vec3 center, float radius, float damage) {
+        damage = StreakDamage.explosion(emitter, radius, damage);
         float scale = ResearchEffects.blastScale(emitter);
         radius *= scale * ResearchCombat.radiusScale(emitter);
         damage *= scale * ResearchCombat.damageScale(emitter);
@@ -1470,6 +1502,8 @@ public final class TacticalRuntime {
                 StreakNetwork.send(player, new SupportSoundPayload(level.dimension().location(),
                         StreakSounds.CRUISE_NATIVE_BLAST.get().getLocation(), center.x, center.y, center.z, .8F, 1, 1));
         }
+        if (emitter.kind() == Kind.CRUISE && player != null && damage > 0)
+            StreakCombat.cruiseAircraftBlast(level, player, emitter, center, radius);
         boolean nativeAircraftImpact = !emitter.cargo.equals("sae_bomblet")
                 && AircraftFireEffects.impact(emitter, center, radius);
         if (!emitter.cargo.equals("sae_bomblet") && !nativeAircraftImpact)
@@ -1668,7 +1702,7 @@ public final class TacticalRuntime {
         float yaw, pitch, forward, strafe, speed, cruiseIntroPitch;
         int flags, actions, lastSequence, weapon, flares = 3;
         boolean thermal, cruiseBoosting, cruiseShellReleased;
-        long lastInput, nextShot, nextRocket, nextFlare, introUntil;
+        long lastInput, nextShot, nextRocket, nextFlare, flareUntil, introUntil;
 
         Session(ServerPlayer p, TacticalUnitEntity e, Vec3 anchor) {
             player = p;

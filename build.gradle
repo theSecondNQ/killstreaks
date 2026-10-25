@@ -4,13 +4,18 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.38'
 }
 
-version = '1.1.0.4356'
+version = '1.2.0.4365'
 group = 'net.killstreakcod'
-base.archivesName = 'killstreakcod-forge-1.20.1'
+base.archivesName = 'killstreaks-forge-1.20.1'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 sourceSets {
+    // 隔离界面预览仅供开发使用，不打入发行 JAR。
+    uiPreview {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
     gameTest {
         compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
         runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
@@ -30,6 +35,14 @@ minecraft {
             }
         }
         client {
+            if (project.hasProperty('uiPreview')) {
+                workingDirectory project.file('build/ui-preview')
+                property 'killstreakcod.uiPreview', 'true'
+                args '--width', '1280', '--height', '800'
+                mods {
+                    killstreakcod { source sourceSets.uiPreview }
+                }
+            }
             if (project.hasProperty('clientSmoke')) {
                 workingDirectory project.file('build/client-smoke')
                 property 'killstreakcod.clientSmoke', 'true'
@@ -118,3 +131,20 @@ tasks.named('jar') {
     }
 }
 
+
+// Source-only ports can use separately supplied language resources without copying them into src.
+// 中文：仅同步源码的移植工程可加载另行提供的语言资源，不修改 src 下的资源目录。
+if (providers.gradleProperty('killstreakLanguageDir').isPresent()) {
+    def languageDirectory = file(providers.gradleProperty('killstreakLanguageDir').get()).canonicalFile
+    if (!languageDirectory.isDirectory()) {
+        throw new GradleException("Language overlay directory does not exist: ${languageDirectory}")
+    }
+    def originalLanguages = file('src/main/resources/assets/killstreakcod/lang').canonicalFile
+    sourceSets.main.resources.exclude { entry -> entry.file.parentFile.canonicalFile == originalLanguages }
+    tasks.named('processResources') {
+        from(languageDirectory) {
+            include '*.json'
+            into 'assets/killstreakcod/lang'
+        }
+    }
+}

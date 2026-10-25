@@ -137,7 +137,7 @@
   "message.killstreakcod.loadout_saved": "連殺設定已儲存。",
   "streak.killstreakcod.mgb": "核彈",
   "hud.killstreakcod.notice_mgb": "核彈已就緒",
-  "hud.killstreakcod.notice_ready": "按 [%s] 呼叫",
+  "hud.killstreakcod.notice_ready": "按下[%s]使用",
   "hud.killstreakcod.notice_stock": "庫存 ×%s",
   "hud.killstreakcod.notice_queued": "待顯示 +%s",
   "hud.killstreakcod.presentation.raise": "取出操作終端",
@@ -1165,7 +1165,7 @@
   "research.killstreakcod.unlock_all": "全部解鎖",
   "research.killstreakcod.mode_hint": "生存模式先研究並預購儲備，擊殺／得分達標時消耗一次儲備，獲得一次可呼叫獎勵。連殺模式無需儲備；已裝配升級在兩種模式中均生效。",
   "research.killstreakcod.creative_hint": "創造模式免研究及預購費用；呼叫仍需已獲得的獎勵，可從創造物品欄領取連殺物品。",
-  "research.killstreakcod.navigation": "拖拽平移；滾輪上下；Shift＋滾輪左右。",
+  "research.killstreakcod.navigation": "滾輪瀏覽研究分支；Tab 與方向鍵選擇項目。",
   "research.killstreakcod.working": "正在等待服務端確認…",
   "research.killstreakcod.research": "研究",
   "research.killstreakcod.call": "呼叫獎勵",
@@ -1452,5 +1452,12 @@
   "hud.killstreakcod.aircraft.79667c784dac1cc9": "英尺",
   "hud.killstreakcod.aircraft.7a6212e81b1124e7": "離線",
   "hud.killstreakcod.aircraft.7c3615273e7d24d2": "關閉載具",
-  "hud.killstreakcod.aircraft.7f05e7cc7495cfe4": "干擾彈"
+  "hud.killstreakcod.aircraft.7f05e7cc7495cfe4": "干擾彈",
+  "hud.killstreakcod.mgb_called": "呼叫了核彈打擊！",
+  "hud.killstreakcod.mgb_warning": "警告",
+  "screen.killstreakcod.ui.search": "搜尋連殺…",
+  "screen.killstreakcod.ui.no_results": "找不到連殺，請嘗試其他名稱。",
+  "screen.killstreakcod.ui.save_timeout": "伺服器未回應，已保留選擇，請重試儲存。",
+  "screen.killstreakcod.ui.progress": "擊殺 %s · 得分 %s",
+  "screen.killstreakcod.ui.mode": "取得：%s"
 }

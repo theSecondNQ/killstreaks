@@ -1,0 +1,1160 @@
+{
+  "format": 1,
+  "source": "earned_ui_index / earned_ui_lui",
+  "referenceSize": [
+    1920,
+    1080
+  ],
+  "top": 200,
+  "contentWidth": 500,
+  "colors": {
+    "styleGuideAccentMain": 7979888,
+    "styleGuideAccentSupport": 3574087,
+    "styleGuideCool05": 1315603
+  },
+  "manager": {
+    "hideTime": 600,
+    "priority": 30,
+    "displayTime": 2000,
+    "maxWaitTime": 5000,
+    "shouldOverride": false,
+    "nextMessageDelay": 300,
+    "key": "killstreak",
+    "dispatchEventState": 1
+  },
+  "callbacks": {
+    "introContent": 200,
+    "introHint": 350,
+    "outroIcon": 100,
+    "outroDivider": 200,
+    "outroBanner": 300,
+    "hide": 400
+  },
+  "layouts": {
+    "splash.MainContent": [
+      0.5,
+      0.5,
+      0,
+      1,
+      -250,
+      250,
+      0,
+      128
+    ],
+    "splash.LongBanner": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      22,
+      62
+    ],
+    "splash.StreakIcon": [
+      0.5,
+      0.5,
+      0,
+      1,
+      -235,
+      -100,
+      -3.5,
+      131.5
+    ],
+    "splash.Diamond": [
+      0.5,
+      0.5,
+      0,
+      1,
+      -259,
+      -76,
+      -27.5,
+      155.5
+    ],
+    "content.UpperBacker": [
+      0,
+      0,
+      0,
+      1,
+      130,
+      -22,
+      23,
+      63
+    ],
+    "content.Divider": [
+      0,
+      1,
+      0,
+      1,
+      130,
+      135,
+      23,
+      93
+    ],
+    "content.LowerBacker": [
+      0,
+      1,
+      0,
+      1,
+      130,
+      500,
+      63,
+      93
+    ],
+    "content.Chevron1": [
+      1,
+      0,
+      0,
+      1,
+      -33,
+      -13,
+      11,
+      75
+    ],
+    "content.Chevron2": [
+      1,
+      0,
+      0,
+      1,
+      -19.48,
+      0.52,
+      11,
+      75
+    ],
+    "content.HintText": [
+      0,
+      1,
+      0,
+      1,
+      148.61,
+      289.61,
+      69,
+      87
+    ],
+    "content.MainText": [
+      0,
+      1,
+      0,
+      1,
+      148.61,
+      648.61,
+      26,
+      62
+    ]
+  },
+  "tracks": {
+    "splash.MainContent": {
+      "DefaultSequence": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      },
+      "Show": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          }
+        ]
+      },
+      "Hide": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      }
+    },
+    "splash.LongBanner": {
+      "DefaultSequence": {
+        "Left_Anchor": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          }
+        ],
+        "Right_Anchor": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ],
+        "Left": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ],
+        "Right": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      },
+      "Show": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          }
+        ]
+      },
+      "Hide": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      }
+    },
+    "splash.StreakIcon": {
+      "DefaultSequence": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      },
+      "IntroIconDiamond": {
+        "Scale": [
+          {
+            "duration": 0,
+            "value": 2,
+            "easing": "linear"
+          },
+          {
+            "duration": 50,
+            "value": 0,
+            "easing": "inQuadratic"
+          }
+        ],
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          }
+        ]
+      },
+      "OutroIconDiamond": {
+        "Alpha": [
+          {
+            "duration": 100,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          }
+        ]
+      }
+    },
+    "splash.Diamond": {
+      "DefaultSequence": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      },
+      "IntroIconDiamond": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 50,
+            "value": 0.2,
+            "easing": "snap"
+          }
+        ],
+        "Scale": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      },
+      "OutroIconDiamond": {
+        "Scale": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 0.67,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.71,
+            "easing": "linear"
+          }
+        ],
+        "Alpha": [
+          {
+            "duration": 110,
+            "value": 0.18,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.16,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.14,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.12,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.1,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.08,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.06,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.04,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0.02,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      }
+    },
+    "content.Divider": {
+      "IntroDivider": {
+        "Top_Anchor": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 0,
+            "easing": "linear"
+          }
+        ],
+        "Bottom_Anchor": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 1,
+            "easing": "linear"
+          }
+        ],
+        "Top": [
+          {
+            "duration": 0,
+            "value": 23.0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 23.0,
+            "easing": "linear"
+          }
+        ],
+        "Bottom": [
+          {
+            "duration": 0,
+            "value": 23.0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 93.0,
+            "easing": "linear"
+          }
+        ]
+      },
+      "OutroDivider": {
+        "Top_Anchor": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 0,
+            "easing": "linear"
+          }
+        ],
+        "Bottom_Anchor": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 1,
+            "easing": "linear"
+          }
+        ],
+        "Top": [
+          {
+            "duration": 0,
+            "value": 23.0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 23.0,
+            "easing": "linear"
+          }
+        ],
+        "Bottom": [
+          {
+            "duration": 0,
+            "value": 93.0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 23.0,
+            "easing": "linear"
+          }
+        ]
+      }
+    },
+    "content.UpperBacker": {
+      "IntroUpperBanner": {
+        "RGB": [
+          {
+            "duration": 0,
+            "value": 16777215,
+            "easing": "linear"
+          },
+          {
+            "duration": 300,
+            "value": 3574087,
+            "easing": "inQuadratic"
+          }
+        ],
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 300,
+            "value": 0.85,
+            "easing": "inQuadratic"
+          }
+        ],
+        "Left_Anchor": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ],
+        "Right_Anchor": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          }
+        ],
+        "Right": [
+          {
+            "duration": 0,
+            "value": -22.0,
+            "easing": "linear"
+          }
+        ],
+        "Left": [
+          {
+            "duration": 0,
+            "value": 130.0,
+            "easing": "linear"
+          }
+        ]
+      },
+      "OutroBanner": {
+        "Left_Anchor": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 500,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 1,
+            "easing": "linear"
+          }
+        ],
+        "Right_Anchor": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 500,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 0,
+            "easing": "linear"
+          }
+        ],
+        "Left": [
+          {
+            "duration": 0,
+            "value": -370.0,
+            "easing": "linear"
+          },
+          {
+            "duration": 500,
+            "value": -370.0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": -23.0,
+            "easing": "linear"
+          }
+        ],
+        "Right": [
+          {
+            "duration": 0,
+            "value": -23.0,
+            "easing": "linear"
+          },
+          {
+            "duration": 500,
+            "value": -23.0,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": -23.0,
+            "easing": "linear"
+          }
+        ],
+        "Alpha": [
+          {
+            "duration": 500,
+            "value": 0.85,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 0,
+            "easing": "snap"
+          }
+        ]
+      },
+      "OutroBannerTest": {
+        "Alpha": [
+          {
+            "duration": 100,
+            "value": 0.85,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 0,
+            "easing": "snap"
+          }
+        ]
+      }
+    },
+    "content.LowerBacker": {
+      "IntroUpperBanner": {
+        "Alpha": [
+          {
+            "duration": 80,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 70,
+            "value": 0.3,
+            "easing": "linear"
+          }
+        ]
+      },
+      "OutroBanner": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0.3,
+            "easing": "linear"
+          },
+          {
+            "duration": 500,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      },
+      "OutroBannerTest": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0.3,
+            "easing": "linear"
+          },
+          {
+            "duration": 50,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      }
+    },
+    "content.Chevron1": {
+      "IntroUpperBanner": {
+        "Alpha": [
+          {
+            "duration": 80,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 50,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          }
+        ]
+      },
+      "OutroChevronBlink": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          }
+        ]
+      }
+    },
+    "content.Chevron2": {
+      "IntroUpperBanner": {
+        "Alpha": [
+          {
+            "duration": 110,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 50,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          }
+        ]
+      },
+      "OutroChevronBlink": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 40,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 1,
+            "easing": "snap"
+          },
+          {
+            "duration": 10,
+            "value": 0,
+            "easing": "snap"
+          }
+        ]
+      }
+    },
+    "content.MainText": {
+      "IntroUpperBanner": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          }
+        ]
+      },
+      "OutroHintTextBlink": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 1,
+            "easing": "linear"
+          },
+          {
+            "duration": 100,
+            "value": 0,
+            "easing": "outQuadratic"
+          }
+        ]
+      }
+    },
+    "content.HintText": {
+      "IntroHintTextBlink": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0.8,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0.8,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0.8,
+            "easing": "linear"
+          }
+        ]
+      },
+      "OutroHintTextBlink": {
+        "Alpha": [
+          {
+            "duration": 0,
+            "value": 0.8,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0.8,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0.8,
+            "easing": "linear"
+          },
+          {
+            "duration": 20,
+            "value": 0,
+            "easing": "linear"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "uav": {
+      "ref": "uav",
+      "name_zh": "无人侦察机",
+      "name_en": "UAV",
+      "image_name": "hud_icon_killstreak_uav",
+      "sound_alias_full64": "f51a5fb6ccefe3c1"
+    },
+    "care_package": {
+      "ref": "airdrop",
+      "name_zh": "空投补给",
+      "name_en": "Care Package",
+      "image_name": "hud_icon_killstreak_carepackage",
+      "sound_alias_full64": "87251cc8f148ec79"
+    },
+    "precision_airstrike": {
+      "ref": "precision_airstrike",
+      "name_zh": "精确空袭",
+      "name_en": "Precision Airstrike",
+      "image_name": "hud_icon_killstreak_airstrike",
+      "sound_alias_full64": "ba8173f3a327f7b4"
+    },
+    "advanced_uav": {
+      "ref": "directional_uav",
+      "name_zh": "尖端无人机",
+      "name_en": "Advanced UAV",
+      "image_name": "hud_icon_killstreak_auav",
+      "sound_alias_full64": "1d0e6e0bad3d47a6"
+    },
+    "counter_uav": {
+      "ref": "scrambler_drone_guard",
+      "name_zh": "电子干扰机",
+      "name_en": "Counter UAV",
+      "image_name": "hud_icon_killstreak_cuav",
+      "sound_alias_full64": "908c84c29d1235d6"
+    },
+    "mortar_strike": {
+      "ref": "toma_strike",
+      "name_zh": "迫击炮打击",
+      "name_en": "Mortar Strike",
+      "image_name": "hud_icon_killstreak_mortar_strike",
+      "sound_alias_full64": "0872922991f111cd"
+    },
+    "cruise_missile": {
+      "ref": "cruise_predator",
+      "name_zh": "巡航导弹",
+      "name_en": "Cruise Missile",
+      "image_name": "hud_icon_killstreak_cruise_missile",
+      "sound_alias_full64": "b70fff1c73484b2b"
+    },
+    "wheelson_hs": {
+      "ref": "pac_sentry",
+      "name_zh": "遥控战车",
+      "name_en": "Wheelson-HS",
+      "image_name": "hud_icon_killstreak_wheelson",
+      "sound_alias_full64": "7366c98ad80efe1a"
+    },
+    "chopper_gunner": {
+      "ref": "chopper_gunner",
+      "name_zh": "攻击直升机",
+      "name_en": "Chopper Gunner",
+      "image_name": "hud_icon_killstreak_chopper_gunner",
+      "sound_alias_full64": "c9eb19cff776b57c"
+    },
+    "gunship": {
+      "ref": "gunship",
+      "name_zh": "空中炮艇",
+      "name_en": "Gunship",
+      "image_name": "hud_icon_killstreak_gunship",
+      "sound_alias_full64": "0b8e663cfc3110c6"
+    },
+    "sae": {
+      "ref": "fuel_airstrike",
+      "name_zh": "战略轰炸",
+      "name_en": "SAE",
+      "image_name": "hud_icon_killstreak_fuel_airstrike",
+      "sound_alias_full64": "623ee27fdff64534"
+    },
+    "juggernaut": {
+      "ref": "juggernaut",
+      "name_zh": "无畏装甲",
+      "name_en": "Juggernaut",
+      "image_name": "hud_icon_killstreak_juggernaut",
+      "sound_alias_full64": "dae170ad9143a603"
+    },
+    "sentry_gun": {
+      "ref": "sentry_gun",
+      "name_zh": "哨戒机枪",
+      "name_en": "Sentry Gun",
+      "image_name": "hud_icon_killstreak_sentry",
+      "sound_alias_full64": "b9ceb8574c715555"
+    },
+    "vtol_jet": {
+      "ref": "hover_jet",
+      "name_zh": "垂直起降战机",
+      "name_en": "VTOL Jet",
+      "image_name": "hud_icon_killstreak_hover_jet",
+      "sound_alias_full64": "9941d4cfec02422a"
+    },
+    "emergency_airdrop": {
+      "ref": "airdrop_multiple",
+      "name_zh": "紧急空投",
+      "name_en": "Emergency Airdrop",
+      "image_name": "hud_icon_killstreak_emergency_airdrop",
+      "sound_alias_full64": "59d3d9ef5a15a496"
+    },
+    "bomb_drone": {
+      "ref": "assault_drone",
+      "name_zh": "炸弹无人机",
+      "name_en": "Bomb Drone",
+      "image_name": "hud_icon_killstreak_drone_bomb",
+      "sound_alias_full64": "a505dc9fcde3376a"
+    },
+    "stealth_bomber": {
+      "ref": "auto_drone",
+      "name_zh": "隐形轰炸机",
+      "name_en": "Stealth Bomber",
+      "image_name": "hud_icon_killstreak_auto_drone",
+      "sound_alias_full64": "bfd97c2a123c94ed"
+    },
+    "cluster_mine": {
+      "ref": "cluster_spike",
+      "name_zh": "集束地雷",
+      "name_en": "Cluster Mine",
+      "image_name": "hud_icon_killstreak_clusterspike",
+      "sound_alias_full64": "108856e3896d6f96"
+    },
+    "overwatch_helo": {
+      "ref": "airdrop_escort",
+      "name_zh": "支援直升机",
+      "name_en": "Overwatch Helo",
+      "image_name": "hud_icon_killstreak_escort_airdrop",
+      "sound_alias_full64": "9f6aac41b11d6aba"
+    },
+    "mgb": {
+      "ref": "nuke_multi",
+      "name_zh": "核弹",
+      "name_en": "MGB",
+      "image_name": "hud_icon_killstreak_mgb",
+      "sound_alias_full64": "92f287d334015d91"
+    }
+  },
+  "caveats": [
+    "Original font and shader unavailable; Minecraft font is used.",
+    "Missing OutroChevronFlicker is not aliased to OutroChevronBlink.",
+    "Recovered sound aliases are evidence; no new audio was delivered."
+  ]
+}

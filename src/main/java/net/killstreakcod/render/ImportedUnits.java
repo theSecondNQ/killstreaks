@@ -1,6 +1,7 @@
 package net.killstreakcod.render;
 
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
+import net.killstreakcod.killstreaks.GunshipMounts;
 import net.killstreakcod.universal.AircraftFlight;
 import net.killstreakcod.universal.NativeArsenalLibrary;
 import net.killstreakcod.universal.SceneEntryLibrary;
@@ -19,6 +20,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.Mth;
 import org.joml.Matrix4f;
+import org.joml.Matrix3f;
 import org.joml.Vector3f;
 
 /**
@@ -116,9 +118,15 @@ public final class ImportedUnits {
                 pose.scale(2.5F, 2.5F, 2.5F);
 
             // 导入表面以 Y 轴向上，与此前的 Minecraft ModelPart 网格坐标约定不同。
-            pose.mulPose(Axis.YP.rotationDegrees(180 - yaw));
-            if (independentFlight)
-                pose.mulPose(Axis.XP.rotationDegrees(-unit.renderFlightPitch(partial)));
+            if (unit.kind() == TacticalUnitEntity.Kind.GUNSHIP) {
+                Matrix4f body = GunshipMounts.bodyTransform(unit, partial);
+                pose.mulPoseMatrix(body);
+                pose.last().normal().mul(new Matrix3f(body));
+            } else {
+                pose.mulPose(Axis.YP.rotationDegrees(180 - yaw));
+                if (independentFlight)
+                    pose.mulPose(Axis.XP.rotationDegrees(-unit.renderFlightPitch(partial)));
+            }
 
             // 迫击炮弹和汽油弹的弹头指向源资源正 X 轴，转换后指向局部负 Z 轴。
             if (unit.kind() == TacticalUnitEntity.Kind.BOMB
@@ -138,12 +146,24 @@ public final class ImportedUnits {
                 pose.mulPose(Axis.XP.rotationDegrees(age * 24));
                 pose.translate(0, -.08, 0);
             }
-            Map<String, Matrix4f> bones = mechanicalPose(model, unit, yaw, age, partial);
+            GunshipMounts.Battery battery = null;
+            if (unit.kind() == TacticalUnitEntity.Kind.GUNSHIP) {
+                boolean operator = TacticalClient.remote() && TacticalClient.state.entityId() == unit.getId();
+                battery = GunshipMounts.aim(unit, operator ? TacticalClient.yaw() : unit.renderAimYaw(partial),
+                        operator ? TacticalClient.pitch() : unit.renderAimPitch(partial), partial);
+            }
+            Map<String, Matrix4f> bones = battery == null ? mechanicalPose(model, unit, yaw, age, partial)
+                    : gunshipPose(model, battery.cannon(0), battery.cannon(2));
             model.renderScene(pose, buffers, light, OverlayTexture.NO_OVERLAY, bones);
+            if (battery != null) {
+                // 原机体仅有两组独立火炮；40mm 复用原大口径炮的几何，单独缩放、安装和瞄准。
+                var cannon = battery.cannon(1);
+                model.renderBone(cannon.bone(), pose, buffers, light, OverlayTexture.NO_OVERLAY,
+                        gunshipPose(model, cannon));
+            }
             if (unit.kind() == TacticalUnitEntity.Kind.GUNSHIP && !id.startsWith("scene_"))
                 gunshipDoors(original, pose, buffers, light, tier);
-            if ((unit.kind() == TacticalUnitEntity.Kind.CRATE || unit.kind() == TacticalUnitEntity.Kind.JUGG_CRATE)
-                    && unit.stage() < 0) {
+            if (unit.kind() == TacticalUnitEntity.Kind.JUGG_CRATE && unit.stage() < 0) {
                 var canopyModels = models("parachute");
                 ImportedCastModel canopy = canopyModels.select(tier);
                 if (canopy != null) {
@@ -194,6 +214,17 @@ public final class ImportedUnits {
         } finally {
             pose.popPose();
         }
+    }
+
+    private static Map<String, Matrix4f> gunshipPose(ImportedCastModel model, GunshipMounts.CannonPose... cannons) {
+        Map<String, Matrix4f> result = new HashMap<>();
+        for (var cannon : cannons)
+            for (var bone : model.bindBones())
+                if (bone.name().equals(cannon.bone())) {
+                    result.put(cannon.bone(), new Matrix4f(cannon.deformation()).mul(bone.worldMatrix()));
+                    break;
+                }
+        return result;
     }
 
     private static void gunshipDoors(ImportedCastModel body, PoseStack pose, MultiBufferSource buffers, int light,

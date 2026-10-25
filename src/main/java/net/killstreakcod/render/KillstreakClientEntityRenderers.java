@@ -25,7 +25,8 @@ public final class KillstreakClientEntityRenderers {
         event.registerEntityRenderer(KillstreakcodMod.SUPPORT_HELICOPTER.get(), SupportHelicopterRenderer::new);
     }
 
-    public static net.minecraftforge.client.extensions.common.IClientItemExtensions itemExtension(String model, String icon) {
+    public static net.minecraftforge.client.extensions.common.IClientItemExtensions itemExtension(String model,
+            String icon) {
         return new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
             private ImportedEquipmentItemRenderer renderer;
 
@@ -79,6 +80,8 @@ public final class KillstreakClientEntityRenderers {
     @SubscribeEvent
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void thermalLayers(EntityRenderersEvent.AddLayers event) {
+        // 某些实体共享同一个渲染器，每次重载时只为当前实例注册一次附加层。
+        var registered = java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<Object, Boolean>());
         for (var type : net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE) {
             Object renderer;
             try {
@@ -88,7 +91,8 @@ public final class KillstreakClientEntityRenderers {
             catch (ClassCastException nonLivingRenderer) {
                 continue;
             }
-            if (renderer instanceof net.minecraft.client.renderer.entity.LivingEntityRenderer living) {
+            if (renderer instanceof net.minecraft.client.renderer.entity.LivingEntityRenderer living
+                    && registered.add(living)) {
                 living.addLayer(new ThermalLayer(living));
                 if (living.getModel() instanceof net.minecraft.client.model.HumanoidModel)
                     living.addLayer(new OriginalJuggernautLayer(living));
@@ -96,7 +100,7 @@ public final class KillstreakClientEntityRenderers {
         }
         for (var skin : event.getSkins()) {
             net.minecraft.client.renderer.entity.LivingEntityRenderer living = event.getSkin(skin);
-            if (living != null) {
+            if (living != null && registered.add(living)) {
                 living.addLayer(new ThermalLayer(living));
                 if (living.getModel() instanceof net.minecraft.client.model.HumanoidModel)
                     living.addLayer(new OriginalJuggernautLayer(living));

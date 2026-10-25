@@ -162,6 +162,7 @@ public final class KillstreakService {
      */
     public static void queueVehicleKill(ServerPlayer player, Entity vehicle, boolean support) {
         if (player == null || vehicle.level().isClientSide || !SuperbWarfareCompat.destroyed(vehicle)
+                || StreakServerConfig.hostileKillsOnly(player.serverLevel().getServer())
                 || StreakCombat.allied(player, vehicle) || COUNTED_VEHICLES.containsKey(vehicle))
             return;
         PENDING_VEHICLES.putIfAbsent(vehicle, new KillCredit(player.getUUID(), support));
@@ -189,7 +190,8 @@ public final class KillstreakService {
         PENDING_VEHICLES.clear();
         for (var entry : vehicles.entrySet()) {
             ServerPlayer player = server.getPlayerList().getPlayer(entry.getValue().attacker());
-            if (player == null || !SuperbWarfareCompat.destroyed(entry.getKey()))
+            if (player == null || StreakServerConfig.hostileKillsOnly(player.serverLevel().getServer())
+                    || !SuperbWarfareCompat.destroyed(entry.getKey()))
                 continue;
             COUNTED_VEHICLES.put(entry.getKey(), true);
             awardKill(player, entry.getValue().support());
@@ -201,6 +203,12 @@ public final class KillstreakService {
         for (RewardLedger.Earned earned : ledger.awardKill(support))
             announce(player, earned);
         sendTerminalState(player, false, ledger.snapshot());
+    }
+
+    @SubscribeEvent
+    public void scoreLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player)
+            net.killstreakcod.universal.compat.Gd656Scores.sample(player);
     }
 
     @SubscribeEvent
@@ -223,8 +231,10 @@ public final class KillstreakService {
 
     @SubscribeEvent
     public void logout(PlayerEvent.PlayerLoggedOutEvent event) {
-        if (event.getEntity() instanceof ServerPlayer p)
+        if (event.getEntity() instanceof ServerPlayer p) {
             TacticalRuntime.abortSession(p);
+            net.killstreakcod.universal.compat.Gd656Scores.forget(p.getUUID());
+        }
     }
 
     @SubscribeEvent
@@ -242,11 +252,23 @@ public final class KillstreakService {
         TacticalRuntime.tick(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
         flushKills(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
         ResearchSystem.tick(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
+        for (ServerPlayer player : net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer().getPlayerList()
+                .getPlayers()) {
+            int points = net.killstreakcod.universal.compat.Gd656Scores.poll(player,
+                    StreakServerConfig.scorestreaks(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer()));
+            if (points > 0) {
+                RewardLedger ledger = RewardLedger.open(player);
+                for (RewardLedger.Earned earned : ledger.awardScore(points))
+                    announce(player, earned);
+                sendTerminalState(player, false, ledger.snapshot());
+            }
+        }
     }
 
     @SubscribeEvent
     public void stopping(ServerStoppingEvent event) {
         TacticalRuntime.stop(net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer());
+        net.killstreakcod.universal.compat.Gd656Scores.clear();
         ResearchEffects.clear();
         PENDING_KILLS.clear();
         COUNTED_KILLS.clear();
@@ -256,8 +278,12 @@ public final class KillstreakService {
 
     private static boolean eligible(ServerPlayer player, LivingEntity livingEntity) {
         return (livingEntity instanceof ServerPlayer && !livingEntity.isSpectator() || livingEntity instanceof Enemy
-                || StreakCombat.boss(livingEntity)) && !(livingEntity instanceof TacticalUnitEntity)
-                && !(livingEntity instanceof SupportHelicopterEntity) && !StreakCombat.allied(player, livingEntity);
+                || StreakCombat.boss(livingEntity)
+                || !StreakServerConfig.hostileKillsOnly(player.serverLevel().getServer())
+                        && !livingEntity.isSpectator())
+                && !(livingEntity instanceof net.minecraft.world.entity.decoration.ArmorStand)
+                && !(livingEntity instanceof TacticalUnitEntity) && !(livingEntity instanceof SupportHelicopterEntity)
+                && !StreakCombat.allied(player, livingEntity);
     }
 
     private static void announce(ServerPlayer player, RewardLedger.Earned earned) {
@@ -426,10 +452,13 @@ public final class KillstreakService {
     }
 
     public static void refund(ServerPlayer player, StreakReward reward, boolean bonus) {
-        if (bonus)
+        RewardLedger ledger = RewardLedger.open(player);
+        boolean selected = ledger.snapshot().slots().stream().anyMatch(slot -> slot.reward() == reward);
+        // 消耗物或旧配置中的奖励可能不在当前三栏内，退回额外栏，确保玩家能再次呼叫。
+        if (bonus || !selected)
             addBonus(player, reward, false);
         else {
-            RewardLedger.open(player).refundStock(reward.id());
+            ledger.refundStock(reward.id());
             sendTerminalState(player, false);
         }
     }

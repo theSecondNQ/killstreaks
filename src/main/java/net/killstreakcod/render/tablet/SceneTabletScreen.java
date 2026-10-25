@@ -102,7 +102,8 @@ public final class SceneTabletScreen {
 
     public static NativeImage icon(String reward) {
         return icons.computeIfAbsent(reward, k -> {
-            try (var input = Minecraft.getInstance().getResourceManager().open(ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "textures/gui/streaks/" + k + ".png"))) {
+            try (var input = Minecraft.getInstance().getResourceManager().open(ResourceLocation
+                    .fromNamespaceAndPath(KillstreakcodMod.MODID, "textures/gui/streaks/" + k + ".png"))) {
                 return NativeImage.read(input);
             }
             catch (Exception failure) {

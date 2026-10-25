@@ -137,7 +137,7 @@
   "message.killstreakcod.loadout_saved": "Séries d'éliminations enregistrées.",
   "streak.killstreakcod.mgb": "MGB",
   "hud.killstreakcod.notice_mgb": "MGB PRÊTE",
-  "hud.killstreakcod.notice_ready": "[%s] POUR DÉPLOYER",
+  "hud.killstreakcod.notice_ready": "Appuyez sur [%s] pour utiliser",
   "hud.killstreakcod.notice_stock": "RÉSERVE ×%s",
   "hud.killstreakcod.notice_queued": "EN ATTENTE +%s",
   "hud.killstreakcod.presentation.raise": "SORTIE DU TERMINAL",
@@ -437,7 +437,7 @@
   "research.killstreakcod.unlock_all": "Unlock all",
   "research.killstreakcod.mode_hint": "Survival requires research and prepaid reserves. Reaching the kill/score threshold spends one reserve and earns a callable reward. Killstreak mode needs no reserves; equipped upgrades work in both modes.",
   "research.killstreakcod.creative_hint": "Creative waives research and reserve costs. Calls still require an earned reward; creative reward items can supply one.",
-  "research.killstreakcod.navigation": "Drag to pan; wheel to scroll; Shift + wheel to pan sideways.",
+  "research.killstreakcod.navigation": "Molette pour parcourir ; Tab et flèches pour sélectionner.",
   "research.killstreakcod.working": "Waiting for server...",
   "research.killstreakcod.research": "Research",
   "research.killstreakcod.call": "Call reward",
@@ -724,5 +724,12 @@
   "hud.killstreakcod.aircraft.79667c784dac1cc9": "FT.",
   "hud.killstreakcod.aircraft.7a6212e81b1124e7": "OFFLINE",
   "hud.killstreakcod.aircraft.7c3615273e7d24d2": "Vehicle Disabled",
-  "hud.killstreakcod.aircraft.7f05e7cc7495cfe4": "Flares"
+  "hud.killstreakcod.aircraft.7f05e7cc7495cfe4": "Flares",
+  "hud.killstreakcod.mgb_called": "A DEMANDÉ UNE FRAPPE MGB !",
+  "hud.killstreakcod.mgb_warning": "ATTENTION",
+  "screen.killstreakcod.ui.search": "Rechercher une série…",
+  "screen.killstreakcod.ui.no_results": "Aucun résultat. Essayez un autre nom.",
+  "screen.killstreakcod.ui.save_timeout": "Le serveur ne répond pas. Sélection conservée ; réessayez.",
+  "screen.killstreakcod.ui.progress": "Élim. %s · Score %s",
+  "screen.killstreakcod.ui.mode": "Gain : %s"
 }

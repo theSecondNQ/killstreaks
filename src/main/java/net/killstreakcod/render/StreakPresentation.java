@@ -17,7 +17,6 @@ import net.killstreakcod.universal.StreakTimings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -36,6 +35,8 @@ public final class StreakPresentation {
     private static float initialVisibility, lastVisibility, initialStow, lastStow;
     private static boolean remoteExit, remoteTabletCall;
     private static int soundMask;
+    private static net.minecraft.client.multiplayer.ClientLevel handoffLevel;
+    private static long handoffUntil;
     private static ItemStack deployment = ItemStack.EMPTY;
     private static net.minecraft.client.CameraType exitCameraType;
     private static net.minecraft.client.player.LocalPlayer exitPlayer;
@@ -44,6 +45,7 @@ public final class StreakPresentation {
     private StreakPresentation() {}
 
     public static void start(String id, String phase, int ticks) {
+        handoffLevel = null;
         if (phase.equals("reset")) {
             reset();
             return;
@@ -131,6 +133,7 @@ public final class StreakPresentation {
     }
 
     public static void reset() {
+        handoffLevel = null;
         AircraftCrashClient.reset();
         restoreExitCamera();
         DroneDeploymentSounds.stop();
@@ -220,6 +223,9 @@ public final class StreakPresentation {
         if (!active())
             return;
 
+        if (stage.equals("entry") && TacticalClient.remote() && !TacticalClient.cameraReady())
+            return;
+
         // 丢弃动画播放期间的按键，避免它们在之后误触发已储存的奖励。
         for (var mapping : new net.minecraft.client.KeyMapping[] { KillstreakKeyMappings.USE_SLOT_1,
                 KillstreakKeyMappings.USE_SLOT_2, KillstreakKeyMappings.USE_SLOT_3, KillstreakKeyMappings.BONUS,
@@ -230,8 +236,12 @@ public final class StreakPresentation {
             audio();
             lowerNormalEquipment();
             if (++age >= duration) {
-                boolean crashOutro = stage.equals("crash_gunship");
+                boolean crashOutro = stage.equals("crash_gunship"), handoff = remoteCall();
                 reset();
+                if (handoff) {
+                    handoffLevel = mc.level;
+                    handoffUntil = mc.level.getGameTime() + 8;
+                }
                 if (crashOutro && !MgbEffects.interruptingControl())
                     start("gunship", "exit", StreakTimings.exit("gunship"));
             }
@@ -318,8 +328,9 @@ public final class StreakPresentation {
         float movement = (float) Math.min(1, mc.player.getDeltaMovement().horizontalDistance() * 4);
         if (visible > .005F) {
             if (compactTerminal())
-                hands.renderCompact(event.getPoseStack(), event.getMultiBufferSource(), mc.player.getSkinTextureLocation(),
-                        event.getPackedLight(), visible, tap, time, stow, movement, transmit, reward);
+                hands.renderCompact(event.getPoseStack(), event.getMultiBufferSource(),
+                        mc.player.getSkinTextureLocation(), event.getPackedLight(), visible, tap, time, stow, movement,
+                        transmit, reward);
             else
                 hands.render(event.getPoseStack(), event.getMultiBufferSource(), mc.player.getSkinTextureLocation(),
                         event.getPackedLight(), visible, tap, time, stow, movement, transmit, false, confirmation,
@@ -361,64 +372,31 @@ public final class StreakPresentation {
     }
 
     public static void renderGui(GuiGraphics graphics) {
-        if (!active())
-            return;
-        if (AircraftCrashClient.active())
-            return;
-        Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.level == null)
-            return;
-        int w = graphics.guiWidth(), h = graphics.guiHeight();
-        float p = progress();
-        if (stage.equals("entry")) {
+        try (UiLayout.Scope layoutFrame = UiLayout.frame("hud.presentation")) {
+            if (!active())
+                return;
+            if (AircraftCrashClient.active())
+                return;
+            Minecraft mc = Minecraft.getInstance();
+            if (mc.player == null || mc.level == null)
+                return;
+            int w = graphics.guiWidth(), h = graphics.guiHeight();
+            float p = progress();
+            if (stage.equals("entry")) {
 
-            // 较大 GUI 缩放下，连接标签与进度指示也要保持在屏幕内。
-            float scale = Math.min(1, Math.min(w / 260F, h / 190F));
-            graphics.pose().pushPose();
-            graphics.pose().scale(scale, scale, 1);
-            try {
-                entry(graphics, Math.round(w / scale), Math.round(h / scale), p);
-            } finally {
-                graphics.pose().popPose();
-            }
-            return;
-        }
-        if (stage.equals("exit")) {
-            if (remoteExit) {
-                status(graphics, text("transmit"), w / 2, h - 28, 0xffccd6d3, 1 - p);
+                // 摄像机切换和原过场保留黑屏淡入淡出，不绘制连接状态标签。
+                float scale = Math.min(1, Math.min(w / 260F, h / 190F));
+                graphics.pose().pushPose();
+                graphics.pose().scale(scale, scale, 1);
+                try {
+                    entry(graphics, Math.round(w / scale), Math.round(h / scale), p);
+                } finally {
+                    graphics.pose().popPose();
+                }
                 return;
             }
-            int alpha = (int) ((1 - ease(p)) * (remoteExit ? 205 : 65));
-            graphics.fill(0, 0, w, h, alpha << 24 | 0x0005090a);
-            if (remoteExit)
-                exitSensor(graphics, w, h, p);
-            status(graphics, text("exit"), w / 2, h * 4 / 5, 0xffccd6d3, 1 - p);
-            return;
+            // 呼叫状态由装备动画和原 HUD 表达，不再覆盖上下缘的文字或进度条。
         }
-        if (mc.screen != null)
-            return;
-        String label = !deployment.isEmpty() ? (stage.equals("call") ? "equipment" : "deploy")
-                : stage.equals("confirmed") ? "confirm" : p < .27F ? "raise" : p < .53F ? "tap" : "transmit";
-        if (stage.equals("call")) {
-            String originalAction = OriginalStreakAnimations.actionId(reward, animationStage(),
-                    animationTime(mc.getFrameTime()));
-            if (!equipmentAction()) {
-                if (originalAction.contains("raise"))
-                    label = "raise";
-                else if (originalAction.equals("tablet_tap") || originalAction.equals("scene_vm_ks_tablet_fire_tap"))
-                    label = "tap";
-                else if (originalAction.endsWith("drop"))
-                    label = "transmit";
-            }
-        }
-        float opacity = 1 - ease((p - .70F) / .30F);
-        int c = stage.equals("confirmed") ? 0xffd4eeae : 0xffadc78a;
-        status(graphics, text(label), w / 2, h - 35, c, opacity);
-        int width = Math.max(1, Math.min(156, w - 40)), x = (w - width) / 2;
-        graphics.fill(x, h - 22, x + width, h - 20, alpha(0x1a2921, (int) (128 * opacity)));
-        graphics.fill(x, h - 22, x + (int) (width * p), h - 20, alpha(c, (int) (255 * opacity)));
-        status(graphics, Component.translatable("streak.killstreakcod." + reward), w / 2, h - 15, 0xffdde6da, opacity);
-        renderBlackout(graphics);
     }
 
     /**
@@ -426,115 +404,59 @@ public final class StreakPresentation {
      * 玩家按 F1 隐藏 HUD 后，摄像机切换仍作为过场的一部分执行。
      */
     public static void renderBlackout(GuiGraphics graphics) {
-        if (!active())
+        Minecraft mc = Minecraft.getInstance();
+        if (TacticalClient.remote() && !TacticalClient.cameraReady()) {
+            graphics.fill(0, 0, graphics.guiWidth(), graphics.guiHeight(), 0xFF000000);
             return;
-        float opacity = remoteCall() ? ease((elapsed() - StreakTimings.remoteTabletOffset(reward) - 28) / 6)
-                : stage.equals("entry") ? 1 - ease(elapsed() / 8) : 0;
+        }
+        if (!active() && (handoffLevel == null || handoffLevel != mc.level || mc.level.getGameTime() >= handoffUntil))
+            return;
+        float opacity = !active() ? ease((handoffUntil - mc.level.getGameTime()) / 2F)
+                : remoteCall() ? ease((elapsed() - StreakTimings.remoteTabletOffset(reward) - 28) / 6)
+                        : stage.equals("entry")
+                                ? reward.equals("precision_airstrike") ? age <= 8 ? 1 : 1 - ease((elapsed() - 8) / 8)
+                                        : 1 - ease(elapsed() / 8)
+                                : 0;
         int cut = (int) (255 * opacity);
         if (cut > 0)
-            graphics.fill(0, 0, graphics.guiWidth(), graphics.guiHeight(), cut << 24);
+            UiDraw.fill(graphics, "StreakPresentation.renderBlackout.0", 0, 0, graphics.guiWidth(),
+                    graphics.guiHeight(), cut << 24);
     }
 
     private static void entry(GuiGraphics graphics, int w, int h, float p) {
-        Minecraft mc = Minecraft.getInstance();
-        float time = elapsed(), remain = 1 - ease(p), black = Math.max(0, 1 - p / .38F);
-        String mode = profile();
-        if (mode.equals("gunship")) {
-
-            // 参考顺序为 08:45 黑屏、08:46–48 从机尾掠至机头、08:49–51 操作位、最后传感器视角。
-            // 时序以场景游戏刻计算，调整过场总长也不能导致座舱闪现。
-            float stationCut = 1 - ease(Math.abs(time - EntryScenes.GUNSHIP_FLYPAST) / 3.5F);
-            float sensorEnd = SceneEntryLibrary.GUNSHIP_EXTERIOR + SceneEntryLibrary.GUNSHIP_INTERIOR;
-            float sensorCut = time < sensorEnd ? ease((time - sensorEnd + 4) / 4) : 1 - ease((time - sensorEnd) / 2);
-            black = Math.max(1 - ease(time / 8), Math.max(stationCut, sensorCut));
-        }
-        if (mode.equals("chopper"))
-            black = Math.max(1 - ease(time / 10), ease((time - 91) / 6));
-        if (mode.equals("cruise"))
-            black = Math.max(1 - ease(time / 6), ease((time - NativeCruiseFlight.BLACK_TICK) / 3));
-        int frame = alpha(0x101719, (int) (245 * remain)), line = alpha(0xb8c7c2, (int) (220 * remain));
-        int cx = w / 2, cy = h / 2;
-        switch (mode) {
+        float time = elapsed(), black = Math.max(0, 1 - p / .38F);
+        switch (profile()) {
             case "gunship" -> {
-                if (time < SceneEntryLibrary.GUNSHIP_EXTERIOR + SceneEntryLibrary.GUNSHIP_INTERIOR)
-                    status(graphics, text("gunship"), cx, 16, 0xffb6d3bf, remain);
-                else
-                    sensorReticle(graphics, cx, cy, 24, alpha(0xb8c7c2, (int) (180 * ease(
-                            (time - SceneEntryLibrary.GUNSHIP_EXTERIOR - SceneEntryLibrary.GUNSHIP_INTERIOR) / 2))));
+                float stationCut = 1 - ease(Math.abs(time - EntryScenes.GUNSHIP_FLYPAST) / 3.5F);
+                float sensorEnd = SceneEntryLibrary.GUNSHIP_EXTERIOR + SceneEntryLibrary.GUNSHIP_INTERIOR;
+                float sensorCut = time < sensorEnd ? ease((time - sensorEnd + 4) / 4)
+                        : 1 - ease((time - sensorEnd) / 2);
+                black = Math.max(1 - ease(time / 8), Math.max(stationCut, sensorCut));
+                if (time >= sensorEnd)
+                    sensorReticle(graphics, w / 2, h / 2, 24,
+                            alpha(0xb8c7c2, (int) (180 * ease((time - sensorEnd) / 2))));
             }
-            case "chopper" -> {
-
-                // 使用原三维座舱及玩家皮肤呈现画框和旋翼。
-                status(graphics, text("chopper"), cx, 28, 0xffb8d89b, remain);
-            }
-            case "cruise" -> {
-                status(graphics, text("cruise"), cx, 20, 0xffbfeaa5, remain);
-            }
-            case "wheelson" -> {
-                int edge = Math.max(7, w / 14), c = alpha(0x83d5d3, (int) (220 * remain));
-                graphics.fill(0, 0, w, 16, frame);
-                graphics.fill(0, h - 34, w, h, frame);
-                graphics.fill(0, 0, edge, h, frame);
-                graphics.fill(w - edge, 0, w, h, frame);
-                for (int n = 0; n < 3; n++) {
-                    int x = edge + 10 + n * Math.max(52, (w - edge * 2 - 30) / 3),
-                            width = Math.max(32, (w - edge * 2 - 42) / 3);
-                    graphics.renderOutline(x, h - 27, width, 17, c);
-                    graphics.fill(x + 3, h - 18, x + 3 + (int) ((width - 6) * ease(p * 2 - n * .3F)), h - 15, c);
-                }
-                status(graphics, text("wheelson"), cx, 23, 0xffa9e1df, remain);
-            }
+            case "chopper" -> black = Math.max(1 - ease(time / 10), ease((time - 91) / 6));
+            case "cruise" -> black = Math.max(1 - ease(time / 6), ease((time - NativeCruiseFlight.BLACK_TICK) / 3));
             default -> {
-                int c = alpha(0xd1dbd8, (int) (220 * remain));
-                int margin = 8;
-                graphics.renderOutline(margin, margin, w - margin * 2, h - margin * 2, c);
-                int scan = Mth.clamp((int) ((age + partial()) * h / 9) % Math.max(1, h), margin, h - margin - 3);
-                graphics.fill(margin, scan, w - margin, Math.min(h - margin, scan + 3),
-                        alpha(0xc0cec9, (int) (42 * remain)));
-                for (int n = 0; n < 10; n++) {
-                    int y = (int) (n * 23 + (age + partial()) * 7) % Math.max(1, h);
-                    graphics.hLine(margin, w - margin, y, alpha(0xa5b4af, (int) (25 * remain)));
-                }
-                sensorReticle(graphics, cx, cy, (int) (50 - 23 * ease(p)), c);
-                status(graphics, text("drone"), cx, 24, 0xffe0e7e4, remain);
             }
         }
         if (black > 0)
-            graphics.fill(0, 0, w, h, alpha(0x020606, (int) (black * 255)));
-        float textOpacity = Math.min(1, remain * 1.7F);
-        String label = p < .68F ? "connect" : "ready";
-        boolean scene = mode.equals("gunship") || mode.equals("chopper") || mode.equals("cruise");
-        int labelY = scene ? h - 34 : cy + 55, barY = scene ? h - 22 : cy + 69, channelY = scene ? h - 13 : cy + 82;
-        status(graphics, text(label), cx, labelY, 0xffd3e1d8, textOpacity);
-        int width = Math.min(140, w - 30), x = cx - width / 2;
-        graphics.fill(x, barY, x + width, barY + 3, alpha(0x31473a, (int) (140 * textOpacity)));
-        graphics.fill(x, barY, x + (int) (width * ease(p)), barY + 3, alpha(0xb3d59b, (int) (230 * textOpacity)));
-        status(graphics, text("channel"), cx, channelY, 0xffa3bba9, textOpacity);
+            UiDraw.fill(graphics, "StreakPresentation.blackout", 0, 0, w, h, alpha(0x020606, (int) (black * 255)));
     }
 
     private static void sensorReticle(GuiGraphics graphics, int x, int y, int r, int color) {
         int arm = Math.max(4, r / 4);
-        graphics.hLine(x - r, x - r + arm, y - r, color);
-        graphics.vLine(x - r, y - r, y - r + arm, color);
-        graphics.hLine(x + r - arm, x + r, y - r, color);
-        graphics.vLine(x + r, y - r, y - r + arm, color);
-        graphics.hLine(x - r, x - r + arm, y + r, color);
-        graphics.vLine(x - r, y + r - arm, y + r, color);
-        graphics.hLine(x + r - arm, x + r, y + r, color);
-        graphics.vLine(x + r, y + r - arm, y + r, color);
-        graphics.hLine(x - 3, x + 3, y, color);
-        graphics.vLine(x, y - 3, y + 3, color);
-    }
-
-    private static void status(GuiGraphics graphics, Component text, int x, int y, int color, float opacity) {
-        if (opacity < .025F)
-            return;
-        graphics.drawCenteredString(Minecraft.getInstance().font, text, x, y,
-                alpha(color & 0xffffff, (int) (255 * Mth.clamp(opacity, 0, 1))));
-    }
-
-    private static Component text(String key) {
-        return Component.translatable("hud.killstreakcod.presentation." + key);
+        UiDraw.hLine(graphics, "StreakPresentation.sensorReticle.0", x - r, x - r + arm, y - r, color);
+        UiDraw.vLine(graphics, "StreakPresentation.sensorReticle.1", x - r, y - r, y - r + arm, color);
+        UiDraw.hLine(graphics, "StreakPresentation.sensorReticle.2", x + r - arm, x + r, y - r, color);
+        UiDraw.vLine(graphics, "StreakPresentation.sensorReticle.3", x + r, y - r, y - r + arm, color);
+        UiDraw.hLine(graphics, "StreakPresentation.sensorReticle.4", x - r, x - r + arm, y + r, color);
+        UiDraw.vLine(graphics, "StreakPresentation.sensorReticle.5", x - r, y + r - arm, y + r, color);
+        UiDraw.hLine(graphics, "StreakPresentation.sensorReticle.6", x + r - arm, x + r, y + r, color);
+        UiDraw.vLine(graphics, "StreakPresentation.sensorReticle.7", x + r, y + r - arm, y + r, color);
+        UiDraw.hLine(graphics, "StreakPresentation.sensorReticle.8", x - 3, x + 3, y, color);
+        UiDraw.vLine(graphics, "StreakPresentation.sensorReticle.9", x, y - 3, y + 3, color);
     }
 
     private static void play(SoundEvent sound, float volume) {
@@ -613,18 +535,6 @@ public final class StreakPresentation {
         renderer.itemUsed(InteractionHand.OFF_HAND);
     }
 
-    private static void exitSensor(GuiGraphics graphics, int w, int h, float p) {
-        float visible = 1 - ease(p / .58F);
-        if (visible <= 0)
-            return;
-        int line = alpha(profile().equals("wheelson") ? 0x83d5d3 : 0xb8d39d, (int) (visible * 160));
-        int halfWidth = Math.max(18, (int) (w * .31F)),
-                halfHeight = Math.max(1, (int) (h * .21F * (1 - ease(p / .52F))));
-        int x = w / 2, y = h / 2;
-        graphics.renderOutline(x - halfWidth, y - halfHeight, halfWidth * 2, halfHeight * 2, line);
-        graphics.hLine(x - halfWidth, x + halfWidth, y, line);
-    }
-
     private static int alpha(int color, int alpha) {
         return Mth.clamp(alpha, 0, 255) << 24 | color & 0xffffff;
     }
@@ -638,6 +548,8 @@ public final class StreakPresentation {
     }
 
     private static float animationTime(float partial) {
+        if (stage.equals("entry") && TacticalClient.remote() && !TacticalClient.cameraReady())
+            return renderedTime;
         if (!Minecraft.getInstance().isPaused())
             renderedTime = Math.max(renderedTime, Math.min(duration, age + partial));
         return renderedTime;
@@ -658,8 +570,7 @@ public final class StreakPresentation {
 
     private static boolean controlledReward(String id) {
         return switch (id) {
-            case "gunship", "chopper_gunner", "cruise_missile", "bomb_drone", "wheelson_hs", "precision_airstrike" ->
-                true;
+            case "gunship", "chopper_gunner", "cruise_missile", "bomb_drone", "wheelson_hs" -> true;
             default -> false;
         };
     }

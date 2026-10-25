@@ -102,6 +102,8 @@ public final class AircraftAirspace {
     public static int selectLift(ServerPlayer player, Kind kind, Vec3 center, float heading) {
         if (!StreakAirspace.permitted(player.serverLevel(), kind))
             return -1;
+        if (!StreakServerConfig.airspaceChecks(player.serverLevel().getServer()))
+            return 0;
         ServerLevel level = player.serverLevel();
         long tick = level.getGameTime();
         TickPlans plans = PLANS.get(level);
@@ -227,7 +229,6 @@ public final class AircraftAirspace {
         };
         return kind == Kind.PRECISION || kind == Kind.CRUISE ? base : t -> base.apply(t).add(0, lift, 0);
     }
-
 
     // 取整后的源机体半径已考虑倾斜网格和 VTOL 的世界缩放比例。
     private static int halfSpan(Kind kind) {
@@ -507,6 +508,8 @@ public final class AircraftAirspace {
 
     public static boolean movement(TacticalUnitEntity unit, Vec3 from, Vec3 to) {
         if (!(unit.level() instanceof ServerLevel level) || !AircraftFlight.visible(unit.kind()))
+            return true;
+        if (!StreakServerConfig.airspaceChecks(level.getServer()))
             return true;
         if (from.distanceToSqr(to) > 64 * 64)
             return false;

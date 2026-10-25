@@ -137,7 +137,7 @@
   "message.killstreakcod.loadout_saved": "Equipamiento de rachas guardado.",
   "streak.killstreakcod.mgb": "MGB",
   "hud.killstreakcod.notice_mgb": "MGB LISTA",
-  "hud.killstreakcod.notice_ready": "[%s] PARA DESPLEGAR",
+  "hud.killstreakcod.notice_ready": "Pulsa [%s] para usar",
   "hud.killstreakcod.notice_stock": "RESERVAS ×%s",
   "hud.killstreakcod.notice_queued": "EN COLA +%s",
   "hud.killstreakcod.presentation.raise": "SACANDO TERMINAL",
@@ -437,7 +437,7 @@
   "research.killstreakcod.unlock_all": "Unlock all",
   "research.killstreakcod.mode_hint": "Survival requires research and prepaid reserves. Reaching the kill/score threshold spends one reserve and earns a callable reward. Killstreak mode needs no reserves; equipped upgrades work in both modes.",
   "research.killstreakcod.creative_hint": "Creative waives research and reserve costs. Calls still require an earned reward; creative reward items can supply one.",
-  "research.killstreakcod.navigation": "Drag to pan; wheel to scroll; Shift + wheel to pan sideways.",
+  "research.killstreakcod.navigation": "Rueda para explorar; Tab y flechas para seleccionar.",
   "research.killstreakcod.working": "Waiting for server...",
   "research.killstreakcod.research": "Research",
   "research.killstreakcod.call": "Call reward",
@@ -724,5 +724,12 @@
   "hud.killstreakcod.aircraft.79667c784dac1cc9": "FT.",
   "hud.killstreakcod.aircraft.7a6212e81b1124e7": "OFFLINE",
   "hud.killstreakcod.aircraft.7c3615273e7d24d2": "Vehicle Disabled",
-  "hud.killstreakcod.aircraft.7f05e7cc7495cfe4": "Flares"
+  "hud.killstreakcod.aircraft.7f05e7cc7495cfe4": "Flares",
+  "hud.killstreakcod.mgb_called": "¡HA SOLICITADO UN MGB!",
+  "hud.killstreakcod.mgb_warning": "ADVERTENCIA",
+  "screen.killstreakcod.ui.search": "Buscar recompensas…",
+  "screen.killstreakcod.ui.no_results": "Sin resultados. Prueba con otro nombre.",
+  "screen.killstreakcod.ui.save_timeout": "El servidor no responde. Selección conservada; vuelve a guardar.",
+  "screen.killstreakcod.ui.progress": "Bajas %s · Puntos %s",
+  "screen.killstreakcod.ui.mode": "Obtener: %s"
 }

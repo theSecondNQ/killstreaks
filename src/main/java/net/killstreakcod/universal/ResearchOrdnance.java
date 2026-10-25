@@ -28,27 +28,27 @@ import net.minecraft.world.phys.Vec3;
 public final class ResearchOrdnance {
     private ResearchOrdnance() {}
 
-    public static void precision(ServerPlayer player, Vec3 center, float heading, UUID report, ResearchMask upgrades,
-            boolean controlAllowed) {
+    public static boolean precision(ServerPlayer player, Vec3 center, float heading, UUID report,
+            ResearchMask upgrades) {
         if (StreakServerConfig.upgradesDisabled(player.serverLevel().getServer()))
             upgrades = ResearchMask.EMPTY;
-        boolean smart = controlAllowed && ResearchCatalog.has(upgrades, "precision_airstrike.smart");
-        int entry = smart ? StreakTimings.REMOTE_CALL : 0;
         int rounds = ResearchCatalog.has(upgrades, "precision_airstrike.crossfire") ? 2 : 1;
+        boolean spawned = false;
         for (int round = 0; round < rounds; round++)
             for (int plane = 0; plane < 2; plane++) {
-                int delay = entry + plane * PrecisionFlight.PLANE_INTERVAL
+                int delay = plane * PrecisionFlight.PLANE_INTERVAL
                         + round * (PrecisionFlight.LIFETIME + PrecisionFlight.PLANE_INTERVAL + 20);
                 float direction = Mth.wrapDegrees(heading + round * 180);
                 TacticalUnitEntity unit = TacticalRuntime.spawnConfigured(player, Kind.PRECISION, center.add(0, 36, 0),
                         center, PrecisionFlight.LIFETIME, direction, delay, "", Vec3.ZERO);
                 ResearchEffects.select(unit, upgrades);
+                if (unit.isRemoved())
+                    continue;
                 StrikeRadioReports.track(unit, report);
-                if (smart && round == 0 && plane == 0 && !unit.isRemoved()) {
-                    unit.remotePrecision(true);
-                    TacticalRuntime.startPrecisionControl(player, unit);
-                }
+
+                spawned = true;
             }
+        return spawned;
     }
 
     public static void mortar(ServerPlayer player, Vec3 center, float heading, UUID report, ResearchMask upgrades) {
@@ -111,8 +111,7 @@ public final class ResearchOrdnance {
                 || !StreakAirspace.target(player, StreakReward.PRECISION_AIRSTRIKE, point, heading))
             return false;
         UUID report = StrikeRadioReports.begin(player, "precision_airstrike");
-        precision(player, TacticalRuntime.ground(player.serverLevel(), point), heading, report, ResearchMask.EMPTY,
-                false);
+        precision(player, TacticalRuntime.ground(player.serverLevel(), point), heading, report, ResearchMask.EMPTY);
         return true;
     }
 

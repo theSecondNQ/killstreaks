@@ -1,7 +1,6 @@
 package net.killstreakcod.render;
 
 import net.killstreakcod.KillstreakcodMod;
-import net.killstreakcod.killstreaks.ArmorKit;
 import net.killstreakcod.render.tablet.ScenePhoneScreen;
 import net.killstreakcod.render.tablet.TabletHandModel;
 import net.killstreakcod.render.tablet.TabletScreens;
@@ -217,18 +216,12 @@ public final class OriginalStreakAnimations {
             return true;
         if (bones().isEmpty())
             return false;
-        ImportedCastModel arms = ImportedCastModel.get("fp_arms");
         Clip action = clip(selection.id);
         Frame frame = stage.equals("entry") && reward.equals("gunship") ? gunshipOperator(action, selection.frame)
                 : action.frame(selection.frame);
         boolean leftOnly = selection.device.equals("phone");
-        var player = Minecraft.getInstance().player;
-        boolean juggernaut = player != null
-                && player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST).is(ArmorKit.CHEST.get());
-        if (juggernaut && arms != null)
-            arms.renderFirstPersonArms(pose, buffers, light, OverlayTexture.NO_OVERLAY, frame.cameraBones, leftOnly);
-        else
-            skinHands.renderTrackedHands(pose, buffers, skin, light, frame.cameraBones, leftOnly);
+        skinHands.renderTrackedHands(pose, buffers, skin, light, frame.cameraBones, leftOnly,
+                selection.device.equals("tablet"));
         if (selection.device.equals("sentry") || selection.device.equals("bomb")) {
             ImportedCastModel equipment = ImportedCastModel
                     .get(selection.device.equals("sentry") ? "sentry_vm" : "bomb_drone_vm");

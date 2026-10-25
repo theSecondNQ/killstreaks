@@ -446,10 +446,15 @@ public final class TabletTargeting {
                     new Box(w - 115, 3, 103, 23), 18, GREEN, 1, true);
             c.clip(map);
             c.fill(map, 0xff202b23);
+            var nativeMap = net.killstreakcod.render.compat.OptionalMapTiles.snapshot((int) (data.originX() + panX),
+                    (int) (data.originZ() + panZ), (int) Math.ceil(Math.max(map.w, map.h) / (2 * scale())));
             for (int y = map.y; y < map.y + map.h; y++)
                 for (int x = map.x; x < map.x + map.w; x++) {
                     int i = index(wx(x + .5), wz(y + .5));
-                    if (i >= 0)
+                    int nativeColor = nativeMap.color(wx(x + .5), wz(y + .5));
+                    if ((nativeColor >>> 24) != 0)
+                        c.pixel(x, y, nativeColor);
+                    else if (i >= 0)
                         c.pixel(x, y, terrain[i]);
                 }
             for (int d = -64; d <= 64; d += 16) {

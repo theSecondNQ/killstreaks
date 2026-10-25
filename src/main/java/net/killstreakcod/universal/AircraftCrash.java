@@ -58,7 +58,9 @@ public final class AircraftCrash {
             return false;
         if (variant == AircraftCrashLibrary.VTOL)
             unit.cancelVtolSuccessor();
-        Vec3 start = unit.position(), goal = variant == AircraftCrashLibrary.GUNSHIP ? start : findGoal(unit, variant);
+        Vec3 start = unit.position(), goal = variant == AircraftCrashLibrary.GUNSHIP ? start
+                : variant == AircraftCrashLibrary.VTOL || variant == AircraftCrashLibrary.ESCORT ? groundGoal(unit)
+                        : findGoal(unit, variant);
         unit.crash = new State(start, goal, unit.flightYaw(), unit.flightPitch());
         if (variant == AircraftCrashLibrary.GUNSHIP) {
             Vec3 drift = start.subtract(unit.getPosition(0));
@@ -123,10 +125,10 @@ public final class AircraftCrash {
             return;
         }
         if (variant == AircraftCrashLibrary.GUNSHIP) {
-            if (state.ticks < AircraftCrashLibrary.GUNSHIP_AIRBURST) {
+            if (state.ticks < AircraftCrashLibrary.GUNSHIP_AIRBURST && !state.impact) {
                 if (!state.impact)
-                    move(unit, unit.position().add(state.drift));
-                unit.flightOrientation(state.yaw, state.pitch);
+                    move(unit, unit.position().add(state.drift).add(0, -Math.min(.8, state.ticks * .004), 0));
+                unit.flightOrientation(state.yaw, state.pitch + Math.min(18, state.ticks * .1F));
             } else {
                 fx(unit, "66417eeab994f07a", unit.position(), 12);
                 explosionFallback(unit);
@@ -142,8 +144,23 @@ public final class AircraftCrash {
                 : variant == AircraftCrashLibrary.ESCORT ? 60 : Math.min(100, AircraftCrashLibrary.pilotEnd(variant));
         Vec3 delta = state.goal.subtract(unit.position());
         double speed = variant == AircraftCrashLibrary.VTOL ? .65 : 1.05;
-        move(unit, unit.position().add(delta.lengthSqr() < speed * speed ? delta : delta.normalize().scale(speed)));
+        boolean support = variant == AircraftCrashLibrary.VTOL || variant == AircraftCrashLibrary.ESCORT;
+        if (support) {
+            Vec3 horizontal = new Vec3(delta.x, 0, delta.z);
+            if (horizontal.lengthSqr() > .2)
+                horizontal = horizontal.normalize().scale(.2);
+            // 支援机种的水平位移、下降速度和加速度均减半，仍以真正碰撞作为爆炸条件。
+            move(unit, unit.position().add(horizontal).add(0, -Math.min(1.75, .09 + state.ticks * .0225), 0));
+            // 坠入虚空只清理实体，不在空中制造落地爆炸。
+            if (unit.getY() <= level.getMinBuildHeight() + 2 && !state.impact) {
+                unit.discard();
+                return;
+            }
+        } else
+            move(unit, unit.position().add(delta.lengthSqr() < speed * speed ? delta : delta.normalize().scale(speed)));
         float spin = variant == AircraftCrashLibrary.VTOL ? 3.75F : 7.5F;
+        if (support)
+            spin *= .5F;
         unit.flightOrientation(state.yaw + state.ticks * spin, Math.min(10, state.ticks * .5F));
         if (variant == AircraftCrashLibrary.VTOL && !state.canopy
                 && unit.position().distanceToSqr(state.goal) <= state.start.distanceToSqr(state.goal) * .25) {
@@ -166,15 +183,15 @@ public final class AircraftCrash {
             fx(unit, variant == AircraftCrashLibrary.VTOL ? "276e6fc4d011c5d8"
                     : variant == AircraftCrashLibrary.ESCORT ? "72e5231b177e04a7" : "68f6c2ceba8cba08", unit.position(),
                     2);
-        if (state.impact || delta.lengthSqr() < 2.54 * 2.54 || state.ticks >= end)
+        if (state.impact || !support && (delta.lengthSqr() < 2.54 * 2.54 || state.ticks >= end))
             finish(unit);
     }
 
     private static void move(TacticalUnitEntity unit, Vec3 at) {
         ServerLevel level = (ServerLevel) unit.level();
         State state = unit.crash;
-        Vec3 bounded = new Vec3(at.x, net.minecraft.util.Mth.clamp(at.y, level.getMinBuildHeight() + 2, level.getMaxBuildHeight() - 4),
-                at.z);
+        Vec3 bounded = new Vec3(at.x,
+                net.minecraft.util.Mth.clamp(at.y, level.getMinBuildHeight() + 2, level.getMaxBuildHeight() - 4), at.z);
         TacticalRuntime.keepLoaded(unit, bounded);
         BlockHitResult hit = level.clip(
                 new ClipContext(unit.position(), bounded, ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, unit));
@@ -187,6 +204,15 @@ public final class AircraftCrash {
         Vec3 velocity = bounded.subtract(unit.position());
         unit.flight(bounded);
         unit.setDeltaMovement(velocity);
+    }
+
+    private static Vec3 groundGoal(TacticalUnitEntity unit) {
+        Vec3 ahead = unit.position().add(Vec3.directionFromRotation(0, unit.flightYaw()).scale(32));
+        TacticalRuntime.keepLoaded(unit, ahead);
+        var hit = unit.level().clip(new ClipContext(ahead, new Vec3(ahead.x, unit.level().getMinBuildHeight(), ahead.z),
+                ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, unit));
+        return hit.getType() == HitResult.Type.MISS ? new Vec3(ahead.x, unit.level().getMinBuildHeight(), ahead.z)
+                : hit.getLocation();
     }
 
     private static Vec3 findGoal(TacticalUnitEntity unit, int variant) {
@@ -305,7 +331,12 @@ public final class AircraftCrash {
         }
         s.ticks = c.getInt("Ticks");
         s.finishedAt = c.getInt("FinishedAt");
-        if (s.ticks < 0 || s.ticks > 260 || s.finishedAt < -1 || s.finishedAt > s.ticks) {
+        int variant = AircraftCrashLibrary.variant(unit.stage());
+        int maxTicks = variant == AircraftCrashLibrary.GUNSHIP ? AircraftCrashLibrary.GUNSHIP_DELETE
+                : variant == AircraftCrashLibrary.VTOL || variant == AircraftCrashLibrary.ESCORT
+                        ? Math.max(260, (unit.level().getMaxBuildHeight() - unit.level().getMinBuildHeight()) * 2 + 160)
+                        : 260;
+        if (s.ticks < 0 || s.ticks > maxTicks || s.finishedAt < -1 || s.finishedAt > s.ticks) {
             unit.discard();
             return;
         }

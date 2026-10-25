@@ -4,7 +4,7 @@ license="Not specified"
 
 [[mods]]
 modId="killstreakcod"
-version="1.1.0.4356"
+version="1.2.0.4365"
 displayName="Killstreak"
 description="Tactical killstreaks with remote cameras, modeled support units, radar, airdrops and animated weapons."
 credits="User-supplied MWII exported assets; Minecraft integration and procedural fallback resources"

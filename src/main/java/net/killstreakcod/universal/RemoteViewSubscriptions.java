@@ -3,6 +3,7 @@ package net.killstreakcod.universal;
 import net.killstreakcod.KillstreakcodMod;
 import net.killstreakcod.audio.SupportAudio;
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
+import net.killstreakcod.killstreaks.GunshipMounts;
 import net.killstreakcod.killstreaks.TacticalUnitEntity.Kind;
 import net.killstreakcod.mixin.RemoteChunkMapAccess;
 
@@ -24,6 +25,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -97,40 +99,32 @@ public final class RemoteViewSubscriptions {
         return valid(LEASES.get(player.getUUID()), player);
     }
 
+    /** 操作者的摄像机实体必须先于远处地形送达，其他实体仍按正常区块和距离规则跟踪。 */
+    public static boolean isCamera(ServerPlayer player, Entity entity) {
+        Lease lease = LEASES.get(player.getUUID());
+        return valid(lease, player) && lease.camera == entity;
+    }
+
     public static Vec3 origin(ServerPlayer player) {
         Lease lease = LEASES.get(player.getUUID());
-        return valid(lease, player) ? lease.camera.getEyePosition() : player.position();
+        return valid(lease, player) ? lease.camera.kind() == Kind.GUNSHIP ? GunshipMounts.camera(lease.camera, 1)
+                : lease.camera.getEyePosition() : player.position();
     }
 
     public static ChunkPos chunkOrigin(ServerPlayer player) {
         Lease lease = LEASES.get(player.getUUID());
         Vec3 center = origin(player);
-        if (valid(lease, player) && lease.camera.kind() == Kind.PRECISION)
-            center = center.lerp(lease.camera.center, .5);
         return new ChunkPos(BlockPos.containing(center));
-    }
-
-    /**
-     * Alternate send priority between both ends so a large watch does not queue the target behind its middle.
-     * 交替优先发送飞机端与目标端，避免目标区块被整个观察范围的中间区块排在队尾。
-     */
-    public static ChunkPos chunkPriority(ServerPlayer player) {
-        Lease lease = LEASES.get(player.getUUID());
-        if (valid(lease, player) && lease.camera.kind() == Kind.PRECISION) {
-            Vec3 point = (lease.level.getGameTime() & 1) == 0 ? lease.camera.getEyePosition() : lease.camera.center;
-            return new ChunkPos(BlockPos.containing(point));
-        }
-        return chunkOrigin(player);
     }
 
     public static int viewDistance(ServerPlayer player, int normal) {
         Lease lease = LEASES.get(player.getUUID());
         if (!valid(lease, player))
             return normal;
-        if (lease.camera.kind() == Kind.PRECISION)
-            return lease.precisionRadius;
+        if (lease.camera.kind() == Kind.GUNSHIP)
+            return StreakServerConfig.gunshipViewDistance(player.serverLevel().getServer());
         int limit = switch (lease.camera.kind()) {
-            case GUNSHIP, CRUISE, PRECISION -> 16;
+            case GUNSHIP, CRUISE -> 16;
             default -> 8;
         };
         return Math.min(limit, ((RemoteChunkMapAccess) (Object) player.serverLevel().getChunkSource().chunkMap)
@@ -150,7 +144,8 @@ public final class RemoteViewSubscriptions {
         var map = cache.chunkMap;
         var access = (RemoteChunkMapAccess) (Object) map;
         ChunkPos center = chunkOrigin(player);
-        int radius = viewDistance(player, Math.max(2, access.killstreak$serverViewDistance() - 1)), ticketRadius = radius + 2;
+        int radius = viewDistance(player, Math.max(2, access.killstreak$serverViewDistance() - 1)),
+                ticketRadius = radius + 2;
         if (initial || !center.equals(lease.center) || lease.radius != ticketRadius) {
             if (initial || lease.radius != ticketRadius)
                 player.connection.send(new ClientboundSetChunkCacheRadiusPacket(radius));
@@ -175,8 +170,8 @@ public final class RemoteViewSubscriptions {
         List<ChunkPos> result = new ArrayList<>();
         for (int x = -radius; x <= radius; x++)
             for (int z = -radius; z <= radius; z++)
-                if (net.minecraft.server.level.ChunkMap.isChunkInRange(center.x + x, center.z + z,
-                        center.x, center.z, radius))
+                if (net.minecraft.server.level.ChunkMap.isChunkInRange(center.x + x, center.z + z, center.x, center.z,
+                        radius))
                     result.add(new ChunkPos(center.x + x, center.z + z));
         result.sort(Comparator.comparingInt(chunk -> {
             int dx = chunk.x - center.x, dz = chunk.z - center.z;
@@ -194,17 +189,12 @@ public final class RemoteViewSubscriptions {
         var access = (RemoteChunkMapAccess) (Object) cache.chunkMap;
         ChunkPos center = chunkOrigin(player);
         int radius = viewDistance(player, Math.max(2, access.killstreak$serverViewDistance() - 1));
-        player.connection.send(new ClientboundSetChunkCacheCenterPacket(center.x, center.z));
         if (!center.equals(lease.watchCenter) || radius != lease.watchRadius) {
+            player.connection.send(new ClientboundSetChunkCacheCenterPacket(center.x, center.z));
             lease.watchCenter = center;
             lease.watchRadius = radius;
             lease.pending = chunks(center, radius);
-            if (lease.camera.kind() == Kind.PRECISION) {
-                ChunkPos aircraft = new ChunkPos(lease.camera.blockPosition());
-                ChunkPos target = new ChunkPos(BlockPos.containing(lease.camera.center));
-                lease.pending.sort(Comparator.comparingInt(chunk -> Math.min(distanceSquared(chunk, aircraft),
-                        distanceSquared(chunk, target))));
-            }
+
             Set<Long> desired = new HashSet<>();
             for (ChunkPos chunk : lease.pending)
                 desired.add(chunk.toLong());
@@ -227,11 +217,6 @@ public final class RemoteViewSubscriptions {
             if (--budget == 0)
                 break;
         }
-    }
-
-    private static int distanceSquared(ChunkPos first, ChunkPos second) {
-        int x = first.x - second.x, z = first.z - second.z;
-        return x * x + z * z;
     }
 
     public static List<ServerPlayer> watchers(ServerLevel level, ChunkPos chunk, boolean boundaryOnly,
@@ -267,7 +252,8 @@ public final class RemoteViewSubscriptions {
                 ChunkPos chunk = restore.chunks.get(restore.cursor++);
                 var loaded = cache.getChunkNow(chunk.x, chunk.z);
                 if (loaded != null)
-                    access.killstreak$sendChunk(player, new MutableObject<ClientboundLevelChunkWithLightPacket>(), loaded);
+                    access.killstreak$sendChunk(player, new MutableObject<ClientboundLevelChunkWithLightPacket>(),
+                            loaded);
             }
             if (restore.cursor >= restore.chunks.size())
                 entries.remove();
@@ -276,7 +262,8 @@ public final class RemoteViewSubscriptions {
 
     private static void release(Lease lease) {
         if (lease.center != null)
-            lease.level.getChunkSource().removeRegionTicket(TICKET, lease.center, lease.radius, lease.player.getUUID(), true);
+            lease.level.getChunkSource().removeRegionTicket(TICKET, lease.center, lease.radius, lease.player.getUUID(),
+                    true);
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -338,7 +325,6 @@ public final class RemoteViewSubscriptions {
         final ServerPlayer player;
         final TacticalUnitEntity camera;
         final ServerLevel level;
-        final int precisionRadius;
         ChunkPos center, watchCenter;
         int radius, watchRadius;
         List<ChunkPos> pending = List.of();
@@ -348,11 +334,6 @@ public final class RemoteViewSubscriptions {
             this.player = player;
             this.camera = camera;
             this.level = level;
-            Vec3 span = camera.center.subtract(camera.position());
-            // A fixed bounded watch covers both the approaching aircraft and its designated ground point.
-            // 固定且有上限的观察范围同时覆盖入场飞机和目标点，避免飞行中反复缩放缓存。
-            precisionRadius = (int) net.minecraft.util.Mth.clamp(Math.ceil(Math.max(Math.abs(span.x), Math.abs(span.z)) / 32) + 4, 16,
-                    32);
         }
     }
 }

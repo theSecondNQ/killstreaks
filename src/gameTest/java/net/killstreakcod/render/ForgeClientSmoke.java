@@ -65,6 +65,10 @@ public final class ForgeClientSmoke {
         }
         if (imported == 0)
             throw new IllegalStateException("No imported models found");
+        if (Files.exists(minecraft.gameDirectory.toPath().resolve("earned-ui-smoke.enabled")))
+            ForgeEarnedUiSmoke.check(minecraft);
+        if (Files.exists(minecraft.gameDirectory.toPath().resolve("nuke-ui-smoke.enabled")))
+            ForgeNukeUiSmoke.check(minecraft);
         Path report = minecraft.gameDirectory.toPath().resolve("client-smoke.json");
         Files.writeString(report, "{\"titleScreen\":true,\"terminalModel\":true,\"shaders\":5,\"importedModels\":" + imported + "}\n");
         complete = true;

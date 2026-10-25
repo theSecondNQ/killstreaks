@@ -63,8 +63,9 @@ public final class NativeMinigunPresentation {
         if (!entity.getMainHandItem().is(KillstreakcodMod.M134_MINIGUN.get()))
             return;
         OWNERS.put(entity.getMainHandItem(), new java.lang.ref.WeakReference<>(entity));
-        boolean using = entity.isUsingItem();
-        int ticks = using ? entity.getTicksUsingItem() : 0;
+        boolean local = entity == Minecraft.getInstance().player;
+        boolean using = local ? HandheldWeaponInput.firing() : entity.isUsingItem();
+        int ticks = local ? HandheldWeaponInput.ticks() : using ? entity.getTicksUsingItem() : 0;
         var source = clip(using, ticks);
         float frame = frame(source, using, ticks, age - (int) age);
         Vector3f left = motion(source, "j_shoulder_le", frame, using ? 0 : 180),

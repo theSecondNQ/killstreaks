@@ -63,21 +63,23 @@ public final class ResearchWeaponHud {
     }
 
     public static KeyMapping fireKey() {
-        var options = Minecraft.getInstance().options;
-        return TacticalClient.state.mode().equals("gunship") && TacticalClient.state.weapon() == 4 ? options.keyUse
-                : options.keyAttack;
+        return TacticalClient.state.mode().equals("gunship") && TacticalClient.state.weapon() == 4
+                ? KillstreakKeyMappings.SECONDARY_FIRE
+                : KillstreakKeyMappings.primary();
     }
 
     public static void status(GuiGraphics graphics) {
         var mc = Minecraft.getInstance();
         if (capability(ResearchCombat.DISABLED)) {
             String text = I18n.get("hud.killstreakcod.research_disabled");
-            graphics.drawString(mc.font, text, (graphics.guiWidth() - mc.font.width(text)) / 2, 44, 0xfff07363, false);
+            UiDraw.drawString(graphics, "ResearchWeaponHud.status.0", mc.font, text,
+                    (graphics.guiWidth() - mc.font.width(text)) / 2, 44, 0xfff07363, false);
         }
         if (TacticalClient.state.mode().equals("cruise") && capability(ResearchCombat.HELLFIRE)) {
             String text = I18n.get("hud.killstreakcod.research_secondary_rockets",
-                    mc.options.keyUse.getTranslatedKeyMessage().getString(), TacticalClient.state.rockets());
-            graphics.drawString(mc.font, text, 12, 48, 0xffecf0e9, false);
+                    KillstreakKeyMappings.SECONDARY_FIRE.getTranslatedKeyMessage().getString(),
+                    TacticalClient.state.rockets());
+            UiDraw.drawString(graphics, "ResearchWeaponHud.status.1", mc.font, text, 12, 48, 0xffecf0e9, false);
         }
     }
 }

@@ -100,9 +100,9 @@ public final class NativeArsenalView {
         if (!same && phase != Phase.DROP)
             change(Phase.DROP);
         if (same && family.equals("m13421")) {
-            boolean firing = mc.player.isUsingItem() && mc.player.getUsedItemHand() == hand;
+            boolean firing = HandheldWeaponInput.using(hand);
             if (firing) {
-                Phase wanted = mc.player.getTicksUsingItem() < NativeArsenalLibrary.CHARGE_TICKS ? Phase.CHARGE
+                Phase wanted = HandheldWeaponInput.ticks() < NativeArsenalLibrary.CHARGE_TICKS ? Phase.CHARGE
                         : Phase.FIRE;
                 if (phase != wanted)
                     change(wanted);
@@ -139,9 +139,9 @@ public final class NativeArsenalView {
         };
         float time = age + partial;
         if (phase == Phase.CHARGE && owner != null)
-            time = owner.getTicksUsingItem() + partial;
+            time = HandheldWeaponInput.ticks() + partial;
         if (phase == Phase.FIRE && owner != null)
-            time = (owner.getTicksUsingItem() - NativeArsenalLibrary.CHARGE_TICKS + partial) % duration("fire");
+            time = (HandheldWeaponInput.ticks() - NativeArsenalLibrary.CHARGE_TICKS + partial) % duration("fire");
         return TargetingAnimationClips.sample(family, action, time, phase == Phase.IDLE && family.equals("cluster21"),
                 null, from, Math.min(1, (age + partial) / 2));
     }
@@ -165,7 +165,8 @@ public final class NativeArsenalView {
             return false;
         drawn = true;
         draw(frame, family.equals("m13421") ? "m13421_vm" : "cluster21_vm", hand, event.getPoseStack(),
-                event.getMultiBufferSource(), event.getPackedLight());
+                event.getMultiBufferSource(), event.getPackedLight(), phase == Phase.FIRE,
+                HandheldWeaponInput.ticks() + event.getPartialTick());
         return true;
     }
 
@@ -178,12 +179,12 @@ public final class NativeArsenalView {
 
         // 原资源投掷通知位于开火第一帧，物体释放后即移除手持显示。
         draw(frame, ticks < NativeArsenalLibrary.THROW_RELEASE ? "cluster21_vm" : "", InteractionHand.MAIN_HAND, pose,
-                buffers, light);
+                buffers, light, false, ticks);
         return true;
     }
 
     private static void draw(TargetingAnimationClips.Frame frame, String id, InteractionHand h, PoseStack pose,
-            MultiBufferSource buffers, int light) {
+            MultiBufferSource buffers, int light, boolean firing, float ticks) {
         var mc = Minecraft.getInstance();
         if (mc.player == null)
             return;
@@ -203,6 +204,12 @@ public final class NativeArsenalView {
                 ImportedCastModel model = ImportedCastModel.get(id);
                 if (model != null)
                     model.renderScene(pose, buffers, light, OverlayTexture.NO_OVERLAY, cm);
+            }
+            if (id.equals("m13421_vm")) {
+                // 与模型共用实际手持矩阵；收到的本机弹迹等到本帧炮口绘制时才固定世界起点。
+                FirstPersonMuzzle.position(pose, cm.get("tag_flash")).ifPresent(TracerEffects::minigunMuzzle);
+                if (firing)
+                    MinigunMuzzleEffects.render(pose, buffers, cm.get("tag_flash"), ticks);
             }
         } finally {
             pose.popPose();
@@ -240,5 +247,6 @@ public final class NativeArsenalView {
         world = null;
         from = null;
         drawn = false;
+        FirstPersonMuzzle.reset();
     }
 }

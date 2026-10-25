@@ -23,16 +23,37 @@ import net.minecraft.world.phys.Vec3;
  */
 public final class AircraftFireEffects {
     private static final Map<TacticalUnitEntity, Long> LAST_BRASS = new WeakHashMap<>();
+    private static final Map<TacticalUnitEntity, Long> LAST_PRECISION_BURST = new WeakHashMap<>();
 
     private AircraftFireEffects() {}
 
     public static boolean shot(Entity emitter, Vec3 muzzle, float directDamage) {
         if (!(emitter instanceof TacticalUnitEntity unit))
             return false;
+        if (unit.kind() == Kind.PRECISION) {
+            precisionShot(unit, muzzle);
+            return true;
+        }
         int weapon = unit.kind() == Kind.CHOPPER ? -1
                 : unit.kind() == Kind.GUNSHIP ? (directDamage == 0 ? 1 : 0)
                         : unit.kind() == Kind.VTOL && ResearchEffects.has(unit, "vtol_jet.hercules") ? 0 : -2;
         return weapon != -2 && shot(unit, muzzle, weapon);
+    }
+
+    private static void precisionShot(TacticalUnitEntity unit, Vec3 muzzle) {
+        if (!(unit.level() instanceof ServerLevel level))
+            return;
+        long now = level.getGameTime();
+        // 原空袭录音约六秒，每架飞机每个录音周期只播放一次，避免逐发叠加。
+        if (now - LAST_PRECISION_BURST.getOrDefault(unit, now - 126) < 126)
+            return;
+        LAST_PRECISION_BURST.put(unit, now);
+        for (var listener : level.players()) {
+            if (RemoteViewSubscriptions.origin(listener).distanceToSqr(muzzle) >= 640D * 640)
+                continue;
+            StreakNetwork.send(listener, new SupportSoundPayload(level.dimension().location(),
+                    StreakSounds.AIRSTRIKE_FIRE.get().getLocation(), muzzle.x, muzzle.y, muzzle.z, .8F, 1, 640));
+        }
     }
 
     /**

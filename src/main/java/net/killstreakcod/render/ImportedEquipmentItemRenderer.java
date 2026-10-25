@@ -34,6 +34,9 @@ public final class ImportedEquipmentItemRenderer extends BlockEntityWithoutLevel
     @Override
     public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack pose, MultiBufferSource buffers,
             int light, int overlay) {
+        if (context == ItemDisplayContext.GUI && modelId.equals("item_sentry")
+                && InventoryModel.render("sentry_fire_rig", pose, buffers))
+            return;
         if (modelId.equals("designator_precision")
                 && NativeTargetingDevices.renderItem(stack, context, pose, buffers, light, overlay))
             return;
@@ -41,7 +44,8 @@ public final class ImportedEquipmentItemRenderer extends BlockEntityWithoutLevel
                 : modelId;
         if (modelId.equals("drop_marker") && context.firstPerson())
             selected = "drop_marker_vm";
-        if (modelId.equals("designator_precision") && stack.getOrCreateTag().getString("Reward").equals("mortar_strike"))
+        if (modelId.equals("designator_precision")
+                && stack.getOrCreateTag().getString("Reward").equals("mortar_strike"))
             selected = "designator_mortar";
         Map<String, ResourceLocation> screenMaterials = modelId.equals("tablet_wheelson")
                 ? TabletScreens.materialTextures("wheelson_hs")
@@ -56,8 +60,7 @@ public final class ImportedEquipmentItemRenderer extends BlockEntityWithoutLevel
             ResourceLocation image = icon;
             if (context == ItemDisplayContext.GUI && (modelId.equals("drop_marker") || modelId.equals("cluster_mine")
                     || modelId.equals("designator_precision"))) {
-                String reward = stack.getOrCreateTag()
-                        .getString("Reward");
+                String reward = stack.getOrCreateTag().getString("Reward");
                 String fallback = modelId.equals("drop_marker") ? "care_package"
                         : modelId.equals("cluster_mine") ? "cluster_mine" : "precision_airstrike";
                 reward = StreakReward.byId(reward).map(StreakReward::id).orElse(fallback);
@@ -80,7 +83,7 @@ public final class ImportedEquipmentItemRenderer extends BlockEntityWithoutLevel
     }
 
     private static void quad(VertexConsumer out, PoseStack pose, float x, float y, float u, float v) {
-        out.vertex(pose.last().pose(), x, y, .5F).color(0xffffffff).uv(u, v)
-                .overlayCoords(OverlayTexture.NO_OVERLAY).uv2(15728880).normal(pose.last().normal(), 0, 0, 1).endVertex();
+        out.vertex(pose.last().pose(), x, y, .5F).color(0xffffffff).uv(u, v).overlayCoords(OverlayTexture.NO_OVERLAY)
+                .uv2(15728880).normal(pose.last().normal(), 0, 0, 1).endVertex();
     }
 }

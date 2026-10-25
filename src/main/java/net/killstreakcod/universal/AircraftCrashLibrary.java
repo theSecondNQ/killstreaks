@@ -23,7 +23,7 @@ import org.joml.Vector3f;
  */
 public final class AircraftCrashLibrary {
     public static final int GUNSHIP = 100, APACHE_MISSILE = 101, APACHE_BULLET = 102, VTOL = 103, ESCORT = 104;
-    public static final int GUNSHIP_AIRBURST = 60, GUNSHIP_DELETE = 260, GUNSHIP_SHAKE = 187, GUNSHIP_OUTRO = 120;
+    public static final int GUNSHIP_AIRBURST = 180, GUNSHIP_DELETE = 380, GUNSHIP_SHAKE = 187, GUNSHIP_OUTRO = 120;
     private static final JsonObject AUDIO = read("aircraft-crash-audio");
 
     private AircraftCrashLibrary() {}

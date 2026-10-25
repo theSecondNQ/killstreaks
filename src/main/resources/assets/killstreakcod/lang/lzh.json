@@ -137,7 +137,7 @@
   "message.killstreakcod.loadout_saved": "連斬所備之賞已存。",
   "streak.killstreakcod.mgb": "核彈",
   "hud.killstreakcod.notice_mgb": "核彈已備",
-  "hud.killstreakcod.notice_ready": "按 [%s] 以用",
+  "hud.killstreakcod.notice_ready": "按[%s]以用",
   "hud.killstreakcod.notice_stock": "藏賞 ×%s",
   "hud.killstreakcod.notice_queued": "待賞 +%s",
   "hud.killstreakcod.presentation.raise": "方取賞樞",
@@ -1165,7 +1165,7 @@
   "research.killstreakcod.unlock_all": "悉數啟明",
   "research.killstreakcod.mode_hint": "生存之式先研習、納材為備；斬功或積分達數，耗備壹次而得賞壹次。連斬之式無須納材；已裝之升級二式皆效。",
   "research.killstreakcod.creative_hint": "創造之式免研習及預備之資；召賞仍須已有用次，可由創造物品欄取賞物。",
-  "research.killstreakcod.navigation": "拖拽平移；滾輪上下；Shift＋滾輪左右。",
+  "research.killstreakcod.navigation": "滾輪覽研發；Tab 與向鍵擇其項。",
   "research.killstreakcod.working": "候中樞核準…",
   "research.killstreakcod.research": "研習",
   "research.killstreakcod.call": "召賞",
@@ -1452,5 +1452,12 @@
   "hud.killstreakcod.aircraft.79667c784dac1cc9": "英尺",
   "hud.killstreakcod.aircraft.7a6212e81b1124e7": "未通",
   "hud.killstreakcod.aircraft.7c3615273e7d24d2": "閉載具",
-  "hud.killstreakcod.aircraft.7f05e7cc7495cfe4": "干擾彈"
+  "hud.killstreakcod.aircraft.7f05e7cc7495cfe4": "干擾彈",
+  "hud.killstreakcod.mgb_called": "已召核彈！",
+  "hud.killstreakcod.mgb_warning": "警告",
+  "screen.killstreakcod.ui.search": "索連殺…",
+  "screen.killstreakcod.ui.no_results": "未得其名，請更索之。",
+  "screen.killstreakcod.ui.save_timeout": "伺服未應，所選猶存，請復存之。",
+  "screen.killstreakcod.ui.progress": "斬敵 %s · 功 %s",
+  "screen.killstreakcod.ui.mode": "獲取：%s"
 }

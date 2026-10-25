@@ -49,6 +49,11 @@ import net.killstreakcod.universal.TracerPayload;
 import net.killstreakcod.universal.UseKillstreakPayload;
 import net.killstreakcod.universal.WhitelistActionPayload;
 import net.killstreakcod.universal.WhitelistStatePayload;
+import net.killstreakcod.universal.HandheldFirePayload;
+import net.killstreakcod.universal.MinigunControls;
+import net.killstreakcod.universal.TerminalSettingsActionPayload;
+import net.killstreakcod.universal.TerminalSettingsService;
+import net.killstreakcod.universal.TerminalSettingsStatePayload;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerPlayer;
@@ -69,31 +74,28 @@ import net.minecraftforge.registries.DeferredRegister;
 public class KillstreakcodMod {
 
     public static final String MODID = "killstreakcod";
-    public static final String NETWORK_VERSION = "1.0.0";
+    public static final String NETWORK_VERSION = "1.1.0";
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE,
             MODID);
 
-    public static final RegistryObject<EntityType<WheelsonEntity>> WHEELSON = ENTITY_TYPES.register(
-            "wheelson",
+    public static final RegistryObject<EntityType<WheelsonEntity>> WHEELSON = ENTITY_TYPES.register("wheelson",
             () -> EntityType.Builder
                     .<WheelsonEntity>of((type, level) -> new WheelsonEntity(type, level), MobCategory.CREATURE)
                     .sized(1.3F, 0.9F).clientTrackingRange(10).updateInterval(2).build(MODID + ":wheelson"));
 
-    public static final RegistryObject<EntityType<SupportHelicopterEntity>> SUPPORT_HELICOPTER = ENTITY_TYPES
-            .register("support_helicopter",
-                    () -> EntityType.Builder
-                            .<SupportHelicopterEntity>of((type, level) -> new SupportHelicopterEntity(type, level),
-                                    MobCategory.MISC)
-                            .sized(3.6F, 2.4F).clientTrackingRange(12).updateInterval(2)
-                            .build(MODID + ":support_helicopter"));
+    public static final RegistryObject<EntityType<SupportHelicopterEntity>> SUPPORT_HELICOPTER = ENTITY_TYPES.register(
+            "support_helicopter",
+            () -> EntityType.Builder
+                    .<SupportHelicopterEntity>of((type, level) -> new SupportHelicopterEntity(type, level),
+                            MobCategory.MISC)
+                    .sized(3.6F, 2.4F).clientTrackingRange(12).updateInterval(2).build(MODID + ":support_helicopter"));
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, MODID);
 
-    public static final RegistryObject<EntityType<TacticalUnitEntity>> TACTICAL_UNIT = ENTITY_TYPES
-            .register("tactical_unit",
-                    () -> EntityType.Builder.<TacticalUnitEntity>of(TacticalUnitEntity::new, MobCategory.MISC)
-                            .sized(2, 1).clientTrackingRange(32).updateInterval(1).build(MODID + ":tactical_unit"));
+    public static final RegistryObject<EntityType<TacticalUnitEntity>> TACTICAL_UNIT = ENTITY_TYPES.register(
+            "tactical_unit", () -> EntityType.Builder.<TacticalUnitEntity>of(TacticalUnitEntity::new, MobCategory.MISC)
+                    .sized(2, 1).clientTrackingRange(32).updateInterval(1).build(MODID + ":tactical_unit"));
 
     public static final RegistryObject<Item> CONTROLLER = ITEMS.register("killstreak_controller",
             () -> new KillstreakControllerItem(new Item.Properties().stacksTo(1)));
@@ -124,8 +126,8 @@ public class KillstreakcodMod {
         var container = context;
 
         container.registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT, NativePresentationConfig.SPEC);
-        container.registerConfig(net.minecraftforge.fml.config.ModConfig.Type.SERVER, StreakServerConfig.SPEC,
-                StreakServerConfig.FILE_NAME);
+        container.getContainer()
+                .addConfig(new net.killstreakcod.universal.GlobalServerConfig(container.getContainer()));
 
         modEventBus.addListener(StreakServerConfig::reloaded);
         ArmorKit.init();
@@ -143,6 +145,17 @@ public class KillstreakcodMod {
     private void registerPayloads() {
 
         PayloadRegistrar registrar = new PayloadRegistrar(false);
+
+        registrar.playToServer(TerminalSettingsActionPayload.TYPE, TerminalSettingsActionPayload.STREAM_CODEC,
+                (p, c) -> c.enqueueWork(() -> {
+                    if (c.player() instanceof ServerPlayer player)
+                        TerminalSettingsService.handle(player, p);
+                }));
+        registrar.playToServer(HandheldFirePayload.TYPE, HandheldFirePayload.STREAM_CODEC,
+                (p, c) -> c.enqueueWork(() -> {
+                    if (c.player() instanceof ServerPlayer player)
+                        MinigunControls.input(player, p);
+                }));
 
         registrar.playToServer(ResearchActionPayload.TYPE, ResearchActionPayload.STREAM_CODEC,
                 (payload, context) -> context.enqueueWork(() -> {
@@ -199,6 +212,9 @@ public class KillstreakcodMod {
                 }));
 
         {
+            registrar.playToClient(TerminalSettingsStatePayload.TYPE, TerminalSettingsStatePayload.STREAM_CODEC,
+                    (p, c) -> {
+                    });
             registrar.playToClient(ResearchStatePayload.TYPE, ResearchStatePayload.STREAM_CODEC, (p, c) -> {
             });
             registrar.playToClient(WhitelistStatePayload.TYPE, WhitelistStatePayload.STREAM_CODEC, (p, c) -> {
@@ -249,8 +265,7 @@ public class KillstreakcodMod {
                 Mob.createMobAttributes().add(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, 100)
                         .add(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED, .25)
                         .add(net.minecraft.world.entity.ai.attributes.Attributes.FOLLOW_RANGE, 160)
-                        .add(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, 1)
-                        .build());
+                        .add(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, 1).build());
 
         event.put(WHEELSON.get(), WheelsonEntity.createAttributes().build());
         event.put(SUPPORT_HELICOPTER.get(), Mob.createMobAttributes().build());

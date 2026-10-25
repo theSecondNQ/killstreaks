@@ -9,18 +9,14 @@ $taskMods = (Resolve-Path -LiteralPath (Join-Path $taskInstance 'mods')).Path
 $taskReports = Join-Path $taskWorkspace 'build\reports'
 $taskInventory = Get-Content -LiteralPath (Join-Path $taskReports 'package-inventory.json') -Raw -Encoding utf8 | ConvertFrom-Json
 if ($taskInventory.issues.Count -gt 0 -or $taskInventory.version -notmatch '^\d+\.\d+\.\d+(?:\.\d+)?$') { throw 'Release inventory is invalid.' }
-$taskSource = Join-Path $taskWorkspace ('build\libs\killstreakcod-forge-1.20.1-'+$taskInventory.version+'.jar')
+$taskSource = Join-Path $taskWorkspace ('build\libs\killstreaks-forge-1.20.1-'+$taskInventory.version+'.jar')
 $taskNewHash = (Get-FileHash -LiteralPath $taskSource -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($taskInventory.jar.sha256 -ne $taskNewHash) { throw 'Production JAR differs from the inventory.' }
 $taskModPattern = '^(?<prefix>(?:killstreakcod(?:-forge-\d+\.\d+\.\d+)?|killstreaks-(?:neoforge|forge)-\d+\.\d+\.\d+)-)(?<version>\d+\.\d+\.\d+(?:\.\d+)?)\.jar$'
 $taskInstalled = @(Get-ChildItem -LiteralPath $taskMods -File -Filter '*.jar' | Where-Object { $_.Name -match $taskModPattern })
 if ($taskInstalled.Count -gt 1) { throw 'Multiple killstreak JARs are installed.' }
 $taskNewName = [IO.Path]::GetFileName($taskSource)
-# Preserve an existing platform-qualified filename, including user-renamed killstreaks packages.
-# 中文：保留已有的平台文件名前缀，兼容用户改名后的 killstreaks 包，避免安装成两个相同模组。
-if ($taskInstalled.Count -eq 1 -and $taskInstalled[0].Name -match $taskModPattern) {
-    $taskNewName = $Matches['prefix'] + $taskInventory.version + '.jar'
-}
+# 安装文件名统一采用当前构建产物，旧文件名用于识别和备份。
 $taskNew = Join-Path $taskMods $taskNewName
 $taskBackup = Join-Path $taskInstance ('renderer-mod-backups\'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'-'+$taskInventory.version)
 $taskStage = Join-Path $taskBackup ([IO.Path]::GetFileNameWithoutExtension($taskSource)+'.pending')

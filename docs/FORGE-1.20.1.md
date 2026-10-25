@@ -1,8 +1,8 @@
 # Forge 1.20.1 适配
 
-本目录为 Minecraft **1.20.1** / **Forge 47.4.10+** / **Java 17** 工程，沿用模组版本 **1.1.0.4356**。运行时不需要额外前置模组。客户端和服务器均安装同一份 JAR：
+本目录为 Minecraft **1.20.1** / **Forge 47.4.10+** / **Java 17** 工程，沿用模组版本 **1.2.0.4365**。运行时不需要额外前置模组。客户端和服务器均安装同一份 JAR：
 
-`build/libs/killstreakcod-forge-1.20.1-1.1.0.4356.jar`
+`build/libs/killstreaks-forge-1.20.1-1.2.0.4365.jar`
 
 现有连杀、研究树、总部通讯终端、遥控载具、平板标定、热成像、音效和本地操作员皮肤均保留。`D:\Projects\killstreakcod` 为原工程；移植前源码备份为 `D:\Projects\killstreaks-backups\20261019-before-forge1201.zip`。
 

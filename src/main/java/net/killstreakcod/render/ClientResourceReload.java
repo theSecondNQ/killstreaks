@@ -10,7 +10,6 @@ import net.killstreakcod.render.tablet.SceneTabletScreen;
 import net.killstreakcod.render.tablet.TabletCanvas;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -32,21 +31,21 @@ public final class ClientResourceReload {
 
     @SubscribeEvent
     public static void register(RegisterClientReloadListenersEvent event) {
-        event.registerReloadListener((ResourceManagerReloadListener) manager -> {
-            if (RenderSystem.isOnRenderThread())
-                invalidate();
-            else
-                RenderSystem.recordRenderCall(ClientResourceReload::invalidate);
-        });
+        // 清理任务属于重载的 apply 阶段，重载完成前必须等待清理结束，避免下一帧仍使用旧缓存。
+        event.registerReloadListener((barrier, resources, prepareProfiler, applyProfiler, prepareExecutor,
+                applyExecutor) -> barrier.wait(null).thenRunAsync(ClientResourceReload::invalidate, applyExecutor));
     }
 
     private static void invalidate() {
+        RenderSystem.assertOnRenderThread();
+        net.killstreakcod.render.compat.OptionalMapTiles.clear();
         ImportedUnits.clearCache();
         ImportedCastModel.clearCache();
         OriginalStreakAnimations.clearCache();
         TargetingDeviceAnimations.reload();
 
         OriginalRewardUi.reload();
+        NukeUiRenderer.reload();
         NativeRemoteHud.reload();
         NativeRadioSubtitles.reload();
         NativeSceneUi.reset();

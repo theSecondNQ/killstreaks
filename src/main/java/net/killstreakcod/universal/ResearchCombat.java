@@ -1,6 +1,5 @@
 package net.killstreakcod.universal;
 
-import net.killstreakcod.killstreaks.PrecisionFlight;
 import net.killstreakcod.killstreaks.TacticalUnitEntity;
 import net.killstreakcod.killstreaks.TacticalUnitEntity.Kind;
 
@@ -140,9 +139,6 @@ public final class ResearchCombat {
         if (unit.kind() == Kind.BOMB && unit.cargo.equals("stealth")
                 && ResearchEffects.has(unit, "stealth_bomber.homing"))
             guideBomb(unit);
-        if (unit.kind() == Kind.PRECISION && TacticalRuntime.controlled(unit)
-                && unit.age - unit.delay > PrecisionFlight.ATTACK_END)
-            TacticalRuntime.endSession(unit.owner(), false);
         if (unit.kind() == Kind.WHEELSON && unit.autopilot && !TacticalRuntime.controlled(unit)
                 && ResearchEffects.has(unit, "wheelson_hs.patrol")) {
             Vec3 movement = unit.getDeltaMovement();
@@ -216,8 +212,8 @@ public final class ResearchCombat {
                 if (attribute == null)
                     continue;
                 if (!WEAKENED.containsKey(target)) {
-                    attribute.addTransientModifier(
-                            new AttributeModifier(HALF_HEALTH, "killstreakcod:blackout_half_health", -.5, AttributeModifier.Operation.MULTIPLY_TOTAL));
+                    attribute.addTransientModifier(new AttributeModifier(HALF_HEALTH,
+                            "killstreakcod:blackout_half_health", -.5, AttributeModifier.Operation.MULTIPLY_TOTAL));
                     target.setHealth(Math.min(target.getHealth(), target.getMaxHealth()));
                 }
                 WEAKENED.merge(target, 1, Integer::sum);

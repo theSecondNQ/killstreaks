@@ -54,7 +54,8 @@ public final class SceneNativeHud {
         NativeSceneUi.draw(graphics, "overlay_gunship_fuelbar_frame", fuel, 1);
         float fraction = NativeRemoteHud.fuelFraction();
         int top = Math.round(fuel.y() + 2 + (fuel.h() - 4) * (1 - fraction));
-        graphics.fill(12, top, 20, Math.round(fuel.y() + fuel.h() - 2), fraction < .2 ? RED : WHITE);
+        UiDraw.fill(graphics, "SceneNativeHud.render.0", 12, top, 20, Math.round(fuel.y() + fuel.h() - 2),
+                fraction < .2 ? RED : WHITE);
         NativeSceneUi.draw(graphics,
                 mode.equals("gunship") ? "veh_diagram_gunship_out" : "veh_diagram_choppergunner_out",
                 new NativeSceneUi.Rect(28, 64, Math.min(43, pw - 28), diagramHeight), .68F);
@@ -87,6 +88,8 @@ public final class SceneNativeHud {
                     || Math.abs(TacticalClient.pitch()) > GunshipFlight.PITCH_LIMIT - 1;
             if (limited)
                 text(graphics, 8, 54, pw, I18n.get("hud.killstreakcod.gimbal_limit"), AMBER);
+            text(graphics, right, armamentTop + slots.length * rowHeight, pw,
+                    I18n.get("hud.killstreakcod.flares_count", TacticalClient.state.flares()), WHITE);
         } else {
             text(graphics, right, armamentTop, pw, I18n.get("hud.killstreakcod.cannon_30mm"), WHITE);
             text(graphics, right, armamentTop + 13, pw, ResearchWeaponHud.rocketCount(), WHITE);
@@ -103,9 +106,10 @@ public final class SceneNativeHud {
         var font = Minecraft.getInstance().font;
         var lines = font.split(Component.literal(controls()), Math.max(80, w - 16));
         int y = h - lines.size() * font.lineHeight - 4;
-        graphics.fill(0, h - footer, w, h, 0x880c1512);
+        UiDraw.fill(graphics, "SceneNativeHud.render.1", 0, h - footer, w, h, 0x880c1512);
         for (var line : lines) {
-            graphics.drawString(font, line, (w - font.width(line)) / 2, y, WHITE, false);
+            UiDraw.drawString(graphics, "SceneNativeHud.render.2", font, line, (w - font.width(line)) / 2, y, WHITE,
+                    false);
             y += font.lineHeight;
         }
         return true;
@@ -126,16 +130,18 @@ public final class SceneNativeHud {
                     + key(KillstreakKeyMappings.WEAPON_3) + " "
                     + Component.translatable("hud.killstreakcod.native_action_weapon").getString();
         else
-            controls += "   " + key(o.keyUse) + " "
+            controls += "   " + key(KillstreakKeyMappings.SECONDARY_FIRE) + " "
                     + Component.translatable("hud.killstreakcod.native_action_rockets").getString() + "   "
                     + key(o.keyUp) + "/" + key(o.keyLeft) + "/" + key(o.keyDown) + "/" + key(o.keyRight) + " / "
                     + key(o.keyJump) + " / " + key(o.keyShift);
-        return controls;
+        return controls + "   " + key(KillstreakKeyMappings.FLARES) + " "
+                + Component.translatable("hud.killstreakcod.native_action_flares").getString();
     }
 
     private static void text(GuiGraphics graphics, int x, int y, int width, String text, int color) {
         var font = Minecraft.getInstance().font;
-        graphics.drawString(font, font.plainSubstrByWidth(text, width), x, y, color, false);
+        UiDraw.drawString(graphics, "SceneNativeHud.text.0", font, font.plainSubstrByWidth(text, width), x, y, color,
+                false);
     }
 
     private static int altitude() {

@@ -3,266 +3,263 @@
   "icons": {
     "uav": {
       "name": "hud_icon_killstreak_uav",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_uav.png",
-      "sourceSha256": "3f048188dc72bc0e9fbc07da72534f7fdbe45ddb48c2c970ba663ad97ae45141",
+      "source": "new_extractions/earned_ui_layers/alternative_splash/hud_icon_killstreak_uav.png",
+      "sourceSha256": "bc06138cfe1176741588ac602c4f426c784cc76711185adf0f2cdb59ea21d7b7",
       "width": 256,
       "height": 256,
       "bounds": [
         32,
-        70,
-        224,
+        68,
+        228,
         192
       ]
     },
     "bomb_drone": {
       "name": "hud_icon_killstreak_drone_bomb",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_drone_bomb.png",
-      "sourceSha256": "4004f3db8762ca841c2d0026c03acd0264934b40690f5d9eb5769743316e4509",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_drone_bomb.png",
+      "sourceSha256": "764f4fa517cf6c69bb7b040281678058a6e2fd4c18598f4c3c01c4dfe09e297d",
       "width": 256,
       "height": 256,
       "bounds": [
         36,
-        65,
+        64,
         220,
-        197
+        198
       ]
     },
     "counter_uav": {
       "name": "hud_icon_killstreak_cuav",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_cuav.png",
-      "sourceSha256": "da4536a02c2da6fba782b4efa2179e091989257a19d357fcdd9996d90c308b0a",
+      "source": "new_extractions/earned_ui_layers/earned_splash/hud_icon_killstreak_cuav.png",
+      "sourceSha256": "9f21bd346408276e7a6e90447021ab2acc1ff33aad72ad17f6bf149fcfa60785",
       "width": 256,
       "height": 256,
       "bounds": [
         36,
         32,
         220,
-        231
+        232
       ]
     },
     "cluster_mine": {
       "name": "hud_icon_killstreak_clusterspike",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_clusterspike.png",
-      "sourceSha256": "d8b127a30bab19a11c9c260f14e55d3912d7c4ac7c2869e92ccca437544bbe62",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_clusterspike.png",
+      "sourceSha256": "08e0fc3e9072c28fe7713300c0b76b1e7f42da38ed91393b17823fe55096b807",
       "width": 256,
       "height": 256,
       "bounds": [
-        23,
-        61,
-        234,
-        202
+        20,
+        60,
+        236,
+        204
       ]
     },
     "care_package": {
       "name": "hud_icon_killstreak_carepackage",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_carepackage.png",
-      "sourceSha256": "c8f985441bd3bef34fbd3e0c68311b2f717c65f8a9cad9621e6ff9c9a3f34413",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_carepackage.png",
+      "sourceSha256": "89f105cd079372584b088d89f585a4444c36bc649874106ec8f74c408f92aded",
       "width": 256,
       "height": 256,
       "bounds": [
-        45,
-        33,
+        44,
+        32,
         212,
         228
       ]
     },
     "precision_airstrike": {
       "name": "hud_icon_killstreak_airstrike",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_airstrike.png",
-      "sourceSha256": "c95a0e38f676c41005ecaf888ceac033bc048d2c1d312697ebb62eea7628f63e",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_airstrike.png",
+      "sourceSha256": "df0475d9e764cab1755573303ed4be1e51e8d12a3b8bcb2eb0e91405dab2e2f9",
       "width": 256,
       "height": 256,
       "bounds": [
-        11,
-        50,
+        8,
+        48,
         248,
-        210
+        212
       ]
     },
     "cruise_missile": {
       "name": "hud_icon_killstreak_cruise_missile",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_cruise_missile.png",
-      "sourceSha256": "9303f2ae7c630382a5022a58e847e584822aa4202deb69d4e4861c69178b1f38",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_cruise_missile.png",
+      "sourceSha256": "a7e823e9d9d00cb92470440489e2c5db904b44dbbd153984c3d174cb4afc321a",
       "width": 256,
       "height": 256,
       "bounds": [
-        40,
+        39,
         72,
-        215,
-        189
+        220,
+        192
       ]
     },
     "mortar_strike": {
       "name": "hud_icon_killstreak_mortar_strike",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_mortar_strike.png",
-      "sourceSha256": "96a6069e5d2dc0791898ffd76672dc9383910051a203711257cc7a140b5db478",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_mortar_strike.png",
+      "sourceSha256": "afdf1ae767a0cee4e939409f97d16f0b5b5861f6cf9cd7a76aee176d51daa47d",
       "width": 256,
       "height": 256,
       "bounds": [
         52,
-        30,
+        28,
         204,
         232
       ]
     },
     "sentry_gun": {
       "name": "hud_icon_killstreak_sentry",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_sentry.png",
-      "sourceSha256": "0217ec976b9e19d8ab8189c827d9b16b2925125e675347e000604a8f265d29a1",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_sentry.png",
+      "sourceSha256": "8ce248b80b641063e72112c6c09608694532ad39ac31876b3ee18836a9fe7cdc",
       "width": 256,
       "height": 256,
       "bounds": [
         24,
-        18,
+        16,
         232,
-        243
+        244
       ]
     },
     "sae": {
       "name": "hud_icon_killstreak_fuel_airstrike",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_fuel_airstrike.png",
-      "sourceSha256": "034aa11db2105649e9cef258b9b063ee8ddcb7a7c9415baf86e71bc862ef71fe",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_fuel_airstrike.png",
+      "sourceSha256": "8137c9f6bea8823e5a5254a7dbfe834ba565c2e3792cd0daa9721bb5947a280b",
       "width": 256,
       "height": 256,
       "bounds": [
         28,
-        59,
+        56,
         228,
-        202
+        204
       ]
     },
     "vtol_jet": {
       "name": "hud_icon_killstreak_hover_jet",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_hover_jet.png",
-      "sourceSha256": "6ef040b11f5bf13e91a8034af77cd5c56534ac0b4e5e1ca9136d2af9b673ab3d",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_hover_jet.png",
+      "sourceSha256": "e0b4c148de4253f75de68f9e5d06fd62b3a089d9399b537a0195e57117113462",
       "width": 256,
       "height": 256,
       "bounds": [
-        16,
-        46,
+        12,
+        44,
         240,
-        216
+        217
       ]
     },
     "overwatch_helo": {
-      "name": "hud_icon_killstreak_chopper_support",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_chopper_support.png",
-      "sourceSha256": "679aa7ee432fc12a0a1568b100a08758e4dfddef6491ed64bccd23cb19ae6f0d",
+      "name": "hud_icon_killstreak_escort_airdrop",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_escort_airdrop.png",
+      "sourceSha256": "5755259e817808943fe2210cd92e3cba222292b89af32c1df334bdc95f4a3df6",
       "width": 256,
       "height": 256,
       "bounds": [
-        21,
-        3,
-        253,
-        256
+        8,
+        48,
+        248,
+        216
       ]
     },
     "wheelson_hs": {
       "name": "hud_icon_killstreak_wheelson",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_wheelson.png",
-      "sourceSha256": "807b0c28e8451094ab163ce83388d33707cb2a4eea2c60a9a2f4a4ad0b521186",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_wheelson.png",
+      "sourceSha256": "6514e5fc550634ea86322b339e5df76ef5677f554993f7beb9241ebef7cb576f",
       "width": 256,
       "height": 256,
       "bounds": [
-        18,
-        22,
-        239,
+        16,
+        20,
+        240,
         240
       ]
     },
     "emergency_airdrop": {
       "name": "hud_icon_killstreak_emergency_airdrop",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_emergency_airdrop.png",
-      "sourceSha256": "6e08fdc77ac620ab044526a1ebf77f6a8c0f8d706d6b5f20b8d6e63099b6db2f",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_emergency_airdrop.png",
+      "sourceSha256": "d8a1e71c3ae8f61cbb98aa81bf12928ccd59f2cb0788d9dbc76531f8de8206bb",
       "width": 256,
       "height": 256,
       "bounds": [
         52,
-        22,
+        20,
         204,
         232
       ]
     },
     "chopper_gunner": {
       "name": "hud_icon_killstreak_chopper_gunner",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_chopper_gunner.png",
-      "sourceSha256": "7d218ba6052dd87d1a410fa3416693c4cf0d3a38c2d305b46979e8c915110d15",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_chopper_gunner.png",
+      "sourceSha256": "27b90d2d2b5ce28ed15fd406fea4ab070adc41bb604b5e7a5faf2df0d1941826",
       "width": 256,
       "height": 256,
       "bounds": [
-        6,
-        55,
-        250,
-        207
+        4,
+        52,
+        252,
+        208
       ]
     },
     "gunship": {
       "name": "hud_icon_killstreak_gunship",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_gunship.png",
-      "sourceSha256": "46f317e729e029240f22622c0a0f43248c549a0f31b4a544b19dc4d4962fa899",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_gunship.png",
+      "sourceSha256": "683d7951dfda123606ab7dcac29448571a473a4eb55c3c98edb96d85170f2aa2",
       "width": 256,
       "height": 256,
       "bounds": [
-        5,
+        4,
         48,
         252,
-        215
+        216
       ]
     },
     "advanced_uav": {
       "name": "hud_icon_killstreak_auav",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_auav.png",
-      "sourceSha256": "ec0dfc2c2595355a0ddd43d008633add298333f0527c94daf514ca29b009f29d",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_auav.png",
+      "sourceSha256": "a90841eb975f7211ae51a8814ed32d9a1951234949d265192e18fcb6da4ee19d",
       "width": 256,
       "height": 256,
       "bounds": [
-        17,
-        63,
-        240,
-        198
+        16,
+        60,
+        244,
+        200
       ]
     },
     "juggernaut": {
       "name": "hud_icon_killstreak_juggernaut",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_juggernaut.png",
-      "sourceSha256": "9979a86914a602c4cbb96d828347d2d74b35f4271da473608ea1edfa2e748134",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_juggernaut.png",
+      "sourceSha256": "9eb1339c4a8018781fd6e13c2758ee6adebc50b08f82cc806ff80ce711dad7de",
       "width": 256,
       "height": 256,
       "bounds": [
-        31,
-        19,
-        226,
+        28,
+        16,
+        228,
         244
       ]
     },
     "mgb": {
       "name": "hud_icon_killstreak_mgb",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\images\\hud_icon_killstreak_mgb.png",
-      "sourceSha256": "b474817ee3ca20afab609f969e9896558e12cb23078176271b8511a2668ca0bd",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_mgb.png",
+      "sourceSha256": "b9e221c9a731e8824cde2721c924a5b280321ecfeee531201ccb8b59de68c787",
       "width": 256,
       "height": 256,
       "bounds": [
         12,
         56,
-        243,
-        206
+        244,
+        208
       ]
     },
     "stealth_bomber": {
-      "name": "hud_icon_killstreak_stealth_bomber",
-      "source": "D:\\MW2022\\work\\tools\\saluki\\exported_files\\mw2_2022\\models\\veh9_mil_air_stealth_bomber_mp\\veh9_mil_air_stealth_bomber_mp_LOD0.cast",
-      "sourceSha256": "16b424901e92ef790070cf5754460a49a054eb750711b19c5b23e36cfb586480",
+      "name": "hud_icon_killstreak_auto_drone",
+      "source": "new_extractions/earned_ui_layers/dynamic_splash_icons/hud_icon_killstreak_auto_drone.png",
+      "sourceSha256": "f46947986408af472241746bea496865713372081cc8ef260aa8c690d28bbca9",
       "width": 256,
       "height": 256,
       "bounds": [
-        10,
-        79,
-        246,
-        177
-      ],
-      "sourceType": "orthographic silhouette of original CAST triangles; source +X nose points up",
-      "outputSha256": "d57a06603e6ae9e217ea356d80e91b122d69d4098a1d28c17dfda31ea0befb85",
-      "slotOutputSha256": "62f01690d6781cc7825da2a537fd46100559d1d22da0502761a52062182327c2"
+        16,
+        52,
+        248,
+        192
+      ]
     }
   },
   "layers": {
@@ -355,6 +352,71 @@
         4,
         1914,
         5
+      ]
+    },
+    "hud_splash_accent_diamond": {
+      "name": "hud_splash_accent_diamond",
+      "source": "new_extractions/earned_ui_layers/earned_splash/hud_splash_accent_diamond.png",
+      "sourceSha256": "b794f716c3a5726c5743aa0d1d325d3856fdff281753ee5fc61476d04a5aa4c2",
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        24,
+        20,
+        488,
+        485
+      ]
+    },
+    "hud_splash_notched_background_5": {
+      "name": "hud_splash_notched_background_5",
+      "source": "new_extractions/earned_ui_layers/earned_splash/hud_splash_notched_background_5.png",
+      "sourceSha256": "e11bf263833c48c5fdbdd7681fd5380903ca2334c88cd10156f2265da23c9a3d",
+      "width": 128,
+      "height": 80,
+      "bounds": [
+        0,
+        0,
+        128,
+        80
+      ]
+    },
+    "hud_splash_accent_chevrons_single": {
+      "name": "hud_splash_accent_chevrons_single",
+      "source": "new_extractions/earned_ui_layers/earned_splash/hud_splash_accent_chevrons_single.png",
+      "sourceSha256": "6835e54db1adc75a3fdd06fa2408d48eac14cbb1c5bc4681b07afe34bac14dfc",
+      "width": 40,
+      "height": 128,
+      "bounds": [
+        0,
+        24,
+        40,
+        104
+      ]
+    },
+    "widg_gradient_left_to_right": {
+      "name": "widg_gradient_left_to_right",
+      "source": "new_extractions/earned_ui_layers/earned_splash/widg_gradient_left_to_right.png",
+      "sourceSha256": "4bc8665343c16927424cfb9e5e7c4baf0c7c967a20bfd69c730fcc79bd752284",
+      "width": 512,
+      "height": 256,
+      "bounds": [
+        0,
+        0,
+        512,
+        256
+      ]
+    },
+    "hud_earned_streak_backer": {
+      "name": "hud_earned_streak_backer",
+      "source": "new_extractions/earned_ui_layers/streak_tray/hud_earned_streak_backer.png",
+      "sourceSha256": "1219aeda1ee78f4a6c3c92e865edd3b66feaf8accfd0ea82f27a88431ff8d2f6",
+      "width": 128,
+      "height": 128,
+      "bounds": [
+        0,
+        0,
+        128,
+        128
       ]
     }
   },

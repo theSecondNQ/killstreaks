@@ -14,6 +14,7 @@ import com.google.gson.JsonObject;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.ChatScreen;
 import net.minecraftforge.fml.ModList;
 
 /**
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.ModList;
 public final class OptionalClientIntegrations {
     private static boolean resolved;
     private static Method gdOverlay;
+    private static boolean gdOverlayHasGate;
     private static Method gdPreset, gdElements, gdConfig;
     private static List<RemoteHudLayout.Box> gdAreas = List.of();
     private static long layoutAt = Long.MIN_VALUE;
@@ -38,17 +40,26 @@ public final class OptionalClientIntegrations {
 
     public static void remoteOverlay(GuiGraphics graphics, float partial) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.screen != null || mc.options.hideGui)
+        if (mc.screen != null && !(mc.screen instanceof ChatScreen) || mc.options.hideGui)
             return;
         resolve();
-        if (gdOverlay != null)
+        if (gdOverlay != null) {
+            graphics.flush();
+            graphics.pose().pushPose();
             try {
-                gdOverlay.invoke(null, graphics, partial);
+                if (gdOverlayHasGate)
+                    gdOverlay.invoke(null, graphics, partial, true);
+                else
+                    gdOverlay.invoke(null, graphics, partial);
             }
             catch (ReflectiveOperationException | LinkageError failure) {
                 gdOverlay = null;
                 LogUtils.getLogger().error("GD656 remote overlay disabled after render failure", failure);
+            } finally {
+                graphics.flush();
+                graphics.pose().popPose();
             }
+        }
     }
 
     private static void resolve() {
@@ -56,8 +67,17 @@ public final class OptionalClientIntegrations {
             resolved = true;
             if (ModList.get().isLoaded("gd656killicon"))
                 try {
-                    gdOverlay = Class.forName("org.mods.gd656killicon.client.render.HudElementManager")
-                            .getMethod("renderOverlay", GuiGraphics.class, float.class);
+                    Class<?> manager = Class.forName("org.mods.gd656killicon.client.render.HudElementManager");
+                    try {
+                        gdOverlay = manager.getMethod("renderOverlay", GuiGraphics.class, float.class);
+                    }
+                    catch (NoSuchMethodException newerApi) {
+                        // GD656 1.3 使用三参数入口，最后一项表示原生 player_list 叠层已到达。
+                        // 遥控 HUD 替代了该叠层，在这里明确提供一次绘制许可。
+                        gdOverlay = manager.getMethod("onRenderGuiOverlay", GuiGraphics.class, float.class,
+                                boolean.class);
+                        gdOverlayHasGate = true;
+                    }
                     LogUtils.getLogger().info("Killstreaks: GD656 remote HUD bridge enabled");
                 }
                 catch (ReflectiveOperationException | LinkageError failure) {
@@ -69,7 +89,12 @@ public final class OptionalClientIntegrations {
                             .getMethod("getCurrentPresetId");
                     var config = Class.forName("org.mods.gd656killicon.client.config.ElementConfigManager");
                     gdElements = config.getMethod("getElementIds", String.class);
-                    gdConfig = config.getMethod("getElementConfigWithFallback", String.class, String.class);
+                    try {
+                        gdConfig = config.getMethod("getElementConfigWithFallback", String.class, String.class);
+                    }
+                    catch (NoSuchMethodException newerApi) {
+                        gdConfig = config.getMethod("getElementConfig", String.class, String.class);
+                    }
                 }
                 catch (ReflectiveOperationException | LinkageError failure) {
                     gdPreset = gdElements = gdConfig = null;

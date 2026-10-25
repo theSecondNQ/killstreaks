@@ -2,6 +2,21 @@
 
 当前版本为 1.1.0.4356，修复着色器切换和透明层次错误造成的黑边闪烁，并保留前版的朝向、特效矩阵和巡航导弹震屏修复。运行时仍不需要额外前置；Embeddium、Oculus 都是可选模组。
 
+## 2026-10-22：实体附加层重构
+
+本次保持 Forge 1.20.1 的版本号 1.1.0.4356。移除 `LivingEntityThermalMixin` 及仅供其调用的 `OriginalJuggernautVisibility`，不再重定向全部生物的 `EntityModel.renderToBuffer`，也不再替换 `LivingEntityRenderer` 的缓冲区参数。
+
+- 热成像由 Forge `AddLayers` 注册的 `ThermalLayer` 采集当前模型姿态，只向本模组热遮罩提交位置顶点；正常材质、其他模组的字体和顶点缓冲不参与替换。现有深度检测与画面合成保留。
+- 无畏装甲沿用独立护甲附加层，并单独提交自己的热轮廓；姿态栈由 `finally` 恢复。基础玩家皮肤按普通护甲的方式保留，不再全局隐藏共享模型部件。原资源贴身处及第三方护甲的外观还需实际游戏确认。
+- 每轮 `AddLayers` 按渲染器对象去重，避免多个实体类型共用同一个渲染器时重复绘制。
+- 资源缓存清理纳入重载的 apply executor，并由重载 future 等待完成；不再发送无法等待的延迟渲染调用。清理仅涉及本模组缓存。
+
+已见日志中的本模组 Redirect 注入失败会使 Forge 拒绝后续资源重载、键位及模型注册事件。移除该注入点解决这一冲突来源，但不能据此认定所有乱码与键位异常都已修复。生产代码未发现保存或重置 Options 键位的路径。本次未改动用户配置、资源包、语言文件或 GD656 的编码兼容。
+
+日志另有 `taczexpands.client.mixins.json:accessor.IAccessorFirstPersonRenderHandler` 查找 SimpleBedrockModel 私有方法失败，这是独立的外部模组接口冲突；本次没有恢复已撤回的 Arcana 专用补丁。
+
+验证范围：完成 Java 17 编译与发行 JAR 构建；未运行游戏测试。热成像附加层覆盖支持标准 LivingEntityRenderer 附加层的基础模型及本模组装甲；第三方自行绘制的独立模型/护甲不保证进入热遮罩。
+
 ## 修复原因
 
 - Forge 1.20.1 在 `AFTER_LEVEL` 事件中传入的是投影姿态栈。将它当作世界视图矩阵，会使本应在摄像机前方的特效落到裁剪范围之外。`WorldRenderMatrices` 从同一帧的世界阶段保存真实视图，供爆炸精灵、曳光线、热成像遮罩及核爆绘制使用，并排除光影的阴影阶段。

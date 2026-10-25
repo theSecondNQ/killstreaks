@@ -21,6 +21,7 @@ public final class KillstreakClientEvents {
     public static void onClientTick(TickEvent.ClientTickEvent event) {
         if (event.phase != TickEvent.Phase.END)
             return;
+        HandheldWeaponInput.tick();
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player == null || minecraft.screen != null)
             return;
@@ -34,21 +35,31 @@ public final class KillstreakClientEvents {
                 }
             return;
         }
-        if (KillstreakKeyMappings.BONUS.consumeClick())
+        if (KillstreakKeyMappings.BONUS.consumeClick()) {
+            RewardRail.reveal();
             StreakPackets.sendToServer(new UseKillstreakPayload(3));
-        if (KillstreakKeyMappings.MGB.consumeClick())
+        }
+        if (KillstreakKeyMappings.MGB.consumeClick()) {
+            RewardRail.reveal();
             StreakPackets.sendToServer(new UseKillstreakPayload(4));
+        }
         if (KillstreakKeyMappings.BOOST.consumeClick())
             StreakPackets.sendToServer(new TacticalControlPayload(0, 0, 0, 0, TacticalControlPayload.BOOST));
 
         if (KillstreakKeyMappings.OPEN_TERMINAL.consumeClick())
             StreakPackets.sendToServer(new RequestTerminalStatePayload(true));
 
-        if (KillstreakKeyMappings.USE_SLOT_1.consumeClick())
+        if (KillstreakKeyMappings.USE_SLOT_1.consumeClick()) {
+            RewardRail.reveal();
             StreakPackets.sendToServer(new UseKillstreakPayload(0));
-        if (KillstreakKeyMappings.USE_SLOT_2.consumeClick())
+        }
+        if (KillstreakKeyMappings.USE_SLOT_2.consumeClick()) {
+            RewardRail.reveal();
             StreakPackets.sendToServer(new UseKillstreakPayload(1));
-        if (KillstreakKeyMappings.USE_SLOT_3.consumeClick())
+        }
+        if (KillstreakKeyMappings.USE_SLOT_3.consumeClick()) {
+            RewardRail.reveal();
             StreakPackets.sendToServer(new UseKillstreakPayload(2));
+        }
     }
 }

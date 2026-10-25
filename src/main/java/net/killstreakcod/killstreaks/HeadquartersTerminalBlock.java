@@ -104,6 +104,11 @@ public final class HeadquartersTerminalBlock extends HorizontalDirectionalBlock 
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player,
             net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
+            if (!net.killstreakcod.universal.StreakServerConfig.terminalEnabled(level.getServer())
+                    && player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                net.killstreakcod.universal.KillstreakService.sendTerminalState(serverPlayer, true);
+                return InteractionResult.SUCCESS;
+            }
             BlockPos base = state.getValue(HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos;
             if (!level.getBlockState(base).is(this))
                 return InteractionResult.PASS;

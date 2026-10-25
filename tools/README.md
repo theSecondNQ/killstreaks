@@ -10,9 +10,13 @@
 | `python tools/release.py package` | 按明确目录清单生成当前源码包及 SHA256，不收录缓存、日志、旧发行包、参考输入 |
 | `./tools/update_instance.ps1 -InstanceRoot '实例绝对路径'` | 在游戏退出后安装已核对的 JAR，备份旧版并记录其他模组、配置和皮肤的校验和 |
 | `python tools/release.py verify` | 核对源码包、模组包；存在当前发行包的安装记录时另核对已安装文件、旧版备份及保留文件 |
+| `python tools/import_earned_ui.py --source "原资源总交付目录"` | 核对并导入连杀获取提示原图、布局与属性轨道，详见[连杀获取提示](../docs/EARNED-UI.md) |
+| `python tools/import_nuke_ui.py --source "原资源总交付目录"` | 核对并导入多人模式核弹 UI 原图、构造状态与动画轨道，详见[核弹 UI](../docs/NUKE-UI.md) |
 | `node tools/pixel_models.mjs` | 从原始模型生成低多边形与像素贴图暂存结果，核对骨骼头、顶点属性和材质，并写入 `build/reports/pixel-models/rebuild.json` |
 
 发行与安装工具不会启动游戏。安装器会在发现 Java 进程、重复模组或哈希不一致时停止。无需针对每个版本生成新脚本。
+
+构建、打包与安装统一使用 `killstreaks-neoforge-1.21.1-<版本号>.jar` 或 `killstreaks-forge-1.20.1-<版本号>.jar`；源码包在同一文件名末尾使用 `-source.zip`。发行工具从 `build.gradle` 的 `base.archivesName` 读取前缀。安装器仍识别旧 `killstreakcod-*` 文件名，备份后替换为统一命名，并拒绝重复模组包。
 
 同版本语言或资源修订可显式使用 `-ReplaceSameVersion`，例如 `./tools/update_instance.ps1 -InstanceRoot '实例绝对路径' -ReplaceSameVersion`。仅允许替换唯一的同名模组 JAR；仍在游戏退出后暂存、核对、备份旧包，并在安装失败时还原。普通安装默认拒绝覆盖同名但内容不同的包。
 

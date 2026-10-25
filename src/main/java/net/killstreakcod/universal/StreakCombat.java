@@ -95,6 +95,53 @@ public final class StreakCombat {
                         || entity.isPickable() || entity.getParts() == null || entity.getParts().length == 0));
     }
 
+    /**
+     * 飞机跨越多个实体分区；扫描已加载的飞机并按完整机体扫掠，不能只查询导弹身边的中心分区。
+     * 物理碰撞不使用敌我过滤；爆炸伤害仍由既有队友保护决定。
+     */
+    static void cruiseAircraftBlast(ServerLevel level, ServerPlayer owner, TacticalUnitEntity missile, Vec3 at,
+            float radius) {
+        // 巡航导弹对空中连杀专门执行致命打击；队友保护仍由既有名单决定。
+        List<TacticalUnitEntity> hit = new ArrayList<>();
+        for (Entity entity : level.getAllEntities()) {
+            if (!(entity instanceof TacticalUnitEntity aircraft) || aircraft == missile || aircraft.crashing()
+                    || !(AircraftFlight.aircraft(aircraft.kind())
+                            || aircraft.kind() == TacticalUnitEntity.Kind.BOMB_DRONE
+                            || aircraft.kind() == TacticalUnitEntity.Kind.CRUISE)
+                    || aircraft.awaitingVtolEntry()
+                    || !owner.getUUID().equals(aircraft.ownerId) && allied(owner, aircraft))
+                continue;
+            AABB box = aircraft.getBoundingBox();
+            Vec3 nearest = new Vec3(net.minecraft.util.Mth.clamp(at.x, box.minX, box.maxX),
+                    net.minecraft.util.Mth.clamp(at.y, box.minY, box.maxY),
+                    net.minecraft.util.Mth.clamp(at.z, box.minZ, box.maxZ));
+            if (nearest.distanceToSqr(at) <= radius * radius)
+                hit.add(aircraft);
+        }
+        for (TacticalUnitEntity aircraft : hit)
+            aircraft.destroyByCruise(source(level, missile, owner, true, at));
+    }
+
+    static Optional<Vec3> aircraftContact(ServerLevel level, Entity projectile, Vec3 from, Vec3 to) {
+        Vec3 nearest = null;
+        double distance = from.distanceToSqr(to);
+        AABB sweep = new AABB(from, to).inflate(.35);
+        for (Entity entity : level.getAllEntities()) {
+            if (!(entity instanceof TacticalUnitEntity aircraft) || aircraft == projectile || !aircraft.isAlive()
+                    || !aircraft.isPickable() || aircraft.isInvisible()
+                    || !(AircraftFlight.visible(aircraft.kind())
+                            || aircraft.kind() == TacticalUnitEntity.Kind.BOMB_DRONE)
+                    || !aircraft.getBoundingBox().intersects(sweep))
+                continue;
+            var contact = AircraftBounds.intercept(aircraft, from, to, .35);
+            if (contact.isPresent() && from.distanceToSqr(contact.get()) <= distance) {
+                nearest = contact.get();
+                distance = from.distanceToSqr(nearest);
+            }
+        }
+        return Optional.ofNullable(nearest);
+    }
+
     public static Optional<Vec3> intercept(Entity entity, Vec3 from, Vec3 to, double padding) {
         return SuperbWarfareCompat.vehicle(entity) ? SuperbWarfareCompat.intercept(entity, from, to)
                 : entity.getBoundingBox().inflate(padding).clip(from, to);
@@ -133,7 +180,8 @@ public final class StreakCombat {
         Map<Entity, List<Exposure>> groups = new IdentityHashMap<>();
         for (Entity entity : targets(level, owner, emitter, new AABB(at, at).inflate(radius), true)) {
             AABB box = entity.getBoundingBox();
-            Vec3 closest = new Vec3(net.minecraft.util.Mth.clamp(at.x, box.minX, box.maxX), net.minecraft.util.Mth.clamp(at.y, box.minY, box.maxY),
+            Vec3 closest = new Vec3(net.minecraft.util.Mth.clamp(at.x, box.minX, box.maxX),
+                    net.minecraft.util.Mth.clamp(at.y, box.minY, box.maxY),
                     net.minecraft.util.Mth.clamp(at.z, box.minZ, box.maxZ));
             double distance = closest.distanceTo(at);
             if (distance >= radius)
