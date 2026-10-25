@@ -3,6 +3,8 @@ package net.killstreakcod.mixin.client;
 import net.killstreakcod.render.EntryScenes;
 import net.killstreakcod.render.TacticalClient;
 import net.killstreakcod.render.WheelsonView;
+import net.killstreakcod.killstreaks.GunshipMounts;
+import net.killstreakcod.killstreaks.TacticalUnitEntity;
 
 import net.minecraft.client.Camera;
 import net.minecraft.world.entity.Entity;
@@ -28,6 +30,9 @@ public abstract class CinematicCameraPositionMixin {
             float partial, CallbackInfo ci) {
         if (TacticalClient.remote() && TacticalClient.state.mode().equals("wheelson"))
             setPosition(WheelsonView.position(entity, TacticalClient.yaw(), TacticalClient.pitch(), partial));
+        if (TacticalClient.remote() && entity instanceof TacticalUnitEntity unit
+                && unit.kind() == TacticalUnitEntity.Kind.GUNSHIP)
+            setPosition(GunshipMounts.camera(unit, partial));
         Vec3 position = EntryScenes.cameraPosition((Camera) (Object) this);
         if (position != null)
             setPosition(position);

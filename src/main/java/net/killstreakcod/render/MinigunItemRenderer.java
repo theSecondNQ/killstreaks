@@ -96,27 +96,34 @@ public final class MinigunItemRenderer extends BlockEntityWithoutLevelRenderer {
     @Override
     public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack pose, MultiBufferSource buffer,
             int light, int overlay) {
+        if (context == ItemDisplayContext.GUI) {
+            if (InventoryModel.render(NativeArsenalLibrary.lod("m13421_wm", 1), pose, buffer))
+                return;
+            VertexConsumer v = buffer.getBuffer(RenderType.entityCutoutNoCull(ICON));
+            iconVertex(v, pose, 0, 0, 0, 1);
+            iconVertex(v, pose, 1, 0, 1, 1);
+            iconVertex(v, pose, 1, 1, 1, 0);
+            iconVertex(v, pose, 0, 1, 0, 0);
+            return;
+        }
         String nativeId = context.firstPerson() ? "m13421_vm"
-                : NativeArsenalLibrary.lod("m13421_wm",
-                        context == ItemDisplayContext.GUI ? 1 : OptionalShaderCompat.shadowPass() ? 2 : 0);
+                : NativeArsenalLibrary.lod("m13421_wm", OptionalShaderCompat.shadowPass() ? 2 : 0);
         ImportedCastModel nativeGun = ImportedCastModel.get(nativeId);
         Minecraft mc = Minecraft.getInstance();
         net.minecraft.world.entity.LivingEntity wielder = context.firstPerson() ? mc.player
                 : NativeMinigunPresentation.wielder(stack);
-        boolean firing = wielder != null && wielder.isUsingItem() && wielder.getUseItem() == stack;
+        boolean local = wielder != null && wielder == mc.player;
+        boolean firing = local ? HandheldWeaponInput.firing()
+                : wielder != null && wielder.isUsingItem() && wielder.getUseItem() == stack;
+        int using = local ? HandheldWeaponInput.ticks() : firing ? wielder.getTicksUsingItem() : 0;
         float t = mc.level == null ? 0 : mc.level.getGameTime() + mc.getTimer().getGameTimeDeltaPartialTick(true);
         if (nativeGun != null) {
             pose.pushPose();
             try {
                 pose.translate(.5, .5, .5);
                 float length = nativeGun.boundsMax().z - nativeGun.boundsMin().z;
-                float fit = (context == ItemDisplayContext.GUI ? .95F : 1.35F) / Math.max(.1F, length);
-                if (context == ItemDisplayContext.GUI) {
-                    pose.mulPose(Axis.YP.rotationDegrees(75));
-                    pose.mulPose(Axis.XP.rotationDegrees(-15));
-                }
+                float fit = 1.35F / Math.max(.1F, length);
                 float partial = mc.getTimer().getGameTimeDeltaPartialTick(true);
-                int using = firing ? wielder.getTicksUsingItem() : 0;
                 var action = NativeArsenalView.gunPose(nativeGun, firing, using, partial);
                 pose.pushPose();
                 try {
@@ -136,16 +143,9 @@ public final class MinigunItemRenderer extends BlockEntityWithoutLevelRenderer {
             }
             return;
         }
-        if (context == ItemDisplayContext.GUI) {
-            VertexConsumer v = buffer.getBuffer(RenderType.entityCutoutNoCull(ICON));
-            iconVertex(v, pose, 0, 0, 0, 1);
-            iconVertex(v, pose, 1, 0, 1, 1);
-            iconVertex(v, pose, 1, 1, 1, 0);
-            iconVertex(v, pose, 0, 1, 0, 0);
-            return;
-        }
-        barrels.zRot = firing ? t * (wielder.getTicksUsingItem() < 10 ? .3F : 1.4F) : 0;
-        muzzleFlash.visible = firing && ((int) (t * 2) & 1) == 0;
+
+        barrels.zRot = firing ? t * (using < 10 ? .3F : 1.4F) : 0;
+        muzzleFlash.visible = firing && !context.firstPerson() && ((int) (t * 2) & 1) == 0;
         pose.pushPose();
         pose.translate(.5, .5, .5);
 

@@ -407,14 +407,14 @@ public final class NativeSceneUi {
             // 文字、色块批次结束时会关闭混合；每次即时绘图前恢复透明混合，避免轮廓变成实心白块。
             RenderSystem.enableBlend();
             RenderSystem.defaultBlendFunc();
-            graphics.blit(asset.texture, Math.round(box.x), Math.round(box.y), Math.round(box.w), Math.round(box.h), 0,
-                    0, asset.width, asset.height, asset.width, asset.height);
+            UiDraw.blit(graphics, "NativeSceneUi.draw.0", asset.texture, Math.round(box.x), Math.round(box.y),
+                    Math.round(box.w), Math.round(box.h), 0, 0, asset.width, asset.height, asset.width, asset.height);
             graphics.setColor(1, 1, 1, 1);
             return;
         }
         try (BlendGuard guard = new BlendGuard(graphics, alpha)) {
-            graphics.blit(asset.texture, Math.round(box.x), Math.round(box.y), Math.round(box.w), Math.round(box.h), 0,
-                    0, asset.width, asset.height, asset.width, asset.height);
+            UiDraw.blit(graphics, "NativeSceneUi.draw.1", asset.texture, Math.round(box.x), Math.round(box.y),
+                    Math.round(box.w), Math.round(box.h), 0, 0, asset.width, asset.height, asset.width, asset.height);
         }
     }
 

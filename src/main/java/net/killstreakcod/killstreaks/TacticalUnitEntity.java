@@ -5,6 +5,7 @@ import net.killstreakcod.audio.NativeAudio;
 import net.killstreakcod.audio.StreakSounds;
 import net.killstreakcod.audio.StrikeRadioReports;
 import net.killstreakcod.universal.AircraftAirspace;
+import net.killstreakcod.universal.AirspaceRefund;
 import net.killstreakcod.universal.AircraftBounds;
 import net.killstreakcod.universal.AircraftCrash;
 import net.killstreakcod.universal.AircraftCrashLibrary;
@@ -23,6 +24,7 @@ import net.killstreakcod.universal.ResearchEffects;
 import net.killstreakcod.universal.ResearchCombat;
 import net.killstreakcod.universal.ResearchMask;
 import net.killstreakcod.universal.ResearchOrdnance;
+import net.killstreakcod.universal.PrecisionAutoAim;
 import net.killstreakcod.universal.ResearchSystem;
 import net.killstreakcod.universal.TracerDelivery;
 
@@ -88,10 +90,9 @@ public final class TacticalUnitEntity extends PathfinderMob {
             EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> CRASH_CANOPY = SynchedEntityData.defineId(TacticalUnitEntity.class,
             EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> REMOTE_PRECISION = SynchedEntityData
-            .defineId(TacticalUnitEntity.class, EntityDataSerializers.BOOLEAN);
     public UUID ownerId;
     public UUID radioStrike;
+    public AirspaceRefund airspaceRefund;
     public Vec3 center = Vec3.ZERO;
     public float heading;
     public int age, lifetime = 1200, delay, shotAt, rockets = 8;
@@ -114,6 +115,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
     private UUID openingPlayer;
     private int openingTicks;
     private LivingEntity trackedTarget;
+    private PrecisionAutoAim precisionAim;
     private int lockTicks, burstShots, burstPauseUntil;
     private boolean targetLockAnnounced;
     private Vec3 delayedMotion;
@@ -189,19 +191,10 @@ public final class TacticalUnitEntity extends PathfinderMob {
         b.define(NATIVE_CLOCK, 0);
         b.define(DEPARTING, false);
         b.define(CRASH_CANOPY, false);
-        b.define(REMOTE_PRECISION, false);
     }
 
     public boolean departing() {
         return entityData.get(DEPARTING);
-    }
-
-    public void remotePrecision(boolean enabled) {
-        entityData.set(REMOTE_PRECISION, enabled);
-    }
-
-    public boolean remotePrecision() {
-        return entityData.get(REMOTE_PRECISION);
     }
 
     public boolean awaitingVtolEntry() {
@@ -236,6 +229,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
         setDeltaMovement(Vec3.ZERO);
         if (kind() == Kind.VTOL)
             entityData.set(NATIVE_CLOCK, 0);
+        else if (kind() == Kind.GUNSHIP)
+            entityData.set(NATIVE_CLOCK, GunshipMounts.departureClock(entityData.get(NATIVE_CLOCK)));
         announceDeparture();
         if (kind() == Kind.VTOL)
             TacticalRuntime.sound((ServerLevel) level(), position(),
@@ -537,7 +532,6 @@ public final class TacticalUnitEntity extends PathfinderMob {
             case UAV, COUNTER_UAV, ADVANCED_UAV, BOMB_DRONE, CRUISE, WHEELSON, CHOPPER, GUNSHIP, VTOL, OVERWATCH,
                     SENTRY ->
                 true;
-            case PRECISION -> remotePrecision();
             default -> false;
         };
     }
@@ -564,6 +558,16 @@ public final class TacticalUnitEntity extends PathfinderMob {
             return true;
         }
         return super.hurt(source, ResearchCombat.incomingDamage(this, damage));
+    }
+
+    /** 巡航导弹直击不受支援机种的普通伤害倍率限制，但沿用原坠毁及清理流程。 */
+    public void destroyByCruise(DamageSource source) {
+        if (!level().isClientSide
+                && (AircraftFlight.aircraft(kind()) || kind() == Kind.BOMB_DRONE || kind() == Kind.CRUISE)
+                && !crashing() && !isRemoved()) {
+            setHealth(0);
+            die(source);
+        }
     }
 
     @Override
@@ -596,6 +600,10 @@ public final class TacticalUnitEntity extends PathfinderMob {
 
     @Override
     public void remove(Entity.RemovalReason reason) {
+        if (!level().isClientSide) {
+            if (airspaceRefund != null)
+                airspaceRefund.removed(this);
+        }
         super.remove(reason);
         if (!level().isClientSide
                 && (reason == Entity.RemovalReason.KILLED || reason == Entity.RemovalReason.DISCARDED))
@@ -680,6 +688,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
             jammedMotion = null;
         }
         Vec3 previousPosition = position();
+
         boolean waiting = age < delay;
         if (!level().isClientSide && waiting && kind() == Kind.CLUSTER) {
             ServerPlayer operator = owner();
@@ -727,6 +736,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
             }
             int approved = AircraftAirspace.selectLift(player, Kind.VTOL, center, heading);
             if (approved < 0) {
+                if (airspaceRefund != null)
+                    airspaceRefund.cancel();
                 discard();
                 return;
             }
@@ -748,7 +759,10 @@ public final class TacticalUnitEntity extends PathfinderMob {
         if (groundUnit() && kind() != Kind.WHEELSON)
             setNoGravity(poweredProjectile() || kind() == Kind.CLUSTER && clusterPlantedAt >= 0);
         int t = age - delay;
-        if (AircraftFlight.aircraft(kind()))
+        // 炮艇退场时的原生动作时钟记录改平进度，供客户端和服务器共用同一个机体姿态。
+        if (kind() == Kind.GUNSHIP && departing())
+            entityData.set(NATIVE_CLOCK, entityData.get(NATIVE_CLOCK) + 1);
+        else if (AircraftFlight.aircraft(kind()))
             entityData.set(NATIVE_CLOCK, kind() == Kind.VTOL ? NativeVtolFlight.animationClock(vtolPatrol(), t) : t);
         if (player == null && kind() != Kind.CRATE && kind() != Kind.JUGG_CRATE) {
             discard();
@@ -1008,7 +1022,9 @@ public final class TacticalUnitEntity extends PathfinderMob {
             setYBodyRot(getYRot());
         }
         if ((kind() == Kind.CRATE || kind() == Kind.JUGG_CRATE) && !onGround()) {
-            setDeltaMovement(getDeltaMovement().multiply(.8, 0, .8).add(0, -.18, 0));
+            // 普通及紧急空投直接自由落下；无畏装甲箱保留原降落伞和缓降。
+            if (kind() == Kind.JUGG_CRATE)
+                setDeltaMovement(getDeltaMovement().multiply(.8, 0, .8).add(0, -.18, 0));
             stage(-1);
         }
     }
@@ -1036,10 +1052,15 @@ public final class TacticalUnitEntity extends PathfinderMob {
             // 扫射完成后的退场航线可能遇到新加载地形；此时安全移除载具，不再提示已经完成的呼叫失败。
             boolean completedPass = departing() || departureVoiceSent
                     || kind() == Kind.PRECISION && age - delay > PrecisionFlight.ATTACK_END
+                    || kind() == Kind.SAE && age - delay > AircraftFlight.PASS_OFFSET + 30
+                    || kind() == Kind.STEALTH && age - delay > AircraftFlight.PASS_OFFSET + 56
                     || kind() == Kind.VTOL && stage() == 2;
             ServerPlayer operator = owner();
-            if (operator != null && !completedPass)
+            if (operator != null && !completedPass) {
                 operator.displayClientMessage(Component.translatable("message.killstreakcod.flight_blocked"), true);
+                if (airspaceRefund != null)
+                    airspaceRefund.cancel();
+            }
             if (!(kind() == Kind.VTOL && stage() == 2 && vtolSuccessor != null))
                 announceDeparture();
             discard();
@@ -1076,8 +1097,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
         if (vtolSuccessor == null) {
             int remaining = Math.max(NativeVtolFlight.EMPTY_TICKS, NativeVtolFlight.SECOND_ENTRY_START - tick),
                     patrolLife = Math.max(1, lifetime - NativeVtolFlight.INGRESS_TICKS);
-            next = TacticalRuntime.spawnConfigured(player, Kind.VTOL, position(), center, patrolLife, heading,
-                    remaining, "vtol_patrol", Vec3.ZERO, flightLift);
+            next = AirspaceRefund.inherit(airspaceRefund, () -> TacticalRuntime.spawnConfigured(player, Kind.VTOL,
+                    position(), center, patrolLife, heading, remaining, "vtol_patrol", Vec3.ZERO, flightLift));
             ResearchEffects.inherit(this, next);
             next.lifetime = patrolLife;
             vtolSuccessor = next.getUUID();
@@ -1094,21 +1115,18 @@ public final class TacticalUnitEntity extends PathfinderMob {
             if (isRemoved())
                 return;
             flightOrientation(heading, PrecisionFlight.pitch(t, flightLift));
-            if (t == PrecisionFlight.ATTACK_START)
-                TacticalRuntime.sound((ServerLevel) level(), position(), StreakSounds.AIRSTRIKE_FIRE.get(), 1, 1);
             if (t >= PrecisionFlight.ATTACK_START && t <= PrecisionFlight.ATTACK_END
-                    && (t - PrecisionFlight.ATTACK_START) % 3 == 0 && !TacticalRuntime.controlled(this)) {
-                ServerLevel server = (ServerLevel) level();
-                Vec3 muzzle = PrecisionCannonMount.muzzle(this),
-                        direction = PrecisionCannonMount.direction(flightYaw(), flightPitch());
-                BlockHitResult hit = server.clip(new ClipContext(muzzle,
-                        muzzle.add(direction.scale(640 + flightLift / Math.sin(Math.toRadians(15)))),
-                        ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
-                Vec3 impact = TacticalRuntime.impactPosition(hit);
-                noteShot();
-                TracerDelivery.shot(server, this, muzzle, hit.getLocation(), TracerDelivery.CANNON);
-                if (hit.getType() != HitResult.Type.MISS)
-                    TacticalRuntime.blast(this, impact, 4, 24);
+                    && (t - PrecisionFlight.ATTACK_START) % 3 == 0) {
+                Vec3 muzzle = PrecisionCannonMount.muzzle(this);
+                Vec3 direction = PrecisionCannonMount.direction(flightYaw(), flightPitch());
+                if (ResearchEffects.has(this, "precision_airstrike.smart")) {
+                    if (precisionAim == null)
+                        precisionAim = new PrecisionAutoAim();
+                    direction = precisionAim.direction(this, muzzle, direction);
+                }
+                // 沿实际炮口射线命中实体或方块；保持原空袭溅射数值及服务端伤害配置。
+                TacticalRuntime.explosiveFire(this, muzzle, direction, 640 + flightLift / Math.sin(Math.toRadians(15)),
+                        0, 4, 24);
             }
             if (t == PrecisionFlight.ATTACK_END + 1)
                 StrikeRadioReports.attackFinished(this);
@@ -1174,9 +1192,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
         plannedFlight(DeliveryFlight.position(center, heading, t));
         if (isRemoved())
             return;
-        if (t == 135)
-            announceDeparture();
-        if (t == 65) {
+        if (t == DeliveryFlight.DROP_TICK) {
             TacticalRuntime.sound((ServerLevel) level(), position(), StreakSounds.CAREPACKAGE_RELEASE.get(), .8F, 1);
             for (int i = 0; i < (cargo.equals("emergency") ? 3 : 1); i++) {
                 Vec3 at = new Vec3(center.x + (i - (cargo.equals("emergency") ? 1 : 0)) * 2.7, getY() - 2, center.z);
@@ -1184,6 +1200,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
                 TacticalRuntime.spawnChild(this, cargo.equals("juggernaut") ? Kind.JUGG_CRATE : Kind.CRATE, at, center,
                         6000, heading, 0, reward, Vec3.ZERO);
             }
+            announceDeparture();
         }
     }
 
@@ -1217,7 +1234,7 @@ public final class TacticalUnitEntity extends PathfinderMob {
             if (stage() == 1) {
                 StreakReward reward = StreakReward.byId(cargo).orElse(StreakReward.CARE_PACKAGE);
                 if (!StreakAirspace.target(player, reward, position(), player.getYRot())) {
-                    KillstreakService.giveItem(player, TacticalEquipmentItem.stack("drop_marker", reward.id()));
+                    KillstreakService.refund(player, reward, false);
                     discard();
                     return;
                 }
@@ -1522,7 +1539,6 @@ public final class TacticalUnitEntity extends PathfinderMob {
         n.putInt("Delay", delay);
         n.putString("Cargo", cargo);
         n.putBoolean("Auto", autopilot);
-        n.putBoolean("RemotePrecision", remotePrecision());
         n.putInt("Rockets", rockets);
         n.putInt("UnitStage", stage());
         n.putInt("NextShot", shotAt);
@@ -1532,6 +1548,8 @@ public final class TacticalUnitEntity extends PathfinderMob {
         n.putFloat("FlightPitch", flightPitch());
         n.putBoolean("Departing", departing());
         n.putInt("DepartureAge", departureAge);
+        if (kind() == Kind.GUNSHIP && departing())
+            n.putInt("GunshipDepartureClock", entityData.get(NATIVE_CLOCK));
         n.putFloat("DepartureYaw", departureYaw);
         n.putFloat("DeparturePitch", departurePitch);
         n.putDouble("DepartureX", departureStart.x);
@@ -1582,7 +1600,6 @@ public final class TacticalUnitEntity extends PathfinderMob {
         lifetime = Math.max(1, n.getInt("Life"));
         delay = n.getInt("Delay");
         cargo = n.getString("Cargo");
-        remotePrecision(n.getBoolean("RemotePrecision"));
         if (kind() == Kind.BOMB && cargo.equals("mortar"))
             noPhysics = !level().isClientSide && ResearchOrdnance.penetrates(this);
         autopilot = n.getBoolean("Auto");
@@ -1650,6 +1667,10 @@ public final class TacticalUnitEntity extends PathfinderMob {
             setNoGravity(true);
         if (departing() && kind() == Kind.VTOL)
             entityData.set(NATIVE_CLOCK, Math.max(0, age - departureAge));
+        else if (departing() && kind() == Kind.GUNSHIP)
+            entityData.set(NATIVE_CLOCK,
+                    Math.max(0, n.contains("GunshipDepartureClock") ? n.getInt("GunshipDepartureClock")
+                            : GunshipMounts.departureClock(Math.max(0, departureAge - delay)) + age - departureAge));
         AircraftCrash.load(this, n);
     }
 }

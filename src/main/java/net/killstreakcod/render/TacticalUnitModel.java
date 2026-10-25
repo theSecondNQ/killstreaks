@@ -509,7 +509,7 @@ public final class TacticalUnitModel extends EntityModel<TacticalUnitEntity> {
         }
         if (unit.kind() == Kind.CRATE || unit.kind() == Kind.JUGG_CRATE) {
             p.getChild("lid").xRot = -Math.max(0, unit.stage()) * .011F;
-            p.getChild("parachute").visible = unit.stage() < 0;
+            p.getChild("parachute").visible = unit.kind() == Kind.JUGG_CRATE && unit.stage() < 0;
         }
         if (unit.kind() == Kind.CRUISE || unit.kind() == Kind.BOMB || unit.kind() == Kind.ROCKET)
             p.xRot = unit.getXRot() * Mth.DEG_TO_RAD;

@@ -62,7 +62,8 @@ public final class TacticalUnitRenderer extends MobRenderer<TacticalUnitEntity, 
         if (unit.hiddenSaePayload() || unit.awaitingVtolEntry() || unit.kind() == TacticalUnitEntity.Kind.COUNTER_UAV
                 || unit.kind() == TacticalUnitEntity.Kind.BOMB && unit.stage() <= -3
                 || unit.kind() == TacticalUnitEntity.Kind.PRECISION && unit.stage() < 0
-                || Minecraft.getInstance().getCameraEntity() == unit && unit.kind() != TacticalUnitEntity.Kind.WHEELSON)
+                || Minecraft.getInstance().getCameraEntity() == unit && unit.kind() != TacticalUnitEntity.Kind.WHEELSON
+                        && !GunshipViewRenderer.visible(unit))
             return;
         if (StreakProjectileModels.render(unit, partial, pose, buffers, light)
                 || ImportedUnits.render(unit, partial, pose, buffers, light))

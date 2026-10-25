@@ -64,7 +64,11 @@ public final class NativeFxRenderer {
     }
 
     private record Sprite(Vec3 origin, Vec3 velocity, Layer layer, long born, int life, float size, float rotation,
-            int tint, float opacity, boolean groundDust) {
+            int tint, float opacity, boolean groundDust, float gravity) {
+        Sprite(Vec3 origin, Vec3 velocity, Layer layer, long born, int life, float size, float rotation, int tint,
+                float opacity, boolean groundDust) {
+            this(origin, velocity, layer, born, life, size, rotation, tint, opacity, groundDust, 0);
+        }
     }
 
     private static final class Debris {
@@ -163,6 +167,16 @@ public final class NativeFxRenderer {
             pawn = mc.player;
         }
         load();
+        if (payload.profile().startsWith("gunship_flares/")) {
+            gunshipFlares(payload);
+            return;
+        }
+        // 本人第一人称隐藏近身炮口与抛壳效果；完整源火焰留给其他观察者，避免遮住准心。
+        if ((payload.profile().equals("m13421_muzzle") || payload.profile().equals("m13421_brass"))
+                && mc.getCameraEntity() == mc.player && mc.options.getCameraType().isFirstPerson()
+                && mc.player.getMainHandItem().is(KillstreakcodMod.M134_MINIGUN.get())
+                && at.distanceToSqr(mc.player.getEyePosition()) < 32 * 32)
+            return;
         var layers = PROFILES.get(payload.profile());
         if (layers == null)
             return;
@@ -236,6 +250,49 @@ public final class NativeFxRenderer {
         }
     }
 
+    /** 每批每侧最多十二枚热诱弹，交错出膛并受重力下落；沿用源烟雾图集的单帧采样。 */
+    private static void gunshipFlares(NativeFxPayload payload) {
+        String[] parts = payload.profile().split("/");
+        if (parts.length != 3)
+            return;
+        final int yaw, side;
+        try {
+            yaw = Integer.parseInt(parts[1]);
+            side = Integer.parseInt(parts[2]);
+            if (yaw < -180 || yaw > 180 || side != -1 && side != 1)
+                return;
+        }
+        catch (NumberFormatException malformed) {
+            return;
+        }
+        List<Layer> smoke = PROFILES.getOrDefault("flares", List.of());
+        Layer core = new Layer(
+                ResourceLocation.fromNamespaceAndPath(KillstreakcodMod.MODID, "textures/effects/tracer_oval.png"), true,
+                1, 1, 1, 2, "flare_core", 0, 64, 64, 0xffdfac, false);
+        Random random = new Random(payload.seed());
+        Vec3 outward = Vec3.directionFromRotation(0, yaw + 90).scale(side);
+        Vec3 aft = Vec3.directionFromRotation(0, yaw).scale(-1);
+        long now = world.getGameTime();
+        int count = Math.max(4, Math.min(12, NativePresentationConfig.FX_LIMIT.get() / (2 * (smoke.size() + 1))));
+        for (int i = 0; i < count; i++) {
+            Vec3 velocity = outward.scale(2.2 + random.nextDouble() * 1.8)
+                    .add(aft.scale(.05 + random.nextDouble() * .35)).add(0, -.02 - random.nextDouble() * .08, 0);
+            long born = now + i / 4;
+            int life = 70 + random.nextInt(24);
+            addFlare(new Sprite(payload.at(), velocity, core, born, life, .65F + random.nextFloat() * .35F, 0, 0xffdfac,
+                    1, false, .009F));
+            for (Layer layer : smoke)
+                addFlare(new Sprite(payload.at(), velocity.scale(.92), layer, born + 2, life,
+                        1.2F + random.nextFloat() * .5F, random.nextFloat() * 6.2832F, layer.tint, .65F, false, .009F));
+        }
+    }
+
+    private static void addFlare(Sprite sprite) {
+        while (SPRITES.size() >= NativePresentationConfig.FX_LIMIT.get())
+            SPRITES.removeFirst();
+        SPRITES.addLast(sprite);
+    }
+
     private static String debrisModel(String profile, Random random) {
         if (profile.startsWith("crash_") || profile.equals("sae21_impact") || profile.equals("m13421_brass")
                 || profile.startsWith("aircraft25_")) {
@@ -243,10 +300,8 @@ public final class NativeFxRenderer {
             return pieces == null || pieces.isEmpty() ? null : pieces.get(random.nextInt(pieces.size()));
         }
         return switch (profile) {
-            case "helicopter" -> "fx_veh8_mil_air_ahotel64_"
-                    + new String[] { "blade_1", "dst_engine", "dst_landing_gear", "dst_rear_rotor",
-                            "dst_sensor" }[random
-                                    .nextInt(5)];
+            case "helicopter" -> "fx_veh8_mil_air_ahotel64_" + new String[] { "blade_1", "dst_engine",
+                    "dst_landing_gear", "dst_rear_rotor", "dst_sensor" }[random.nextInt(5)];
             case "equipment", "sentry" -> random.nextBoolean() ? "fx_metal_piece0" + (1 + random.nextInt(2))
                     : "fx_metal_scrap_debris_" + String.format(java.util.Locale.ROOT, "%02d", 7 + random.nextInt(5));
             case "cruise" -> random.nextInt(3) == 0 ? "fx_vfx_detachable_missile_shell"
@@ -368,7 +423,7 @@ public final class NativeFxRenderer {
         if (age < 0 || age >= p.life)
             return;
         float progress = (float) (age / p.life);
-        Vec3 center = p.origin.add(p.velocity.scale(age));
+        Vec3 center = p.origin.add(p.velocity.scale(age)).add(0, -.5 * p.gravity * age * age, 0);
         double distance = center.distanceTo(eye);
         if (distance < .6 || distance > 512)
             return;

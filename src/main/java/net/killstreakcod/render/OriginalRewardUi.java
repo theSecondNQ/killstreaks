@@ -29,6 +29,7 @@ public final class OriginalRewardUi {
 
     public static void reload() {
         sprites = null;
+        EarnedSplashRenderer.reload();
     }
 
     private static void load() {
@@ -82,6 +83,46 @@ public final class OriginalRewardUi {
             draw(graphics, sprite, x, y, w, h, tint, opacity, additive, !additive);
     }
 
+    /** Keep source transparent margins for native layout coordinates. 保留原图透明边界以匹配原生布局。 */
+    static void surface(GuiGraphics graphics, String name, float x, float y, float w, float h, int tint,
+            float opacity) {
+        load();
+        Sprite sprite = sprites.get(name);
+        if (sprite != null)
+            draw(graphics, sprite, x, y, w, h, tint, opacity, false, false);
+    }
+
+    static void iconSurface(GuiGraphics graphics, String reward, float x, float y, float w, float h, int tint,
+            float opacity) {
+        surface(graphics, reward, x, y, w, h, tint, opacity);
+    }
+
+    /** Draw a separately indexed native surface. 绘制单独索引的原图层，保留尺寸、透明边界与混合方式。 */
+    static void textureSurface(GuiGraphics graphics, ResourceLocation texture, int textureWidth, int textureHeight,
+            float x, float y, float width, float height, int tint, float opacity, boolean additive) {
+        draw(graphics, new Sprite(texture, textureWidth, textureHeight, 0, 0, textureWidth, textureHeight), x, y, width,
+                height, tint, opacity, additive, false);
+    }
+
+    /** Preserve both notched end caps while resizing the banner. 横向三段拉伸，保持横幅两端缺口形状。 */
+    static void notchedLayer(GuiGraphics graphics, String name, float x, float y, float w, float h, int tint,
+            float opacity, float capWidth, float capFraction) {
+        load();
+        Sprite sprite = sprites.get(name);
+        if (sprite == null || w <= 0 || h <= 0)
+            return;
+        int cut = Math.round(sprite.width * capFraction);
+        float cap = Math.min(capWidth, w / 2);
+        draw(graphics, new Sprite(sprite.texture, sprite.width, sprite.height, 0, 0, cut, sprite.height), x, y, cap, h,
+                tint, opacity, false, true);
+        draw(graphics,
+                new Sprite(sprite.texture, sprite.width, sprite.height, cut, 0, sprite.width - 2 * cut, sprite.height),
+                x + cap, y, w - 2 * cap, h, tint, opacity, false, true);
+        draw(graphics,
+                new Sprite(sprite.texture, sprite.width, sprite.height, sprite.width - cut, 0, cut, sprite.height),
+                x + w - cap, y, cap, h, tint, opacity, false, true);
+    }
+
     private static void draw(GuiGraphics graphics, Sprite sprite, float x, float y, float w, float h, int tint,
             float opacity, boolean additive, boolean crop) {
         if (opacity <= .002F || w <= 0 || h <= 0)
@@ -103,10 +144,11 @@ public final class OriginalRewardUi {
         graphics.pose().scale(w / Math.max(1, crop ? sprite.w : sprite.width),
                 h / Math.max(1, crop ? sprite.h : sprite.height), 1);
         try {
-            graphics.blit(sprite.texture, 0, 0, crop ? sprite.w : sprite.width, crop ? sprite.h : sprite.height,
-                    crop ? sprite.x : 0, crop ? sprite.y : 0, crop ? sprite.w : sprite.width,
-                    crop ? sprite.h : sprite.height, sprite.width, sprite.height);
+            UiDraw.blit(graphics, "OriginalRewardUi.draw.0", sprite.texture, 0, 0, crop ? sprite.w : sprite.width,
+                    crop ? sprite.h : sprite.height, crop ? sprite.x : 0, crop ? sprite.y : 0,
+                    crop ? sprite.w : sprite.width, crop ? sprite.h : sprite.height, sprite.width, sprite.height);
         } finally {
+            graphics.flush();
             graphics.pose().popPose();
             graphics.setColor(color[0], color[1], color[2], color[3]);
             RenderSystem.blendFuncSeparate(factors[0], factors[1], factors[2], factors[3]);

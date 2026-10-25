@@ -41,12 +41,14 @@ public final class ClientResourceReload {
     }
 
     private static void invalidate() {
+        net.killstreakcod.render.compat.OptionalMapTiles.clear();
         ImportedUnits.clearCache();
         ImportedCastModel.clearCache();
         OriginalStreakAnimations.clearCache();
         TargetingDeviceAnimations.reload();
 
         OriginalRewardUi.reload();
+        NukeUiRenderer.reload();
         NativeRemoteHud.reload();
         NativeRadioSubtitles.reload();
         NativeSceneUi.reset();

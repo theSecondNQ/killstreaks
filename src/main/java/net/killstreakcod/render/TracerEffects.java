@@ -58,9 +58,11 @@ public final class TracerEffects {
     private static final double END_FADE = .6;
     private static final int[] RGB = { 0xffd68c, 0xffe6ba, 0xffc378, 0xffcd87, 0xffffff, 0xffffff };
     private static final ArrayDeque<Shot> SHOTS = new ArrayDeque<>();
+    private static final ArrayDeque<PendingMinigun> PENDING_MINIGUN = new ArrayDeque<>();
     private static ClientLevel world;
     private static Player pawn;
     private static boolean remote;
+    private static int worldFrame;
     private static ShaderInstance shader;
     private static ByteBufferBuilder storage;
 
@@ -86,13 +88,38 @@ public final class TracerEffects {
             pawn = mc.player;
             remote = TacticalClient.remote();
         }
+        boolean ownMinigun = payload.sourceId() == mc.player.getId() && mc.getCameraEntity() == mc.player
+                && mc.options.getCameraType().isFirstPerson()
+                && (mc.player.getMainHandItem().is(KillstreakcodMod.M134_MINIGUN.get())
+                        || mc.player.getOffhandItem().is(KillstreakcodMod.M134_MINIGUN.get()));
+        if (ownMinigun && NativeArsenalView.active() && !mc.options.hideGui) {
+            while (PENDING_MINIGUN.size() >= 16)
+                PENDING_MINIGUN.removeFirst();
+            PENDING_MINIGUN.addLast(new PendingMinigun(payload, world.getGameTime()));
+            return;
+        }
+        emit(payload, from, ownMinigun, world.getGameTime());
+    }
+
+    /** 待手持层提供本帧的真实炮口，再生成世界弹迹；已经发出的弹迹永不重新绑定。 */
+    static void minigunMuzzle(Vec3 muzzle) {
+        var mc = Minecraft.getInstance();
+        if (world != mc.level || pawn != mc.player || remote != TacticalClient.remote())
+            return;
+        double now = world.getGameTime() + mc.getTimer().getGameTimeDeltaPartialTick(false);
+        while (!PENDING_MINIGUN.isEmpty())
+            emit(PENDING_MINIGUN.removeFirst().payload, muzzle, true, now);
+    }
+
+    private static void emit(TracerPayload payload, Vec3 from, boolean ownMinigun, double born) {
+        Vec3 to = payload.to();
         if (payload.profile() == TracerDelivery.PROJECTILE)
             SHOTS.removeIf(shot -> shot.profile == TracerDelivery.PROJECTILE && shot.source == payload.sourceId());
         while (SHOTS.size() >= MAX_ACTIVE)
             SHOTS.removeFirst();
         double distance = from.distanceTo(to), flight = payload.profile() == TracerDelivery.PROJECTILE ? 1
                 : Math.max(1.25, Math.min(6, distance / 48));
-        SHOTS.addLast(new Shot(from, to, payload.sourceId(), payload.profile(), world.getGameTime(), flight,
+        SHOTS.addLast(new Shot(from, to, payload.sourceId(), payload.profile(), ownMinigun, born, worldFrame, flight,
                 payload.profile() == TracerDelivery.PROJECTILE ? 2.5
                         : flight + (TRACE_COUNT[payload.profile()] - 1) * TRACE_DELAY[payload.profile()] + END_FADE));
     }
@@ -111,6 +138,11 @@ public final class TracerEffects {
             return;
         long time = world.getGameTime();
         SHOTS.removeIf(shot -> time - shot.born > shot.life + 1);
+        // 隐藏手部或其他模组取消手持绘制时，有限等待后回退服务端炮口，避免堆积。
+        while (!PENDING_MINIGUN.isEmpty() && time - PENDING_MINIGUN.peekFirst().born >= 2) {
+            PendingMinigun pending = PENDING_MINIGUN.removeFirst();
+            emit(pending.payload, pending.payload.from(), false, time);
+        }
     }
 
     @SubscribeEvent
@@ -120,8 +152,13 @@ public final class TracerEffects {
 
     @SubscribeEvent
     public static void render(RenderLevelStageEvent event) {
-        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL || SHOTS.isEmpty() || shader == null
-                || OptionalShaderCompat.shadowPass())
+        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL || OptionalShaderCompat.shadowPass())
+            return;
+        // 在手持层改变投影之前保存世界矩阵，即使本帧尚无弹迹也要采集。
+        worldFrame++;
+        FirstPersonMuzzle.world(event.getModelViewMatrix(), event.getProjectionMatrix(),
+                event.getCamera().getPosition());
+        if (SHOTS.isEmpty() || shader == null)
             return;
         Minecraft mc = Minecraft.getInstance();
         if (mc.level != world || mc.player != pawn || pawn == null || !pawn.isAlive()
@@ -133,12 +170,12 @@ public final class TracerEffects {
             return;
         if (storage == null)
             storage = new ByteBufferBuilder(32768);
+        float partial = event.getPartialTick().getGameTimeDeltaPartialTick(false);
         var textures = new java.util.LinkedHashSet<ResourceLocation>();
         for (Shot shot : SHOTS)
             textures.add(texture(shot.profile));
         for (ResourceLocation texture : textures) {
             storage.discard();
-            float partial = event.getPartialTick().getGameTimeDeltaPartialTick(false);
             double now = world.getGameTime() + partial;
             Vec3 eye = event.getCamera().getPosition();
             BufferBuilder vertices = new BufferBuilder(storage, VertexFormat.Mode.QUADS,
@@ -153,23 +190,16 @@ public final class TracerEffects {
                 if (TracerDelivery.distanceToSegmentSqr(eye, shot.from, shot.to) > 512D * 512)
                     continue;
                 Vec3 direction = shot.to.subtract(shot.from).normalize();
-                count += traces(vertices, eye, shot, direction, age, partial, event, MAX_QUADS - count);
-                if (shot.profile != TracerDelivery.PROJECTILE && age < 1.1 && count < MAX_QUADS) {
+                count += traces(vertices, eye, shot, age, partial, event, MAX_QUADS - count);
+                if (!shot.firstPersonMinigun && shot.profile != TracerDelivery.PROJECTILE && age < 1.1
+                        && count < MAX_QUADS) {
                     Vec3 flash = shot.from.add(direction.scale(Math.min(.7, shot.from.distanceTo(shot.to) * .6)));
                     if (shot.source == mc.player.getId() && mc.getCameraEntity() == mc.player
                             && mc.options.getCameraType().isFirstPerson()) {
                         Vector3f right = event.getCamera().rotation().transform(new Vector3f(1, 0, 0));
                         Vector3f up = event.getCamera().rotation().transform(new Vector3f(0, 1, 0));
-                        if (mc.player.getMainHandItem().is(KillstreakcodMod.M134_MINIGUN.get())) {
-                            double side = mc.options.mainHand().get() == net.minecraft.world.entity.HumanoidArm.LEFT
-                                    ? -.255
-                                    : .255;
-                            flash = shot.from.add(direction.scale(Math.min(1.57, shot.from.distanceTo(shot.to) * .6)))
-                                    .add(right.x * side - up.x * .48, right.y * side - up.y * .48,
-                                            right.z * side - up.z * .48);
-                        } else
-                            flash = flash.add(right.x * .16 - up.x * .17, right.y * .16 - up.y * .17,
-                                    right.z * .16 - up.z * .17);
+                        flash = flash.add(right.x * .16 - up.x * .17, right.y * .16 - up.y * .17,
+                                right.z * .16 - up.z * .17);
                     }
 
                     // 位于摄像机近裁剪面上的闪光不能变成覆盖全屏的发光矩形。
@@ -237,13 +267,14 @@ public final class TracerEffects {
      * Expand one network event into a staggered visual train on the same collision segment.
      * 将一次网络事件展开为同一碰撞线段上错时出现的一串视觉弹迹。
      */
-    private static int traces(BufferBuilder out, Vec3 eye, Shot shot, Vec3 direction, double age, float partial,
+    private static int traces(BufferBuilder out, Vec3 eye, Shot shot, double age, float partial,
             RenderLevelStageEvent event, int budget) {
         if (budget <= 0)
             return 0;
         int count = 0, profile = shot.profile, copies = TRACE_COUNT[profile];
-        double distance = shot.from.distanceTo(shot.to),
-                start = shot.from.distanceToSqr(eye) < 1.5 * 1.5 ? Math.min(.75, distance) : 0;
+        Vec3 origin = shot.from, direction = shot.to.subtract(origin).normalize();
+        double distance = origin.distanceTo(shot.to), start = shot.firstPersonMinigun ? 0
+                : shot.from.distanceToSqr(eye) < 1.5 * 1.5 ? Math.min(.75, distance) : 0;
         Vec3 projectileHead = null;
         if (profile == TracerDelivery.PROJECTILE) {
             Entity entity = world.getEntity(shot.source);
@@ -265,11 +296,14 @@ public final class TracerEffects {
                     continue;
                 fade = (float) Math.min(1, (shot.flight + END_FADE - copyAge) / END_FADE);
                 double traveled = Math.max(start, Math.min(distance, distance * copyAge / shot.flight));
-                head = shot.from.add(direction.scale(traveled));
-                tail = shot.from.add(direction.scale(Math.max(start, traveled - LENGTH[profile])));
+                head = origin.add(direction.scale(traveled));
+                // 首次可见时连到发射炮口，避免高速弹迹在下一世界帧已飞出十几格，视觉上像从半空生成。
+                boolean muzzleFrame = shot.firstPersonMinigun && i == 0 && worldFrame == shot.frame + 1;
+                tail = origin.add(direction.scale(muzzleFrame ? 0 : Math.max(start, traveled - LENGTH[profile])));
             }
             if (head.distanceToSqr(tail) > .004 && event.getFrustum().isVisible(new AABB(tail, head).inflate(1)))
-                count += ribbon(out, eye, tail, head, WIDTH[profile], RGB[profile], fade, event);
+                count += ribbon(out, eye, tail, head, (shot.firstPersonMinigun ? WIDTH[profile] * .3 : WIDTH[profile]),
+                        RGB[profile], fade, event);
         }
         return count;
     }
@@ -331,6 +365,7 @@ public final class TracerEffects {
             return;
         }
         SHOTS.clear();
+        PENDING_MINIGUN.clear();
         world = null;
         pawn = null;
         remote = false;
@@ -340,7 +375,11 @@ public final class TracerEffects {
         }
     }
 
-    private record Shot(Vec3 from, Vec3 to, int source, int profile, long born, double flight, double life) {
+    private record Shot(Vec3 from, Vec3 to, int source, int profile, boolean firstPersonMinigun, double born, int frame,
+            double flight, double life) {
+    }
+
+    private record PendingMinigun(TracerPayload payload, long born) {
     }
 
     @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)

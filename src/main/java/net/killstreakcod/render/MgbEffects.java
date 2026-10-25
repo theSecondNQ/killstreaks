@@ -26,8 +26,8 @@ import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 
 /**
- * World-anchored native nuclear flipbook, flash, shock, drifting embers and audio tail.
- * 在世界固定位置绘制原资源核爆序列帧、闪光、冲击、飘散余烬及尾声音效。
+ * World-anchored procedural nuclear clouds, flash, shock, drifting embers and audio tail.
+ * 在世界固定位置绘制程序核爆粒子云、闪光、冲击、飘散余烬及尾声音效。
  */
 @EventBusSubscriber(modid = KillstreakcodMod.MODID, value = Dist.CLIENT)
 public final class MgbEffects {
@@ -59,8 +59,8 @@ public final class MgbEffects {
     public static void start(MgbEffectPayload payload) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || !mc.level.dimension().location().equals(payload.dimension()) || payload.age() < 0
-                || payload.age() >= DURATION
-                || !Double.isFinite(payload.x()) || !Double.isFinite(payload.y()) || !Double.isFinite(payload.z()))
+                || payload.age() >= DURATION || !Double.isFinite(payload.x()) || !Double.isFinite(payload.y())
+                || !Double.isFinite(payload.z()))
             return;
         if (world == mc.level && payload.strike().equals(strike))
             return;
@@ -78,10 +78,10 @@ public final class MgbEffects {
             play(StreakSounds.MGB_SURROUND.get(), .60F);
         }
         play(StreakSounds.MGB_FIRE.get(), .60F);
-        for (int n = 0; n < 4; n++)
-            world.addParticle(ParticleTypes.EXPLOSION_EMITTER, true, center.x + (n % 2 - .5) * 9, center.y + 5,
-                    center.z + (n / 2 - .5) * 9, 0, 0, 0);
-        world.addParticle(ParticleTypes.FLASH, true, center.x, center.y + 8, center.z, 0, 0, 0);
+        for (Vec3 point : net.killstreakcod.universal.NuclearPattern.centers(center)) {
+            world.addParticle(ParticleTypes.EXPLOSION_EMITTER, true, point.x, point.y + 3, point.z, 0, 0, 0);
+            world.addParticle(ParticleTypes.FLASH, true, point.x, point.y + 8, point.z, 0, 0, 0);
+        }
     }
 
     private static void play(SoundEvent event, float volume) {
@@ -169,13 +169,16 @@ public final class MgbEffects {
         float flash = time < 4 ? .35F + time * .16F : time < 13 ? 1 : Mth.clamp(1 - (time - 13) / 34F, 0, 1);
         int alpha = (int) (flash * 238 * effects);
         if (alpha > 0)
-            graphics.fill(0, 0, graphics.guiWidth(), graphics.guiHeight(), alpha << 24 | 0x00fff5dd);
+            UiDraw.fill(graphics, "MgbEffects.drawFlash.0", 0, 0, graphics.guiWidth(), graphics.guiHeight(),
+                    alpha << 24 | 0x00fff5dd);
         int dust = (int) (Mth.clamp((time - 20) / 25F, 0, 1) * Mth.clamp(1 - (time - 100) / 160F, 0, 1) * 42 * effects);
         if (dust > 0)
-            graphics.fill(0, 0, graphics.guiWidth(), graphics.guiHeight(), dust << 24 | 0x006c675c);
+            UiDraw.fill(graphics, "MgbEffects.drawFlash.1", 0, 0, graphics.guiWidth(), graphics.guiHeight(),
+                    dust << 24 | 0x006c675c);
         int glow = (int) (Math.max(0, 1 - time / 100) * 45 * effects);
         if (glow > 0)
-            graphics.fill(0, 0, graphics.guiWidth(), graphics.guiHeight(), glow << 24 | 0x00e86d39);
+            UiDraw.fill(graphics, "MgbEffects.drawFlash.2", 0, 0, graphics.guiWidth(), graphics.guiHeight(),
+                    glow << 24 | 0x00e86d39);
         if (effects <= 0 || time < 15)
             return;
         for (int n = 0; n < 26; n++) {
@@ -185,7 +188,7 @@ public final class MgbEffects {
             int y = (int) ((hash(n * 43 + 7) * graphics.guiHeight() + time * speed) % graphics.guiHeight());
             int a = (int) (Math.max(0, 1 - time / DURATION) * effects * (n % 3 == 0 ? 140 : 60));
             int color = a << 24 | (n % 3 == 0 ? 0x00ffc482 : 0x002e2b28);
-            graphics.fill(x, y, x + 1, y + (n % 3 == 0 ? 2 : 1), color);
+            UiDraw.fill(graphics, "MgbEffects.drawFlash.3", x, y, x + 1, y + (n % 3 == 0 ? 2 : 1), color);
         }
     }
 

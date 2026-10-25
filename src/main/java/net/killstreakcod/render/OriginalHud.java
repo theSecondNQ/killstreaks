@@ -41,7 +41,7 @@ public final class OriginalHud {
         RenderSystem.defaultBlendFunc();
         graphics.setColor(1, 1, 1, Mth.clamp(opacity, 0, 1));
         try {
-            graphics.blit(texture(name), x, y, width, height, u, v, sw, sh, tw, th);
+            UiDraw.blit(graphics, "OriginalHud.region.0", texture(name), x, y, width, height, u, v, sw, sh, tw, th);
         } finally {
             graphics.setColor(color[0], color[1], color[2], color[3]);
             restoreBlendFactors(factors);
@@ -65,7 +65,7 @@ public final class OriginalHud {
         RenderSystem.defaultBlendFunc();
         graphics.setColor(1, 1, 1, Mth.clamp(opacity, 0, 1));
         try {
-            graphics.blit(id, x, y, width, height, 0, 0, 1, 1, 1, 1);
+            UiDraw.blit(graphics, "OriginalHud.drawTexture.0", id, x, y, width, height, 0, 0, 1, 1, 1, 1);
         } finally {
             graphics.setColor(color[0], color[1], color[2], color[3]);
             restoreBlendFactors(factors);
@@ -83,10 +83,10 @@ public final class OriginalHud {
         int w = graphics.guiWidth(), h = graphics.guiHeight(), edge = Math.max(3, Math.min(w, h) / 14);
         for (int i = 0; i < edge; i++) {
             int opacity = (int) (66 * Math.pow(1 - i / (double) edge, 2)), color = opacity << 24 | 0x03090b;
-            graphics.hLine(i, w - i - 1, i, color);
-            graphics.hLine(i, w - i - 1, h - i - 1, color);
-            graphics.vLine(i, i, h - i - 1, color);
-            graphics.vLine(w - i - 1, i, h - i - 1, color);
+            UiDraw.hLine(graphics, "OriginalHud.remote.0", i, w - i - 1, i, color);
+            UiDraw.hLine(graphics, "OriginalHud.remote.1", i, w - i - 1, h - i - 1, color);
+            UiDraw.vLine(graphics, "OriginalHud.remote.2", i, i, h - i - 1, color);
+            UiDraw.vLine(graphics, "OriginalHud.remote.3", w - i - 1, i, h - i - 1, color);
         }
     }
 

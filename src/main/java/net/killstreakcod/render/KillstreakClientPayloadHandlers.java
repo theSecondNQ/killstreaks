@@ -23,6 +23,7 @@ import net.killstreakcod.universal.TacticalMapPayload;
 import net.killstreakcod.universal.TacticalTargetResultPayload;
 import net.killstreakcod.universal.TacticalViewPayload;
 import net.killstreakcod.universal.TerminalStatePayload;
+import net.killstreakcod.universal.TerminalSettingsStatePayload;
 import net.killstreakcod.universal.TracerPayload;
 import net.killstreakcod.universal.WhitelistStatePayload;
 
@@ -39,6 +40,11 @@ public final class KillstreakClientPayloadHandlers {
     @SubscribeEvent
     public static void registerPayloads(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar(KillstreakcodMod.NETWORK_VERSION);
+        registrar.playToClient(TerminalSettingsStatePayload.TYPE, TerminalSettingsStatePayload.STREAM_CODEC,
+                (p, c) -> c.enqueueWork(() -> {
+                    if (Minecraft.getInstance().screen instanceof TerminalSettingsScreen screen)
+                        screen.receiveState(p);
+                }));
         registrar.playToClient(ResearchStatePayload.TYPE, ResearchStatePayload.STREAM_CODEC,
                 (payload, context) -> context.enqueueWork(() -> {
                     TacticalClient.acceptWorld();
@@ -132,6 +138,8 @@ public final class KillstreakClientPayloadHandlers {
                         minecraft.setScreen(new KillstreakTerminalScreen(payload));
                     } else if (minecraft.screen instanceof KillstreakTerminalScreen screen) {
                         screen.receiveState(payload);
+                    } else if (minecraft.screen instanceof TerminalSettingsScreen screen) {
+                        screen.receiveTerminalState(payload);
                     }
                 }));
     }

@@ -339,11 +339,7 @@ public final class ResearchEffects {
                 unit.setNoAi(true);
             }
         }
-        if (unit.kind() == Kind.PRECISION && unit.remotePrecision()) {
-            if (TacticalRuntime.controlled(unit) && unit.owner() != null)
-                TacticalRuntime.endSession(unit.owner(), false);
-            unit.remotePrecision(false);
-        }
+
     }
 
     public static void upgradesConfigChanged(MinecraftServer server) {

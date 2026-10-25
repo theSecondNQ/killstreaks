@@ -295,12 +295,18 @@ public final class NativePrecisionScopeHud {
         Image image = IMAGES.get(name);
         if (image == null || r == null || opacity <= .002F)
             return;
-        graphics.flush();
-        graphics.setColor(1, 1, 1, Mth.clamp(opacity, 0, 1));
-        graphics.blit(image.texture, Math.round(r.left), Math.round(r.top), Math.round(r.width()),
-                Math.round(r.height()), 0, 0, image.width, image.height, image.width, image.height);
-        graphics.flush();
-        graphics.setColor(1, 1, 1, 1);
+
+        try (UiLayout.Scope group = UiLayout.group(graphics, name.contains("reticle") ? "reticle" : null,
+                new UiLayout.Box(r.left, r.top, r.width(), r.height()))) {
+            graphics.flush();
+            graphics.setColor(1, 1, 1, Mth.clamp(opacity, 0, 1));
+            UiDraw.blit(graphics, "NativePrecisionScopeHud.image.0", image.texture, Math.round(r.left),
+                    Math.round(r.top), Math.round(r.width()), Math.round(r.height()), 0, 0, image.width, image.height,
+                    image.width, image.height);
+            graphics.flush();
+            graphics.setColor(1, 1, 1, 1);
+
+        }
     }
 
     private static void text(GuiGraphics graphics, Node node, String value, float opacity, int rgb) {
@@ -320,7 +326,7 @@ public final class NativePrecisionScopeHud {
         try {
             graphics.pose().translate(x, y, 0);
             graphics.pose().scale(scale, scale, 1);
-            graphics.drawString(font, value, 0, 0, color, false);
+            UiDraw.drawString(graphics, "NativePrecisionScopeHud.text.0", font, value, 0, 0, color, false);
         } finally {
             graphics.pose().popPose();
         }
@@ -331,59 +337,65 @@ public final class NativePrecisionScopeHud {
     }
 
     public static void render(GuiGraphics graphics) {
-        if (!visible() || !open)
-            return;
-        double clock = now();
-        float scale = Math.min(graphics.guiHeight() / referenceHeight, Math.max(1, graphics.guiWidth() - 24) / 540F);
-        try (GuiState ignored = new GuiState(graphics)) {
-            graphics.pose().pushPose();
-            try {
-                graphics.pose().translate(graphics.guiWidth() / 2F, graphics.guiHeight() / 2F, 0);
-                graphics.pose().scale(scale, scale, 1);
-                Node reticle = node("Reticle");
-                image(graphics, "overlay_spotter_scope_reticle", reticle.rect,
-                        alpha("Onfire", "Reticle", clock - markedAt, reticle.alpha));
-                String distanceSequence = valid ? "ShowDistanceInMetersDisplay" : "HideDistanceInMetersDisplay";
-                image(graphics, "overlay_spotter_scope_meter_text_box", node("TextBox").rect,
-                        alpha(distanceSequence, "TextBox", 0, 0));
-                text(graphics, node("DistanceLabel"), valid ? Integer.toString(distance) : "-",
-                        alpha(distanceSequence, "DistanceLabel", 0, 0), 0xffffff);
-                text(graphics, node("MetersLabel"), "M", alpha(distanceSequence, "MetersLabel", 0, 0), 0xffffff);
-                String targetSequence = valid ? "HideNoTarget" : "ShowNoTarget";
-                for (int i = 0; i < 3; i++) {
-                    String field = "CoordBox" + "XYZ".charAt(i);
-                    Node box = node(field);
-                    float opacity = alpha(targetSequence, field, clock - stateAt, 1);
-                    if (opacity <= .002F)
-                        continue;
-                    graphics.pose().pushPose();
-                    try {
-                        graphics.pose().translate((box.rect.left + box.rect.right) / 2,
-                                (box.rect.top + box.rect.bottom) / 2, 0);
-                        image(graphics, "overlay_spotter_scope_meter_text_box", CHILDREN.get("TextBox").rect,
-                                CHILDREN.get("TextBox").alpha * opacity);
-                        String value = target == null ? "---"
-                                : Integer.toString((int) (i == 0 ? target.x : i == 1 ? target.y : target.z));
-                        Node digits = CHILDREN.get("Text"), degrees = CHILDREN.get("TextDegreesSymbol");
-                        text(graphics, digits, value, digits.alpha * opacity, 0xffffff);
-                        text(graphics, degrees, "°", degrees.alpha * opacity, 0xffffff);
-                    } finally {
-                        graphics.pose().popPose();
+        try (UiLayout.Scope layoutFrame = UiLayout.frame("hud.scope")) {
+            if (!load())
+                return;
+            if ((!visible() || !open) && !UiLayout.editing())
+                return;
+            double clock = now();
+            float scale = Math.min(graphics.guiHeight() / referenceHeight,
+                    Math.max(1, graphics.guiWidth() - 24) / 540F);
+            try (GuiState ignored = new GuiState(graphics)) {
+                graphics.pose().pushPose();
+                try {
+                    graphics.pose().translate(graphics.guiWidth() / 2F, graphics.guiHeight() / 2F, 0);
+                    graphics.pose().scale(scale, scale, 1);
+                    Node reticle = node("Reticle");
+                    image(graphics, "overlay_spotter_scope_reticle", reticle.rect,
+                            alpha("Onfire", "Reticle", clock - markedAt, reticle.alpha));
+                    String distanceSequence = valid ? "ShowDistanceInMetersDisplay" : "HideDistanceInMetersDisplay";
+                    image(graphics, "overlay_spotter_scope_meter_text_box", node("TextBox").rect,
+                            alpha(distanceSequence, "TextBox", 0, 0));
+                    text(graphics, node("DistanceLabel"), valid ? Integer.toString(distance) : "-",
+                            alpha(distanceSequence, "DistanceLabel", 0, 0), 0xffffff);
+                    text(graphics, node("MetersLabel"), "M", alpha(distanceSequence, "MetersLabel", 0, 0), 0xffffff);
+                    String targetSequence = valid ? "HideNoTarget" : "ShowNoTarget";
+                    for (int i = 0; i < 3; i++) {
+                        String field = "CoordBox" + "XYZ".charAt(i);
+                        Node box = node(field);
+                        float opacity = alpha(targetSequence, field, clock - stateAt, 1);
+                        if (opacity <= .002F)
+                            continue;
+                        graphics.pose().pushPose();
+                        try {
+                            graphics.pose().translate((box.rect.left + box.rect.right) / 2,
+                                    (box.rect.top + box.rect.bottom) / 2, 0);
+                            image(graphics, "overlay_spotter_scope_meter_text_box", CHILDREN.get("TextBox").rect,
+                                    CHILDREN.get("TextBox").alpha * opacity);
+                            String value = target == null ? "---"
+                                    : Integer.toString((int) (i == 0 ? target.x : i == 1 ? target.y : target.z));
+                            Node digits = CHILDREN.get("Text"), degrees = CHILDREN.get("TextDegreesSymbol");
+                            text(graphics, digits, value, digits.alpha * opacity, 0xffffff);
+                            text(graphics, degrees, "°", degrees.alpha * opacity, 0xffffff);
+                        } finally {
+                            graphics.pose().popPose();
+                        }
                     }
-                }
-                text(graphics, node("NoTargetText"), label("NoTargetText"),
-                        alpha(targetSequence, "NoTargetText", clock - stateAt, 0), 0xf07363);
-                text(graphics, node("DangerCloseText"), label("DangerCloseText"),
-                        danger ? alpha("DangerCloseOn", "DangerCloseText", clock - dangerAt, 1)
-                                : alpha("DangerCloseOff", "DangerCloseText", clock - dangerAt, dangerStart),
-                        0xf07363);
-                text(graphics, node("MarkingDescription"), label("MarkingDescription"),
-                        node("MarkingDescription").alpha, 0xffffff);
+                    text(graphics, node("NoTargetText"), label("NoTargetText"),
+                            alpha(targetSequence, "NoTargetText", clock - stateAt, 0), 0xf07363);
+                    text(graphics, node("DangerCloseText"), label("DangerCloseText"),
+                            danger ? alpha("DangerCloseOn", "DangerCloseText", clock - dangerAt, 1)
+                                    : alpha("DangerCloseOff", "DangerCloseText", clock - dangerAt, dangerStart),
+                            0xf07363);
+                    text(graphics, node("MarkingDescription"), label("MarkingDescription"),
+                            node("MarkingDescription").alpha, 0xffffff);
 
-                // DangerCloseImage 原构造参数中的透明度为零，且没有图像动画序列。
-            } finally {
-                graphics.pose().popPose();
+                    // DangerCloseImage 原构造参数中的透明度为零，且没有图像动画序列。
+                } finally {
+                    graphics.pose().popPose();
+                }
             }
+
         }
     }
 

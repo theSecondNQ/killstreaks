@@ -36,6 +36,9 @@ public final class ImportedEquipmentItemRenderer extends BlockEntityWithoutLevel
     @Override
     public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack pose, MultiBufferSource buffers,
             int light, int overlay) {
+        if (context == ItemDisplayContext.GUI && modelId.equals("item_sentry")
+                && InventoryModel.render("sentry_fire_rig", pose, buffers))
+            return;
         if (modelId.equals("designator_precision")
                 && NativeTargetingDevices.renderItem(stack, context, pose, buffers, light, overlay))
             return;

@@ -21,7 +21,8 @@ public final class ResearchSystem {
     private static HeadquartersResearchData.Progress progress(ServerPlayer player) {
         var data = data(player);
         var progress = data.player(player);
-        if (progress.streakMode && !player.isCreative() && !canSwitch(player, progress)) {
+        if (StreakServerConfig.terminalEnabled(player.serverLevel().getServer()) && progress.streakMode
+                && !player.isCreative() && !canSwitch(player, progress)) {
             progress.streakMode = false;
             data.setDirty();
         }
@@ -33,7 +34,7 @@ public final class ResearchSystem {
     }
 
     public static boolean survival(ServerPlayer player) {
-        return !progress(player).streakMode;
+        return StreakServerConfig.terminalEnabled(player.serverLevel().getServer()) && !progress(player).streakMode;
     }
 
     public static ResearchMask activeUpgrades(ServerPlayer player) {
@@ -195,6 +196,10 @@ public final class ResearchSystem {
                 || !menu.stillValid(player) || !player.isAlive() || player.isSpectator()
                 || !menu.acceptAction(player.serverLevel().getGameTime()))
             return;
+        if (!StreakServerConfig.terminalEnabled(player.serverLevel().getServer())) {
+            sendState(player, "terminal_disabled");
+            return;
+        }
         String result = switch (action.action()) {
             case ResearchActionPayload.REQUEST -> "";
             case ResearchActionPayload.RESEARCH -> research(player, action.target());
@@ -310,7 +315,7 @@ public final class ResearchSystem {
                 : -1;
         StreakNetwork.send(player,
                 new ResearchStatePayload(container, progress.tier, progress.unlocked, progress.equipped,
-                        progress.repairs, progress.streakMode, player.isCreative() || canSwitch(player, progress),
+                        progress.repairs, !survival(player), player.isCreative() || canSwitch(player, progress),
                         player.isCreative(), TacticalRuntime.busy(player), message, stocks, ledger.count("mgb"),
                         StreakServerConfig.upgradesDisabled(player.serverLevel().getServer()), requisitions,
                         progress.requisitions.getOrDefault("mgb", 0)));

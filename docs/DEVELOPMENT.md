@@ -18,7 +18,7 @@
 | `net.killstreakcod.mixin.client` | 7 | 客户端 Mixin |
 | `net.killstreakcod.mixin.compat` | 7 | TaCZ 兼容及 GD656 配置编码 Mixin |
 
-跨包代码使用显式导入；只为已有跨分类调用开放必要访问权限。Mixin 配置和插件内完整类名、MCreator 入口均已迁移。注册 ID、资源命名空间与网络消息 ID 使用 `killstreakcod`。网络协议注册入口为 `KillstreakcodMod` 和 `KillstreakClientPayloadHandlers`，共用 `NETWORK_VERSION = "1.0.0"`。
+跨包代码使用显式导入；只为已有跨分类调用开放必要访问权限。Mixin 配置和插件内完整类名、MCreator 入口均已迁移。注册 ID、资源命名空间与网络消息 ID 使用 `killstreakcod`。网络协议注册入口为 `KillstreakcodMod` 和 `KillstreakClientPayloadHandlers`，共用 `NETWORK_VERSION = "1.1.0"`。
 
 `render.compat`、`render.tablet` 和父包是三个独立的 Java 包。GD656 桥接通过公开的 `RemoteHudLayout.Box` 与字幕布局共享屏幕占用区域；平板与主渲染器通过表面顶点、UI 记录、状态采样、文字绘制和屏幕重置入口协作。缓存、内部会话和字体实现继续保持内部访问。
 
@@ -55,7 +55,9 @@
 
 ## 发布
 
-版本号修改 `build.gradle`、`src/main/resources/META-INF/neoforge.mods.toml`、`killstreakcod.mcreator` 和当前说明，当前为 `1.1.0.4353`。构建及安装工具支持四段数字版本号。Payload 注册标记为1.0.0；研究状态及遥控视角使用版本化消息标识，格式变化时两端须同时更新。
+版本号修改 `build.gradle`、`src/main/resources/META-INF/neoforge.mods.toml`、`killstreakcod.mcreator` 和当前说明，当前为 `1.2.0.4361`。构建及安装工具支持四段数字版本号。Payload 注册标记为1.0.0；研究状态及遥控视角使用版本化消息标识，格式变化时两端须同时更新。
+
+发行 JAR 使用 `killstreaks-neoforge-1.21.1-<版本号>.jar`，源码包使用 `killstreaks-neoforge-1.21.1-<版本号>-source.zip`。前缀登记在 `build.gradle` 的 `base.archivesName`，发行工具读取该值，安装工具使用同一平台命名。
 
 研究状态当前使用 `headquarters_state_v5`，附带服务器的升级禁用规则及普通奖励／核弹的预付储备数量；遥控输入使用 `control_v2`，火箭弹副武器为单次动作，不属于持续按住输入。智能投射使用独立的 `remote_call` 动作阶段，使平板呼叫与同一奖励的望远镜标记动作区分开；可见准心射线与实际炮口在服务端汇聚。其观察区块以飞机和目标的中点为中心，半径在接入时确定并限制为16至32区块，呼叫期间开始预加载，区块发送交替优先飞机端和目标端，结束或中断时释放。
 
